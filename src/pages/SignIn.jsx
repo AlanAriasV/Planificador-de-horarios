@@ -1,10 +1,10 @@
 import Header from "../components/Header";
 
-export const Home = () => {
+export const SignIn = () => {
   return (
     <>
-      <Header title={'Home'} />
-      Home
+      <Header title={'SignIn'} />
+      SignIn
     </>
   );
 };
