@@ -1,3 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
 :root {
+  --background-color: #F5F5F5;
   --blue-color: #3E5083;
+  --border-color: #4E637F;
+  --gmail-background-color: #D73D32;
+  --grey-color: #ADADAD;
+  --link-color: #6F95C3;
+  --white-color: #FFF;
+  --yellow-color: #DEB030;
+  --blur-color: rgba(0, 0, 0, 50%);
+  --border-radius-10: 10px;
+  --border-radius-5: 5px;
+  --border: 2px solid var(--border-color);
+}
+
+* {
+  margin: 0px !important;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--white-color);
+  /* margin: 0px; */
+}
+
+body {
+  height: 100vh;
+  background-color: var(--body-background-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
 }

@@ -1,0 +1,82 @@
+main {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto !important;
+    max-width: 768px;
+    padding: 20px;
+    row-gap: 20px;
+}
+
+section {
+    background-color: white;
+    border: var(--border);
+    border-radius: var(--border-radius-10) !important;
+    padding: 20px;
+}
+
+section.grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, calc(50% - 10px));
+}
+
+section.grid>.item {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90px;
+    border-radius: var(--border-radius-5);
+    border: var(--border);
+    text-align: center;
+}
+
+.columns {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, calc(50% - 10px));
+}
+
+.table {
+    border-collapse: initial;
+    margin: 0px !important;
+}
+
+.table>:not(caption)>*>* {
+    border: 1px solid black;
+    padding: 0px;
+    user-select: none;
+}
+
+th,
+tr:first-child td,
+tr td:first-child {
+    background-color: var(--blue-color) !important;
+    color: var(--white-color);
+    text-align: center !important;
+}
+
+td {
+    width: 16.67%;
+}
+
+td div {
+    align-items: center;
+    border-radius: var(--border-radius-5);
+    border: var(--border);
+}
+
+tr:nth-child(n+2) td:nth-child(n+2) {
+    width: 95px;
+    height: 100px;
+}
+
+td div p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}

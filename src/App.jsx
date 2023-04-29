@@ -1,17 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 
-import { Home, SignIn } from "./pages/Pages";
+import { EditSchedule, Home, SignIn } from "./pages/Pages";
 
 const App = () => {
-  
+
 
   return (
     <>
       <Routes>
         <Route index element={<Home />} />
         <Route path={"/signin"} element={<SignIn />} />
+        <Route path={"/edit-schedule"} element={<EditSchedule />} />
       </Routes>
-      {/* <Footer /> */}
     </>
   );
 }
