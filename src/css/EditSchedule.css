@@ -8,6 +8,51 @@ main {
     row-gap: 20px;
 }
 
+.block[item] {
+    position: relative;
+}
+
+.block[item]:before {
+    background-color: var(--background-color);
+    border: 1px dashed var(--blue-color);
+    border-radius: var(--border-radius-5);
+    content: attr(item);
+    left: 50%;
+    width: max-content;
+    opacity: 0;
+    padding: 7px;
+    position: absolute;
+    top: -49px;
+    transform: translate(-50%, 0%);
+    transition: .25s;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.block[item]:after {
+    background-color: var(--background-color);
+    border: 1px dashed var(--blue-color);
+    border-right: none;
+    border-top: none;
+    content: '';
+    height: 10px;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: -21px;
+    transform: rotate(-45deg) translate(-50%, 0%);
+    transition: .25s;
+    visibility: hidden;
+    width: 10px;
+    z-index: 2;
+}
+
+.block[item]:hover::before,
+.block[item]:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
 section {
     background-color: white;
     border: var(--border);
@@ -19,6 +64,7 @@ section.grid {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fill, calc(50% - 10px));
+    grid-template-rows: repeat(auto-fill, 90px);
 }
 
 section.grid>.item {
@@ -30,6 +76,13 @@ section.grid>.item {
     border-radius: var(--border-radius-5);
     border: var(--border);
     text-align: center;
+    user-select: none;
+}
+
+section.grid>.disabled {
+    background-color: var(--black-25-color);
+    border-color: var(--black-50-color);
+    color: var(--black-50-color);
 }
 
 .columns {
@@ -37,6 +90,7 @@ section.grid>.item {
     gap: 20px;
     grid-template-columns: repeat(2, calc(50% - 10px));
 }
+
 
 .table {
     border-collapse: initial;
@@ -62,20 +116,26 @@ td {
 }
 
 td div {
-    align-items: center;
     border-radius: var(--border-radius-5);
     border: var(--border);
 }
 
-tr:nth-child(n+2) td:nth-child(n+2) {
-    width: 95px;
-    height: 100px;
+tr:nth-child(n+2) td:nth-child(n+2)>div:nth-child(odd) {
+    height: calc(33% - 1px);
+}
+
+tr:nth-child(n+2) td:nth-child(n+2)>div:nth-child(even) {
+    height: calc(34% - 1px);
+}
+
+tr:nth-child(n+2) td:nth-child(n+2)>div:not(:last-child) {
+    margin-bottom: 3px !important;
 }
 
 td div p {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     text-align: center;
 

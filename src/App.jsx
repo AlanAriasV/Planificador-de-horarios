@@ -2,8 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { EditSchedule, Home, SignIn } from "./pages/Pages";
 
-const App = () => {
-
+function App() {
 
   return (
     <>

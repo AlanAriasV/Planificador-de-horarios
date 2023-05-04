@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 
-export const SignIn = () => {
+export function SignIn() {
   return (
     <>
       <Header title={'SignIn'} />

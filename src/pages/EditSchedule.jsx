@@ -1,76 +1,16 @@
 import { useState } from "react"
 import { Table } from "react-bootstrap"
 
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
+import { DragDropContext } from "react-beautiful-dnd"
 import { v4 as uuid } from 'uuid'
 
 import '../css/EditSchedule.css'
 
 import Header from "../components/Header"
-import { Asignatures, Blocks, BlocksDuration, Laboratories, Teachers } from "../firebase/Data"
+import { Asignatures, Blocks, Laboratories, Assignments, Teachers } from "../firebase/Data"
+import { AsignaturesDraggable, LaboratoriesDraggable, ScheduleBlocksDraggable, TeachersDraggable } from "../components/Draggables"
 
-
-const UpdateDroppable = ({
-    source,
-    destination
-}) => {
-
-    if (source[0] !== destination[0]) {
-        const sourceItem = source[2][source[0]];
-        const destinationItem = destination[2][destination[0]];
-        const sourceItems = [...sourceItem.items];
-        const destinationItems = [...destinationItem.items];
-        const key = Object.keys(sourceItems[source[1]])
-        destinationItems.push({ [uuid()]: sourceItems[source[1]][key] });
-        if (sourceItems[source[1]][key].time !== undefined) {
-            sourceItems[source[1]][key].time -= 45;
-        }
-
-        source[3](
-            {
-                ...source[2],
-                [source[0]]: {
-                    ...sourceItem,
-                    items: sourceItems
-                }
-            }
-        )
-
-        destination[3](
-            {
-                ...destination[2],
-                [destination[0]]: {
-                    ...destinationItem,
-                    items: destinationItems
-                }
-            }
-        )
-    } else {
-        const items = source[2][source[0]];
-        const copiedItems = [...items.items];
-        const [removed] = copiedItems.splice(source[1], 1);
-        copiedItems.splice(destination[1], 0, removed)
-        source[3](
-            {
-                ...source[2],
-                [source[0]]: {
-                    ...items,
-                    items: copiedItems
-                }
-            }
-        );
-    }
-
-}
-
-
-const OnDragEnd = (
-    {
-        result,
-        droppables,
-        setDroppables
-    }
-) => {
+function OnDragEnd({ result, droppables, setDroppables }) {
     if (!result.destination) return
     const { source, destination } = result;
 
@@ -92,42 +32,169 @@ const OnDragEnd = (
             const setSrcDroppable = setDroppables[droppables.indexOf(srcDroppable)]
             const setDestDroppable = setDroppables[droppables.indexOf(destDroppable)]
 
-            UpdateDroppable(
-                {
-                    source: [srcDropId, srcIndex, srcDroppable, setSrcDroppable],
-                    destination: [destDropId, destIndex, destDroppable, setDestDroppable],
-                }
-            )
+            UpdateDroppable({ source: [srcDropId, srcIndex, srcDroppable, setSrcDroppable], destination: [destDropId, destIndex, destDroppable, setDestDroppable], });
 
             break first;
         }
     }
+    setDroppables[4]([]);
 }
 
-export const EditSchedule = () => {
+function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {
+    // console.log(start)
+    const source = start.source;
+    const draggableId = start.draggableId;
+    const droppableId = source.droppableId;
+    const index = source.index;
+    var item;
 
-    const date = new Date();
-    date.setHours(8);
-    date.setMinutes(0);
+    const newShelteredBlocks = [];
 
-    const [blocks, setBlocks] = useState(Blocks);
+    for (const droppable of droppables) {
+        if (droppable[droppableId]) {
+            item = droppable[droppableId].items[index][draggableId];
+            break;
+        }
+    }
+
+    if (!item) return;
+    for (const assignment of assignments['A/1-2022'].items) {
+        if (assignment[item.type] === item.id) {
+            newShelteredBlocks.push(assignment)
+        }
+    }
+    setShelteredBlocks(newShelteredBlocks);
+
+
+}
+
+function RemoveItem({ source, setSource, id, index }) {
+
+    const sourceItem = source[id];
+    const sourceItems = [...sourceItem.items]
+    const key = Object.keys(sourceItems[index])
+
+    if (sourceItems[index][key].time !== undefined) {
+        sourceItems[index][key].time += 45;
+    }
+
+    sourceItems.splice(index, 1)
+
+    setSource(
+        {
+            ...source,
+            [id]: {
+                ...sourceItem,
+                items: sourceItems
+            }
+        }
+    )
+}
+
+function UpdateDroppable({ source, destination }) {
+
+    if (source[0] !== destination[0]) {
+        const sourceItem = source[2][source[0]];
+        const destinationItem = destination[2][destination[0]];
+        const sourceItems = [...sourceItem.items];
+        const destinationItems = [...destinationItem.items];
+
+        const key = Object.keys(sourceItems[source[1]])
+
+        if (source[2] === destination[2]) {
+
+            for (const destItem of destinationItems) {
+                const keyItem = Object.keys(destItem);
+                if (destItem[keyItem].type === sourceItems[source[1]][key].type) return
+
+            }
+
+            const [removed] = sourceItems.splice(source[1], 1);
+            destinationItems.splice(destination[1], 0, removed)
+
+            source[3](
+                {
+                    ...source[2],
+                    [source[0]]: {
+                        ...sourceItem,
+                        items: sourceItems
+                    },
+                    [destination[0]]: {
+                        ...destinationItem,
+                        items: destinationItems
+                    }
+                }
+            )
+        } else {
+
+            for (const destItem of destinationItems) {
+                const keyItem = Object.keys(destItem);
+                if (destItem[keyItem].type === sourceItems[source[1]][key].type) return
+
+            }
+
+            destinationItems.push({ [uuid()]: sourceItems[source[1]][key] });
+
+            if (sourceItems[source[1]][key].time !== undefined) {
+                sourceItems[source[1]][key].time -= 45;
+            }
+
+            destination[3](
+                {
+                    ...destination[2],
+                    [destination[0]]: {
+                        ...destinationItem,
+                        items: destinationItems
+                    }
+                }
+            )
+
+        }
+
+    } else {
+
+        const items = source[2][source[0]];
+        const copiedItems = [...items.items];
+        const [removed] = copiedItems.splice(source[1], 1);
+        copiedItems.splice(destination[1], 0, removed)
+
+        source[3](
+            {
+                ...source[2],
+                [source[0]]: {
+                    ...items,
+                    items: copiedItems
+                }
+            }
+        );
+    }
+
+}
+
+export function EditSchedule() {
+
     const [asignatures, setAsignatures] = useState(Asignatures);
+    const [assignments, setAssignments] = useState(Assignments);
+    const [blocks, setBlocks] = useState(Blocks);
     const [laboratories, setLaboratories] = useState(Laboratories);
+    const [shelteredBlocks, setShelteredBlocks] = useState([]);
     const [teachers, setTeachers] = useState(Teachers);
 
     return <>
         <Header title={'EDICIÓN DE HORARIO'} />
         <main>
             <DragDropContext
-                onDragEnd={result =>
-                    OnDragEnd(
-                        {
-                            result: result,
-                            droppables: [blocks, asignatures, laboratories, teachers],
-                            setDroppables: [setBlocks, setAsignatures, setLaboratories, setTeachers],
-                        }
-                    )
-                }
+
+                onDragStart={start => {
+                    const droppables = [blocks, laboratories, teachers];
+                    return OnDragStart({ start: start, assignments: assignments, droppables: droppables, setShelteredBlocks: setShelteredBlocks });
+                }}
+
+                onDragEnd={result => {
+                    const droppables = [blocks, asignatures, laboratories, teachers];
+                    const setDroppables = [setBlocks, setAsignatures, setLaboratories, setTeachers, setShelteredBlocks];
+                    return OnDragEnd({ result: result, droppables: droppables, setDroppables: setDroppables, })
+                }}
             >
                 <section>
                     <Table >
@@ -148,190 +215,15 @@ export const EditSchedule = () => {
                                 <td>Viernes</td>
                             </tr>
 
-                            {[...Array(14)].map((_, i) => {
-                                i++;
-                                const { nowHours, nowMinutes, newHours, newMinutes } = BlocksDuration({ date: date, block: i });
-                                return (
-                                    <tr key={i}>
-                                        <td>
-                                            <p>{i}</p>
-                                            <p>{`${nowHours}:${nowMinutes} - ${newHours}:${newMinutes}`}</p>
-                                        </td>
-                                        {Object.entries(blocks).map(([id, block]) => {
-                                            if (block.number !== i) return
-                                            return (
-                                                <Droppable
-                                                    droppableId={id}
-                                                    key={id}
-                                                    isDropDisabled={block.sheltered}
-                                                >
-                                                    {(provided, snapshot) => (
-                                                        <td
-                                                            {...provided.droppableProps}
-                                                            ref={provided.innerRef}
-                                                            style={{
-                                                                backgroundColor:
-                                                                    block.sheltered ?
-                                                                        'var(--yellow-color)' :
-                                                                        snapshot.isDraggingOver ?
-                                                                            'lightblue' :
-                                                                            'white'
-                                                            }}
-                                                        >
-                                                            {block.items.map((items, index) =>
-                                                                Object.entries(items).map(
-                                                                    ([id, item]) => (
-                                                                        <Draggable
-                                                                            key={id}
-                                                                            draggableId={id}
-                                                                            index={index}
-                                                                            isDragDisabled={block.sheltered}
-                                                                        >
-                                                                            {(provided, snapshot) => (
-                                                                                <div
-                                                                                    ref={provided.innerRef}
-                                                                                    {...provided.draggableProps}
-                                                                                    {...provided.dragHandleProps}
-                                                                                >
-                                                                                    <p>{item.id ?? ''}</p>
-                                                                                    <p>{item.name ?? `${item.firstName} ${item.lastName}`}</p>
-                                                                                </div>
-                                                                            )}
-                                                                        </Draggable>
-                                                                    )
-                                                                )
-                                                            )}
-                                                            {provided.placeholder}
-                                                        </td>
-                                                    )}
-                                                </Droppable>
-                                            );
-                                        })}
-                                    </tr>
-                                );
-                            })}
+                            <ScheduleBlocksDraggable blocks={blocks} onClick={(data) => RemoveItem({ source: blocks, setSource: setBlocks, ...data })} shelteredBlocks={shelteredBlocks} />
                         </tbody>
                     </Table>
                 </section>
                 <div className={'columns'}>
-                    {Object.entries(asignatures).map(([id, asignatures]) => (
-                        <Droppable
-                            isDropDisabled={true}
-                            droppableId={id}
-                            key={id}>
-                            {(provided, snapshot) => (
-                                <section className="grid"
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
-                                >
-                                    {asignatures.items.map((asignatures, index) =>
-                                        Object.entries(asignatures).map(([id, asignature]) => (
-                                            <Draggable
-                                                key={id}
-                                                draggableId={id}
-                                                index={index}
-                                                isDragDisabled={asignature.time === 0}
-                                                className={asignature.time === 0 ? 'disabled' : ''}
-                                            >
-                                                {(provided, snapshot) => (
-                                                    <div
-                                                        className={'item'}
-                                                        ref={provided.innerRef}
-                                                        {...provided.draggableProps}
-                                                        {...provided.dragHandleProps}
-                                                    >
-                                                        <p>{asignature.id}</p>
-                                                        <p>{asignature.name}</p>
-                                                    </div>
-                                                )}
-                                            </Draggable>)
-                                        )
-
-                                    )}
-                                    {provided.placeholder}
-                                </section>
-                            )}
-                        </Droppable>
-                    ))}
-                    {Object.entries(laboratories).map(([id, laboratories]) => (
-                        <Droppable
-                            isDropDisabled={true}
-                            droppableId={id}
-                            key={id}>
-                            {(provided, snapshot) => (
-                                <section className="grid"
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
-                                >
-                                    {laboratories.items.map((laboratories, index) =>
-                                        Object.entries(laboratories).map(([id, laboratorie]) => (
-                                            <Draggable
-                                                key={id}
-                                                draggableId={id}
-                                                index={index}
-                                                isDragDisabled={laboratorie.time === 0}
-                                                className={laboratorie.time === 0 ? 'disabled' : ''}
-                                            >
-                                                {(provided, snapshot) => (
-                                                    <div
-                                                        className={'item'}
-                                                        ref={provided.innerRef}
-                                                        {...provided.draggableProps}
-                                                        {...provided.dragHandleProps}
-                                                    >
-                                                        {/* <p>{laboratorie.id}</p> */}
-                                                        <p>{laboratorie.name}</p>
-                                                    </div>
-                                                )}
-                                            </Draggable>)
-                                        )
-
-                                    )}
-                                    {provided.placeholder}
-                                </section>
-                            )}
-                        </Droppable>
-                    ))}
+                    <AsignaturesDraggable asignatures={asignatures} />
+                    <LaboratoriesDraggable laboratories={laboratories} />
                 </div>
-                {Object.entries(teachers).map(([id, teachers]) => (
-                    <Droppable
-                        isDropDisabled={true}
-                        droppableId={id}
-                        key={id}>
-                        {(provided, snapshot) => (
-                            <section className="grid"
-                                {...provided.droppableProps}
-                                ref={provided.innerRef}
-                            >
-                                {teachers.items.map((teachers, index) =>
-                                    Object.entries(teachers).map(([id, teacher]) => (
-                                        <Draggable
-                                            key={id}
-                                            draggableId={id}
-                                            index={index}
-                                            isDragDisabled={teacher.time === 0}
-                                            className={teacher.time === 0 ? 'disabled' : ''}
-                                        >
-                                            {(provided, snapshot) => (
-                                                <div
-                                                    className={'item'}
-                                                    ref={provided.innerRef}
-                                                    {...provided.draggableProps}
-                                                    {...provided.dragHandleProps}
-                                                >
-                                                    <p>{`${teacher.firstName} ${teacher.lastName}`}</p>
-                                                    <p>{teacher.email}</p>
-                                                </div>
-                                            )}
-                                        </Draggable>)
-                                    )
-
-                                )}
-                                {provided.placeholder}
-                            </section>
-                        )}
-                    </Droppable>
-                ))}
+                <TeachersDraggable teachers={teachers} />
             </DragDropContext>
         </main >
     </>

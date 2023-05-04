@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 
-export const Home = () => {
+export function Home() {
   return (
     <>
       <Header title={'Home'} />
