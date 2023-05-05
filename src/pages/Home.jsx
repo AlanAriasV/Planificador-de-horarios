@@ -78,7 +78,7 @@ const courses = [
 
 export function CareerSelector({careers}) {
   return (
-    <div className="careers-container overflow-auto border border-2 border-secondary rounded p-3">
+    <div className="careers-container overflow-auto blue-border p-3">
       <div className="input-group rounded gap-2">
           <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span className="input-group-text border-0" id="search-addon">
@@ -101,7 +101,7 @@ export function CareerSelector({careers}) {
 
 export function ViewMalla({courses}) {
   return (
-    <div className="prev-malla overflow-auto border border-2 border-secondary rounded">
+    <div className="prev-malla overflow-auto blue-border rounded">
       <div className="pt-2 pb-2">
           <h2 className="text-center m-0">Malla curricular</h2>
       </div>
@@ -134,7 +134,7 @@ export function SemestersButtons({numSemesters}) {
   return (
     <>
     {semesters.map((semester) => (
-      <button type="button" class="btn text-nowrap">Semestre {semester}</button>
+      <button type="button" class="btn text-nowrap border border-2 border-secondary rounded">Semestre {semester}</button>
     ))}
     </>
   )
@@ -158,7 +158,7 @@ export function Home() {
               <ViewMalla
                 courses={courses}
               />
-              <div class="semester-selector border border-2 border-secondary rounded p-3">
+              <div class="semester-selector blue-border rounded p-3 gap-1">
                 <SemestersButtons
                   numSemesters = {numSemesters}  
                 />
