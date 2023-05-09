@@ -92,12 +92,13 @@ section.grid>.disabled {
 }
 
 
-.table {
-    border-collapse: initial;
+table {
+    width: 100%;
+    border-collapse: separate !important;
     margin: 0px !important;
 }
 
-.table>:not(caption)>*>* {
+table>:not(caption)>*>* {
     border: 1px solid black;
     padding: 0px;
     user-select: none;
@@ -112,20 +113,22 @@ tr td:first-child {
 }
 
 td {
-    width: 16.67%;
+    padding: 2px !important;
+    /* width: 16.67%; */
 }
 
 td div {
-    border-radius: var(--border-radius-5);
-    border: var(--border);
+    border-radius: 0px 0px 20px 20px;
+    /* border: 1px solid darkblue; */
+    /* border:  1px  var(--blue-color) */
+    box-shadow: 0px 0px 2px darkblue;
+    background-color: var(--blue-color);
+    color: white;
+    text-shadow: 0px 0px 2px black;
 }
 
-tr:nth-child(n+2) td:nth-child(n+2)>div:nth-child(odd) {
-    height: calc(33% - 1px);
-}
-
-tr:nth-child(n+2) td:nth-child(n+2)>div:nth-child(even) {
-    height: calc(34% - 1px);
+tr:nth-child(n+2) td:nth-child(n+2)>div {
+    height: 25px;
 }
 
 tr:nth-child(n+2) td:nth-child(n+2)>div:not(:last-child) {
