@@ -101,11 +101,11 @@ export function CareerSelector({careers}) {
 
 export function ViewMalla({courses}) {
   return (
-    <div className="prev-malla overflow-auto blue-border rounded">
+    <div className="prev-malla blue-border rounded">
       <div className="pt-2 pb-2">
           <h2 className="text-center m-0">Malla curricular</h2>
       </div>
-      <div className="d-flex p-2 gap-1">
+      <div className="d-flex overflow-auto p-2 gap-1">
         {courses.map((semester, index) => (
           <div key={index} className="column d-flex flex-column gap-1">
             <p className="text-center">Semestre {index+1}</p>
