@@ -95,7 +95,7 @@ export function AsignaturesDraggable({ asignatures }) {
                     droppableId={id}
                     key={id}>
                     {(provided, snapshot) => (
-                        <section className="grid"
+                        <section className="grid asignatures"
                             {...provided.droppableProps}
                             ref={provided.innerRef}
                         >
@@ -140,7 +140,7 @@ export function LaboratoriesDraggable({ laboratories }) {
                     droppableId={id}
                     key={id}>
                     {(provided, snapshot) => (
-                        <section className="grid"
+                        <section className="grid laboratories"
                             {...provided.droppableProps}
                             ref={provided.innerRef}
                         >
@@ -185,7 +185,7 @@ export function TeachersDraggable({ teachers }) {
                     droppableId={id}
                     key={id}>
                     {(provided, snapshot) => (
-                        <section className="grid"
+                        <section className="grid teachers"
                             {...provided.droppableProps}
                             ref={provided.innerRef}
                         >
