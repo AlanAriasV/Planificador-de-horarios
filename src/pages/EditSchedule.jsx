@@ -1,25 +1,24 @@
-import { useState } from "react";
-import { Table } from "react-bootstrap";
+import { useState } from 'react';
 
-import { DragDropContext } from "react-beautiful-dnd";
-import { v4 as uuid } from "uuid";
+import { DragDropContext } from 'react-beautiful-dnd';
+import { v4 as uuid } from 'uuid';
 
-import "../css/EditSchedule.css";
+import '../css/EditSchedule.css';
 
-import Header from "../components/Header";
+import Header from '../components/Header';
 import {
   Asignatures,
   Blocks,
   Laboratories,
   Assignments,
   Teachers,
-} from "../firebase/Data";
+} from '../firebase/Data';
 import {
   AsignaturesDraggable,
   LaboratoriesDraggable,
   ScheduleBlocksDraggable,
   TeachersDraggable,
-} from "../components/Draggables";
+} from '../components/Draggables';
 
 function OnDragEnd({ result, droppables, setDroppables }) {
   if (!result.destination) return;
@@ -69,7 +68,7 @@ function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {
   }
 
   if (!item) return;
-  for (const assignment of assignments["A/1-2022"].items) {
+  for (const assignment of assignments['A/1-2022'].items) {
     if (assignment[item.type] === item.id) {
       newShelteredBlocks.push(assignment);
     }
@@ -169,11 +168,11 @@ export function EditSchedule() {
   const [laboratories, setLaboratories] = useState(Laboratories);
   const [shelteredBlocks, setShelteredBlocks] = useState([]);
   const [teachers, setTeachers] = useState(Teachers);
-
+  
   return (
     <>
-      <Header title={"EDICIÓN DE HORARIO"} />
-      <main>
+      <Header title={'EDICIÓN DE HORARIO'} />
+      <main className='main'>
         <DragDropContext
           onDragStart={(start) => {
             const droppables = [blocks, laboratories, teachers];
@@ -200,7 +199,7 @@ export function EditSchedule() {
             });
           }}
         >
-          <section>
+          <section className='schedule'>
             <table>
               <thead>
                 <tr>
@@ -233,10 +232,10 @@ export function EditSchedule() {
               </tbody>
             </table>
           </section>
-          <div className={"columns"}>
+          {/* <div className={'columns'}> */}
             <AsignaturesDraggable asignatures={asignatures} />
             <LaboratoriesDraggable laboratories={laboratories} />
-          </div>
+          {/* </div> */}
           <TeachersDraggable teachers={teachers} />
         </DragDropContext>
       </main>

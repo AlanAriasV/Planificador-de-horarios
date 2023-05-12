@@ -4,6 +4,8 @@
   --background-color: #F5F5F5;
   --blue-color: #3E5083;
   --border-color: #4E637F;
+  --gap: 20px;
+  --width: calc(100% - var(--gap) * 2);
   --gmail-background-color: #D73D32;
   --grey-color: #ADADAD;
   --link-color: #6F95C3;
@@ -21,6 +23,12 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   font-size: 14px;
+  /* box-sizing: border-box !important; */
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
 }
 
 h1 {
@@ -35,7 +43,6 @@ body {
   background-color: var(--body-background-color);
 }
 
-a {
-  text-decoration: none;
-  color: var(--link-color);
+main {
+  margin: 20px !important;
 }

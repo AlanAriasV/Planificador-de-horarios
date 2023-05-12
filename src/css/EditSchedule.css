@@ -1,145 +1,209 @@
-main {
-    background-color: var(--background-color);
-    display: flex;
-    flex-direction: column;
-    margin-inline: auto !important;
-    max-width: 768px;
-    padding: 20px;
-    row-gap: 20px;
+.main {
+  background-color: var(--background-color);
+  display: grid;
+  grid-template-columns: calc(var(--width) / 2) repeat(
+    2,
+    calc(var(--width) / 4)
+  );
+  /* grid-template-rows: 50% 50%; */
+  grid-template-areas:
+    "s a l"
+    "s t t";
+  padding: 20px;
+  gap: 20px;
+  background-color: red;
+  /* margin-block: auto; */
+  /* height: 100%; */
+  /* row-gap: 20px; */
+  /* box-sizing: border-box; */
+}
+
+section {
+  background-color: white;
+  border: var(--border);
+  border-radius: var(--border-radius-10) !important;
+  padding: 20px;
+}
+
+.schedule {
+  grid-area: s;
+}
+
+.asignatures {
+  grid-area: a;
+}
+
+.laboratories {
+  grid-area: l;
+}
+
+.teachers {
+  grid-area: t;
+}
+
+/* section:first-child {
+  width: 50%;
+} */
+
+.columns {
+  display: flex;
+  height: max-content;
+}
+
+/* main {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto !important;
+  max-width: 768px;
 }
 
 .block[item] {
-    position: relative;
+  position: relative;
 }
 
 .block[item]:before {
-    background-color: var(--background-color);
-    border: 1px dashed var(--blue-color);
-    border-radius: var(--border-radius-5);
-    content: attr(item);
-    left: 50%;
-    width: max-content;
-    opacity: 0;
-    padding: 7px;
-    position: absolute;
-    top: -49px;
-    transform: translate(-50%, 0%);
-    transition: .25s;
-    visibility: hidden;
-    z-index: 1;
+  background-color: var(--background-color);
+  border: 1px dashed var(--blue-color);
+  border-radius: var(--border-radius-5);
+  content: attr(item);
+  left: 50%;
+  width: max-content;
+  opacity: 0;
+  padding: 7px;
+  position: absolute;
+  top: -49px;
+  transform: translate(-50%, 0%);
+  transition: 0.25s;
+  visibility: hidden;
+  z-index: 1;
 }
 
 .block[item]:after {
-    background-color: var(--background-color);
-    border: 1px dashed var(--blue-color);
-    border-right: none;
-    border-top: none;
-    content: '';
-    height: 10px;
-    left: 50%;
-    opacity: 0;
-    position: absolute;
-    top: -21px;
-    transform: rotate(-45deg) translate(-50%, 0%);
-    transition: .25s;
-    visibility: hidden;
-    width: 10px;
-    z-index: 2;
+  background-color: var(--background-color);
+  border: 1px dashed var(--blue-color);
+  border-right: none;
+  border-top: none;
+  content: "";
+  height: 10px;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: -21px;
+  transform: rotate(-45deg) translate(-50%, 0%);
+  transition: 0.25s;
+  visibility: hidden;
+  width: 10px;
+  z-index: 2;
 }
 
 .block[item]:hover::before,
 .block[item]:hover::after {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 section {
-    background-color: white;
-    border: var(--border);
-    border-radius: var(--border-radius-10) !important;
-    padding: 20px;
+  background-color: white;
+  border: var(--border);
+  border-radius: var(--border-radius-10) !important;
+  padding: 20px;
 }
 
 section.grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fill, calc(50% - 10px));
-    grid-template-rows: repeat(auto-fill, 90px);
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, calc(50% - 10px));
+  grid-template-rows: repeat(auto-fill, 90px);
 }
 
-section.grid>.item {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 90px;
-    border-radius: var(--border-radius-5);
-    border: var(--border);
-    text-align: center;
-    user-select: none;
+section.grid > .item {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90px;
+  border-radius: var(--border-radius-5);
+  border: var(--border);
+  text-align: center;
+  user-select: none;
 }
 
-section.grid>.disabled {
-    background-color: var(--black-25-color);
-    border-color: var(--black-50-color);
-    color: var(--black-50-color);
+section.grid > .disabled {
+  background-color: var(--black-25-color);
+  border-color: var(--black-50-color);
+  color: var(--black-50-color);
 }
 
 .columns {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(2, calc(50% - 10px));
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, calc(50% - 10px));
 }
-
 
 table {
-    width: 100%;
-    border-collapse: separate !important;
-    margin: 0px !important;
+  width: 100%;
+  border-collapse: separate !important;
+  margin: 0px !important;
 }
 
-table>:not(caption)>*>* {
-    border: 1px solid black;
-    padding: 0px;
-    user-select: none;
+table > :not(caption) > * > * {
+  border: 1px solid black;
+  padding: 0px;
+  user-select: none;
 }
 
 th,
 tr:first-child td,
 tr td:first-child {
-    background-color: var(--blue-color) !important;
-    color: var(--white-color);
-    text-align: center !important;
+  background-color: var(--blue-color) !important;
+  color: var(--white-color);
+  text-align: center !important;
+  height: 27px;
 }
 
 td {
-    padding: 2px !important;
-    /* width: 16.67%; */
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px !important;
+  width: 16.375%;
+}
+
+tr:nth-child(n + 2) td {
+  height: 81px;
+}
+
+tr td:not(:last-child) {
+  margin-right: 2px !important;
 }
 
 td div {
-    border-radius: 0px 0px 20px 20px;
-    /* border: 1px solid darkblue; */
-    /* border:  1px  var(--blue-color) */
-    box-shadow: 0px 0px 2px darkblue;
-    background-color: var(--blue-color);
-    color: white;
-    text-shadow: 0px 0px 2px black;
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: 0px 0px 2px darkblue;
+  background-color: var(--blue-color);
+  color: white;
+  text-shadow: 0px 0px 2px black;
 }
 
-tr:nth-child(n+2) td:nth-child(n+2)>div {
-    height: 25px;
+tr:nth-child(n + 2) td:nth-child(n + 2) > div {
+  height: 75px;
 }
 
-tr:nth-child(n+2) td:nth-child(n+2)>div:not(:last-child) {
-    margin-bottom: 3px !important;
+tr:nth-child(n + 2) td:nth-child(n + 2) > div:not(:last-child) {
+  margin-bottom: 3px !important;
 }
 
 td div p {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
+
+@media screen and (min-width: 1366px) {
+    body{
+        background-color: red !important;
+    }
+} */

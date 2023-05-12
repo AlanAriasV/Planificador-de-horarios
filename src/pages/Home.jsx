@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import CourseBlock from '../components/CourseBlock';
+import { useState } from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 
@@ -13,18 +14,32 @@ const careers = [
 
 const numSemesters = 11;
 
-
 export function CareerSelector({careers}) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleInputChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  const searchResults = careers.filter(career => career.name.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
     <div className="careers-container overflow-auto blue-border p-3">
       <div className="input-group rounded gap-2">
-          <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <input 
+            type="search"
+            className="form-control rounded" 
+            placeholder="Buscar" 
+            aria-label="Buscar" 
+            aria-describedby="search-addon"
+            value={searchTerm}
+            onChange={handleInputChange} />
           <span className="input-group-text border-0" id="search-addon">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </span>
       </div>
       <div className="results-container mt-2 d-flex flex-column justify-content-around gap-2">
-        {careers.map((career, index) => (
+        {searchResults.map((career, index) => (
           <div key={index} className="border border-2 border-secondary rounded p-2 ">
             <div className="m-3">
               <p className="text-uppercase">{career.name}</p>
