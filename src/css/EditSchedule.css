@@ -1,21 +1,18 @@
 .main {
-  background-color: var(--background-color);
   display: grid;
-  grid-template-columns: calc(var(--width) / 2) repeat(
-    2,
-    calc(var(--width) / 4)
-  );
-  /* grid-template-rows: 50% 50%; */
-  grid-template-areas:
-    "s a l"
+  grid-template-columns: calc(var(--width-gap) / 2) repeat(2, calc(var(--width-gap) / 4));
+  /* grid-template-rows: repeat(2, calc(var(--height-gap) / 2)); */
+  grid-auto-rows: calc(var(--height-gap) / 2);
+  overflow: auto;
+  grid-template-areas: "s a l"
     "s t t";
   padding: 20px;
   gap: 20px;
-  background-color: red;
-  /* margin-block: auto; */
-  /* height: 100%; */
-  /* row-gap: 20px; */
-  /* box-sizing: border-box; */
+  /* background-color: red; */
+}
+
+.main>* {
+  user-select: none;
 }
 
 section {
@@ -23,6 +20,39 @@ section {
   border: var(--border);
   border-radius: var(--border-radius-10) !important;
   padding: 20px;
+}
+
+section.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, calc((100% - var(--gap)) / 2));
+  grid-auto-columns: calc((100% - var(--gap)) / 2);
+  grid-auto-rows: calc((100% - var(--gap) * 3) / 4);
+  overflow: auto;
+}
+
+section.teachers {
+  grid-template-columns: repeat(auto-fill, calc((100% - var(--gap) * 3) / 4));
+}
+
+section::-webkit-scrollbar {
+  display: none;
+}
+
+section.grid>.item {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: var(--border-radius-5);
+  border: var(--border);
+  text-align: center;
+}
+
+section.grid>.disabled {
+  background-color: var(--black-25-color);
+  border-color: var(--black-50-color);
+  color: var(--black-50-color);
 }
 
 .schedule {
@@ -41,13 +71,107 @@ section {
   grid-area: t;
 }
 
-/* section:first-child {
-  width: 50%;
-} */
+table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 2px 2px;
+}
 
-.columns {
-  display: flex;
-  height: max-content;
+table> :not(caption)>*>* {
+  border: 1px solid black;
+  padding: 0px;
+  user-select: none;
+}
+
+th,
+.schedule>table tbody tr:first-child td {
+  background-color: var(--blue-color) !important;
+  color: var(--white-color);
+  text-align: center !important;
+}
+
+.scrollSchedule tbody tr td:first-child {
+  background-color: var(--blue-color) !important;
+  color: var(--white-color);
+  text-align: center !important;
+}
+
+td {
+  width: calc(100% / 6);
+}
+
+thead tr:first-child {
+  height: 35px;
+}
+
+tbody tr:first-child {
+  height: 30px;
+}
+
+.scrollSchedule tbody tr:nth-child(n+1) {
+  height: 75px;
+}
+
+tbody tr:nth-child(n+2) td:nth-child(n+2) {
+  padding: 5px;
+}
+
+.scrollSchedule {
+  height: calc(100% - 68px);
+  /* margin-top: -2px !important; */
+  /* margin-left: -1px !important; */
+  overflow: auto;
+}
+
+.scrollSchedule::-webkit-scrollbar {
+  display: none;
+}
+
+
+.block {
+  /* TODO: Continuar Aquí y Placeholder [:not(.block)] */
+  position: relative;
+}
+
+.block[item]:before {
+  background-color: var(--background-color);
+  border: 1px dashed var(--blue-color);
+  border-radius: var(--border-radius-5);
+  content: attr(item);
+  left: 50%;
+  width: max-content;
+  opacity: 0;
+  padding: 7px;
+  position: absolute;
+  top: -49px;
+  transform: translate(-50%, 0%);
+  transition: 0.25s;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.block[item]:after {
+  background-color: var(--background-color);
+  border: 1px dashed var(--blue-color);
+  border-right: none;
+  border-top: none;
+  content: "";
+  height: 10px;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: -21px;
+  transform: rotate(-45deg) translate(-50%, 0%);
+  transition: 0.25s;
+  visibility: hidden;
+  width: 10px;
+  z-index: 2;
+}
+
+.block[item]:hover::before,
+.block[item]:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* main {

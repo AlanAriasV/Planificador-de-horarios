@@ -168,7 +168,7 @@ export function EditSchedule() {
   const [laboratories, setLaboratories] = useState(Laboratories);
   const [shelteredBlocks, setShelteredBlocks] = useState([]);
   const [teachers, setTeachers] = useState(Teachers);
-  
+
   return (
     <>
       <Header title={'EDICIÓN DE HORARIO'} />
@@ -209,6 +209,7 @@ export function EditSchedule() {
                 </tr>
               </thead>
               <tbody>
+
                 <tr>
                   <td></td>
                   <td>Lunes</td>
@@ -217,28 +218,32 @@ export function EditSchedule() {
                   <td>Jueves</td>
                   <td>Viernes</td>
                 </tr>
-
-                <ScheduleBlocksDraggable
-                  blocks={blocks}
-                  onClick={(data) =>
-                    RemoveItem({
-                      source: blocks,
-                      setSource: setBlocks,
-                      ...data,
-                    })
-                  }
-                  shelteredBlocks={shelteredBlocks}
-                />
               </tbody>
             </table>
-          </section>
-          {/* <div className={'columns'}> */}
-            <AsignaturesDraggable asignatures={asignatures} />
-            <LaboratoriesDraggable laboratories={laboratories} />
-          {/* </div> */}
+            <div className='scrollSchedule'>
+              <table>
+                < tbody >
+
+                  <ScheduleBlocksDraggable
+                    blocks={blocks}
+                    onClick={(data) =>
+                      RemoveItem({
+                        source: blocks,
+                        setSource: setBlocks,
+                        ...data,
+                      })
+                    }
+                    shelteredBlocks={shelteredBlocks}
+                  />
+                </tbody>
+              </table>
+            </div>
+          </section >
+          <AsignaturesDraggable asignatures={asignatures} />
+          <LaboratoriesDraggable laboratories={laboratories} />
           <TeachersDraggable teachers={teachers} />
-        </DragDropContext>
-      </main>
+        </DragDropContext >
+      </main >
     </>
   );
 }

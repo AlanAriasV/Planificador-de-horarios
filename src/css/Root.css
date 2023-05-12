@@ -5,7 +5,8 @@
   --blue-color: #3E5083;
   --border-color: #4E637F;
   --gap: 20px;
-  --width: calc(100% - var(--gap) * 2);
+  --width-gap: calc(100% - (var(--gap) * 2));
+  --height-gap: calc(100% - var(--gap));
   --gmail-background-color: #D73D32;
   --grey-color: #ADADAD;
   --link-color: #6F95C3;
@@ -38,11 +39,23 @@ h1 {
   /* margin: 0px; */
 }
 
+#root {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0px !important;
+}
+
 body {
-  height: 100vh;
+  /* width: calc(100vw - 1px); */
+  height: calc(100vh - 1px);
   background-color: var(--body-background-color);
+  border: none;
 }
 
 main {
-  margin: 20px !important;
+  margin-block: auto !important;
+  /* height: ; */
+  /* margin: 20px !important; */
 }

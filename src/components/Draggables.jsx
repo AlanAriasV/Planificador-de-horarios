@@ -159,7 +159,7 @@ export function LaboratoriesDraggable({ laboratories }) {
                                                 {...provided.draggableProps}
                                                 {...provided.dragHandleProps}
                                             >
-                                                {/* <p>{laboratorie.id}</p> */}
+                                                <p>{laboratorie.id}</p>
                                                 <p>{laboratorie.name}</p>
                                             </div>
                                         )}
@@ -204,8 +204,9 @@ export function TeachersDraggable({ teachers }) {
                                                 {...provided.draggableProps}
                                                 {...provided.dragHandleProps}
                                             >
+                                                <p>{teacher.id}</p>
                                                 <p>{`${teacher.firstName} ${teacher.lastName}`}</p>
-                                                <p>{teacher.email}</p>
+                                                {/* <p>{teacher.email}</p> */}
                                             </div>
                                         )}
                                     </Draggable>)
