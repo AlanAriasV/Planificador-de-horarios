@@ -172,7 +172,7 @@ export function EditSchedule() {
   return (
     <>
       <Header title={'EDICIÓN DE HORARIO'} />
-      <main className='main'>
+      <main className='main-edit'>
         <DragDropContext
           onDragStart={(start) => {
             const droppables = [blocks, laboratories, teachers];

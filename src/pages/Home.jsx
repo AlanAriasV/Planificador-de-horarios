@@ -1,33 +1,34 @@
 import Header from "../components/Header";
-import CourseBlock from '../components/CourseBlock';
+import CourseBlock from "../components/CourseBlock";
 import { useState } from "react";
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch } from "react-icons/fa";
 
-import '../css/Home.css';
+import "../css/Home.css";
 import { Courses, Careers } from "../firebase/Data";
 
 const numSemesters = 11;
 
 export function CareerSelector({ careers, setSelectedCareer }) {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleCareerClick = event => {
+  const handleCareerClick = (event) => {
     setSelectedCareer(event.target.id);
     console.log(setSelectedCareer);
   };
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const searchResults = careers.filter(career => career.name.toLowerCase().includes(searchTerm.toLowerCase()));
+  const searchResults = careers.filter((career) =>
+    career.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="careers-container overflow-auto blue-border p-3">
       <div className="input-icon rounded gap-2">
         <span className="icon">
-          <FaSearch style={{ paddingBlock: 0, marginBlock: 'auto' }} />
+          <FaSearch style={{ paddingBlock: 0, marginBlock: "auto" }} />
         </span>
         <input
           type="text"
@@ -36,20 +37,29 @@ export function CareerSelector({ careers, setSelectedCareer }) {
           aria-label="Buscar"
           aria-describedby="search-addon"
           value={searchTerm}
-          onChange={handleInputChange} />
+          onChange={handleInputChange}
+        />
       </div>
       <div className="results-container mt-2 d-flex flex-column justify-content-around gap-2">
         {searchResults.map((career, index) => (
-          <div key={index} className="career grey-border" id={career.id} onClick={(event) => setSelectedCareer(event.target.id)}>
+          <div
+            key={index}
+            className="career grey-border"
+            id={career.id}
+            onClick={(event) => setSelectedCareer(event.target.id)}
+          >
             <div className="m-3">
               <p className="text-uppercase">{career.name}</p>
-              <strong>Semestres sin horario: </strong> <span id="cant-sin-horario">{career.numSemestersWithoutSchedule}</span>
+              <strong>Semestres sin horario: </strong>{" "}
+              <span id="cant-sin-horario">
+                {career.numSemestersWithoutSchedule}
+              </span>
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export function ViewMalla({ courses }) {
@@ -73,7 +83,7 @@ export function ViewMalla({ courses }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export function SemestersButtons({ numSemesters }) {
@@ -87,44 +97,45 @@ export function SemestersButtons({ numSemesters }) {
   return (
     <div className="semester-selector gap-1">
       {semesters.map((semester) => (
-        <button key={semester} type="button" className="btn text-nowrap border border-2 border-secondary rounded btn-blue">Semestre {semester}</button>
+        <button
+          key={semester}
+          type="button"
+          className="btn text-nowrap border border-2 border-secondary rounded btn-blue"
+        >
+          Semestre {semester}
+        </button>
       ))}
     </div>
-  )
+  );
 }
 
 export function Home() {
   const [selectedCareer, setSelectedCareer] = useState(Careers[0].id);
-  const [careerCourses, setCareerCourses] = useState(Courses.find(item => item.id == selectedCareer).malla);
+  const [careerCourses, setCareerCourses] = useState(
+    Courses.find((item) => item.id == selectedCareer).malla
+  );
+  
 
   return (
     <>
-      <Header
-        title={'Home'}
-      />
-      <main>
-        <div className="content justify-content-center gap-5">
-          <div className="career-selector-container">
-            <CareerSelector
-              careers={Careers}
-              setSelectedCareer={setSelectedCareer}
-            />
-          </div>
-          <div className="gap-3">
-            <div className="d-flex gap-3 flex-column justify-content-between">
-              <ViewMalla
-                courses={careerCourses}
-              />
-              <div className="blue-border rounded p-3 gap-1">
-                <h2 className="text-center m-0 mb-2">Seleccionar Semestre</h2>
-                <SemestersButtons
-                  numSemesters={numSemesters}
-                />
-              </div>
-            </div>
-          </div>
+    {/* TODO: Mejorar todo */}
+      <Header title={"Home"} />
+      <main className="main-home">
+        {/* <div> */}
+        <div className="career-selector-container">
+          <CareerSelector
+            careers={Careers}
+            setSelectedCareer={setSelectedCareer}
+          />
+        </div>
+        {/* <div className="gap-3"> */}
+        {/* <div className="d-flex gap-3 flex-column justify-content-between"> */}
+        <ViewMalla courses={careerCourses} />
+        <div className="semester-selector-container blue-border rounded p-3 gap-1">
+          <h2 className="text-center m-0 mb-2">Seleccionar Semestre</h2>
+          <SemestersButtons numSemesters={numSemesters} />
         </div>
       </main>
     </>
   );
-};
+}

@@ -1,77 +1,124 @@
-.content {
+.main-home {
+    margin-inline: auto !important  ;
+    /* height: 90%; */
     display: grid;
-    grid-template-columns: 20% 70%;
+  padding: 20px;
+  overflow: auto;
+  gap: 20px;
+    width: 90%;
+  grid-template-columns: calc(20% - 10px) calc(80% - 10px);
+  grid-auto-rows: calc(65% - 10px) calc(35% - 10px);
+  grid-template-areas:
+    "sea cou"
+    "sea sem";
+  /* padding:    ; */
 }
 
-.blue-border {
-    border: solid;
-    border-radius: 0.5rem;
-    border-color: var(--blue-color);
-}
-
-.input-icon {
-    margin-bottom: 10px;
-}
-
-.input-icon span {
-    padding: 7px;
-    position: absolute;
-}
-
-.form-control {
-    padding-left: 30px !important;
-}
-
-.form-control:focus {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--blue-color) !important;
-}
-
-.icon {
-    color: var(--blue-color);
-    text-align: center;
-}
-
-.selected {
-    background-color: var(--blue-color);
-    color: white;
-}
-
-.careers-container {
-    min-height: 100%;
-    max-height: 100%;
+.career-selector-container {
+  grid-area: sea;
 }
 
 .prev-malla {
-    max-height: 50rem;
-    max-width: inherit;
+  grid-area: cou;
+  height: 100%;
+}
+
+.semester-selector-container {
+  grid-area: sem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 20% 70%;
+}
+
+.blue-border {
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: var(--blue-color);
+}
+
+.input-icon {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.input-icon span {
+  /* padding: 7px; */
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  /* transform: translateY(50%); */
+}
+
+.prev-malla {
+  /* height: 50%; */
+  overflow: auto;
+}
+
+/* .scroll { */
+  /* overflow: auto ; */
+/* } */
+
+.form-control {
+  padding-left: 30px !important;
+}
+
+.form-control:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--blue-color) !important;
+}
+
+.icon {
+  color: var(--blue-color);
+  text-align: center;
+}
+
+.selected {
+  background-color: var(--blue-color);
+  color: white;
+}
+
+.careers-container {
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.prev-malla {
+  max-height: 50rem;
+  max-width: inherit;
 }
 
 .schedule-block {
-    min-height: 6rem;
-    max-width: 9rem;
-    min-width: 9rem;
-    word-wrap: break-word;
+  min-height: 6rem;
+  max-width: 9rem;
+  min-width: 9rem;
+  word-wrap: break-word;
 }
 
 .schedule-block-title {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .semester-selector {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .grey-border {
-    border: solid 2px var(--grey-color);
-    border-radius: 5px;
+  border: solid 2px var(--grey-color);
+  border-radius: 5px;
 }
 
-.career:hover, .btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.primary {
-    color: var(--white-color) !important;
-    background-color: var(--blue-color) !important;
+.career:hover,
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.open > .dropdown-toggle.primary {
+  color: var(--white-color) !important;
+  background-color: var(--blue-color) !important;
 }

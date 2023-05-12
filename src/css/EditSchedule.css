@@ -1,17 +1,15 @@
-.main {
+.main-edit {
   display: grid;
   grid-template-columns: calc(var(--width-gap) / 2) repeat(2, calc(var(--width-gap) / 4));
-  /* grid-template-rows: repeat(2, calc(var(--height-gap) / 2)); */
   grid-auto-rows: calc(var(--height-gap) / 2);
   overflow: auto;
   grid-template-areas: "s a l"
     "s t t";
   padding: 20px;
   gap: 20px;
-  /* background-color: red; */
 }
 
-.main>* {
+.main-edit>* {
   user-select: none;
 }
 
@@ -27,7 +25,7 @@ section.grid {
   gap: 20px;
   grid-template-columns: repeat(auto-fill, calc((100% - var(--gap)) / 2));
   grid-auto-columns: calc((100% - var(--gap)) / 2);
-  grid-auto-rows: calc((100% - var(--gap) * 3) / 4);
+  grid-auto-rows: calc((100% - var(--gap) * 2) / 3);
   overflow: auto;
 }
 
