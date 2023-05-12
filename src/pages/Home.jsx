@@ -1,9 +1,10 @@
 import Header from "../components/Header";
 import CourseBlock from '../components/CourseBlock';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 
-import '../css/Home.css'
+import '../css/Home.css';
 import { courses } from "../firebase/Data";
-import { Container } from "react-bootstrap";
 
 const careers = [
   { id: 1, name: 'Ing. Civil en Computación e Informatica', numSemestersWithoutSchedule: 1},
@@ -19,7 +20,7 @@ export function CareerSelector({careers}) {
       <div className="input-group rounded gap-2">
           <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span className="input-group-text border-0" id="search-addon">
-              <i className="fa-solid fa-magnifying-glass"></i>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
           </span>
       </div>
       <div className="results-container mt-2 d-flex flex-column justify-content-around gap-2">
