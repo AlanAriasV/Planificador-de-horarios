@@ -1,22 +1,22 @@
 import Header from "../components/Header";
 import CourseBlock from '../components/CourseBlock';
-import { useState, useEffect } from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
+import { useState } from "react";
+import { FaSearch } from 'react-icons/fa';
 
 import '../css/Home.css';
 import { Courses, Careers } from "../firebase/Data";
 
 const numSemesters = 11;
 
-export function CareerSelector({careers, setSelectedCareer}) {
+export function CareerSelector({ careers, setSelectedCareer }) {
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleCareerClick = event => {
     setSelectedCareer(event.target.id);
     console.log(setSelectedCareer);
   };
-  
+
   const handleInputChange = event => {
     setSearchTerm(event.target.value);
   };
@@ -26,21 +26,21 @@ export function CareerSelector({careers, setSelectedCareer}) {
   return (
     <div className="careers-container overflow-auto blue-border p-3">
       <div className="input-icon rounded gap-2">
-          <span className="icon">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </span>
-          <input 
-            type="text"
-            className="form-control rounded" 
-            placeholder="Buscar" 
-            aria-label="Buscar" 
-            aria-describedby="search-addon"
-            value={searchTerm}
-            onChange={handleInputChange} />
+        <span className="icon">
+          <FaSearch style={{ paddingBlock: 0, marginBlock: 'auto' }} />
+        </span>
+        <input
+          type="text"
+          className="form-control rounded"
+          placeholder="Buscar"
+          aria-label="Buscar"
+          aria-describedby="search-addon"
+          value={searchTerm}
+          onChange={handleInputChange} />
       </div>
       <div className="results-container mt-2 d-flex flex-column justify-content-around gap-2">
         {searchResults.map((career, index) => (
-          <div key={index} className="career grey-border" id={career.id} onClick={() => setCount(event.target.id)}>
+          <div key={index} className="career grey-border" id={career.id} onClick={(event) => setSelectedCareer(event.target.id)}>
             <div className="m-3">
               <p className="text-uppercase">{career.name}</p>
               <strong>Semestres sin horario: </strong> <span id="cant-sin-horario">{career.numSemestersWithoutSchedule}</span>
@@ -52,21 +52,21 @@ export function CareerSelector({careers, setSelectedCareer}) {
   )
 }
 
-export function ViewMalla({courses}) {
+export function ViewMalla({ courses }) {
   return (
     <div className="prev-malla blue-border rounded">
       <div className="pt-2 pb-2">
-          <h2 className="text-center m-0">Malla curricular</h2>
+        <h2 className="text-center m-0">Malla curricular</h2>
       </div>
       <div className="d-flex overflow-auto p-2 gap-1">
         {courses.map((semester, index) => (
           <div key={index} className="column d-flex flex-column gap-1">
-            <p className="text-center">Semestre {index+1}</p>
+            <p className="text-center">Semestre {index + 1}</p>
             {semester.map((courses, index) => (
               <CourseBlock
-                key = {index}
-                code = {courses.code}
-                title = {courses.course}
+                key={index}
+                code={courses.code}
+                title={courses.course}
               />
             ))}
           </div>
@@ -76,7 +76,7 @@ export function ViewMalla({courses}) {
   )
 }
 
-export function SemestersButtons({numSemesters}) {
+export function SemestersButtons({ numSemesters }) {
   const semesters = [];
 
   // Generar un array con el número de semestres
@@ -86,9 +86,9 @@ export function SemestersButtons({numSemesters}) {
 
   return (
     <div className="semester-selector gap-1">
-    {semesters.map((semester) => (
-      <button type="button" className="btn text-nowrap border border-2 border-secondary rounded btn-blue">Semestre {semester}</button>
-    ))}
+      {semesters.map((semester) => (
+        <button key={semester} type="button" className="btn text-nowrap border border-2 border-secondary rounded btn-blue">Semestre {semester}</button>
+      ))}
     </div>
   )
 }
@@ -99,15 +99,15 @@ export function Home() {
 
   return (
     <>
-      <Header 
-        title={'Home'} 
+      <Header
+        title={'Home'}
       />
       <main>
         <div className="content justify-content-center gap-5">
           <div className="career-selector-container">
             <CareerSelector
               careers={Careers}
-              selectedCareer = {setSelectedCareer}
+              setSelectedCareer={setSelectedCareer}
             />
           </div>
           <div className="gap-3">
@@ -118,7 +118,7 @@ export function Home() {
               <div className="blue-border rounded p-3 gap-1">
                 <h2 className="text-center m-0 mb-2">Seleccionar Semestre</h2>
                 <SemestersButtons
-                  numSemesters = {numSemesters}  
+                  numSemesters={numSemesters}
                 />
               </div>
             </div>
