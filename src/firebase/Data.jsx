@@ -59,68 +59,90 @@ export const Asignatures = {
     }
 }
 
-export const courses = [
-    [
-      {code: 'MA067', course: 'INTRODUCCION AL CALCULO' },
-      {code: 'MA069', course: 'INTRODUCCION AL ALGEBRA' },
-      {code: 'CC198', course: 'INTRODUCCION A INGENIERIA INFORMATICA' },
-      {code: 'CC210', course: 'TALLER DE DESARROLLO PERSONAL' },
-      {code: 'CC199', course: 'TALLER DE PROGRAMACION I' },
-    ],
-    [
-      {code: 'MA601', course: 'CALCULO I'},
-      {code: 'MA611', course: 'ALGEBRA I'},
-      {code: 'FI035', course: 'INTRODUCCION A LA FISICA'},
-      {code: 'CC206', course: 'INTRODUCCION AL TRABAJO EN PROYECTOS'},
-      {code: 'CC208', course: 'TALLER DE PROGRAMACION II'},
-    ],
-    [
-      {code: 'MA602', course: 'CALCULO II'},
-      {code: 'MA612', course: 'ALGEBRA II'},
-      {code: 'FI601', course: 'MECANICA CLASICA'},
-      {code: 'CC209', course: 'PROGRAMACION ORIENTADA A OBJETOS'},
-      {code: 'CC211', course: 'FUNDAMENTOS DE LENGUAJES DE PROGRAMACION'},
-    ],
-    [
-      {code: 'MA603', course: 'CALCULO III'},
-      {code: 'MA220', course: 'ECUACIONES DIFERENCIALES'},
-      {code: 'IE078', course: 'ELECTRICIDAD Y SISTEMAS DIGITALES'},
-      {code: 'CC222', course: 'ALGORITMOS Y ESTRUCTURAS DE DATOS'},
-      {code: 'CC091', course: 'PROYECTO I'},
-      {code: 'DE181', course: 'TALLER DE COMUNICACION ORAL Y ESCRITA'},
-    ],
-    [
-      {code: 'FI604', course: 'ELECTROMAGNETISMO'},
-      {code: 'MA424', course: 'ESTADISTICA Y PROBABILIDAD'},
-      {code: 'CC082', course: 'ARQUITECTURA DE COMPUTADORES'},
-      {code: 'CC212', course: 'TECNOLOGIA DE OBJETOS'},
-      {code: 'CC083', course: 'TALLER DE TECNICAS DE PROGRAMACION'},
-      {code: 'CC214', course: 'TALLER DE ETICA PROF. Y RESPONS. SC. DEL INFORMAT'}
-    ],
-    [
-      {code: 'CC052', course: 'TECNOLOGIA WEB'},
-      {code: 'IN056', course: 'GESTION DE EMPRESA'},
-      {code: 'CC359', course: 'SISTEMAS OPERATIVOS'},
-      {code: 'CC415', course: 'BASES DE DATOS'},
-      {code: 'CC216', course: 'PROYECTO II'},
-      {code: 'DI165', course: 'INGLES I'}
-    ],
-    [
-      {code: 'CC052', course: 'TECNOLOGIA WEB'},
-      {code: 'IN056', course: 'GESTION DE EMPRESA'},
-      {code: 'CC359', course: 'SISTEMAS OPERATIVOS'},
-      {code: 'CC415', course: 'BASES DE DATOS'},
-      {code: 'CC216', course: 'PROYECTO II'},
-      {code: 'DI165', course: 'INGLES I'}
-    ],
-    [
-      {code: 'CC052', course: 'TECNOLOGIA WEB'},
-      {code: 'IN056', course: 'GESTION DE EMPRESA'},
-      {code: 'CC359', course: 'SISTEMAS OPERATIVOS'},
-      {code: 'CC415', course: 'BASES DE DATOS'},
-      {code: 'CC216', course: 'PROYECTO II'},
-      {code: 'DI165', course: 'INGLES I'}
+export const Courses = [
+  {
+  id: 'ICCI',
+  malla: [
+              [
+                {code: 'MA067', course: 'INTRODUCCION AL CALCULO' },
+                {code: 'MA069', course: 'INTRODUCCION AL ALGEBRA' },
+                {code: 'CC198', course: 'INTRODUCCION A INGENIERIA INFORMATICA' },
+                {code: 'CC210', course: 'TALLER DE DESARROLLO PERSONAL' },
+                {code: 'CC199', course: 'TALLER DE PROGRAMACION I' }
+              ],
+              [
+                {code: 'MA601', course: 'CALCULO I'},
+                {code: 'MA611', course: 'ALGEBRA I'},
+                {code: 'FI035', course: 'INTRODUCCION A LA FISICA'},
+                {code: 'CC206', course: 'INTRODUCCION AL TRABAJO EN PROYECTOS'},
+                {code: 'CC208', course: 'TALLER DE PROGRAMACION II'}
+              ],
+              [
+                {code: 'MA602', course: 'CALCULO II'},
+                {code: 'MA612', course: 'ALGEBRA II'},
+                {code: 'FI601', course: 'MECANICA CLASICA'},
+                {code: 'CC209', course: 'PROGRAMACION ORIENTADA A OBJETOS'},
+                {code: 'CC211', course: 'FUNDAMENTOS DE LENGUAJES DE PROGRAMACION'}
+              ],
+              [
+                {code: 'MA603', course: 'CALCULO III'},
+                {code: 'MA220', course: 'ECUACIONES DIFERENCIALES'},
+                {code: 'IE078', course: 'ELECTRICIDAD Y SISTEMAS DIGITALES'},
+                {code: 'CC222', course: 'ALGORITMOS Y ESTRUCTURAS DE DATOS'},
+                {code: 'CC091', course: 'PROYECTO I'},
+                {code: 'DE181', course: 'TALLER DE COMUNICACION ORAL Y ESCRITA'}
+              ],
+              [
+                {code: 'FI604', course: 'ELECTROMAGNETISMO'},
+                {code: 'MA424', course: 'ESTADISTICA Y PROBABILIDAD'},
+                {code: 'CC082', course: 'ARQUITECTURA DE COMPUTADORES'},
+                {code: 'CC212', course: 'TECNOLOGIA DE OBJETOS'},
+                {code: 'CC083', course: 'TALLER DE TECNICAS DE PROGRAMACION'},
+                {code: 'CC214', course: 'TALLER DE ETICA PROF. Y RESPONS. SC. DEL INFORMAT'}
+              ],
+              [
+                {code: 'CC052', course: 'TECNOLOGIA WEB'},
+                {code: 'IN056', course: 'GESTION DE EMPRESA'},
+                {code: 'CC359', course: 'SISTEMAS OPERATIVOS'},
+                {code: 'CC415', course: 'BASES DE DATOS'},
+                {code: 'CC216', course: 'PROYECTO II'},
+                {code: 'DI165', course: 'INGLES I'}
+              ],
+              [
+                {code: 'CC218', course: 'INGENIERIA DE SOFTWARE I'},
+                {code: 'CC219', course: 'TALLER DE APLICACIONES WEB'},
+                {code: 'CC093', course: 'COMUNICACION DE DATOS Y REDES'},
+                {code: 'CC223', course: 'SISTEMAS DE INFORMACION'},
+                {code: 'CC094', course: 'TEORIA DE LA COMPUTACION'},
+                {code: 'DI166', course: 'INGLES II'}
+              ],
+              [
+                {code: 'CC224', course: 'INGENIERIA DE SOFTWARE II'},
+                {code: 'CC225', course: 'ANALISIS Y DISEÑO DE ALGORITMOS'},
+                {code: 'CC106', course: 'SISTEMAS DISTRIBUIDOS'},
+                {code: 'CC132', course: 'LABORATORIO DE REDES'},
+                {code: 'CC226', course: 'PROYECTO III'},
+                {code: 'YY128', course: 'ELECTIVO DE FORMACION PROFESIONAL I'},
+                {code: 'CC506', course: 'PRÁCTICA PROFESIONAL I'}
+              ]
+            ]
+  },
+  {
+    id: 'ICI',
+    malla: [
+              [
+                {code: 'MA067', course: 'INTRODUCCION AL CALCULO' },
+                {code: 'MA069', course: 'INTRODUCCION AL ALGEBRA' },
+                {code: 'CC198', course: 'INTRODUCCION A INGENIERIA INFORMATICA' },
+                {code: 'CC210', course: 'TALLER DE DESARROLLO PERSONAL' },
+                {code: 'CC199', course: 'TALLER DE PROGRAMACION I' }
+              ]
     ]
+  }];
+
+export const Careers = [
+    { id: 'ICCI', name: 'Ing. Civil en Computación e Informatica', numSemestersWithoutSchedule: 1},
+    { id: 'ICI', name: 'Ing. Civil Industrial', numSemestersWithoutSchedule: 2 }
   ];
 
 export const Laboratories = {

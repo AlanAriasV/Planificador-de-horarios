@@ -1,22 +1,22 @@
 import Header from "../components/Header";
 import CourseBlock from '../components/CourseBlock';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 
 import '../css/Home.css';
-import { courses } from "../firebase/Data";
-
-const careers = [
-  { id: 1, name: 'Ing. Civil en Computación e Informatica', numSemestersWithoutSchedule: 1},
-  { id: 2, name: 'Ing. Civil Industrial', numSemestersWithoutSchedule: 2 }
-];
+import { Courses, Careers } from "../firebase/Data";
 
 const numSemesters = 11;
 
-export function CareerSelector({careers}) {
+export function CareerSelector({careers, setSelectedCareer}) {
   const [searchTerm, setSearchTerm] = useState('');
 
+  const handleCareerClick = event => {
+    setSelectedCareer(event.target.id);
+    console.log(setSelectedCareer);
+  };
+  
   const handleInputChange = event => {
     setSearchTerm(event.target.value);
   };
@@ -25,22 +25,22 @@ export function CareerSelector({careers}) {
 
   return (
     <div className="careers-container overflow-auto blue-border p-3">
-      <div className="input-group rounded gap-2">
+      <div className="input-icon rounded gap-2">
+          <span className="icon">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </span>
           <input 
-            type="search"
+            type="text"
             className="form-control rounded" 
             placeholder="Buscar" 
             aria-label="Buscar" 
             aria-describedby="search-addon"
             value={searchTerm}
             onChange={handleInputChange} />
-          <span className="input-group-text border-0" id="search-addon">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </span>
       </div>
       <div className="results-container mt-2 d-flex flex-column justify-content-around gap-2">
         {searchResults.map((career, index) => (
-          <div key={index} className="border border-2 border-secondary rounded p-2 ">
+          <div key={index} className="career grey-border" id={career.id} onClick={() => setCount(event.target.id)}>
             <div className="m-3">
               <p className="text-uppercase">{career.name}</p>
               <strong>Semestres sin horario: </strong> <span id="cant-sin-horario">{career.numSemestersWithoutSchedule}</span>
@@ -85,33 +85,38 @@ export function SemestersButtons({numSemesters}) {
   }
 
   return (
-    <>
+    <div className="semester-selector gap-1">
     {semesters.map((semester) => (
-      <button type="button" class="btn text-nowrap border border-2 border-secondary rounded">Semestre {semester}</button>
+      <button type="button" className="btn text-nowrap border border-2 border-secondary rounded btn-blue">Semestre {semester}</button>
     ))}
-    </>
+    </div>
   )
 }
 
 export function Home() {
+  const [selectedCareer, setSelectedCareer] = useState(Careers[0].id);
+  const [careerCourses, setCareerCourses] = useState(Courses.find(item => item.id == selectedCareer).malla);
+
   return (
     <>
       <Header 
         title={'Home'} 
       />
-      <main className="container">
+      <main>
         <div className="content justify-content-center gap-5">
           <div className="career-selector-container">
             <CareerSelector
-              careers={careers}
+              careers={Careers}
+              selectedCareer = {setSelectedCareer}
             />
           </div>
           <div className="gap-3">
             <div className="d-flex gap-3 flex-column justify-content-between">
               <ViewMalla
-                courses={courses}
+                courses={careerCourses}
               />
-              <div class="semester-selector blue-border rounded p-3 gap-1">
+              <div className="blue-border rounded p-3 gap-1">
+                <h2 className="text-center m-0 mb-2">Seleccionar Semestre</h2>
                 <SemestersButtons
                   numSemesters = {numSemesters}  
                 />

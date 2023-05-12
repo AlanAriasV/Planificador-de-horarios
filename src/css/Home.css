@@ -9,6 +9,33 @@
     border-color: var(--blue-color);
 }
 
+.input-icon {
+    margin-bottom: 10px;
+}
+
+.input-icon span {
+    padding: 7px;
+    position: absolute;
+}
+
+.form-control {
+    padding-left: 30px !important;
+}
+
+.form-control:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--blue-color) !important;
+}
+
+.icon {
+    color: var(--blue-color);
+    text-align: center;
+}
+
+.selected {
+    background-color: var(--blue-color);
+    color: white;
+}
+
 .careers-container {
     min-height: 100%;
     max-height: 100%;
@@ -37,4 +64,14 @@
 .semester-selector {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+}
+
+.grey-border {
+    border: solid 2px var(--grey-color);
+    border-radius: 5px;
+}
+
+.career:hover, .btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.primary {
+    color: var(--white-color) !important;
+    background-color: var(--blue-color) !important;
 }
