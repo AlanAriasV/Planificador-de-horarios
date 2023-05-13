@@ -82,6 +82,7 @@
 }
 
 .prev-malla-title {
+  padding: 10px 0px;
   position: sticky;
   top: 0;
   background-color: var(--background-color);
@@ -96,7 +97,7 @@
 .semester-title {
   text-align: center;
   position: sticky;
-  top: 35px;
+  top: 50px;
   background-color: var(--background-color);
   z-index: 1;
   border: solid 1px var(--black-25-color)
