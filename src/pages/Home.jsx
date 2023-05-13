@@ -44,17 +44,15 @@ export function CareerSelector({ careers, setSelectedCareer }) {
         {searchResults.map((career, index) => (
           <div
             key={index}
-            className="career grey-border"
+            className="career-btn grey-border"
             id={career.id}
-            onClick={(event) => setSelectedCareer(event.target.id)}
+            onClick={handleCareerClick}
           >
-            <div className="m-3">
-              <p className="text-uppercase">{career.name}</p>
-              <strong>Semestres sin horario: </strong>{" "}
-              <span id="cant-sin-horario">
-                {career.numSemestersWithoutSchedule}
-              </span>
-            </div>
+            <p className="text-uppercase">{career.name}</p>
+            <strong>Semestres sin horario: </strong>{" "}
+            <span id="cant-sin-horario">
+              {career.numSemestersWithoutSchedule}
+            </span>
           </div>
         ))}
       </div>
@@ -64,14 +62,12 @@ export function CareerSelector({ careers, setSelectedCareer }) {
 
 export function ViewMalla({ courses }) {
   return (
-    <div className="prev-malla blue-border rounded">
-      <div className="pt-2 pb-2">
-        <h2 className="text-center m-0">Malla curricular</h2>
-      </div>
-      <div className="d-flex overflow-auto p-2 gap-1">
+    <div className="prev-malla blue-border">
+      <h2 className="prev-malla-title">Malla curricular</h2>
+      <div className="d-flex p-2 gap-1">
         {courses.map((semester, index) => (
-          <div key={index} className="column d-flex flex-column gap-1">
-            <p className="text-center">Semestre {index + 1}</p>
+          <div key={index} className="semester-column d-flex flex-column gap-1">
+            <p className="semester-title">Semestre {index + 1}</p>
             {semester.map((courses, index) => (
               <CourseBlock
                 key={index}
@@ -95,12 +91,12 @@ export function SemestersButtons({ numSemesters }) {
   }
 
   return (
-    <div className="semester-selector gap-1">
+    <div className="semester-selector">
       {semesters.map((semester) => (
         <button
           key={semester}
           type="button"
-          className="btn text-nowrap border border-2 border-secondary rounded btn-blue"
+          className="semester-btn"
         >
           Semestre {semester}
         </button>
@@ -110,7 +106,8 @@ export function SemestersButtons({ numSemesters }) {
 }
 
 export function Home() {
-  const [selectedCareer, setSelectedCareer] = useState(Careers[0].id);
+  const defaultCareer = Careers[0];
+  const [selectedCareer, setSelectedCareer] = useState(defaultCareer.id);
   const [careerCourses, setCareerCourses] = useState(
     Courses.find((item) => item.id == selectedCareer).malla
   );
@@ -121,18 +118,16 @@ export function Home() {
     {/* TODO: Mejorar todo */}
       <Header title={"Home"} />
       <main className="main-home">
-        {/* <div> */}
         <div className="career-selector-container">
           <CareerSelector
             careers={Careers}
             setSelectedCareer={setSelectedCareer}
           />
         </div>
-        {/* <div className="gap-3"> */}
-        {/* <div className="d-flex gap-3 flex-column justify-content-between"> */}
+        <h2 className="career-title">{defaultCareer.name}</h2>
         <ViewMalla courses={careerCourses} />
-        <div className="semester-selector-container blue-border rounded p-3 gap-1">
-          <h2 className="text-center m-0 mb-2">Seleccionar Semestre</h2>
+        <h2 className="semesters-title">Semestres</h2>
+        <div className="semester-selector-container">
           <SemestersButtons numSemesters={numSemesters} />
         </div>
       </main>
