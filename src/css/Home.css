@@ -63,16 +63,25 @@
   border-color: var(--blue-color);
 }
 
-.input-icon {
+
+.input-search {
+  width: 100%;
   position: relative;
-  margin-bottom: 10px;
 }
 
-.input-icon span {
+.input-search input {
+  width: 100%;
+  border: solid 1px var(--blue-color);
+  border-radius: 0.5rem;
+  padding: 5px 30px 5px 10px;
+}
+
+.input-search span {
   /* padding: 7px; */
   position: absolute;
   right: 10px;
-  top: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   /* transform: translateY(50%); */
 }
 
@@ -104,13 +113,6 @@
 
 }
 
-.form-control {
-  padding-left: 30px !important;
-}
-
-.form-control:focus {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--blue-color) !important;
-}
 
 .icon {
   color: var(--blue-color);
@@ -140,13 +142,14 @@
 }
 
 .semester-column {
+  padding: 0px 3px;
   justify-content: center;
 }
 
 .schedule-block {
   border: solid 1px var(--black-25-color);
   min-height: 6rem;
-  min-width: 9rem;
+  max-height: 6rem;
   word-wrap: break-word;
   text-align: center;
 }

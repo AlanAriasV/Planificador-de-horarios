@@ -12,7 +12,7 @@ export function CareerSelector({ careers, setSelectedCareer }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleCareerClick = (event) => {
-    setSelectedCareer(event.target.id);
+    setSelectedCareer(event.target);
     console.log(setSelectedCareer);
   };
 
@@ -26,13 +26,12 @@ export function CareerSelector({ careers, setSelectedCareer }) {
 
   return (
     <div className="careers-container overflow-auto blue-border p-3">
-      <div className="input-icon rounded gap-2">
+      <div className="input-search">
         <span className="icon">
           <FaSearch style={{ paddingBlock: 0, marginBlock: "auto" }} />
         </span>
         <input
           type="text"
-          className="form-control rounded"
           placeholder="Buscar"
           aria-label="Buscar"
           aria-describedby="search-addon"
