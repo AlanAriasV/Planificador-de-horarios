@@ -64,9 +64,9 @@ export function ViewMalla({ courses }) {
   return (
     <div className="prev-malla blue-border">
       <h2 className="prev-malla-title">Malla curricular</h2>
-      <div className="d-flex p-2 gap-1">
+      <div className="semesters-container">
         {courses.map((semester, index) => (
-          <div key={index} className="semester-column d-flex flex-column gap-1">
+          <div key={index} className="semester-column">
             <p className="semester-title">Semestre {index + 1}</p>
             {semester.map((courses, index) => (
               <CourseBlock

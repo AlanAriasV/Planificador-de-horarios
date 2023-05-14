@@ -132,11 +132,23 @@
   max-width: inherit;
 }
 
+.semesters-container {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-auto-flow: column;
+}
+
+.semester-column {
+  justify-content: center;
+}
+
 .schedule-block {
+  border: solid 1px var(--black-25-color);
   min-height: 6rem;
-  max-width: 9rem;
   min-width: 9rem;
   word-wrap: break-word;
+  text-align: center;
 }
 
 .schedule-block-title {
