@@ -1,13 +1,13 @@
 .main-home {
-    margin-inline: auto !important  ;
-    /* height: 90%; */
-    display: grid;
+  margin-inline: auto !important;
+  height: 100%;
+  display: grid;
   padding: 20px;
   overflow: auto;
   gap: 20px;
-    width: 90%;
+  width: 90%;
   grid-template-columns: calc(20% - 10px) calc(80% - 10px);
-  grid-auto-rows: calc(15% - 10px) calc(50% - 10px) calc(10% - 10px) calc(15% - 10px);
+  grid-auto-rows: 0.5fr 4fr 0.5fr 1fr;
   grid-template-areas:
     "selector ctitle"
     "selector courses"
@@ -15,12 +15,26 @@
     "selector semesters";
 }
 
-.career-btn{
+.empty {
+  grid-area: 1 / 2 / 5 / 3;
+  display: grid;
+  place-content: center;
+}
+
+.empty>h2 {
+  border: solid;
+  border-radius: 0.5rem;
+  border-color: var(--blue-color);
+  padding-inline: 20px;
+  padding-block: 10px;
+}
+
+.career-btn {
   padding: 20px 15px;
   background-color: var(--white-color);
 }
 
-.career-btn p{
+.career-btn p {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -96,10 +110,11 @@
   top: 0;
   background-color: var(--background-color);
   text-align: center;
-  z-index: 1; /* Coloca el título sobre el contenido desplazable */
+  z-index: 1;
+  /* Coloca el título sobre el contenido desplazable */
 }
 
-.semester-column { 
+.semester-column {
   position: relative;
 }
 
@@ -110,7 +125,6 @@
   background-color: var(--background-color);
   z-index: 1;
   border: solid 1px var(--black-25-color)
-
 }
 
 
@@ -150,6 +164,7 @@
   border: solid 1px var(--black-25-color);
   min-height: 6rem;
   max-height: 6rem;
+  padding: 5px 10px;
   word-wrap: break-word;
   text-align: center;
 }
