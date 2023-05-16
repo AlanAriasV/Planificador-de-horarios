@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import CourseBlock from "../components/CourseBlock";
-import CareerContext from "../context/CareerContext"
+// import CareerContext from "../context/CareerContext"
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 
@@ -11,15 +11,16 @@ export function CareerSelector({ setSelectedCareerID }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleCareerClick = (event) => {
-    setSelectedCareerID(event.currentTarget.id)
+    setSelectedCareerID(event.currentTarget.id);
   };
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-
-  const searchResults = Object.entries(Careers).filter(item => item[1].name.toLowerCase().includes(searchTerm.toLowerCase()));
+  const searchResults = Object.entries(Careers).filter((item) =>
+    item[1].name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="careers-container overflow-auto blue-border p-3">
@@ -58,12 +59,43 @@ export function CareerSelector({ setSelectedCareerID }) {
   );
 }
 
+function title() {
+  const title = document.createElement("div");
+  title.appendChild;
+}
+
 export function ViewMalla({ courses }) {
   return (
     <div className="prev-malla blue-border">
       <h2 className="prev-malla-title">Malla curricular</h2>
       <div className="semesters-container">
-        {courses.map((semester, index) => (
+        <table>
+          <thead>
+            <tr>
+              {courses.map((semester, index) => (
+                <th key={index}>
+                  <p className="semester-title">Semestre {index + 1}</p>
+                </th>
+              ))}
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div className="semesters-container overflow">
+        <table>
+          <tbody>
+            {courses.map((semester, index) => (
+              <tr key={index}>
+                {courses.map((course, index) => (
+                  <td key={index}>
+                    <CourseBlock code={course.code} title={course.course} />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {/* {courses.map((semester, index) => (
           <div key={index} className="semester-column">
             <p className="semester-title">Semestre {index + 1}</p>
             {semester.map((courses, index) => (
@@ -74,7 +106,7 @@ export function ViewMalla({ courses }) {
               />
             ))}
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
@@ -88,11 +120,7 @@ export function SemestersButtons({ numSemesters }) {
       {semesters.map((semester) => {
         semester++;
         return (
-          <button
-            key={semester}
-            type="button"
-            className="semester-btn"
-          >
+          <button key={semester} type="button" className="semester-btn">
             Semestre {semester}
           </button>
         );
@@ -102,19 +130,14 @@ export function SemestersButtons({ numSemesters }) {
 }
 
 export function Home() {
-
   const [defaultCareer, setSelectedCareerID] = useState(null);
   const [selectedCareer, setSelectedCareer] = useState({});
   const [careerCourses, setCareerCourses] = useState([]);
 
   useEffect(() => {
-    if (defaultCareer === null) return
-    setSelectedCareer(
-      Careers[defaultCareer]
-    );
-    setCareerCourses(
-      Courses[defaultCareer].malla
-    );
+    if (defaultCareer === null) return;
+    setSelectedCareer(Careers[defaultCareer]);
+    setCareerCourses(Courses[defaultCareer].malla);
   }, [defaultCareer]);
 
   return (
@@ -122,12 +145,9 @@ export function Home() {
       <Header title={"Home"} />
       <main className="main-home">
         <div className="career-selector-container">
-          <CareerSelector
-            setSelectedCareerID={setSelectedCareerID}
-          />
+          <CareerSelector setSelectedCareerID={setSelectedCareerID} />
         </div>
-        {
-          defaultCareer !== null && (
+        {defaultCareer !== null && (
           <>
             <h2 className="career-title">{selectedCareer.name}</h2>
             <ViewMalla courses={careerCourses} />
@@ -136,17 +156,12 @@ export function Home() {
               <SemestersButtons numSemesters={careerCourses.length} />
             </div>
           </>
-        )
-        }
-        {
-          defaultCareer === null && (
-            <div className='empty'>
-              <h2>
-                Seleccione una Carrera
-              </h2>
-            </div>
-          )
-        }
+        )}
+        {defaultCareer === null && (
+          <div className="empty">
+            <h2>Seleccione una Carrera</h2>
+          </div>
+        )}
       </main>
     </>
   );

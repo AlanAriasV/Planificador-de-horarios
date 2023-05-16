@@ -32,6 +32,8 @@
 .career-btn {
   padding: 20px 15px;
   background-color: var(--white-color);
+  transition: .25s;
+  cursor: pointer;
 }
 
 .career-btn p {
@@ -58,6 +60,9 @@
 }
 
 .prev-malla {
+  max-height: 50rem;
+  max-width: inherit;
+  position: relative;
   grid-area: courses;
   height: 100%;
 }
@@ -77,6 +82,11 @@
   border-color: var(--blue-color);
 }
 
+.results-container {
+  padding: 5px 0;
+  display: grid;
+  row-gap: 5px;
+}
 
 .input-search {
   width: 100%;
@@ -91,17 +101,13 @@
 }
 
 .input-search span {
-  /* padding: 7px; */
+  display: flex;
+  align-items: center;
   position: absolute;
   right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  /* transform: translateY(50%); */
-}
-
-.prev-malla {
-  position: relative;
-  overflow: auto;
+  height: 100%;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
 }
 
 .prev-malla-title {
@@ -111,17 +117,12 @@
   background-color: var(--background-color);
   text-align: center;
   z-index: 1;
-  /* Coloca el título sobre el contenido desplazable */
-}
-
-.semester-column {
-  position: relative;
 }
 
 .semester-title {
   text-align: center;
   position: sticky;
-  top: 50px;
+  top: 0;
   background-color: var(--background-color);
   z-index: 1;
   border: solid 1px var(--black-25-color)
@@ -139,13 +140,9 @@
 }
 
 .careers-container {
+  padding: 5%;
   min-height: 100%;
   max-height: 100%;
-}
-
-.prev-malla {
-  max-height: 50rem;
-  max-width: inherit;
 }
 
 .semesters-container {
@@ -153,11 +150,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   grid-auto-flow: column;
+  /* overflow: auto; */
 }
 
 .semester-column {
   padding: 0px 3px;
   justify-content: center;
+  /* position: relative; */
 }
 
 .schedule-block {
@@ -181,7 +180,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   justify-items: center;
-  row-gap: 5px;
+  row-gap: 10px;
 }
 
 .grey-border {
@@ -197,9 +196,14 @@
   filter: drop-shadow(0 0 0.1rem var(--black-25-color));
   width: 80%;
   padding: 0.3rem 0;
+  transition: .25s;
+  color: black;
+  cursor: pointer;
 }
 
 .career-btn:hover,
 .semester-btn:hover {
+  /* box-shadow: 0 0 0.3rem var(--blue-color); */
   filter: drop-shadow(0 0 0.3rem var(--blue-color));
+  /* transform: scale(1.025); */
 }

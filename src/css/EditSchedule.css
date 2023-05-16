@@ -9,10 +9,6 @@
   gap: 20px;
 }
 
-.main-edit>* {
-  user-select: none;
-}
-
 section {
   background-color: white;
   border: var(--border);
@@ -69,19 +65,19 @@ section.grid>.disabled {
   grid-area: t;
 }
 
-table {
+.schedule table {
   width: 100%;
   border-collapse: separate !important;
   border-spacing: 2px 2px;
 }
 
-table> :not(caption)>*>* {
+.schedule table> :not(caption)>*>* {
   border: 1px solid black;
   padding: 0px;
   user-select: none;
 }
 
-th,
+.schedule table thead tr th,
 .schedule>table tbody tr:first-child td {
   background-color: var(--blue-color) !important;
   color: var(--white-color);
@@ -94,31 +90,34 @@ th,
   text-align: center !important;
 }
 
-td {
+.schedule table tbody td {
   width: calc(100% / 6);
 }
 
-thead tr:first-child {
+.schedule thead tr:first-child {
   height: 35px;
 }
 
-tbody tr:first-child {
+.schedule tbody tr:first-child {
   height: 30px;
 }
 
 .scrollSchedule tbody tr:nth-child(n+1) {
-  height: 75px;
+  height: 81px;
 }
 
-tbody tr:nth-child(n+2) td:nth-child(n+2) {
+.scrollSchedule tbody tr td:nth-child(n+2) {
   padding: 5px;
 }
 
 .scrollSchedule {
   height: calc(100% - 68px);
+  /* max-width: 100%; */
+  width:599px;
   /* margin-top: -2px !important; */
   /* margin-left: -1px !important; */
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .scrollSchedule::-webkit-scrollbar {
@@ -170,6 +169,14 @@ tbody tr:nth-child(n+2) td:nth-child(n+2) {
 .block[item]:hover::after {
   opacity: 1;
   visibility: visible;
+}
+
+.scrollSchedule table tbody td>div:not(.block) {
+  background-color: red;
+  border: none;
+  height: 25px !important;
+  outline: none;
+  max-width: 85.5px !important;
 }
 
 /* main {

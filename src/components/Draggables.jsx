@@ -38,8 +38,8 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                                     {(provided, snapshot) => {
                                         var backgroundColor = 'white';
                                         if (blockSheltered) backgroundColor = 'red'
-                                        else if (block.sheltered) backgroundColor = 'var(--yellow-color)'
-                                        else if (snapshot.isDraggingOver) backgroundColor = 'lightblue';
+                                        else if (block.sheltered) backgroundColor = 'var(--yellow-color)';
+                                        // else if (snapshot.isDraggingOver) backgroundColor = 'lightblue';
                                         return (
                                             <td
                                                 {...provided.droppableProps}
