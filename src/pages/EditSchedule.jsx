@@ -200,30 +200,24 @@ export function EditSchedule() {
           }}
         >
           <section className='schedule'>
-            <table>
-              <thead>
-                <tr>
-                  <th colSpan={6}>
-                    <h2>Horario</h2>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr>
-                  <td></td>
-                  <td>Lunes</td>
-                  <td>Martes</td>
-                  <td>Miércoles</td>
-                  <td>Jueves</td>
-                  <td>Viernes</td>
-                </tr>
-              </tbody>
-            </table>
-            <div className='scrollSchedule'>
-              <table>
-                < tbody >
-
+            <div style={{overflow: 'auto', height: '100%', maxWidth: '100%'}}>
+              <table className='edit-schedule'>
+                <thead>
+                  <tr>
+                    <th colSpan={6}>
+                      <h2>Horario</h2>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Lunes</td>
+                    <td>Martes</td>
+                    <td>Miércoles</td>
+                    <td>Jueves</td>
+                    <td>Viernes</td>
+                  </tr>
+                </thead>
+                <tbody>
                   <ScheduleBlocksDraggable
                     blocks={blocks}
                     onClick={(data) =>

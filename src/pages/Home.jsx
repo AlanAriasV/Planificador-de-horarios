@@ -79,13 +79,9 @@ export function ViewMalla({ courses }) {
               ))}
             </tr>
           </thead>
-        </table>
-      </div>
-      <div className="semesters-container overflow">
-        <table>
-          <tbody>
+          <tbody className="semesters-container overflow">
             {courses.map((semester, index) => (
-              <tr key={index}>
+              <tr key={index} style={{display: "table-column"}}>
                 {courses.map((course, index) => (
                   <td key={index}>
                     <CourseBlock code={course.code} title={course.course} />
@@ -95,18 +91,6 @@ export function ViewMalla({ courses }) {
             ))}
           </tbody>
         </table>
-        {/* {courses.map((semester, index) => (
-          <div key={index} className="semester-column">
-            <p className="semester-title">Semestre {index + 1}</p>
-            {semester.map((courses, index) => (
-              <CourseBlock
-                key={index}
-                code={courses.code}
-                title={courses.course}
-              />
-            ))}
-          </div>
-        ))} */}
       </div>
     </div>
   );

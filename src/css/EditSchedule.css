@@ -3,8 +3,9 @@
   grid-template-columns: calc(var(--width-gap) / 2) repeat(2, calc(var(--width-gap) / 4));
   grid-auto-rows: calc(var(--height-gap) / 2);
   overflow: auto;
-  grid-template-areas: "s a l"
-    "s t t";
+  grid-template-areas:
+    's a l'
+    's t t';
   padding: 20px;
   gap: 20px;
 }
@@ -29,7 +30,8 @@ section.teachers {
   grid-template-columns: repeat(auto-fill, calc((100% - var(--gap) * 3) / 4));
 }
 
-section::-webkit-scrollbar {
+section::-webkit-scrollbar,
+section>*::-webkit-scrollbar {
   display: none;
 }
 
@@ -65,65 +67,41 @@ section.grid>.disabled {
   grid-area: t;
 }
 
-.schedule table {
+.edit-schedule {
   width: 100%;
-  border-collapse: separate !important;
-  border-spacing: 2px 2px;
 }
 
-.schedule table> :not(caption)>*>* {
+.edit-schedule> :not(caption)>*>* {
   border: 1px solid black;
   padding: 0px;
   user-select: none;
 }
 
-.schedule table thead tr th,
-.schedule>table tbody tr:first-child td {
+.edit-schedule thead tr th,
+.edit-schedule thead tr td,
+.edit-schedule tbody tr td:first-child {
   background-color: var(--blue-color) !important;
   color: var(--white-color);
   text-align: center !important;
 }
 
-.scrollSchedule tbody tr td:first-child {
-  background-color: var(--blue-color) !important;
-  color: var(--white-color);
-  text-align: center !important;
-}
-
-.schedule table tbody td {
+.edit-schedule thead td,
+.edit-schedule tbody td {
   width: calc(100% / 6);
 }
 
-.schedule thead tr:first-child {
+.edit-schedule thead tr:first-child {
   height: 35px;
 }
 
-.schedule tbody tr:first-child {
+.edit-schedule thead tr:last-child {
   height: 30px;
 }
 
-.scrollSchedule tbody tr:nth-child(n+1) {
+.edit-schedule tbody tr:nth-child(n+1) td {
   height: 81px;
-}
-
-.scrollSchedule tbody tr td:nth-child(n+2) {
   padding: 5px;
 }
-
-.scrollSchedule {
-  height: calc(100% - 68px);
-  /* max-width: 100%; */
-  width:599px;
-  /* margin-top: -2px !important; */
-  /* margin-left: -1px !important; */
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.scrollSchedule::-webkit-scrollbar {
-  display: none;
-}
-
 
 .block {
   /* TODO: Continuar Aquí y Placeholder [:not(.block)] */
@@ -171,12 +149,17 @@ section.grid>.disabled {
   visibility: visible;
 }
 
-.scrollSchedule table tbody td>div:not(.block) {
+.edit-schedule tbody td>div:not(.block) {
   background-color: red;
   border: none;
   height: 25px !important;
+  /* width: 50px !important; */
+  max-width: 50px !important;
   outline: none;
-  max-width: 85.5px !important;
+}
+
+.schedule>div>div:not(table) {
+  display: none;
 }
 
 /* main {
@@ -268,14 +251,12 @@ section.grid > .disabled {
   gap: 20px;
   grid-template-columns: repeat(2, calc(50% - 10px));
 }
-
-table {
+ {
   width: 100%;
   border-collapse: separate !important;
   margin: 0px !important;
 }
-
-table > :not(caption) > * > * {
+ > :not(caption) > * > * {
   border: 1px solid black;
   padding: 0px;
   user-select: none;
