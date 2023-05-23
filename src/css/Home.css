@@ -3,7 +3,6 @@
   height: 100%;
   display: grid;
   padding: 20px;
-  overflow: auto;
   gap: 20px;
   width: 90%;
   grid-template-columns: calc(20% - 10px) calc(80% - 10px);
@@ -60,11 +59,9 @@
 }
 
 .prev-malla {
-  max-height: 50rem;
   max-width: inherit;
   position: relative;
   grid-area: courses;
-  height: 100%;
 }
 
 .semester-selector-container {
@@ -150,7 +147,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   grid-auto-flow: column;
-  /* overflow: auto; */
+  overflow: auto;
 }
 
 .semester-column {

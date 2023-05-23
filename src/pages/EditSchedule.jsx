@@ -200,7 +200,8 @@ export function EditSchedule() {
           }}
         >
           <section className='schedule'>
-            <div style={{overflow: 'auto', height: '100%', maxWidth: '100%'}}>
+            <div 
+            style={{overflowY: 'scroll', height: '100%', width: '100%'}}>
               <table className='edit-schedule'>
                 <thead>
                   <tr>
@@ -233,8 +234,11 @@ export function EditSchedule() {
               </table>
             </div>
           </section >
+          <h2 style={{gridArea:'ta'}}> Asignaturas </h2>
           <AsignaturesDraggable asignatures={asignatures} />
+          <h2 style={{gridArea:'tl'}}> Laboratorios </h2>
           <LaboratoriesDraggable laboratories={laboratories} />
+          <h2 style={{gridArea:'tt'}}> Docentes </h2>
           <TeachersDraggable teachers={teachers} />
         </DragDropContext >
       </main >

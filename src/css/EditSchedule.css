@@ -1,13 +1,20 @@
 .main-edit {
+  height: calc(100% - 70px);
   display: grid;
-  grid-template-columns: calc(var(--width-gap) / 2) repeat(2, calc(var(--width-gap) / 4));
-  grid-auto-rows: calc(var(--height-gap) / 2);
-  overflow: auto;
+  grid-template-columns: calc(47.5% - 16.6px) calc(2.5% - 16.6px) calc(22.5% - 16.6px) calc(2.5% - 16.6px) calc(22.5% - 16.6px) calc(2.5% - 16.6px);
+  grid-auto-rows: calc(10% - 15px) calc(40% - 15px) calc(10% - 15px) calc(40% - 15px);
   grid-template-areas:
-    's a l'
-    's t t';
+    's ss ta ta tl tl'
+    's ss a sa l sl'
+    's ss tt tt tt tt'
+    's ss t t t st';
   padding: 20px;
   gap: 20px;
+}
+
+.main-edit h2 {
+  font-size: 30px;
+  font-weight: 600;
 }
 
 section {
@@ -15,27 +22,31 @@ section {
   border: var(--border);
   border-radius: var(--border-radius-10) !important;
   padding: 20px;
+  overflow: hidden;
 }
 
-section.grid {
+div.grid {
+  width: 100%;
+  height: 100%;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, calc((100% - var(--gap)) / 2));
-  grid-auto-columns: calc((100% - var(--gap)) / 2);
-  grid-auto-rows: calc((100% - var(--gap) * 2) / 3);
+  /* grid-auto-columns: calc((100% - var(--gap)) / 2); */
+  grid-auto-rows: calc((100% - var(--gap)) / 2);
   overflow: auto;
 }
 
-section.teachers {
-  grid-template-columns: repeat(auto-fill, calc((100% - var(--gap) * 3) / 4));
+div.grid-teachers {
+  grid-template-columns: repeat(auto-fill, calc((100% - var(--gap)  * 3) / 4  ));
+  grid-auto-rows: calc((100% - var(--gap)) / 2);
 }
 
 section::-webkit-scrollbar,
-section>*::-webkit-scrollbar {
+section > *::-webkit-scrollbar {
   display: none;
 }
 
-section.grid>.item {
+section div > .item {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -45,7 +56,7 @@ section.grid>.item {
   text-align: center;
 }
 
-section.grid>.disabled {
+section.grid > .disabled {
   background-color: var(--black-25-color);
   border-color: var(--black-50-color);
   color: var(--black-50-color);
@@ -69,9 +80,10 @@ section.grid>.disabled {
 
 .edit-schedule {
   width: 100%;
+  margin-inline: auto !important;
 }
 
-.edit-schedule> :not(caption)>*>* {
+.edit-schedule > :not(caption) > * > * {
   border: 1px solid black;
   padding: 0px;
   user-select: none;
@@ -98,17 +110,19 @@ section.grid>.disabled {
   height: 30px;
 }
 
-.edit-schedule tbody tr:nth-child(n+1) td {
+.edit-schedule tbody tr:nth-child(n + 1) td {
   height: 81px;
   padding: 5px;
 }
 
 .block {
   /* TODO: Continuar Aquí y Placeholder [:not(.block)] */
-  position: relative;
+  /* position: relative; */
+  /* background-color: red; */
+  text-align: center;
 }
 
-.block[item]:before {
+/* .block[item]:before {
   background-color: var(--background-color);
   border: 1px dashed var(--blue-color);
   border-radius: var(--border-radius-5);
@@ -122,7 +136,7 @@ section.grid>.disabled {
   transform: translate(-50%, 0%);
   transition: 0.25s;
   visibility: hidden;
-  z-index: 1;
+  z-index: 3;
 }
 
 .block[item]:after {
@@ -130,7 +144,7 @@ section.grid>.disabled {
   border: 1px dashed var(--blue-color);
   border-right: none;
   border-top: none;
-  content: "";
+  content: '';
   height: 10px;
   left: 50%;
   opacity: 0;
@@ -140,16 +154,16 @@ section.grid>.disabled {
   transition: 0.25s;
   visibility: hidden;
   width: 10px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .block[item]:hover::before,
 .block[item]:hover::after {
   opacity: 1;
   visibility: visible;
-}
+} */
 
-.edit-schedule tbody td>div:not(.block) {
+.edit-schedule tbody td > div:not(.block) {
   background-color: red;
   border: none;
   height: 25px !important;
@@ -158,7 +172,7 @@ section.grid>.disabled {
   outline: none;
 }
 
-.schedule>div>div:not(table) {
+.schedule > div > div:not(table) {
   display: none;
 }
 
@@ -195,7 +209,7 @@ section.grid>.disabled {
   border: 1px dashed var(--blue-color);
   border-right: none;
   border-top: none;
-  content: "";
+  content: '';
   height: 10px;
   left: 50%;
   opacity: 0;

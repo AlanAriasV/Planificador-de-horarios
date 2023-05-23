@@ -23,7 +23,7 @@ export function CareerSelector({ setSelectedCareerID }) {
   );
 
   return (
-    <div className="careers-container overflow-auto blue-border p-3">
+    <div className="careers-container blue-border">
       <div className="input-search">
         <span className="icon">
           <FaSearch style={{ paddingBlock: 0, marginBlock: "auto" }} />
@@ -37,7 +37,7 @@ export function CareerSelector({ setSelectedCareerID }) {
           onChange={handleInputChange}
         />
       </div>
-      <div className="results-container mt-2 d-flex flex-column justify-content-around gap-2">
+      <div className="results-container">
         {searchResults.map((career) => {
           return (
             <div
@@ -69,28 +69,22 @@ export function ViewMalla({ courses }) {
     <div className="prev-malla blue-border">
       <h2 className="prev-malla-title">Malla curricular</h2>
       <div className="semesters-container">
-        <table>
-          <thead>
-            <tr>
-              {courses.map((semester, index) => (
-                <th key={index}>
-                  <p className="semester-title">Semestre {index + 1}</p>
-                </th>
+        {courses.map((_, index) => (
+          <div key={index}>
+            <p className="semester-title">Semestre {index + 1}</p>
+          </div>
+        ))}
+        <div className="courses-container">
+          {courses.map((semester, index) => (
+            <div key={index}>
+              {semester.map((course, index) => (
+                <div key={index}>
+                  <CourseBlock code={course.code} title={course.course}/>
+                </div>
               ))}
-            </tr>
-          </thead>
-          <tbody className="semesters-container overflow">
-            {courses.map((semester, index) => (
-              <tr key={index} style={{display: "table-column"}}>
-                {courses.map((course, index) => (
-                  <td key={index}>
-                    <CourseBlock code={course.code} title={course.course} />
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
