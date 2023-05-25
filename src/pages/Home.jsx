@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import CourseBlock from "../components/CourseBlock";
-// import CareerContext from "../context/CareerContext"
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 
@@ -69,19 +68,15 @@ export function ViewMalla({ courses }) {
     <div className="prev-malla blue-border">
       <h2 className="prev-malla-title">Malla curricular</h2>
       <div className="semesters-container">
-        {courses.map((_, index) => (
-          <div key={index}>
-            <p className="semester-title">Semestre {index + 1}</p>
-          </div>
-        ))}
         <div className="courses-container">
-          {courses.map((semester, index) => (
-            <div key={index}>
-              {semester.map((course, index) => (
-                <div key={index}>
-                  <CourseBlock code={course.code} title={course.course}/>
-                </div>
+          {courses.map((semester, index1) => (
+            <div key={index1}>
+            <p className="semester-title">Semestre {index1 + 1}</p>
+            <div>
+              {semester.map((course, index2) => (
+                <CourseBlock key={index2} code={course.code} title={course.course}/>
               ))}
+            </div>
             </div>
           ))}
         </div>

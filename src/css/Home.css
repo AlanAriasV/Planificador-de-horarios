@@ -118,13 +118,11 @@
 
 .semester-title {
   text-align: center;
-  position: sticky;
-  top: 0;
+  white-space: nowrap;
   background-color: var(--background-color);
   z-index: 1;
-  border: solid 1px var(--black-25-color)
+  border: solid 1px var(--black-25-color);  
 }
-
 
 .icon {
   color: var(--blue-color);
@@ -148,6 +146,12 @@
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   grid-auto-flow: column;
   overflow: auto;
+}
+
+.semester-title {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .semester-column {
