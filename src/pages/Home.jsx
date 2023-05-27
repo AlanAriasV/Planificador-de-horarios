@@ -2,8 +2,10 @@ import Header from "../components/Header";
 import CourseBlock from "../components/CourseBlock";
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
+import Modal from "../components/Modal";
 
 import "../css/Home.css";
+import "../css/Modal.css";
 import { Courses, Careers } from "../firebase/Data";
 
 export function CareerSelector({ setSelectedCareerID }) {
@@ -83,7 +85,10 @@ export function ViewMalla({ courses }) {
   );
 }
 
+
+
 export function SemestersButtons({ numSemesters }) {
+  const [openModal, setOpenModal] = useState(false);
   const semesters = [...Array(numSemesters).keys()];
 
   return (
@@ -91,11 +96,12 @@ export function SemestersButtons({ numSemesters }) {
       {semesters.map((semester) => {
         semester++;
         return (
-          <button key={semester} type="button" className="semester-btn">
-            Semestre {semester}
-          </button>
+            <button key={semester} type="button" className="semester-btn" onClick={() => {setOpenModal(true)}}>
+              Semestre {semester}
+            </button>
         );
       })}
+      {openModal && <Modal closeModal={setOpenModal} />}
     </div>
   );
 }
