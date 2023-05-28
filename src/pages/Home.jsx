@@ -72,12 +72,12 @@ export function ViewMalla({ courses }) {
       <div className="semesters-container">
           {courses.map((semester, index1) => (
             <div key={index1}>
-            <p className="semester-title">Semestre {index1 + 1}</p>
-            <div className="semester-courses">
-              {semester.map((course, index2) => (
-                <CourseBlock key={index2} code={course.code} title={course.course}/>
-              ))}
-            </div>
+              <p className="semester-title">Semestre {index1 + 1}</p>
+              <div className="semester-courses">
+                {semester.map((course, index2) => (
+                  <CourseBlock key={index2} code={course.code} title={course.course}/>
+                ))}
+              </div>
             </div>
           ))}
       </div>
