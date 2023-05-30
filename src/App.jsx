@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 
-import { EditSchedule, Home, SignIn } from "./pages/Pages";
+import { EditSchedule, Home, SignIn } from './pages/Pages';
 
 function App() {
 
@@ -8,8 +8,8 @@ function App() {
     <>
       <Routes>
         <Route index element={<Home />} />
-        <Route path={"/signin"} element={<SignIn />} />
-        <Route path={"/edit-schedule"} element={<EditSchedule />} />
+        <Route path={'/signin'} element={<SignIn />} />
+        <Route path={'/edit-schedule'} element={<EditSchedule />} />
       </Routes>
     </>
   );

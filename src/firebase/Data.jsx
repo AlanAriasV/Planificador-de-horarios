@@ -184,5 +184,12 @@ export const Assignments = {
       { asi: 'CC223', block: 11, day: 'V', lab: 'LAB-PAR', doc: 'DOC-RHA' },
       { asi: 'CC223', block: 12, day: 'V', lab: 'LAB-PAR', doc: 'DOC-RHA' },
     ]
+  },
+  'A/2-2022' : {
+    items: [
+      { asi: 'CC219', block: 11, day: 'M', lab: 'LAB-PAR', doc: 'DOC-REO' },
+      { asi: 'CC219', block: 12, day: 'M', lab: 'LAB-PAR', doc: 'DOC-REO' },
+      { asi: 'CC219', block: 11, day: 'J', lab: 'LAB-PAR', doc: 'DOC-REO' },
+    ]
   }
 };

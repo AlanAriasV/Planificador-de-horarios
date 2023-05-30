@@ -1,13 +1,13 @@
-.main-edit {
-  height: calc(100% - 70px);
+.main-edit {  
   display: grid;
-  grid-template-columns: calc(47.5% - 16.6px) calc(2.5% - 16.6px) calc(22.5% - 16.6px) calc(2.5% - 16.6px) calc(22.5% - 16.6px) calc(2.5% - 16.6px);
+  grid-template-columns: calc(50% - 13.3px) repeat(2, calc(25% - 13.3px));
+  /* grid-template-columns: calc(47.5% - 16.6px) calc(2.5% - 16.6px) calc(22.5% - 16.6px) calc(2.5% - 16.6px) calc(22.5% - 16.6px) calc(2.5% - 16.6px); */
   grid-auto-rows: calc(10% - 15px) calc(40% - 15px) calc(10% - 15px) calc(40% - 15px);
   grid-template-areas:
-    's ss ta ta tl tl'
-    's ss a sa l sl'
-    's ss tt tt tt tt'
-    's ss t t t st';
+    's ta tl'
+    's a l'
+    's tt tt'
+    's t t';
   padding: 20px;
   gap: 20px;
 }
@@ -23,6 +23,7 @@ section {
   border-radius: var(--border-radius-10) !important;
   padding: 20px;
   overflow: hidden;
+  margin-right: 20px !important;
 }
 
 div.grid {
@@ -30,10 +31,11 @@ div.grid {
   height: 100%;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, calc((100% - var(--gap)) / 2));
+  grid-template-columns: repeat(auto-fill, calc(((100% - var(--gap)) / 2) - 1px));
   /* grid-auto-columns: calc((100% - var(--gap)) / 2); */
   grid-auto-rows: calc((100% - var(--gap)) / 2);
   overflow: auto;
+  /* position: relative; */
 }
 
 div.grid-teachers {
@@ -41,10 +43,16 @@ div.grid-teachers {
   grid-auto-rows: calc((100% - var(--gap)) / 2);
 }
 
-section::-webkit-scrollbar,
-section > *::-webkit-scrollbar {
-  display: none;
+div.grid::-webkit-scrollbar {
+  /* position: absolute;
+  left: 40px; */
 }
+/* section::-webkit-scrollbar, */
+/* section > *::-webkit-scrollbar { */
+  /* display: none; */
+/* } */
+
+
 
 section div > .item {
   align-items: center;
