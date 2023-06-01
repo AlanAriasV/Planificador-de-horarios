@@ -1,11 +1,13 @@
-import { Draggable, Droppable } from 'react-beautiful-dnd';
+import { Draggable, Droppable } from "react-beautiful-dnd";
 
-import { BlocksDuration } from '../firebase/Data';
+import { BlocksDuration } from "../firebase/Data";
+// import { outOfTheWayTiming } from "react-beautiful-dnd/src/animation";
 
 export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
   const date = new Date();
   date.setHours(8);
   date.setMinutes(0);
+  // console.log(transitions.outOfTheWay);
   return (
     <>
       {[...Array(14)].map((_, i) => {
@@ -41,10 +43,10 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                   isDropDisabled={blockSheltered || block.sheltered}
                 >
                   {(provided, snapshot) => {
-                    var backgroundColor = 'white';
-                    if (blockSheltered) backgroundColor = 'red';
+                    var backgroundColor = "white";
+                    if (blockSheltered) backgroundColor = "red";
                     else if (block.sheltered)
-                      backgroundColor = 'var(--yellow-color)';
+                      backgroundColor = "var(--yellow-color)";
                     // else if (snapshot.isDraggingOver) backgroundColor = 'lightblue';
                     return (
                       <td
@@ -62,7 +64,9 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                             >
                               {(provided, snapshot) => (
                                 <div
-                                  className='block'
+                                  className={`block ${
+                                    snapshot.isDragging ? "dragging" : ""
+                                  }`}
                                   item={
                                     item.name ??
                                     `${item.firstName} ${item.lastName}`
@@ -74,7 +78,7 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                                     onClick({ id: id, index, index })
                                   }
                                 >
-                                  <p>{item.id ?? ''}</p>
+                                  <p>{item.id ?? ""}</p>
                                   {/* <p>{item.name ?? `${item.firstName} ${item.lastName}`}</p> */}
                                 </div>
                               )}
@@ -102,11 +106,11 @@ export function AsignaturesDraggable({ asignatures }) {
         <Droppable isDropDisabled={true} droppableId={id} key={id}>
           {(provided, snapshot) => (
             <section
-              className='asignatures'
+              className="asignatures"
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              <div className='grid grid-asignatures'>
+              <div className="grid grid-asignatures">
                 {asignatures.items.map((asignatures, index) =>
                   Object.entries(asignatures).map(([id, asignature]) => (
                     <Draggable
@@ -115,17 +119,17 @@ export function AsignaturesDraggable({ asignatures }) {
                       index={index}
                       isDragDisabled={asignature.time === 0}
                     >
-                      {(provided, _) => (
+                      {(provided, snapshot) => (
                         <div
                           className={`item ${
-                            asignature.time === 0 ? 'disabled' : ''
-                          }`}
+                            asignature.time === 0 ? "disabled" : ""
+                          } ${snapshot.isDragging ? "dragging" : ""}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
                           <p>{asignature.id}</p>
-                          <p>{asignature.name}</p>
+                          { !snapshot.isDragging && <p>{asignature.name}</p>}
                         </div>
                       )}
                     </Draggable>
@@ -148,11 +152,11 @@ export function LaboratoriesDraggable({ laboratories }) {
         <Droppable isDropDisabled={true} droppableId={id} key={id}>
           {(provided, _) => (
             <section
-              className='laboratories'
+              className="laboratories"
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              <div className='grid grid-laboratories'>
+              <div className="grid grid-laboratories">
                 {laboratories.items.map((laboratories, index) =>
                   Object.entries(laboratories).map(([id, laboratorie]) => (
                     <Draggable
@@ -161,17 +165,17 @@ export function LaboratoriesDraggable({ laboratories }) {
                       index={index}
                       isDragDisabled={laboratorie.time === 0}
                     >
-                      {(provided, _) => (
+                      {(provided, snapshot) => (
                         <div
                           className={`item ${
-                            laboratorie.time === 0 ? 'disabled' : ''
-                          }`}
+                            laboratorie.time === 0 ? "disabled" : ""
+                          } ${snapshot.isDragging ? "dragging" : ""}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
                           <p>{laboratorie.id}</p>
-                          <p>{laboratorie.name}</p>
+                          { !snapshot.isDragging && <p>{laboratorie.name}</p>}
                         </div>
                       )}
                     </Draggable>
@@ -194,11 +198,11 @@ export function TeachersDraggable({ teachers }) {
         <Droppable isDropDisabled={true} droppableId={id} key={id}>
           {(provided, _) => (
             <section
-              className='teachers'
+              className="teachers"
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              <div className='grid grid-teachers'>
+              <div className="grid grid-teachers">
                 {teachers.items.map((teachers, index) =>
                   Object.entries(teachers).map(([id, teacher]) => (
                     <Draggable
@@ -207,18 +211,17 @@ export function TeachersDraggable({ teachers }) {
                       index={index}
                       isDragDisabled={teacher.time === 0}
                     >
-                      {(provided, _) => (
+                      {(provided, snapshot) => (
                         <div
                           className={`item ${
-                            teacher.time === 0 ? 'disabled' : ''
-                          }`}
+                            teacher.time === 0 ? "disabled" : ""
+                          } ${snapshot.isDragging ? "dragging" : ""}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
                           <p>{teacher.id}</p>
-                          <p>{`${teacher.firstName} ${teacher.lastName}`}</p>
-                          {/* <p>{teacher.email}</p> */}
+                          { !snapshot.isDragging && <p>{`${teacher.firstName} ${teacher.lastName}`}</p>}
                         </div>
                       )}
                     </Draggable>

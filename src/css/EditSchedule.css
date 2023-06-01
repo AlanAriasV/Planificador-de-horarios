@@ -1,7 +1,6 @@
 .main-edit {  
   display: grid;
   grid-template-columns: calc(50% - 13.3px) repeat(2, calc(25% - 13.3px));
-  /* grid-template-columns: calc(47.5% - 16.6px) calc(2.5% - 16.6px) calc(22.5% - 16.6px) calc(2.5% - 16.6px) calc(22.5% - 16.6px) calc(2.5% - 16.6px); */
   grid-auto-rows: calc(10% - 15px) calc(40% - 15px) calc(10% - 15px) calc(40% - 15px);
   grid-template-areas:
     's ta tl'
@@ -23,7 +22,6 @@ section {
   border-radius: var(--border-radius-10) !important;
   padding: 20px;
   overflow: hidden;
-  margin-right: 20px !important;
 }
 
 div.grid {
@@ -32,27 +30,13 @@ div.grid {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, calc(((100% - var(--gap)) / 2) - 1px));
-  /* grid-auto-columns: calc((100% - var(--gap)) / 2); */
   grid-auto-rows: calc((100% - var(--gap)) / 2);
   overflow: auto;
-  /* position: relative; */
 }
 
 div.grid-teachers {
   grid-template-columns: repeat(auto-fill, calc((100% - var(--gap)  * 3) / 4  ));
-  grid-auto-rows: calc((100% - var(--gap)) / 2);
 }
-
-div.grid::-webkit-scrollbar {
-  /* position: absolute;
-  left: 40px; */
-}
-/* section::-webkit-scrollbar, */
-/* section > *::-webkit-scrollbar { */
-  /* display: none; */
-/* } */
-
-
 
 section div > .item {
   align-items: center;
@@ -61,7 +45,16 @@ section div > .item {
   justify-content: center;
   border-radius: var(--border-radius-5);
   border: var(--border);
+  padding-inline: 5px;
   text-align: center;
+}
+
+section div > .item p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 section.grid > .disabled {
@@ -124,218 +117,25 @@ section.grid > .disabled {
 }
 
 .block {
-  /* TODO: Continuar Aquí y Placeholder [:not(.block)] */
-  /* position: relative; */
-  /* background-color: red; */
   text-align: center;
 }
 
-/* .block[item]:before {
-  background-color: var(--background-color);
-  border: 1px dashed var(--blue-color);
-  border-radius: var(--border-radius-5);
-  content: attr(item);
-  left: 50%;
-  width: max-content;
-  opacity: 0;
-  padding: 7px;
-  position: absolute;
-  top: -49px;
-  transform: translate(-50%, 0%);
-  transition: 0.25s;
-  visibility: hidden;
-  z-index: 3;
-}
-
-.block[item]:after {
-  background-color: var(--background-color);
-  border: 1px dashed var(--blue-color);
-  border-right: none;
-  border-top: none;
-  content: '';
-  height: 10px;
-  left: 50%;
-  opacity: 0;
-  position: absolute;
-  top: -21px;
-  transform: rotate(-45deg) translate(-50%, 0%);
-  transition: 0.25s;
-  visibility: hidden;
-  width: 10px;
-  z-index: 4;
-}
-
-.block[item]:hover::before,
-.block[item]:hover::after {
-  opacity: 1;
-  visibility: visible;
-} */
-
 .edit-schedule tbody td > div:not(.block) {
-  background-color: red;
+  background-color: var(--blue-color);
   border: none;
+  border-radius: var(--border-radius-5);
   height: 25px !important;
-  /* width: 50px !important; */
+  min-width: none;
   max-width: 50px !important;
   outline: none;
+  margin-inline: auto !important;
 }
 
 .schedule > div > div:not(table) {
   display: none;
 }
 
-/* main {
-  display: flex;
-  flex-direction: column;
-  margin-inline: auto !important;
-  max-width: 768px;
+.dragging {
+  height: max-content !important;
+  width: max-content !important;
 }
-
-.block[item] {
-  position: relative;
-}
-
-.block[item]:before {
-  background-color: var(--background-color);
-  border: 1px dashed var(--blue-color);
-  border-radius: var(--border-radius-5);
-  content: attr(item);
-  left: 50%;
-  width: max-content;
-  opacity: 0;
-  padding: 7px;
-  position: absolute;
-  top: -49px;
-  transform: translate(-50%, 0%);
-  transition: 0.25s;
-  visibility: hidden;
-  z-index: 1;
-}
-
-.block[item]:after {
-  background-color: var(--background-color);
-  border: 1px dashed var(--blue-color);
-  border-right: none;
-  border-top: none;
-  content: '';
-  height: 10px;
-  left: 50%;
-  opacity: 0;
-  position: absolute;
-  top: -21px;
-  transform: rotate(-45deg) translate(-50%, 0%);
-  transition: 0.25s;
-  visibility: hidden;
-  width: 10px;
-  z-index: 2;
-}
-
-.block[item]:hover::before,
-.block[item]:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
-
-section {
-  background-color: white;
-  border: var(--border);
-  border-radius: var(--border-radius-10) !important;
-  padding: 20px;
-}
-
-section.grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fill, calc(50% - 10px));
-  grid-template-rows: repeat(auto-fill, 90px);
-}
-
-section.grid > .item {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 90px;
-  border-radius: var(--border-radius-5);
-  border: var(--border);
-  text-align: center;
-  user-select: none;
-}
-
-section.grid > .disabled {
-  background-color: var(--black-25-color);
-  border-color: var(--black-50-color);
-  color: var(--black-50-color);
-}
-
-.columns {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(2, calc(50% - 10px));
-}
- {
-  width: 100%;
-  border-collapse: separate !important;
-  margin: 0px !important;
-}
- > :not(caption) > * > * {
-  border: 1px solid black;
-  padding: 0px;
-  user-select: none;
-}
-
-th,
-tr:first-child td,
-tr td:first-child {
-  background-color: var(--blue-color) !important;
-  color: var(--white-color);
-  text-align: center !important;
-  height: 27px;
-}
-
-td {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2px !important;
-  width: 16.375%;
-}
-
-tr:nth-child(n + 2) td {
-  height: 81px;
-}
-
-tr td:not(:last-child) {
-  margin-right: 2px !important;
-}
-
-td div {
-  border-radius: 0px 0px 20px 20px;
-  box-shadow: 0px 0px 2px darkblue;
-  background-color: var(--blue-color);
-  color: white;
-  text-shadow: 0px 0px 2px black;
-}
-
-tr:nth-child(n + 2) td:nth-child(n + 2) > div {
-  height: 75px;
-}
-
-tr:nth-child(n + 2) td:nth-child(n + 2) > div:not(:last-child) {
-  margin-bottom: 3px !important;
-}
-
-td div p {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-@media screen and (min-width: 1366px) {
-    body{
-        background-color: red !important;
-    }
-} */
