@@ -121,12 +121,13 @@ section.grid > .disabled {
 }
 
 .edit-schedule tbody td > div:not(.block) {
-  background-color: var(--blue-color);
-  border: none;
+  background-color: var(--black-25-color);
+  /* border: var(--border); */
+  /* outline: 1px; */
   border-radius: var(--border-radius-5);
   height: 25px !important;
   min-width: none;
-  max-width: 50px !important;
+  max-width: 75px !important;
   outline: none;
   margin-inline: auto !important;
 }

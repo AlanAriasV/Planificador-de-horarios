@@ -21,6 +21,7 @@ import {
 } from '../components/Draggables';
 
 function OnDragEnd({ result, droppables, setDroppables }) {
+  setDroppables[4]([]);
   if (!result.destination) return;
   const { source, destination } = result;
 
@@ -47,7 +48,6 @@ function OnDragEnd({ result, droppables, setDroppables }) {
       break first;
     }
   }
-  setDroppables[4]([]);
 }
 
 function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {

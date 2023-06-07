@@ -211,3 +211,16 @@
     filter: drop-shadow(0 0 0.3rem var(--blue-color));
     /* transform: scale(1.025); */
   }
+
+
+  .schedule-block:not(:last-child) {
+    margin-bottom: 1px !important;
+  }
+  
+  .semesters-container>div:not(:last-child) {
+    margin-right: 1px !important;
+  }
+
+  .semester-courses {
+    margin-top: 1px !important;
+  }

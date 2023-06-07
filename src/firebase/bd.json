@@ -1,0 +1,155 @@
+{
+    "Carreras": {
+      "ICCI": {
+        "nombre": "Ingeniería Civil en Computación e Informática",
+        "jefe de carrera": "11.111.111-1",
+        "departamento": "0"
+      }
+    },
+    "Plan de estudio": {
+      "0": {
+        "carrera ID": "ICCI",
+        "año": "2019"
+      }
+    },
+    "Semestres": {
+      "6": {
+        "numero": "7",
+        "plan de estudio ID": "0",
+        "asignaturas IDs": ["CC219"]
+      }
+    },
+    "Asignaturas": {
+      "CC219": {
+        "nombre": "TALLER DE APLICACIONES WEB",
+        "duracion": "270"
+      }
+    },
+    "Jornada": {
+      "0": {
+        "tipo": "Diurno"
+      },
+      "1": {
+        "tipo": "Diurno"
+      }
+    },
+    "Horarios": {
+      "0": {
+        "jornada": 0,
+        "usuario": 11111111,
+        "día": {
+          "L": [
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false }
+          ],
+          "M": [
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false }
+          ],
+          "X": [
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false }
+          ],
+          "J": [
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": true },
+            { "protegido": true },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false }
+          ],
+          "V": [
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false },
+            { "protegido": false }
+          ]
+        }
+      }
+    },
+    "dia": {},
+    "Jefe de carrera": {
+      "11111111": {
+        "apellido": "Valdivia",
+        "correo": "rvaldivi@academicos.uta.cl",
+        "nombre": "Ricardo"
+      }
+    },
+    "Director de departamento": {
+      "222222222": {
+        "apellido": "Ramirez",
+        "correo": "iramirez@academicos.uta.cl",
+        "nombre": "Ibar"
+      }
+    },
+    "Profesor": {
+      "33333333": {
+        "apellido": "Cardenas",
+        "correo": "mcardenasn@academicos.uta.cl",
+        "nombre": "Marcelo"
+      }
+    },
+    "Estudiante": {
+      "44444444": {
+        "apellido": "Arias",
+        "correo": "alan.arias.vargas@alumnos.uta.cl",
+        "nombre": "Alan",
+        "plan de estudio": "0"
+      }
+    }
+  }
+  
