@@ -6,9 +6,10 @@ import Modal from "../components/Modal";
 
 import "../css/Home.css";
 import "../css/Modal.css";
-import { Courses, Careers } from "../firebase/Data";
+import { Courses, Careers, Assignments } from "../firebase/Data";
 
-export function CareerSelector({ setSelectedCareerID }) {
+export function CareerSelector({ setSelectedCareerID , selectedCareerID}) {
+  console.log(selectedCareerID);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleCareerClick = (event) => {
@@ -43,7 +44,7 @@ export function CareerSelector({ setSelectedCareerID }) {
           return (
             <div
               key={career[0]}
-              className="career-btn grey-border"
+              className={`career-btn grey-border ${selectedCareerID === career[0] ? 'active':''}`}
               id={career[0]}
               onClick={handleCareerClick}
             >
@@ -107,24 +108,26 @@ export function SemestersButtons({ numSemesters }) {
 }
 
 export function Home() {
-  const [defaultCareer, setSelectedCareerID] = useState(null);
+  const [selectedCareerID, setSelectedCareerID] = useState(null);
   const [selectedCareer, setSelectedCareer] = useState({});
   const [careerCourses, setCareerCourses] = useState([]);
 
   useEffect(() => {
-    if (defaultCareer === null) return;
-    setSelectedCareer(Careers[defaultCareer]);
-    setCareerCourses(Courses[defaultCareer].malla);
-  }, [defaultCareer]);
+    if (selectedCareerID === null) return;
+    setSelectedCareer(Careers[selectedCareerID]);
+    setCareerCourses(Courses[selectedCareerID].malla);
+  }, [selectedCareerID]);
 
   return (
     <>
       <Header title={"Home"} />
       <main className="main-home">
         <div className="career-selector-container">
-          <CareerSelector setSelectedCareerID={setSelectedCareerID} />
+          <CareerSelector 
+            setSelectedCareerID = {setSelectedCareerID}
+            selectedCareerID = {selectedCareerID} />
         </div>
-        {defaultCareer !== null && (
+        {selectedCareerID !== null && (
           <>
             <h2 className="career-title">{selectedCareer.name}</h2>
             <ViewMalla courses={careerCourses} />
@@ -134,7 +137,7 @@ export function Home() {
             </div>
           </>
         )}
-        {defaultCareer === null && (
+        {selectedCareerID === null && (
           <div className="empty">
             <h2>Seleccione una Carrera</h2>
           </div>
