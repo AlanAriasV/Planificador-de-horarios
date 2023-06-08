@@ -55,6 +55,7 @@
 
   .semesters-title {
     font-size: 2.5rem;
+    padding-bottom: 25px;
     grid-area: stitle;
   }
 

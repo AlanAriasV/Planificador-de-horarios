@@ -1,19 +1,22 @@
 import Header from "../components/Header";
 import CourseBlock from "../components/CourseBlock";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FaSearch } from "react-icons/fa";
-import Modal from "../components/Modal";
-
+import { AiOutlineClose } from "react-icons/ai";
 import "../css/Home.css";
 import "../css/Modal.css";
 import { Courses, Careers, Assignments } from "../firebase/Data";
+import { CarreraProvider, CarreraContext  } from '../contexts/CarreraContext';
 
-export function CareerSelector({ setSelectedCareerID , selectedCareerID}) {
-  console.log(selectedCareerID);
+
+export function CareerSelector() {
+  const carreraContext = useContext(CarreraContext); //CONTEXTO
+  const { setCarreraById, selectedCarreraID } = carreraContext; //CONTEXTO
+
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleCareerClick = (event) => {
-    setSelectedCareerID(event.currentTarget.id);
+    setCarreraById(event.currentTarget.id) //CONTEXTO
   };
 
   const handleInputChange = (event) => {
@@ -44,7 +47,7 @@ export function CareerSelector({ setSelectedCareerID , selectedCareerID}) {
           return (
             <div
               key={career[0]}
-              className={`career-btn grey-border ${selectedCareerID === career[0] ? 'active':''}`}
+              className={`career-btn grey-border ${selectedCarreraID === career[0] ? 'active':''}`}
               id={career[0]}
               onClick={handleCareerClick}
             >
@@ -66,12 +69,23 @@ function title() {
   title.appendChild;
 }
 
-export function ViewMalla({ courses }) {
+export function ViewMalla() {
+  const carreraContext = useContext(CarreraContext); //CONTEXTO
+  const { selectedCarreraCursos, selectedCarrera } = carreraContext; //CONTEXTO
+
+  if (!selectedCarreraCursos) {
+    return (
+      <div className="empty">
+        <h2>Seleccione una Carrera</h2>
+      </div>);
+  }
   return (
+    <>
+    <h2 className="career-title">{selectedCarrera.name}</h2>
     <div className="prev-malla blue-border">
       <h2 className="prev-malla-title">Malla curricular</h2>
       <div className="semesters-container">
-          {courses.map((semester, index1) => (
+          {selectedCarreraCursos.map((semester, index1) => (
             <div key={index1}>
               <p className="semester-title">Semestre {index1 + 1}</p>
               <div className="semester-courses">
@@ -83,66 +97,155 @@ export function ViewMalla({ courses }) {
           ))}
       </div>
     </div>
+    </>
   );
 }
 
+export function Modal({ closeModal }) {
+  const carreraContext = useContext(CarreraContext); //CONTEXTO
+  const { selectedCarreraID, selectedSemestre } = carreraContext; //CONTEXTO
 
+  const year = '2022'
+  const scheduleId = `${selectedCarreraID}-${selectedSemestre}-${year}`;
+  const schedule = Assignments[scheduleId]
 
-export function SemestersButtons({ numSemesters }) {
-  const [openModal, setOpenModal] = useState(false);
-  const semesters = [...Array(numSemesters).keys()];
+  const scheduleMatrix = [];
+  for (let i = 0; i < 14; i++) {
+    scheduleMatrix[i] = ['', '', '', '', ''];
+  }
+
+  const getDayIntex = (dia) => {
+    switch (dia) {
+      case 'L':
+        return 0;
+      case 'M':
+        return 1;
+      case 'J':
+        return 2;
+      case 'V':
+        return 3;
+      default:
+        return -1;
+    }
+  };
+
+  schedule.items.forEach(item => {
+    const { block, day, asi, lab, doc } = item;
+    const blockIndex = block - 1; 
+    const dayIndex = getDayIntex(day); 
+    scheduleMatrix[blockIndex][dayIndex] = { asi, lab, doc };
+  });
 
   return (
-    <div className="semester-selector">
-      {semesters.map((semester) => {
-        semester++;
-        return (
-            <button key={semester} type="button" className="semester-btn" onClick={() => {setOpenModal(true)}}>
-              Semestre {semester}
-            </button>
-        );
-      })}
-      {openModal && <Modal closeModal={setOpenModal} />}
+    <div className='modal'>
+        <div className='modal-content'>
+            <span className='modal-close' onClick={() => closeModal(false)}>
+                <AiOutlineClose/>
+            </span>
+            <div className='modal-title'>
+                <h2>Previsualización de horario para semestre {selectedSemestre}</h2>
+            </div>
+            <div className='modal-body'>
+            {schedule ? (
+              <div className='schedule'>
+                <div>
+                  <table className='edit-schedule'>
+                    <thead>
+                      <tr>
+                        <th colSpan={6}>
+                          <h2>Horario</h2>
+                        </th>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>Lunes</td>
+                        <td>Martes</td>
+                        <td>Miércoles</td>
+                        <td>Jueves</td>
+                        <td>Viernes</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {scheduleMatrix.map((scheduleBlock, blockIndex) => (
+                      <tr key={blockIndex}>
+                        <td>{blockIndex + 1}</td>
+                        {scheduleBlock.map((schedule, dayIndex) => (
+                          <td key={dayIndex}>
+                            {schedule.asi && (
+                              <div>
+                                <p>Asignatura: {schedule.asi}</p>
+                                <p>Laboratorio: {schedule.lab}</p>
+                                <p>Docente: {schedule.doc}</p>
+                              </div>
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                    </tbody>
+                  </table>
+                </div>
+            </div >
+            ) : (
+              <div className="no-schedule">No hay horario definido</div>
+            )}
+            </div>
+            <div className='modal-footer'>
+                <button className='cancel-btn' onClick={() => closeModal(false)}>Cancelar</button>
+                <button className='edit-btn'>Ir a editar</button>
+            </div>
+        </div>
     </div>
+  )
+}
+
+export function SemestersButtons() {
+  const carreraContext = useContext(CarreraContext); //CONTEXTO
+  const { setSelectedSemestre, selectedCarreraCursos } = carreraContext; //CONTEXTO
+  
+  const [openModal, setOpenModal] = useState(false);
+
+  const semesters = [...Array(selectedCarreraCursos.length).keys()];
+
+  const handleSemesterClick = (semester) => {
+    setSelectedSemestre(semester); //CONTEXTO
+    setOpenModal(true);
+  };
+
+  if (!selectedCarreraCursos) {
+    return (null)
+  }
+  return (
+    <>
+    <h2 className="semesters-title">Semestres</h2>
+    <div className="semester-selector-container">
+      <div className="semester-selector">
+        {semesters.map((semester) => {
+          semester++;
+          return (
+              <button key={semester} type="button" className="semester-btn" onClick={() => handleSemesterClick(semester)}>
+                Semestre {semester}
+              </button>
+          );
+        })}
+        {openModal && <Modal closeModal={setOpenModal}/>}
+      </div>
+    </div>
+    </>
   );
 }
 
 export function Home() {
-  const [selectedCareerID, setSelectedCareerID] = useState(null);
-  const [selectedCareer, setSelectedCareer] = useState({});
-  const [careerCourses, setCareerCourses] = useState([]);
-
-  useEffect(() => {
-    if (selectedCareerID === null) return;
-    setSelectedCareer(Careers[selectedCareerID]);
-    setCareerCourses(Courses[selectedCareerID].malla);
-  }, [selectedCareerID]);
-
   return (
-    <>
+    <CarreraProvider>
       <Header title={"Home"} />
       <main className="main-home">
         <div className="career-selector-container">
-          <CareerSelector 
-            setSelectedCareerID = {setSelectedCareerID}
-            selectedCareerID = {selectedCareerID} />
+          <CareerSelector />
         </div>
-        {selectedCareerID !== null && (
-          <>
-            <h2 className="career-title">{selectedCareer.name}</h2>
-            <ViewMalla courses={careerCourses} />
-            <h2 className="semesters-title">Semestres</h2>
-            <div className="semester-selector-container">
-              <SemestersButtons numSemesters={careerCourses.length} />
-            </div>
-          </>
-        )}
-        {selectedCareerID === null && (
-          <div className="empty">
-            <h2>Seleccione una Carrera</h2>
-          </div>
-        )}
+          <ViewMalla/>
+          <SemestersButtons/>
       </main>
-    </>
+    </CarreraProvider>
   );
 }

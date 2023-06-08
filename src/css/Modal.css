@@ -61,6 +61,12 @@
     color: white;
 }
 
+.no-schedule {
+    padding: 50px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
 /* Estilos para animaciones del modal */
 .modal.fade-in {
     animation: fade-in 0.3s ease-in-out;

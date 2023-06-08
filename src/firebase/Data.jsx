@@ -173,7 +173,7 @@ export const Teachers = {
 }
 
 export const Assignments = {
-  ' ICCI-1-2022': {
+  'ICCI-1-2022': {
     items: [
       { asi: 'CC219', block: 11, day: 'M', lab: 'LAB-PAR', doc: 'DOC-REO' },
       { asi: 'CC219', block: 12, day: 'M', lab: 'LAB-PAR', doc: 'DOC-REO' },
