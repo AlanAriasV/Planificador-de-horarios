@@ -68,7 +68,7 @@ function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {
   }
 
   if (!item) return;
-  for (const assignment of assignments['A/1-2022'].items) {
+  for (const assignment of assignments['ICCI-1-2022'].items) {
     if (assignment[item.type] === item.id) {
       newShelteredBlocks.push(assignment);
     }
