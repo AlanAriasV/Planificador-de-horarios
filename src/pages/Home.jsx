@@ -6,7 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import "../css/Home.css";
 import "../css/Modal.css";
 import { Courses, Careers, Assignments } from "../firebase/Data";
-import { CarreraProvider, CarreraContext  } from '../contexts/CarreraContext';
+import { CarreraProvider, CarreraContext } from '../contexts/CarreraContext';
 
 
 export function CareerSelector() {
@@ -47,7 +47,7 @@ export function CareerSelector() {
           return (
             <div
               key={career[0]}
-              className={`career-btn grey-border ${selectedCarreraID === career[0] ? 'active':''}`}
+              className={`career-btn grey-border ${selectedCarreraID === career[0] ? 'active' : ''}`}
               id={career[0]}
               onClick={handleCareerClick}
             >
@@ -81,22 +81,22 @@ export function ViewMalla() {
   }
   return (
     <>
-    <h2 className="career-title">{selectedCarrera.name}</h2>
-    <div className="prev-malla blue-border">
-      <h2 className="prev-malla-title">Malla curricular</h2>
-      <div className="semesters-container">
+      <h2 className="career-title">{selectedCarrera.name}</h2>
+      <div className="prev-malla blue-border">
+        <h2 className="prev-malla-title">Malla curricular</h2>
+        <div className="semesters-container">
           {selectedCarreraCursos.map((semester, index1) => (
             <div key={index1}>
               <p className="semester-title">Semestre {index1 + 1}</p>
               <div className="semester-courses">
                 {semester.map((course, index2) => (
-                  <CourseBlock key={index2} code={course.code} title={course.course}/>
+                  <CourseBlock key={index2} code={course.code} title={course.course} />
                 ))}
               </div>
             </div>
           ))}
+        </div>
       </div>
-    </div>
     </>
   );
 }
@@ -131,41 +131,41 @@ export function Modal({ closeModal }) {
 
   schedule.items.forEach(item => {
     const { block, day, asi, lab, doc } = item;
-    const blockIndex = block - 1; 
-    const dayIndex = getDayIntex(day); 
+    const blockIndex = block - 1;
+    const dayIndex = getDayIntex(day);
     scheduleMatrix[blockIndex][dayIndex] = { asi, lab, doc };
   });
 
   return (
     <div className='modal'>
-        <div className='modal-content'>
-            <span className='modal-close' onClick={() => closeModal(false)}>
-                <AiOutlineClose/>
-            </span>
-            <div className='modal-title'>
-                <h2>Previsualización de horario para semestre {selectedSemestre}</h2>
-            </div>
-            <div className='modal-body'>
-            {schedule ? (
-              <div className='schedule'>
-                <div>
-                  <table className='edit-schedule'>
-                    <thead>
-                      <tr>
-                        <th colSpan={6}>
-                          <h2>Horario</h2>
-                        </th>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td>Lunes</td>
-                        <td>Martes</td>
-                        <td>Miércoles</td>
-                        <td>Jueves</td>
-                        <td>Viernes</td>
-                      </tr>
-                    </thead>
-                    <tbody>
+      <div className='modal-content'>
+        <span className='modal-close' onClick={() => closeModal(false)}>
+          <AiOutlineClose />
+        </span>
+        <div className='modal-title'>
+          <h2>Previsualización de horario para semestre {selectedSemestre}</h2>
+        </div>
+        <div className='modal-body'>
+          {schedule ? (
+            <div className='schedule'>
+              <div>
+                <table className='edit-schedule'>
+                  <thead>
+                    <tr>
+                      <th colSpan={6}>
+                        <h2>Horario</h2>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Lunes</td>
+                      <td>Martes</td>
+                      <td>Miércoles</td>
+                      <td>Jueves</td>
+                      <td>Viernes</td>
+                    </tr>
+                  </thead>
+                  <tbody>
                     {scheduleMatrix.map((scheduleBlock, blockIndex) => (
                       <tr key={blockIndex}>
                         <td>{blockIndex + 1}</td>
@@ -182,19 +182,19 @@ export function Modal({ closeModal }) {
                         ))}
                       </tr>
                     ))}
-                    </tbody>
-                  </table>
-                </div>
+                  </tbody>
+                </table>
+              </div>
             </div >
-            ) : (
-              <div className="no-schedule">No hay horario definido</div>
-            )}
-            </div>
-            <div className='modal-footer'>
-                <button className='cancel-btn' onClick={() => closeModal(false)}>Cancelar</button>
-                <button className='edit-btn'>Ir a editar</button>
-            </div>
+          ) : (
+            <div className="no-schedule">No hay horario definido</div>
+          )}
         </div>
+        <div className='modal-footer'>
+          <button className='cancel-btn' onClick={() => closeModal(false)}>Cancelar</button>
+          <button className='edit-btn'>Ir a editar</button>
+        </div>
+      </div>
     </div>
   )
 }
@@ -202,7 +202,7 @@ export function Modal({ closeModal }) {
 export function SemestersButtons() {
   const carreraContext = useContext(CarreraContext); //CONTEXTO
   const { setSelectedSemestre, selectedCarreraCursos } = carreraContext; //CONTEXTO
-  
+
   const [openModal, setOpenModal] = useState(false);
 
   const semesters = [...Array(selectedCarreraCursos.length).keys()];
@@ -217,35 +217,46 @@ export function SemestersButtons() {
   }
   return (
     <>
-    <h2 className="semesters-title">Semestres</h2>
-    <div className="semester-selector-container">
-      <div className="semester-selector">
-        {semesters.map((semester) => {
-          semester++;
-          return (
+      <h2 className="semesters-title">Semestres</h2>
+      <div className="semester-selector-container">
+        <div className="semester-selector">
+          {semesters.map((semester) => {
+            semester++;
+            return (
               <button key={semester} type="button" className="semester-btn" onClick={() => handleSemesterClick(semester)}>
                 Semestre {semester}
               </button>
-          );
-        })}
-        {openModal && <Modal closeModal={setOpenModal}/>}
+            );
+          })}
+          {openModal && <Modal closeModal={setOpenModal} />}
+        </div>
       </div>
-    </div>
     </>
   );
 }
 
 export function Home() {
+  const tipo = "jefe";
   return (
-    <CarreraProvider>
-      <Header title={"Home"} />
-      <main className="main-home">
-        <div className="career-selector-container">
-          <CareerSelector />
-        </div>
-          <ViewMalla/>
-          <SemestersButtons/>
-      </main>
-    </CarreraProvider>
+    <>
+      {
+        tipo === "jefe" && (
+          <CarreraProvider>
+            <Header title={"Home"} />
+            <main className="main-home">
+              <div className="career-selector-container">
+                <CareerSelector />
+              </div>
+              <ViewMalla />
+              <SemestersButtons />
+            </main>
+          </CarreraProvider>)
+      }
+      {
+        tipo === "estudiante" && (
+          null
+        )
+      }
+    </>
   );
 }

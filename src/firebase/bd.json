@@ -4,13 +4,18 @@
       "nombre": "Ingeniería Civil en Computación e Informática",
       "jefe de carrera": 11111111,
       "departamento": "DICI",
-      "plan de estudio": [0, 1]
+      "plan de estudio": [
+        0,
+        1
+      ]
     },
     "ICI": {
       "nombre": "Ingeniería Civil Industrial",
       "jefe de carrera": null,
       "departamento": null,
-      "plan de estudio": [null]
+      "plan de estudio": [
+        null
+      ]
     }
   },
   "Departamento": {
@@ -22,75 +27,1762 @@
   "Plan de estudio": {
     "0": {
       "año": 2013,
-      "jornada": [0, 1],
-      "semestres": [null]
+      "jornadas": [
+        "Diurno",
+        "Vespertino"
+      ],
+      "semestres": [
+        null
+      ]
     },
     "1": {
       "año": 2019,
-      "jornada": [0],
-      "semestres": [18, 19]
-    }
-  },
-  "Semestres": {
-    "18": {
-      "número": 6,
-      "asignaturas": ["CC052", "CC415"],
-      "horario": [0]
-    },
-    "19": {
-      "numero": 7,
-      "asignaturas": ["CC219"],
-      "horario": [1]
+      "jornadas": [
+        "Diurno"
+      ],
+      "semestres": {
+        "I": {
+          "1": {
+            "asignatura": "MA067",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "2": {
+            "asignatura": "MA069",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "3": {
+            "asignatura": "CC198",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "4": {
+            "asignatura": "CC210",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "5": {
+            "asignatura": "CC199",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "II": {
+          "6": {
+            "asignatura": "MA601",
+            "prerrequisitos": [
+              "MA067"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "7": {
+            "asignatura": "MA611",
+            "prerrequisitos": [
+              "MA069"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "8": {
+            "asignatura": "FI035",
+            "prerrequisitos": [
+              "MA067"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "9": {
+            "asignatura": "CC206",
+            "prerrequisitos": [
+              "CC198",
+              "CC199"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "10": {
+            "asignatura": "CC208",
+            "prerrequisitos": [
+              "CC199"
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "III": {
+          "11": {
+            "asignatura": "MA602",
+            "prerrequisitos": [
+              "MA601"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "12": {
+            "asignatura": "MA612",
+            "prerrequisitos": [
+              "MA611"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "13": {
+            "asignatura": "FI601",
+            "prerrequisitos": [
+              "MA601",
+              "FI035"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "14": {
+            "asignatura": "CC209",
+            "prerrequisitos": [
+              "CC208"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "15": {
+            "asignatura": "CC211",
+            "prerrequisitos": [
+              "CC208"
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "IV": {
+          "16": {
+            "asignatura": "MA603",
+            "prerrequisitos": [
+              "MA602"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "17": {
+            "asignatura": "MA220",
+            "prerrequisitos": [
+              "MA602",
+              "MA612"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "18": {
+            "asignatura": "IE078",
+            "prerrequisitos": [
+              "FI035",
+              "MA612"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "19": {
+            "asignatura": "CC222",
+            "prerrequisitos": [
+              "CC209"
+            ]
+          },
+          "20": {
+            "asignatura": "CC091",
+            "prerrequisitos": [
+              "CC206",
+              "CC209"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "21": {
+            "asignatura": "DE181",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              "CC091"
+            ]
+          }
+        },
+        "V": {
+          "22": {
+            "asignatura": "FI604",
+            "prerrequisitos": [
+              "MA602",
+              "MA612",
+              "FI601"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "23": {
+            "asignatura": "MA424",
+            "prerrequisitos": [
+              "MA602"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "24": {
+            "asignatura": "CC082",
+            "prerrequisitos": [
+              "IE078"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "25": {
+            "asignatura": "CC212",
+            "prerrequisitos": [
+              "CC222"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "26": {
+            "asignatura": "CC083",
+            "prerrequisitos": [
+              "CC222"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "27": {
+            "asignatura": "CC214",
+            "prerrequisitos": [
+              "CC210"
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "VI": {
+          "28": {
+            "asignatura": "CC052",
+            "prerrequisitos": [
+              "CC212"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "29": {
+            "asignatura": "IN056",
+            "prerrequisitos": [
+              "MA424"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "30": {
+            "asignatura": "CC359",
+            "prerrequisitos": [
+              "CC222",
+              "CC082"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "31": {
+            "asignatura": "CC415",
+            "prerrequisitos": [
+              "CC212"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "32": {
+            "asignatura": "CC216",
+            "prerrequisitos": [
+              "CC091",
+              "CC212",
+              "CC083"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "33": {
+            "asignatura": "DI165",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "VII": {
+          "34": {
+            "asignatura": "CC218",
+            "prerrequisitos": [
+              "CC415"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "35": {
+            "asignatura": "CC219",
+            "prerrequisitos": [
+              "CC052",
+              "CC415"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "36": {
+            "asignatura": "CC093",
+            "prerrequisitos": [
+              "CC359"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "37": {
+            "asignatura": "CC223",
+            "prerrequisitos": [
+              "IN056",
+              "CC415"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "38": {
+            "asignatura": "CC094",
+            "prerrequisitos": [
+              "MA612",
+              "CC222"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "39": {
+            "asignatura": "DI166",
+            "prerrequisitos": [
+              "DI165"
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "VIII": {
+          "40": {
+            "asignatura": "CC224",
+            "prerrequisitos": [
+              "CC218"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "41": {
+            "asignatura": "CC225",
+            "prerrequisitos": [
+              "MA424",
+              "CC094"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "42": {
+            "asignatura": "CC106",
+            "prerrequisitos": [
+              "CC219",
+              "CC093"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "43": {
+            "asignatura": "CC132",
+            "prerrequisitos": [
+              "CC093"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "44": {
+            "asignatura": "CC226",
+            "prerrequisitos": [
+              "CC216",
+              "CC218",
+              "CC223"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "45": {
+            "asignatura": "YY128",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "64": {
+            "asignatura": "CC506",
+            "prerrequisitos": [
+              "CC216",
+              "CC218",
+              "CC219",
+              "CC223"
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "IX": {
+          "46": {
+            "asignatura": "CC227",
+            "prerrequisitos": [
+              "CC223"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "47": {
+            "asignatura": "CC228",
+            "prerrequisitos": [
+              "CC225"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "48": {
+            "asignatura": "CC229",
+            "prerrequisitos": [
+              "CC106",
+              "CC132"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "49": {
+            "asignatura": "IN053",
+            "prerrequisitos": [
+              "MA424",
+              "IN056"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "50": {
+            "asignatura": "CC230",
+            "prerrequisitos": [
+              "CC224"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "51": {
+            "asignatura": "CC231",
+            "prerrequisitos": [
+              "CC218"
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "X": {
+          "52": {
+            "asignatura": "IN115",
+            "prerrequisitos": [
+              "MA424"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "53": {
+            "asignatura": "CC096",
+            "prerrequisitos": [
+              "CC415"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "54": {
+            "asignatura": "CC232",
+            "prerrequisitos": [
+              "CC229"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "55": {
+            "asignatura": "IN044",
+            "prerrequisitos": [
+              "CC218"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "56": {
+            "asignatura": "CC233",
+            "prerrequisitos": [
+              "CC226",
+              "CC229",
+              "CC230"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "57": {
+            "asignatura": "CC234",
+            "prerrequisitos": [
+              "CC228"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "65": {
+            "asignatura": "CC237",
+            "prerrequisitos": [
+              "CC226",
+              "CC506",
+              "CC227",
+              "CC229"
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        },
+        "XI": {
+          "58": {
+            "asignatura": "YY129",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "59": {
+            "asignatura": "YY130",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "60": {
+            "asignatura": "YY131",
+            "prerrequisitos": [
+              null
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "61": {
+            "asignatura": "CC235",
+            "prerrequisitos": [
+              "CC096",
+              "IN044"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "62": {
+            "asignatura": "CC236",
+            "prerrequisitos": [
+              "I",
+              "II",
+              "III",
+              "IV",
+              "V",
+              "VI",
+              "VII",
+              "VIII",
+              "IX",
+              "X"
+            ],
+            "correquisitos": [
+              null
+            ]
+          },
+          "63": {
+            "asignatura": "DI167",
+            "prerrequisitos": [
+              "DI166"
+            ],
+            "correquisitos": [
+              null
+            ]
+          }
+        }
+      }
     }
   },
   "Asignaturas": {
+    "MA067": {
+      "nombre": "INTRODUCCIÓN AL CÁLCULO",
+      "créditos": 7,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 270,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "MA069": {
+      "nombre": "INTRODUCCIÓN AL ÁLGEBRA",
+      "créditos": 7,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 270,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "CC198": {
+      "nombre": "INTRODUCCIÓN A INGENIERÍA INFORMÁTICA",
+      "créditos": 0,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 180,
+        "laboratorio": 0
+      }
+    },
+    "CC210": {
+      "nombre": "TALLER DE DESARROLLO PERSONAL",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 180,
+        "laboratorio": 0
+      }
+    },
+    "CC199": {
+      "nombre": "TALLER DE PROGRAMACIÓN I",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "MA601": {
+      "nombre": "CÁLCULO I",
+      "créditos": 8,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 270,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "MA611": {
+      "nombre": "ÁLGEBRA I",
+      "créditos": 8,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 270,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "FI035": {
+      "nombre": "INTRODUCCIÓN A LA FÍSICA",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "CC206": {
+      "nombre": "INTRODUCCIÓN AL TRABAJO EN PROYECTOS",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "CC208": {
+      "nombre": "TALLER DE PROGRAMACIÓN II",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "MA602": {
+      "nombre": "CÁLCULO II",
+      "créditos": 8,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 270,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "MA612": {
+      "nombre": "ÁLGEBRA II",
+      "créditos": 8,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 270,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "FI601": {
+      "nombre": "MECÁNICA CLÁSICA",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "CC209": {
+      "nombre": "PROGRAMACIÓN ORIENTADA A OBJETOS",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "CC211": {
+      "nombre": "FUNDAMENTOS DE LENGUAJES DE PROGRAMACIÓN",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 90,
+        "taller": 0,
+        "laboratorio": 180
+      }
+    },
+    "MA603": {
+      "nombre": "CÁLCULO III",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "MA220": {
+      "nombre": "ECUACIONES DIFERENCIALES",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 135,
+        "taller": 45,
+        "laboratorio": 0
+      }
+    },
+    "IE078": {
+      "nombre": "ELECTRICIDAD Y SISTEMAS DIGITALES",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "CC222": {
+      "nombre": "ALGORITMOS Y ESTRUCTURAS DE DATOS",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "CC091": {
+      "nombre": "PROYECTO I",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "DE181": {
+      "nombre": "TALLER DE COMUNICACIÓN ORAL Y ESCRITA",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 180,
+        "laboratorio": 0
+      }
+    },
+    "FI604": {
+      "nombre": "ELECTROMAGNETISMO",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "MA424": {
+      "nombre": "ESTADÍSTICA Y PROBABILIDAD",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 135,
+        "taller": 45,
+        "laboratorio": 0
+      }
+    },
+    "CC082": {
+      "nombre": "ARQUITECTURA DE COMPUTADORES",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "CC212": {
+      "nombre": "TECNOLOGÍA DE OBJETOS",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "CC083": {
+      "nombre": "TALLER DE TÉCNICAS DE PROGRAMACIÓN",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "CC214": {
+      "nombre": "TALLER DE ÉTICA PROFESIONAL Y RESPONSABILIDAD SOCIAL DEL INFORMÁTICO",
+      "créditos": 3,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 180,
+        "laboratorio": 0
+      }
+    },
     "CC052": {
       "nombre": "TECNOLOGÍA WEB",
-      "duracion": 270,
-      "prerequisitos": [null]
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 90,
+        "taller": 0,
+        "laboratorio": 180
+      }
+    },
+    "IN056": {
+      "nombre": "GESTIÓN DE EMPRESA",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 135,
+        "taller": 45,
+        "laboratorio": 0
+      }
+    },
+    "CC359": {
+      "nombre": "SISTEMAS OPERATIVOS",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
     },
     "CC415": {
       "nombre": "BASE DE DATOS",
-      "duracion": 270,
-      "prerequisitos": [null]
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "CC216": {
+      "nombre": "PROYECTO II",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "DI165": {
+      "nombre": "INGLÉS I",
+      "créditos": 3,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 90,
+        "laboratorio": 90
+      }
+    },
+    "CC218": {
+      "nombre": "INGENIERÍA DE SOFTWARE I",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 90,
+        "taller": 180,
+        "laboratorio": 0
+      }
     },
     "CC219": {
       "nombre": "TALLER DE APLICACIONES WEB",
-      "duracion": 270,
-      "prerequisitos": ["CC052", "CC415"]
-    }
-  },
-  "Jornada": {
-    "0": {
-      "tipo": "Diurno"
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
     },
-    "1": {
-      "tipo": "Vespertino"
+    "CC093": {
+      "nombre": "COMUNICACIÓN DE DATOS Y REDES",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 90
+      }
+    },
+    "CC223": {
+      "nombre": "SISTEMAS DE INFORMACIÓN",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 90,
+        "taller": 180,
+        "laboratorio": 0
+      }
+    },
+    "CC094": {
+      "nombre": "TEORÍA DE LA COMPUTACIÓN",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 0
+      }
+    },
+    "DI166": {
+      "nombre": "INGLÉS II",
+      "créditos": 3,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 90,
+        "laboratorio": 90
+      }
+    },
+    "CC224": {
+      "nombre": "INGENIERÍA DE SOFTWARE II",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 90,
+        "taller": 180,
+        "laboratorio": 0
+      }
+    },
+    "CC225": {
+      "nombre": "ANÁLISIS Y DISEÑO DE ALGORITMOS",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "CC106": {
+      "nombre": "SISTEMAS DISTRIBUIDOS",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "CC132": {
+      "nombre": "LABORATORIO DE REDES",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 0,
+        "laboratorio": 180
+      }
+    },
+    "CC226": {
+      "nombre": "PROYECTO III",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "YY128": {
+      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL I",
+      "créditos": 4,
+      "carácter": "ELECTIVO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 0
+      }
+    },
+    "CC506": {
+      "nombre": "PRÁCTICA PROFESIONAL I",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 675,
+        "taller": 0,
+        "laboratorio": 0
+      }
+    },
+    "CC227": {
+      "nombre": "GESTIÓN DE PROCESOS DE NEGOCIOS",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "CC228": {
+      "nombre": "INTELIGENCIA ARTIFICIAL",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "CC229": {
+      "nombre": "APLICACIONES DISTRIBUIDAS",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 90,
+        "taller": 180,
+        "laboratorio": 0
+      }
+    },
+    "IN053": {
+      "nombre": "INTRODUCCIÓN A LA ECONOMÍA",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 0
+      }
+    },
+    "CC230": {
+      "nombre": "TALLER DE EMPRENDIMIENTO TECNOLÓGICO",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "CC231": {
+      "nombre": "ARQUITECTURA DE SOFTWARE",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 90,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "IN115": {
+      "nombre": "MODELOS DE OPTIMIZACIÓN",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 135,
+        "taller": 45,
+        "laboratorio": 0
+      }
+    },
+    "CC096": {
+      "nombre": "INTELIGENCIA DE NEGOCIOS",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "CC232": {
+      "nombre": "GESTIÓN DE SEGURIDAD INFORMÁTICA",
+      "créditos": 4,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "IN044": {
+      "nombre": "PREPARACIÓN Y EVALUACIÓN DE PROYECTOS",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 135,
+        "taller": 45,
+        "laboratorio": 0
+      }
+    },
+    "CC233": {
+      "nombre": "PROYECTO IV",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "CC234": {
+      "nombre": "MINERÍA DE DATOS",
+      "créditos": 5,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 90,
+        "laboratorio": 0
+      }
+    },
+    "CC237": {
+      "nombre": "PRÁCTICA PROFESIONAL II",
+      "créditos": 11,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 0,
+        "laboratorio": 0
+      }
+    },
+    "YY129": {
+      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL II",
+      "créditos": 4,
+      "carácter": "ELECTIVO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 0
+      }
+    },
+    "YY130": {
+      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL III",
+      "créditos": 4,
+      "carácter": "ELECTIVO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 0
+      }
+    },
+    "YY131": {
+      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL IV",
+      "créditos": 4,
+      "carácter": "ELECTIVO",
+      "minutos": {
+        "cátedra": 180,
+        "taller": 0,
+        "laboratorio": 0
+      }
+    },
+    "CC235": {
+      "nombre": "TALLER DE GESTIÓN TIC",
+      "créditos": 6,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 270,
+        "laboratorio": 0
+      }
+    },
+    "CC236": {
+      "nombre": "ACTIVIDAD DE TITULACIÓN",
+      "créditos": 9,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 360,
+        "laboratorio": 0
+      }
+    },
+    "DI167": {
+      "nombre": "INGLÉS III",
+      "créditos": 3,
+      "carácter": "OBLIGATORIO",
+      "minutos": {
+        "cátedra": 0,
+        "taller": 90,
+        "laboratorio": 90
+      }
     }
   },
   "Horarios": {
-    "0": {
-      "estado": "activo",
-        
-      "version": "2-2022",
-      "días": {
-        "L": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-        "M": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-        "X": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-        "J": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-        "V": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+    "ICCI": {
+      "1-2023": {
+        "estado": "ACTIVO",
+        "días": {
+          "L": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "M": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "X": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "J": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {
+              "protegido": true
+            },
+            "10": {
+              "protegido": true
+            },
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "V": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          }
+        }
+      },
+      "2-2023": {
+        "estado": "ACTIVO",
+        "días": {
+          "L": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "M": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "X": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "J": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {
+              "protegido": true
+            },
+            "10": {
+              "protegido": true
+            },
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "V": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          }
+        }
       }
     },
-    "1": {
-      "estado": "activo",
-        
-      "version": "1-2023",
-      "días": {
-        "L": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-        "M": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-        "X": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-        "J": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-        "V": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+    "RVP": {
+      "1-2023": {
+        "estado": "ACTIVO",
+        "días": {
+          "L": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "M": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "X": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "J": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "V": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          }
+        }
+      }
+    },
+    "LAB-PAR": {
+      "1-2023": {
+        "estado": "ACTIVO",
+        "días": {
+          "L": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "M": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "X": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "J": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {
+              "protegido": true
+            },
+            "10": {
+              "protegido": true
+            },
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "V": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          }
+        }
+      },
+      "2-2023": {
+        "estado": "ACTIVO",
+        "días": {
+          "L": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "M": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "X": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "J": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {
+              "protegido": true
+            },
+            "10": {
+              "protegido": true
+            },
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          },
+          "V": {
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {}
+          }
+        }
       }
     }
   },
@@ -99,32 +1791,78 @@
       "apellido": "Valdivia",
       "correo": "rvaldivi@academicos.uta.cl",
       "nombre": "Ricardo",
-      "habilidades": [null],
-      "cargos": ["jefe de carrera", "profesor"]
+      "bloques no disponibles": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "habilidades": [
+        null
+      ],
+      "cargos": [
+        "jefe de carrera",
+        "profesor"
+      ],
+      "imparte": {
+        "2023": {
+          "1": [
+            null
+          ]
+        }
+      }
     },
     "222222222": {
       "apellido": "Ramirez",
       "correo": "iramirez@academicos.uta.cl",
       "nombre": "Ibar",
-      "habilidades": [null],
-      "cargos": ["director de departamento", "profesor"]
+      "habilidades": [
+        null
+      ],
+      "cargos": [
+        "director de departamento",
+        "profesor"
+      ],
+      "imparte": {
+        "2023": {
+          "1": [
+            null
+          ]
+        }
+      }
     },
     "33333333": {
       "apellido": "Cardenas",
       "correo": "mcardenasn@academicos.uta.cl",
       "nombre": "Marcelo",
-      "habilidades": [null],
-      "cargos": ["profesor"]
+      "habilidades": [
+        null
+      ],
+      "cargos": [
+        "profesor"
+      ],
+      "imparte": {
+        "2023": {
+          "1": [
+            "CC219"
+          ]
+        }
+      }
     }
   },
   "Estudiante": {
     "44444444": {
-      "apellido": "Arias",
+      "apellido": "Arias Vargas",
       "correo": "alan.arias.vargas@alumnos.uta.cl",
       "nombre": "Alan",
-      "plan de estudio": 0,
-      "asignaturas inscritas": ["CC219"]
+      "plan de estudio": 1,
+      "asignaturas aprobadas": [
+        "CC209"
+      ],
+      "asignaturas inscritas": [
+        "CC219"
+      ]
     }
   }
 }
-

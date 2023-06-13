@@ -64,9 +64,8 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                             >
                               {(provided, snapshot) => (
                                 <div
-                                  className={`block ${
-                                    snapshot.isDragging ? "dragging" : ""
-                                  }`}
+                                  className={`block ${snapshot.isDragging ? "dragging" : ""
+                                    }`}
                                   item={
                                     item.name ??
                                     `${item.firstName} ${item.lastName}`
@@ -99,37 +98,36 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
   );
 }
 
-export function AsignaturesDraggable({ asignatures }) {
+export function AssignaturesDraggable({ assignatures }) {
   return (
     <>
-      {Object.entries(asignatures).map(([id, asignatures]) => (
+      {Object.entries(assignatures).map(([id, assignatures]) => (
         <Droppable isDropDisabled={true} droppableId={id} key={id}>
           {(provided, snapshot) => (
             <section
-              className="asignatures"
+              className="assignatures"
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              <div className="grid grid-asignatures">
-                {asignatures.items.map((asignatures, index) =>
-                  Object.entries(asignatures).map(([id, asignature]) => (
+              <div className="grid grid-assignatures">
+                {assignatures.items.map((assignatures, index) =>
+                  Object.entries(assignatures).map(([id, assignature]) => (
                     <Draggable
                       key={id}
                       draggableId={id}
                       index={index}
-                      isDragDisabled={asignature.time === 0}
+                      isDragDisabled={assignature.time === 0}
                     >
                       {(provided, snapshot) => (
                         <div
-                          className={`item ${
-                            asignature.time === 0 ? "disabled" : ""
-                          } ${snapshot.isDragging ? "dragging" : ""}`}
+                          className={`item ${assignature.time === 0 ? "disabled" : ""
+                            } ${snapshot.isDragging ? "dragging" : ""}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
-                          <p>{asignature.id}</p>
-                          { !snapshot.isDragging && <p>{asignature.name}</p>}
+                          <p>{assignature.id}</p>
+                          {!snapshot.isDragging && <p>{assignature.name}</p>}
                         </div>
                       )}
                     </Draggable>
@@ -158,24 +156,23 @@ export function LaboratoriesDraggable({ laboratories }) {
             >
               <div className="grid grid-laboratories">
                 {laboratories.items.map((laboratories, index) =>
-                  Object.entries(laboratories).map(([id, laboratorie]) => (
+                  Object.entries(laboratories).map(([id, laboratory]) => (
                     <Draggable
                       key={id}
                       draggableId={id}
                       index={index}
-                      isDragDisabled={laboratorie.time === 0}
+                      isDragDisabled={laboratory.time === 0}
                     >
                       {(provided, snapshot) => (
                         <div
-                          className={`item ${
-                            laboratorie.time === 0 ? "disabled" : ""
-                          } ${snapshot.isDragging ? "dragging" : ""}`}
+                          className={`item ${laboratory.time === 0 ? "disabled" : ""
+                            } ${snapshot.isDragging ? "dragging" : ""}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
-                          <p>{laboratorie.id}</p>
-                          { !snapshot.isDragging && <p>{laboratorie.name}</p>}
+                          <p>{laboratory.id}</p>
+                          {!snapshot.isDragging && <p>{laboratory.name}</p>}
                         </div>
                       )}
                     </Draggable>
@@ -213,15 +210,14 @@ export function TeachersDraggable({ teachers }) {
                     >
                       {(provided, snapshot) => (
                         <div
-                          className={`item ${
-                            teacher.time === 0 ? "disabled" : ""
-                          } ${snapshot.isDragging ? "dragging" : ""}`}
+                          className={`item ${teacher.time === 0 ? "disabled" : ""
+                            } ${snapshot.isDragging ? "dragging" : ""}`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                         >
                           <p>{teacher.id}</p>
-                          { !snapshot.isDragging && <p>{`${teacher.firstName} ${teacher.lastName}`}</p>}
+                          {!snapshot.isDragging && <p>{`${teacher.firstName} ${teacher.lastName}`}</p>}
                         </div>
                       )}
                     </Draggable>

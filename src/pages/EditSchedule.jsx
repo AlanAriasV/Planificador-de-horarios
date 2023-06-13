@@ -7,14 +7,14 @@ import '../css/EditSchedule.css';
 
 import Header from '../components/Header';
 import {
-  Asignatures,
+  Assignatures,
   Blocks,
   Laboratories,
   Assignments,
   Teachers,
 } from '../firebase/Data';
 import {
-  AsignaturesDraggable,
+  AssignaturesDraggable,
   LaboratoriesDraggable,
   ScheduleBlocksDraggable,
   TeachersDraggable,
@@ -162,7 +162,7 @@ function UpdateDroppable({ source, destination }) {
 }
 
 export function EditSchedule() {
-  const [asignatures, setAsignatures] = useState(Asignatures);
+  const [assignatures, setAssignatures] = useState(Assignatures);
   const [assignments, setAssignments] = useState(Assignments);
   const [blocks, setBlocks] = useState(Blocks);
   const [laboratories, setLaboratories] = useState(Laboratories);
@@ -184,10 +184,10 @@ export function EditSchedule() {
             });
           }}
           onDragEnd={(result) => {
-            const droppables = [blocks, asignatures, laboratories, teachers];
+            const droppables = [blocks, assignatures, laboratories, teachers];
             const setDroppables = [
               setBlocks,
-              setAsignatures,
+              setAssignatures,
               setLaboratories,
               setTeachers,
               setShelteredBlocks,
@@ -200,8 +200,8 @@ export function EditSchedule() {
           }}
         >
           <section className='schedule'>
-            <div 
-            style={{overflowY: 'scroll', height: '100%', width: '100%'}}>
+            <div
+              style={{ overflowY: 'scroll', height: '100%', width: '100%' }}>
               <table className='edit-schedule'>
                 <thead>
                   <tr>
@@ -234,11 +234,11 @@ export function EditSchedule() {
               </table>
             </div>
           </section >
-          <h2 style={{gridArea:'ta'}}> Asignaturas </h2>
-          <AsignaturesDraggable asignatures={asignatures} />
-          <h2 style={{gridArea:'tl'}}> Laboratorios </h2>
+          <h2 style={{ gridArea: 'ta' }}> Asignaturas </h2>
+          <AssignaturesDraggable assignatures={assignatures} />
+          <h2 style={{ gridArea: 'tl' }}> Laboratorios </h2>
           <LaboratoriesDraggable laboratories={laboratories} />
-          <h2 style={{gridArea:'tt'}}> Docentes </h2>
+          <h2 style={{ gridArea: 'tt' }}> Docentes </h2>
           <TeachersDraggable teachers={teachers} />
         </DragDropContext >
       </main >
