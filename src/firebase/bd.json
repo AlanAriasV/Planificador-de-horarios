@@ -4,655 +4,1002 @@
       "nombre": "Ingeniería Civil en Computación e Informática",
       "jefe de carrera": 11111111,
       "departamento": "DICI",
-      "plan de estudio": [
-        0,
-        1
-      ]
+      "plan de estudio": {
+        "2013": {
+          "estado": "ACTIVO",
+          "jornadas": ["Diurno", "Vespertino"],
+          "semestres": {
+            "I": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "II": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "III": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "IV": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "V": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "VI": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "VII": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "VIII": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "IX": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "X": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "XI": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "XII": {
+              "": {
+                "asignatura": "",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            }
+          },
+          "horarios": {
+            "2023": {
+              "1": {
+                "estado": "ACTIVO",
+                "días": {
+                  "L": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": {},
+                    "10": {},
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  },
+                  "M": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": {},
+                    "10": {},
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  },
+                  "X": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": {},
+                    "10": {},
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  },
+                  "J": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": { "protegido": true },
+                    "10": { "protegido": true },
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  },
+                  "V": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": {},
+                    "10": {},
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "2019": {
+          "estado": "ACTIVO",
+          "jornadas": ["Diurno"],
+          "semestres": {
+            "I": {
+              "1": {
+                "asignatura": "MA067",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              },
+              "2": {
+                "asignatura": "MA069",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              },
+              "3": {
+                "asignatura": "CC198",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              },
+              "4": {
+                "asignatura": "CC210",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              },
+              "5": {
+                "asignatura": "CC199",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "II": {
+              "6": {
+                "asignatura": "MA601",
+                "prerrequisitos": ["MA067"],
+                "correquisitos": [null]
+              },
+              "7": {
+                "asignatura": "MA611",
+                "prerrequisitos": ["MA069"],
+                "correquisitos": [null]
+              },
+              "8": {
+                "asignatura": "FI035",
+                "prerrequisitos": ["MA067"],
+                "correquisitos": [null]
+              },
+              "9": {
+                "asignatura": "CC206",
+                "prerrequisitos": ["CC198", "CC199"],
+                "correquisitos": [null]
+              },
+              "10": {
+                "asignatura": "CC208",
+                "prerrequisitos": ["CC199"],
+                "correquisitos": [null]
+              }
+            },
+            "III": {
+              "11": {
+                "asignatura": "MA602",
+                "prerrequisitos": ["MA601"],
+                "correquisitos": [null]
+              },
+              "12": {
+                "asignatura": "MA612",
+                "prerrequisitos": ["MA611"],
+                "correquisitos": [null]
+              },
+              "13": {
+                "asignatura": "FI601",
+                "prerrequisitos": ["MA601", "FI035"],
+                "correquisitos": [null]
+              },
+              "14": {
+                "asignatura": "CC209",
+                "prerrequisitos": ["CC208"],
+                "correquisitos": [null]
+              },
+              "15": {
+                "asignatura": "CC211",
+                "prerrequisitos": ["CC208"],
+                "correquisitos": [null]
+              }
+            },
+            "IV": {
+              "16": {
+                "asignatura": "MA603",
+                "prerrequisitos": ["MA602"],
+                "correquisitos": [null]
+              },
+              "17": {
+                "asignatura": "MA220",
+                "prerrequisitos": ["MA602", "MA612"],
+                "correquisitos": [null]
+              },
+              "18": {
+                "asignatura": "IE078",
+                "prerrequisitos": ["FI035", "MA612"],
+                "correquisitos": [null]
+              },
+              "19": {
+                "asignatura": "CC222",
+                "prerrequisitos": ["CC209"]
+              },
+              "20": {
+                "asignatura": "CC091",
+                "prerrequisitos": ["CC206", "CC209"],
+                "correquisitos": [null]
+              },
+              "21": {
+                "asignatura": "DE181",
+                "prerrequisitos": [null],
+                "correquisitos": ["CC091"]
+              }
+            },
+            "V": {
+              "22": {
+                "asignatura": "FI604",
+                "prerrequisitos": ["MA602", "MA612", "FI601"],
+                "correquisitos": [null]
+              },
+              "23": {
+                "asignatura": "MA424",
+                "prerrequisitos": ["MA602"],
+                "correquisitos": [null]
+              },
+              "24": {
+                "asignatura": "CC082",
+                "prerrequisitos": ["IE078"],
+                "correquisitos": [null]
+              },
+              "25": {
+                "asignatura": "CC212",
+                "prerrequisitos": ["CC222"],
+                "correquisitos": [null]
+              },
+              "26": {
+                "asignatura": "CC083",
+                "prerrequisitos": ["CC222"],
+                "correquisitos": [null]
+              },
+              "27": {
+                "asignatura": "CC214",
+                "prerrequisitos": ["CC210"],
+                "correquisitos": [null]
+              }
+            },
+            "VI": {
+              "28": {
+                "asignatura": "CC052",
+                "prerrequisitos": ["CC212"],
+                "correquisitos": [null]
+              },
+              "29": {
+                "asignatura": "IN056",
+                "prerrequisitos": ["MA424"],
+                "correquisitos": [null]
+              },
+              "30": {
+                "asignatura": "CC359",
+                "prerrequisitos": ["CC222", "CC082"],
+                "correquisitos": [null]
+              },
+              "31": {
+                "asignatura": "CC415",
+                "prerrequisitos": ["CC212"],
+                "correquisitos": [null]
+              },
+              "32": {
+                "asignatura": "CC216",
+                "prerrequisitos": ["CC091", "CC212", "CC083"],
+                "correquisitos": [null]
+              },
+              "33": {
+                "asignatura": "DI165",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              }
+            },
+            "VII": {
+              "34": {
+                "asignatura": "CC218",
+                "prerrequisitos": ["CC415"],
+                "correquisitos": [null]
+              },
+              "35": {
+                "asignatura": "CC219",
+                "prerrequisitos": ["CC052", "CC415"],
+                "correquisitos": [null]
+              },
+              "36": {
+                "asignatura": "CC093",
+                "prerrequisitos": ["CC359"],
+                "correquisitos": [null]
+              },
+              "37": {
+                "asignatura": "CC223",
+                "prerrequisitos": ["IN056", "CC415"],
+                "correquisitos": [null]
+              },
+              "38": {
+                "asignatura": "CC094",
+                "prerrequisitos": ["MA612", "CC222"],
+                "correquisitos": [null]
+              },
+              "39": {
+                "asignatura": "DI166",
+                "prerrequisitos": ["DI165"],
+                "correquisitos": [null]
+              }
+            },
+            "VIII": {
+              "40": {
+                "asignatura": "CC224",
+                "prerrequisitos": ["CC218"],
+                "correquisitos": [null]
+              },
+              "41": {
+                "asignatura": "CC225",
+                "prerrequisitos": ["MA424", "CC094"],
+                "correquisitos": [null]
+              },
+              "42": {
+                "asignatura": "CC106",
+                "prerrequisitos": ["CC219", "CC093"],
+                "correquisitos": [null]
+              },
+              "43": {
+                "asignatura": "CC132",
+                "prerrequisitos": ["CC093"],
+                "correquisitos": [null]
+              },
+              "44": {
+                "asignatura": "CC226",
+                "prerrequisitos": ["CC216", "CC218", "CC223"],
+                "correquisitos": [null]
+              },
+              "45": {
+                "asignatura": "YY128",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              },
+              "64": {
+                "asignatura": "CC506",
+                "prerrequisitos": ["CC216", "CC218", "CC219", "CC223"],
+                "correquisitos": [null]
+              }
+            },
+            "IX": {
+              "46": {
+                "asignatura": "CC227",
+                "prerrequisitos": ["CC223"],
+                "correquisitos": [null]
+              },
+              "47": {
+                "asignatura": "CC228",
+                "prerrequisitos": ["CC225"],
+                "correquisitos": [null]
+              },
+              "48": {
+                "asignatura": "CC229",
+                "prerrequisitos": ["CC106", "CC132"],
+                "correquisitos": [null]
+              },
+              "49": {
+                "asignatura": "IN053",
+                "prerrequisitos": ["MA424", "IN056"],
+                "correquisitos": [null]
+              },
+              "50": {
+                "asignatura": "CC230",
+                "prerrequisitos": ["CC224"],
+                "correquisitos": [null]
+              },
+              "51": {
+                "asignatura": "CC231",
+                "prerrequisitos": ["CC218"],
+                "correquisitos": [null]
+              }
+            },
+            "X": {
+              "52": {
+                "asignatura": "IN115",
+                "prerrequisitos": ["MA424"],
+                "correquisitos": [null]
+              },
+              "53": {
+                "asignatura": "CC096",
+                "prerrequisitos": ["CC415"],
+                "correquisitos": [null]
+              },
+              "54": {
+                "asignatura": "CC232",
+                "prerrequisitos": ["CC229"],
+                "correquisitos": [null]
+              },
+              "55": {
+                "asignatura": "IN044",
+                "prerrequisitos": ["CC218"],
+                "correquisitos": [null]
+              },
+              "56": {
+                "asignatura": "CC233",
+                "prerrequisitos": ["CC226", "CC229", "CC230"],
+                "correquisitos": [null]
+              },
+              "57": {
+                "asignatura": "CC234",
+                "prerrequisitos": ["CC228"],
+                "correquisitos": [null]
+              },
+              "65": {
+                "asignatura": "CC237",
+                "prerrequisitos": ["CC226", "CC506", "CC227", "CC229"],
+                "correquisitos": [null]
+              }
+            },
+            "XI": {
+              "58": {
+                "asignatura": "YY129",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              },
+              "59": {
+                "asignatura": "YY130",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              },
+              "60": {
+                "asignatura": "YY131",
+                "prerrequisitos": [null],
+                "correquisitos": [null]
+              },
+              "61": {
+                "asignatura": "CC235",
+                "prerrequisitos": ["CC096", "IN044"],
+                "correquisitos": [null]
+              },
+              "62": {
+                "asignatura": "CC236",
+                "prerrequisitos": [
+                  "I",
+                  "II",
+                  "III",
+                  "IV",
+                  "V",
+                  "VI",
+                  "VII",
+                  "VIII",
+                  "IX",
+                  "X"
+                ],
+                "correquisitos": [null]
+              },
+              "63": {
+                "asignatura": "DI167",
+                "prerrequisitos": ["DI166"],
+                "correquisitos": [null]
+              }
+            }
+          }
+        }
+      }
     },
     "ICI": {
       "nombre": "Ingeniería Civil Industrial",
       "jefe de carrera": null,
       "departamento": null,
-      "plan de estudio": [
-        null
-      ]
+      "plan de estudio": [null]
     }
   },
   "Departamento": {
     "DICI": {
       "nombre": "Departamento de Ingeniería en Computación e Informática",
-      "director de departamento": 22222222
+      "director de departamento": 22222222,
+      "laboratorios": {
+        "LAB-LIC": {
+          "nombre": "LICANCABUR",
+          "horarios": {
+            "2023": {
+              "1": {
+                "estado": "ACTIVO",
+                "días": {
+                  "L": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": {},
+                    "10": {},
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  },
+                  "M": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": {},
+                    "10": {},
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  },
+                  "X": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": {},
+                    "10": {},
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  },
+                  "J": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": { "protegido": true },
+                    "10": { "protegido": true },
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  },
+                  "V": {
+                    "1": {},
+                    "2": {},
+                    "3": {},
+                    "4": {},
+                    "5": {},
+                    "6": {},
+                    "7": {},
+                    "8": {},
+                    "9": {},
+                    "10": {},
+                    "11": {},
+                    "12": {},
+                    "13": {},
+                    "14": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "Plan de estudio": {
     "0": {
       "año": 2013,
-      "jornadas": [
-        "Diurno",
-        "Vespertino"
-      ],
-      "semestres": [
-        null
-      ]
+      "jornadas": ["Diurno", "Vespertino"],
+      "semestres": [null]
     },
     "1": {
       "año": 2019,
-      "jornadas": [
-        "Diurno"
-      ],
+      "jornadas": ["Diurno"],
       "semestres": {
         "I": {
           "1": {
             "asignatura": "MA067",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           },
           "2": {
             "asignatura": "MA069",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           },
           "3": {
             "asignatura": "CC198",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           },
           "4": {
             "asignatura": "CC210",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           },
           "5": {
             "asignatura": "CC199",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           }
         },
         "II": {
           "6": {
             "asignatura": "MA601",
-            "prerrequisitos": [
-              "MA067"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA067"],
+            "correquisitos": [null]
           },
           "7": {
             "asignatura": "MA611",
-            "prerrequisitos": [
-              "MA069"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA069"],
+            "correquisitos": [null]
           },
           "8": {
             "asignatura": "FI035",
-            "prerrequisitos": [
-              "MA067"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA067"],
+            "correquisitos": [null]
           },
           "9": {
             "asignatura": "CC206",
-            "prerrequisitos": [
-              "CC198",
-              "CC199"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC198", "CC199"],
+            "correquisitos": [null]
           },
           "10": {
             "asignatura": "CC208",
-            "prerrequisitos": [
-              "CC199"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC199"],
+            "correquisitos": [null]
           }
         },
         "III": {
           "11": {
             "asignatura": "MA602",
-            "prerrequisitos": [
-              "MA601"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA601"],
+            "correquisitos": [null]
           },
           "12": {
             "asignatura": "MA612",
-            "prerrequisitos": [
-              "MA611"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA611"],
+            "correquisitos": [null]
           },
           "13": {
             "asignatura": "FI601",
-            "prerrequisitos": [
-              "MA601",
-              "FI035"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA601", "FI035"],
+            "correquisitos": [null]
           },
           "14": {
             "asignatura": "CC209",
-            "prerrequisitos": [
-              "CC208"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC208"],
+            "correquisitos": [null]
           },
           "15": {
             "asignatura": "CC211",
-            "prerrequisitos": [
-              "CC208"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC208"],
+            "correquisitos": [null]
           }
         },
         "IV": {
           "16": {
             "asignatura": "MA603",
-            "prerrequisitos": [
-              "MA602"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA602"],
+            "correquisitos": [null]
           },
           "17": {
             "asignatura": "MA220",
-            "prerrequisitos": [
-              "MA602",
-              "MA612"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA602", "MA612"],
+            "correquisitos": [null]
           },
           "18": {
             "asignatura": "IE078",
-            "prerrequisitos": [
-              "FI035",
-              "MA612"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["FI035", "MA612"],
+            "correquisitos": [null]
           },
           "19": {
             "asignatura": "CC222",
-            "prerrequisitos": [
-              "CC209"
-            ]
+            "prerrequisitos": ["CC209"]
           },
           "20": {
             "asignatura": "CC091",
-            "prerrequisitos": [
-              "CC206",
-              "CC209"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC206", "CC209"],
+            "correquisitos": [null]
           },
           "21": {
             "asignatura": "DE181",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              "CC091"
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": ["CC091"]
           }
         },
         "V": {
           "22": {
             "asignatura": "FI604",
-            "prerrequisitos": [
-              "MA602",
-              "MA612",
-              "FI601"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA602", "MA612", "FI601"],
+            "correquisitos": [null]
           },
           "23": {
             "asignatura": "MA424",
-            "prerrequisitos": [
-              "MA602"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA602"],
+            "correquisitos": [null]
           },
           "24": {
             "asignatura": "CC082",
-            "prerrequisitos": [
-              "IE078"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["IE078"],
+            "correquisitos": [null]
           },
           "25": {
             "asignatura": "CC212",
-            "prerrequisitos": [
-              "CC222"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC222"],
+            "correquisitos": [null]
           },
           "26": {
             "asignatura": "CC083",
-            "prerrequisitos": [
-              "CC222"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC222"],
+            "correquisitos": [null]
           },
           "27": {
             "asignatura": "CC214",
-            "prerrequisitos": [
-              "CC210"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC210"],
+            "correquisitos": [null]
           }
         },
         "VI": {
           "28": {
             "asignatura": "CC052",
-            "prerrequisitos": [
-              "CC212"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC212"],
+            "correquisitos": [null]
           },
           "29": {
             "asignatura": "IN056",
-            "prerrequisitos": [
-              "MA424"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA424"],
+            "correquisitos": [null]
           },
           "30": {
             "asignatura": "CC359",
-            "prerrequisitos": [
-              "CC222",
-              "CC082"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC222", "CC082"],
+            "correquisitos": [null]
           },
           "31": {
             "asignatura": "CC415",
-            "prerrequisitos": [
-              "CC212"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC212"],
+            "correquisitos": [null]
           },
           "32": {
             "asignatura": "CC216",
-            "prerrequisitos": [
-              "CC091",
-              "CC212",
-              "CC083"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC091", "CC212", "CC083"],
+            "correquisitos": [null]
           },
           "33": {
             "asignatura": "DI165",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           }
         },
         "VII": {
           "34": {
             "asignatura": "CC218",
-            "prerrequisitos": [
-              "CC415"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC415"],
+            "correquisitos": [null]
           },
           "35": {
             "asignatura": "CC219",
-            "prerrequisitos": [
-              "CC052",
-              "CC415"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC052", "CC415"],
+            "correquisitos": [null]
           },
           "36": {
             "asignatura": "CC093",
-            "prerrequisitos": [
-              "CC359"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC359"],
+            "correquisitos": [null]
           },
           "37": {
             "asignatura": "CC223",
-            "prerrequisitos": [
-              "IN056",
-              "CC415"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["IN056", "CC415"],
+            "correquisitos": [null]
           },
           "38": {
             "asignatura": "CC094",
-            "prerrequisitos": [
-              "MA612",
-              "CC222"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA612", "CC222"],
+            "correquisitos": [null]
           },
           "39": {
             "asignatura": "DI166",
-            "prerrequisitos": [
-              "DI165"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["DI165"],
+            "correquisitos": [null]
           }
         },
         "VIII": {
           "40": {
             "asignatura": "CC224",
-            "prerrequisitos": [
-              "CC218"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC218"],
+            "correquisitos": [null]
           },
           "41": {
             "asignatura": "CC225",
-            "prerrequisitos": [
-              "MA424",
-              "CC094"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA424", "CC094"],
+            "correquisitos": [null]
           },
           "42": {
             "asignatura": "CC106",
-            "prerrequisitos": [
-              "CC219",
-              "CC093"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC219", "CC093"],
+            "correquisitos": [null]
           },
           "43": {
             "asignatura": "CC132",
-            "prerrequisitos": [
-              "CC093"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC093"],
+            "correquisitos": [null]
           },
           "44": {
             "asignatura": "CC226",
-            "prerrequisitos": [
-              "CC216",
-              "CC218",
-              "CC223"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC216", "CC218", "CC223"],
+            "correquisitos": [null]
           },
           "45": {
             "asignatura": "YY128",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           },
           "64": {
             "asignatura": "CC506",
-            "prerrequisitos": [
-              "CC216",
-              "CC218",
-              "CC219",
-              "CC223"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC216", "CC218", "CC219", "CC223"],
+            "correquisitos": [null]
           }
         },
         "IX": {
           "46": {
             "asignatura": "CC227",
-            "prerrequisitos": [
-              "CC223"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC223"],
+            "correquisitos": [null]
           },
           "47": {
             "asignatura": "CC228",
-            "prerrequisitos": [
-              "CC225"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC225"],
+            "correquisitos": [null]
           },
           "48": {
             "asignatura": "CC229",
-            "prerrequisitos": [
-              "CC106",
-              "CC132"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC106", "CC132"],
+            "correquisitos": [null]
           },
           "49": {
             "asignatura": "IN053",
-            "prerrequisitos": [
-              "MA424",
-              "IN056"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA424", "IN056"],
+            "correquisitos": [null]
           },
           "50": {
             "asignatura": "CC230",
-            "prerrequisitos": [
-              "CC224"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC224"],
+            "correquisitos": [null]
           },
           "51": {
             "asignatura": "CC231",
-            "prerrequisitos": [
-              "CC218"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC218"],
+            "correquisitos": [null]
           }
         },
         "X": {
           "52": {
             "asignatura": "IN115",
-            "prerrequisitos": [
-              "MA424"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["MA424"],
+            "correquisitos": [null]
           },
           "53": {
             "asignatura": "CC096",
-            "prerrequisitos": [
-              "CC415"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC415"],
+            "correquisitos": [null]
           },
           "54": {
             "asignatura": "CC232",
-            "prerrequisitos": [
-              "CC229"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC229"],
+            "correquisitos": [null]
           },
           "55": {
             "asignatura": "IN044",
-            "prerrequisitos": [
-              "CC218"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC218"],
+            "correquisitos": [null]
           },
           "56": {
             "asignatura": "CC233",
-            "prerrequisitos": [
-              "CC226",
-              "CC229",
-              "CC230"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC226", "CC229", "CC230"],
+            "correquisitos": [null]
           },
           "57": {
             "asignatura": "CC234",
-            "prerrequisitos": [
-              "CC228"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC228"],
+            "correquisitos": [null]
           },
           "65": {
             "asignatura": "CC237",
-            "prerrequisitos": [
-              "CC226",
-              "CC506",
-              "CC227",
-              "CC229"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC226", "CC506", "CC227", "CC229"],
+            "correquisitos": [null]
           }
         },
         "XI": {
           "58": {
             "asignatura": "YY129",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           },
           "59": {
             "asignatura": "YY130",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           },
           "60": {
             "asignatura": "YY131",
-            "prerrequisitos": [
-              null
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": [null],
+            "correquisitos": [null]
           },
           "61": {
             "asignatura": "CC235",
-            "prerrequisitos": [
-              "CC096",
-              "IN044"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["CC096", "IN044"],
+            "correquisitos": [null]
           },
           "62": {
             "asignatura": "CC236",
@@ -668,18 +1015,12 @@
               "IX",
               "X"
             ],
-            "correquisitos": [
-              null
-            ]
+            "correquisitos": [null]
           },
           "63": {
             "asignatura": "DI167",
-            "prerrequisitos": [
-              "DI166"
-            ],
-            "correquisitos": [
-              null
-            ]
+            "prerrequisitos": ["DI166"],
+            "correquisitos": [null]
           }
         }
       }
@@ -1337,479 +1678,106 @@
       }
     }
   },
-  "Horarios": {
-    "ICCI": {
-      "1-2023": {
-        "estado": "ACTIVO",
-        "días": {
-          "L": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "M": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "X": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "J": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {
-              "protegido": true
-            },
-            "10": {
-              "protegido": true
-            },
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "V": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          }
-        }
-      },
-      "2-2023": {
-        "estado": "ACTIVO",
-        "días": {
-          "L": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "M": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "X": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "J": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {
-              "protegido": true
-            },
-            "10": {
-              "protegido": true
-            },
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "V": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          }
-        }
-      }
-    },
-    "RVP": {
-      "1-2023": {
-        "estado": "ACTIVO",
-        "días": {
-          "L": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "M": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "X": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "J": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "V": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          }
-        }
-      }
-    },
-    "LAB-PAR": {
-      "1-2023": {
-        "estado": "ACTIVO",
-        "días": {
-          "L": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "M": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "X": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "J": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {
-              "protegido": true
-            },
-            "10": {
-              "protegido": true
-            },
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "V": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          }
-        }
-      },
-      "2-2023": {
-        "estado": "ACTIVO",
-        "días": {
-          "L": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "M": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "X": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "J": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {
-              "protegido": true
-            },
-            "10": {
-              "protegido": true
-            },
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          },
-          "V": {
-            "1": {},
-            "2": {},
-            "3": {},
-            "4": {},
-            "5": {},
-            "6": {},
-            "7": {},
-            "8": {},
-            "9": {},
-            "10": {},
-            "11": {},
-            "12": {},
-            "13": {},
-            "14": {}
-          }
-        }
-      }
-    }
-  },
   "Docentes": {
-    "11111111": {
-      "apellido": "Valdivia",
+    "11111111 ": {
+      "apellido": "Valdivia Pinto",
       "correo": "rvaldivi@academicos.uta.cl",
       "nombre": "Ricardo",
-      "bloques no disponibles": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "habilidades": [
-        null
-      ],
-      "cargos": [
-        "jefe de carrera",
-        "profesor"
-      ],
+      "bloques no disponibles": [1, 2, 3, 4, 5],
+      "habilidades": [null],
+      "cargos": ["jefe de carrera", "profesor"],
       "imparte": {
         "2023": {
-          "1": [
-            null
-          ]
+          "1": [null]
+        }
+      },
+      "horarios": {
+        "2023": {
+          "1": {
+            "estado": "ACTIVO",
+            "días": {
+              "L": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "M": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "X": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "J": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": { "protegido": true },
+                "10": { "protegido": true },
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "V": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              }
+            }
+          }
         }
       }
     },
@@ -1817,18 +1785,100 @@
       "apellido": "Ramirez",
       "correo": "iramirez@academicos.uta.cl",
       "nombre": "Ibar",
-      "habilidades": [
-        null
-      ],
-      "cargos": [
-        "director de departamento",
-        "profesor"
-      ],
+      "habilidades": [null],
+      "cargos": ["director de departamento", "profesor"],
       "imparte": {
         "2023": {
-          "1": [
-            null
-          ]
+          "1": [null]
+        }
+      },
+      "horarios": {
+        "2023": {
+          "1": {
+            "estado": "ACTIVO",
+            "días": {
+              "L": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "M": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "X": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "J": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": { "protegido": true },
+                "10": { "protegido": true },
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "V": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              }
+            }
+          }
         }
       }
     },
@@ -1836,17 +1886,100 @@
       "apellido": "Cardenas",
       "correo": "mcardenasn@academicos.uta.cl",
       "nombre": "Marcelo",
-      "habilidades": [
-        null
-      ],
-      "cargos": [
-        "profesor"
-      ],
+      "habilidades": [null],
+      "cargos": ["profesor"],
       "imparte": {
         "2023": {
-          "1": [
-            "CC219"
-          ]
+          "1": ["CC219"]
+        }
+      },
+      "horarios": {
+        "2023": {
+          "1": {
+            "estado": "ACTIVO",
+            "días": {
+              "L": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "M": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "X": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "J": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": { "protegido": true },
+                "10": { "protegido": true },
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "V": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              }
+            }
+          }
         }
       }
     }
@@ -1857,12 +1990,97 @@
       "correo": "alan.arias.vargas@alumnos.uta.cl",
       "nombre": "Alan",
       "plan de estudio": 1,
-      "asignaturas aprobadas": [
-        "CC209"
-      ],
-      "asignaturas inscritas": [
-        "CC219"
-      ]
+      "asignaturas aprobadas": ["CC209"],
+      "asignaturas inscritas": ["CC219"],
+      "horarios": {
+        "2023": {
+          "1": {
+            "estado": "ACTIVO",
+            "días": {
+              "L": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "M": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "X": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "J": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": { "protegido": true },
+                "10": { "protegido": true },
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              },
+              "V": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "5": {},
+                "6": {},
+                "7": {},
+                "8": {},
+                "9": {},
+                "10": {},
+                "11": {},
+                "12": {},
+                "13": {},
+                "14": {}
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
