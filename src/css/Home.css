@@ -218,7 +218,6 @@
     /* transform: scale(1.025); */
   }
 
-
   .schedule-block:not(:last-child) {
     margin-bottom: 1px !important;
   }
@@ -230,3 +229,41 @@
   .semester-courses {
     margin-top: 1px !important;
   }
+
+  .preview-schedule-container {
+    overflow: auto;
+  }
+
+.preview-schedule thead tr th,
+.preview-schedule thead tr td,
+.preview-schedule tbody tr td:first-child {
+  background-color: var(--blue-color) !important;
+  color: var(--white-color);
+  text-align: center !important;
+}
+
+.preview-schedule thead {
+  width: calc( 100% - 20px );
+}
+
+.preview-schedule tbody {
+  display: block;
+  height: 300px;
+  overflow:auto;
+}
+
+.preview-schedule thead, .preview-schedule tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+
+.preview-schedule tbody td {
+  height: 80px;
+}
+
+.preview-schedule td div {
+  text-align: center;
+  border: solid 1px var(--grey-color);
+  padding: 1px;  
+}

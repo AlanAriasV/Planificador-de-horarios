@@ -16,10 +16,15 @@
     margin: 10% auto;
     padding: 20px;
     border-radius: 5px;
-    width: 60%;
-    max-width: 500px;
+    width: 70%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: relative;
+}
+
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-close {

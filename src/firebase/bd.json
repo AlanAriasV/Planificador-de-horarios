@@ -10,84 +10,84 @@
           "jornadas": ["Diurno", "Vespertino"],
           "semestres": {
             "I": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "II": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "III": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "IV": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "V": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "VI": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "VII": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "VIII": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "IX": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "X": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "XI": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]
               }
             },
             "XII": {
-              "": {
+              "0": {
                 "asignatura": "",
                 "prerrequisitos": [null],
                 "correquisitos": [null]

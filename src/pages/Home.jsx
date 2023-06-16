@@ -5,9 +5,8 @@ import { FaSearch } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import "../css/Home.css";
 import "../css/Modal.css";
-import { Courses, Careers, Assignments } from "../firebase/Data";
-import { CarreraProvider, CarreraContext } from '../contexts/CarreraContext';
-
+import { Courses, Careers, Assignments, BlocksDuration } from "../firebase/Data";
+import { CarreraProvider, CarreraContext } from "../contexts/CarreraContext";
 
 export function CareerSelector() {
   const carreraContext = useContext(CarreraContext); //CONTEXTO
@@ -16,7 +15,7 @@ export function CareerSelector() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleCareerClick = (event) => {
-    setCarreraById(event.currentTarget.id) //CONTEXTO
+    setCarreraById(event.currentTarget.id); //CONTEXTO
   };
 
   const handleInputChange = (event) => {
@@ -47,7 +46,9 @@ export function CareerSelector() {
           return (
             <div
               key={career[0]}
-              className={`career-btn grey-border ${selectedCarreraID === career[0] ? 'active' : ''}`}
+              className={`career-btn grey-border ${
+                selectedCarreraID === career[0] ? "active" : ""
+              }`}
               id={career[0]}
               onClick={handleCareerClick}
             >
@@ -77,7 +78,8 @@ export function ViewMalla() {
     return (
       <div className="empty">
         <h2>Seleccione una Carrera</h2>
-      </div>);
+      </div>
+    );
   }
   return (
     <>
@@ -90,7 +92,11 @@ export function ViewMalla() {
               <p className="semester-title">Semestre {index1 + 1}</p>
               <div className="semester-courses">
                 {semester.map((course, index2) => (
-                  <CourseBlock key={index2} code={course.code} title={course.course} />
+                  <CourseBlock
+                    key={index2}
+                    code={course.code}
+                    title={course.course}
+                  />
                 ))}
               </div>
             </div>
@@ -105,98 +111,115 @@ export function Modal({ closeModal }) {
   const carreraContext = useContext(CarreraContext); //CONTEXTO
   const { selectedCarreraID, selectedSemestre } = carreraContext; //CONTEXTO
 
-  const year = '2022'
+  const year = "2022";
   const scheduleId = `${selectedCarreraID}-${selectedSemestre}-${year}`;
-  const schedule = Assignments[scheduleId]
+  const schedule = Assignments[scheduleId];
 
   const scheduleMatrix = [];
   for (let i = 0; i < 14; i++) {
-    scheduleMatrix[i] = ['', '', '', '', ''];
+    scheduleMatrix[i] = ["", "", "", "", ""];
   }
 
   const getDayIntex = (dia) => {
     switch (dia) {
-      case 'L':
+      case "L":
         return 0;
-      case 'M':
+      case "M":
         return 1;
-      case 'J':
+      case "J":
         return 2;
-      case 'V':
+      case "V":
         return 3;
       default:
         return -1;
     }
   };
 
-  schedule.items.forEach(item => {
+  schedule.items.forEach((item) => {
     const { block, day, asi, lab, doc } = item;
     const blockIndex = block - 1;
     const dayIndex = getDayIntex(day);
     scheduleMatrix[blockIndex][dayIndex] = { asi, lab, doc };
   });
 
+  const date = new Date();
+  date.setHours(8);
+  date.setMinutes(0);
+
   return (
-    <div className='modal'>
-      <div className='modal-content'>
-        <span className='modal-close' onClick={() => closeModal(false)}>
+    <div className="modal">
+      <div className="modal-content">
+        <span className="modal-close" onClick={() => closeModal(false)}>
           <AiOutlineClose />
         </span>
-        <div className='modal-title'>
+        <div className="modal-title">
           <h2>Previsualización de horario para semestre {selectedSemestre}</h2>
         </div>
-        <div className='modal-body'>
+        <div className="modal-body">
           {schedule ? (
-            <div className='schedule'>
-              <div>
-                <table className='edit-schedule'>
-                  <thead>
-                    <tr>
-                      <th colSpan={6}>
-                        <h2>Horario</h2>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td>Lunes</td>
-                      <td>Martes</td>
-                      <td>Miércoles</td>
-                      <td>Jueves</td>
-                      <td>Viernes</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {scheduleMatrix.map((scheduleBlock, blockIndex) => (
+            <div className="preview-schedule-container">
+              <table className="preview-schedule">
+                <thead>
+                  <tr>
+                    <th colSpan={6}>
+                      <h2>Horario</h2>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Lunes</td>
+                    <td>Martes</td>
+                    <td>Miércoles</td>
+                    <td>Jueves</td>
+                    <td>Viernes</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {scheduleMatrix.map((scheduleBlock, blockIndex) => {
+                    const { nowHours, nowMinutes, newHours, newMinutes } =
+                      BlocksDuration({
+                        date: date,
+                        block: blockIndex++,
+                      });
+
+                    return (
                       <tr key={blockIndex}>
-                        <td>{blockIndex + 1}</td>
+                        <td>
+                          <p>{blockIndex}</p>
+                          <p>{`${nowHours}:${nowMinutes} - ${newHours}:${newMinutes}`}</p>
+                        </td>
                         {scheduleBlock.map((schedule, dayIndex) => (
                           <td key={dayIndex}>
                             {schedule.asi && (
                               <div>
-                                <p>Asignatura: {schedule.asi}</p>
-                                <p>Laboratorio: {schedule.lab}</p>
-                                <p>Docente: {schedule.doc}</p>
+                                <p>{schedule.asi}</p>
+                                <hr />
+                                <p>{schedule.lab}</p>
+                                <hr />
+                                <p>{schedule.doc}</p>
                               </div>
                             )}
                           </td>
                         ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div >
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           ) : (
             <div className="no-schedule">No hay horario definido</div>
           )}
         </div>
-        <div className='modal-footer'>
-          <button className='cancel-btn' onClick={() => closeModal(false)}>Cancelar</button>
-          <button className='edit-btn'>Ir a editar</button>
+        <div className="modal-footer">
+          <button className="cancel-btn" onClick={() => closeModal(false)}>
+            Cancelar
+          </button>
+          <button className="edit-btn">Ir a editar</button>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export function SemestersButtons() {
@@ -213,7 +236,7 @@ export function SemestersButtons() {
   };
 
   if (!selectedCarreraCursos) {
-    return (null)
+    return null;
   }
   return (
     <>
@@ -223,7 +246,12 @@ export function SemestersButtons() {
           {semesters.map((semester) => {
             semester++;
             return (
-              <button key={semester} type="button" className="semester-btn" onClick={() => handleSemesterClick(semester)}>
+              <button
+                key={semester}
+                type="button"
+                className="semester-btn"
+                onClick={() => handleSemesterClick(semester)}
+              >
                 Semestre {semester}
               </button>
             );
@@ -239,24 +267,19 @@ export function Home() {
   const tipo = "jefe";
   return (
     <>
-      {
-        tipo === "jefe" && (
-          <CarreraProvider>
-            <Header title={"Home"} />
-            <main className="main-home">
-              <div className="career-selector-container">
-                <CareerSelector />
-              </div>
-              <ViewMalla />
-              <SemestersButtons />
-            </main>
-          </CarreraProvider>)
-      }
-      {
-        tipo === "estudiante" && (
-          null
-        )
-      }
+      {tipo === "jefe" && (
+        <CarreraProvider>
+          <Header title={"Home"} />
+          <main className="main-home">
+            <div className="career-selector-container">
+              <CareerSelector />
+            </div>
+            <ViewMalla />
+            <SemestersButtons />
+          </main>
+        </CarreraProvider>
+      )}
+      {tipo === "estudiante" && null}
     </>
   );
 }
