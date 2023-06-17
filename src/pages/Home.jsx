@@ -1,30 +1,30 @@
 import Header from "../components/Header";
-import CourseBlock from "../components/CourseBlock";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import "../css/Home.css";
 import "../css/Modal.css";
 import { Courses, Careers, Assignments, BlocksDuration } from "../firebase/Data";
 import { CarreraProvider, CarreraContext } from "../contexts/CarreraContext";
-import { Carreras } from "../firebase/controller";
+import { useEffect } from "react";
 
-export function CareerSelector() {
-  const { setCarreraById, selectedCarreraID, loadingCarreras } = useContext(CarreraContext);
+function CareerSelector() {
+  const { listCarrerasJC, setSelectedCarreraID, selectedCarreraID, loadingCarreras } = useContext(CarreraContext);
 
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleCareerClick = (event) => {
-    setCarreraById(event.currentTarget.id); //CONTEXTO
+    setSelectedCarreraID(event.currentTarget.id); //CONTEXTO
   };
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const searchResults = Object.entries(Careers).filter((item) =>
-    item[1].name.toLowerCase().includes(searchTerm.toLowerCase())
+  const searchResults = Object.entries(listCarrerasJC).filter((item) =>
+    item[1].val().nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
 
   return (
     <div className="careers-container blue-border">
@@ -42,18 +42,27 @@ export function CareerSelector() {
         />
       </div>
       <div className="results-container">
-        {searchResults.map((career) => (
+        {loadingCarreras &&
+          <>
+            {Array(5).fill(null).map((_, i) => (
+            <div key={i} className="career-btn-loading grey-border">
+              <div className="loading-animation"></div>
+            </div>
+            ))}
+          </>
+        }
+        {!loadingCarreras && searchResults.map((career) => (
           <div
-            key={career[0]}
-            className={`career-btn grey-border ${selectedCarreraID === career[0] ? "active" : ""}`}
-            id={career[0]}
+            key={career[1].key}
+            className={`career-btn grey-border ${selectedCarreraID === career[1].key ? "active" : ""}`}
+            id={career[1].key}
             onClick={handleCareerClick}
           >
-            <p className="text-uppercase">{career[1].name}</p>
-            <strong>Semestres sin horario: </strong>{" "}
+            <p className="text-uppercase">{career[1].val().nombre}</p>
+            {/* <strong>Semestres sin horario: </strong>
             <span id="cant-sin-horario">
               {career[1].numSemestersWithoutSchedule}
-            </span>
+            </span> */}
           </div>
         ))}
       </div>
@@ -61,24 +70,38 @@ export function CareerSelector() {
   );
 }
 
-export function ViewMalla() {
-  const carreraContext = useContext(CarreraContext); //CONTEXTO
-  const { selectedCarreraCursos, selectedCarrera, loadingCarreras } = carreraContext; //CONTEXTO
-
-  // if (loading) {
-  //   return (<></>)
-  // }
-
-  if (!selectedCarreraCursos) {
+function ViewMalla() {
+  const { setSelectedPlan, selectedPlan, selectedCarrera, loadingCarreras } = useContext(CarreraContext); //CONTEXTO
+  
+  if (!selectedCarrera) {
     return (
       <div className="empty">
         <h2>Seleccione una Carrera</h2>
       </div>
     );
   }
+
+  const planes = selectedCarrera.child('plan de estudio')
+  const planesKeys = Object.keys(planes.val());
+  
+  const handlePlanChange = (event) => {
+    setSelectedPlan(event.target.value)
+  };
+  console.log(planes.val()[2013]);
   return (
     <>
-      <h2 className="career-title">{selectedCarrera.name}</h2>
+      <div className="career-header"> 
+        <h2 className="career-title">{selectedCarrera.val().nombre}</h2>
+        <select name="plan" id="plan" onChange={handlePlanChange}>
+          <option> Seleccione un plan </option>
+          {planesKeys.map(plan => (
+            <option key={plan} value={plan}>
+              {plan}
+            </option>
+          ))}
+        </select>
+      </div>
+      {selectedPlan && 
       <div className="prev-malla blue-border">
         <h2 className="prev-malla-title">Malla curricular</h2>
         <div className="semesters-container">
@@ -98,11 +121,12 @@ export function ViewMalla() {
           ))}
         </div>
       </div>
+      }
     </>
   );
 }
 
-export function Modal({ closeModal }) {
+function Modal({ closeModal }) {
   const carreraContext = useContext(CarreraContext); //CONTEXTO
   const { selectedCarreraID, selectedSemestre } = carreraContext; //CONTEXTO
 
@@ -217,7 +241,7 @@ export function Modal({ closeModal }) {
   );
 }
 
-export function SemestersButtons() {
+function SemestersButtons() {
   const carreraContext = useContext(CarreraContext); //CONTEXTO
   const { setSelectedSemestre, selectedCarreraCursos } = carreraContext; //CONTEXTO
 
@@ -259,7 +283,6 @@ export function SemestersButtons() {
 }
 
 export function Home() {
-
   const tipo = "jefe";
   return (
     <>

@@ -11,33 +11,34 @@ export const CarreraProvider = ({ children }) => {
   const [selectedSemestre, setSelectedSemestre] = useState('');
   const [selectedCarreraCursos, setSelectedCarreraCursos] = useState('');
   const [selectedCarreraID, setSelectedCarreraID] = useState('');
+  const [selectedPlan, setSelectedPlan] = useState('');
 
   const [user, setUser] = useState({ id: 11111111 });
 
-  // useEffect(() => {
   const { listCarrerasJC, loadingCarreras, errorCarreras } = Carreras(user.id);
-  // if (user !== undefined) {
-  //   console.log(listCarrerasJC)
-  // }
-  // });
 
-  const setCarreraById = (carreraId) => {
-    setSelectedCarreraID(carreraId);
-    setSelectedCarreraCursos(Courses[carreraId].malla);
-    setSelectedCarrera(Careers[carreraId]);
-    setSelectedSemestre('');
-  }
+
+  useEffect(() => {
+    listCarrerasJC.forEach(carrera => {
+      if (carrera.key == selectedCarreraID) {
+        setSelectedCarrera(carrera);
+        return null
+      }
+  });
+  }, [selectedCarreraID]);
 
   return (
     <CarreraContext.Provider
       value={{
         selectedCarreraID,
+        setSelectedCarreraID,
         selectedCarrera,
         selectedSemestre,
+        selectedPlan,
+        setSelectedPlan,
         setSelectedCarrera,
         setSelectedSemestre,
         selectedCarreraCursos,
-        setCarreraById,
         listCarrerasJC,
         loadingCarreras
       }}
