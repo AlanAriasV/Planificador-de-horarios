@@ -7,6 +7,7 @@ import "../css/Modal.css";
 import { Courses, Careers, Assignments, BlocksDuration } from "../firebase/Data";
 import { CarreraProvider, CarreraContext } from "../contexts/CarreraContext";
 import { useEffect } from "react";
+import CourseBlock from "../components/CourseBlock"
 
 function CareerSelector() {
   const { listCarrerasJC, setSelectedCarreraID, selectedCarreraID, loadingCarreras } = useContext(CarreraContext);
@@ -71,7 +72,7 @@ function CareerSelector() {
 }
 
 function ViewMalla() {
-  const { setSelectedPlan, selectedPlan, selectedCarrera, loadingCarreras } = useContext(CarreraContext); //CONTEXTO
+  const { setSelectedPlan, selectedPlan, selectedCarrera } = useContext(CarreraContext); //CONTEXTO
   
   if (!selectedCarrera) {
     return (
@@ -87,13 +88,13 @@ function ViewMalla() {
   const handlePlanChange = (event) => {
     setSelectedPlan(event.target.value)
   };
-  console.log(planes.val()[2013]);
+
   return (
     <>
       <div className="career-header"> 
         <h2 className="career-title">{selectedCarrera.val().nombre}</h2>
-        <select name="plan" id="plan" onChange={handlePlanChange}>
-          <option> Seleccione un plan </option>
+        <select name="plan" id="plan" defaultValue={'DEFAULT'} onChange={handlePlanChange}>
+          <option value="DEFAULT" disabled> Seleccione un plan </option>
           {planesKeys.map(plan => (
             <option key={plan} value={plan}>
               {plan}
@@ -105,15 +106,15 @@ function ViewMalla() {
       <div className="prev-malla blue-border">
         <h2 className="prev-malla-title">Malla curricular</h2>
         <div className="semesters-container">
-          {selectedCarreraCursos.map((semester, index1) => (
-            <div key={index1}>
-              <p className="semester-title">Semestre {index1 + 1}</p>
+          {Object.keys(planes.child(selectedPlan).child('semestres').val()).map((semester, index1) => (
+            <div key={semester}>
+              <p className="semester-title">Semestre {semester}</p>
               <div className="semester-courses">
-                {semester.map((course, index2) => (
+                {Object.keys(planes.child(selectedPlan).child('semestres').child(semester).val()).map((course, index2) => (
                   <CourseBlock
-                    key={index2}
-                    code={course.code}
-                    title={course.course}
+                    key={course}
+                    code={course}
+                    // title={course.course} NOMBRE
                   />
                 ))}
               </div>
