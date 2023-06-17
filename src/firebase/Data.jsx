@@ -1,7 +1,11 @@
 import { v4 as uuid } from "uuid";
-import database from "./database.jsx";
 
-import { child, get } from "firebase/database";
+// import { Asignaturas } from "./controller.jsx"
+
+
+// import database from "./database.jsx";
+
+// import { child, get } from "firebase/database";
 
 // database.refDatabase({path: 'Asignaturas'});
 // console.log(database.refDatabase);
@@ -69,6 +73,12 @@ export function BlocksDuration({ date, block }) {
 
   return { nowHours, nowMinutes, newHours, newMinutes };
 }
+
+// const Assi = () => {
+//   Asignaturas();
+// };
+
+// Assi()
 
 export const Assignatures = {
   [uuid()]: {

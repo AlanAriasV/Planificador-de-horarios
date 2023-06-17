@@ -1,7 +1,13 @@
+.loading {
+  /* background-color: red; */
+  display: grid;
+  place-items: center;
+}
+
 .main-edit {
   display: grid;
   grid-template-columns: calc(50% - 13.3px) repeat(2, calc(25% - 13.3px));
-  grid-auto-rows: calc(10% - 15px) calc(40% - 15px) calc(10% - 15px) calc(40% - 15px);
+  grid-auto-rows: calc(5% - 15px) calc(45% - 15px) calc(5% - 15px) calc(45% - 15px);
   grid-template-areas:
     's ta tl'
     's a l'
@@ -11,7 +17,8 @@
   gap: 20px;
 }
 
-.main-edit h2 {
+.main-edit h2,
+.loading h2 {
   font-size: 30px;
   font-weight: 600;
 }
@@ -30,7 +37,7 @@ div.grid {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, calc(((100% - var(--gap)) / 2) - 1px));
-  grid-auto-rows: calc((100% - var(--gap)) / 2);
+  grid-auto-rows: calc((100% - var(--gap)) / 3);
   overflow: auto;
 }
 

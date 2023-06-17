@@ -32,7 +32,7 @@ class Firebase {
     this.#app = initializeApp(this.#firebaseConfig);
     this.#analytics = getAnalytics(this.#app);
   }
-  
+
   get app() {
     return this.#app;
   }
@@ -40,8 +40,6 @@ class Firebase {
   get analytics() {
     return this.#analytics;
   }
-  // export const app = initializeApp(firebaseConfig);
-  // // const analytics = getAnalytics(app);
 }
 
 const firebase = new Firebase();

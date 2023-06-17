@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { DragDropContext } from 'react-beautiful-dnd';
 import { v4 as uuid } from 'uuid';
+import { useList, useListVals } from "react-firebase-hooks/database"
 
 import '../css/EditSchedule.css';
 
@@ -19,6 +20,11 @@ import {
   ScheduleBlocksDraggable,
   TeachersDraggable,
 } from '../components/Draggables';
+import database from '../firebase/database';
+import { Asignaturas } from '../firebase/controller';
+import { useEffect } from 'react';
+
+
 
 function OnDragEnd({ result, droppables, setDroppables }) {
   setDroppables[4]([]);
@@ -161,6 +167,8 @@ function UpdateDroppable({ source, destination }) {
   }
 }
 
+
+
 export function EditSchedule() {
   const [assignatures, setAssignatures] = useState(Assignatures);
   const [assignments, setAssignments] = useState(Assignments);
@@ -169,79 +177,114 @@ export function EditSchedule() {
   const [shelteredBlocks, setShelteredBlocks] = useState([]);
   const [teachers, setTeachers] = useState(Teachers);
 
+  const [loading, setLoading] = useState(true);
+
+  const { listAsignaturas, loadingAsignaturas } = Asignaturas();
+
+
+  useEffect(
+    () => {
+      setLoading(loadingAsignaturas)
+    }, [loadingAsignaturas]
+  );
+
+  // console.log(snapshot)
+  // if (!loading) listAsignaturas.map((v) => {
+
+  //   console.log(v)
+  //   // console.log(`${v.key} => ${JSON.stringify(v.val())}`);
+  // });
+  // const [a, sA] = useState();
+
+  // Asignaturas();
+  // console.log('algo')
+
+  // useEffect(() => { }, [assignatures]);
+
   return (
     <>
       <Header title={'EDICIÓN DE HORARIO'} />
-      <main className='main-edit'>
-        <DragDropContext
-          onDragStart={(start) => {
-            const droppables = [blocks, laboratories, teachers];
-            return OnDragStart({
-              start: start,
-              assignments: assignments,
-              droppables: droppables,
-              setShelteredBlocks: setShelteredBlocks,
-            });
-          }}
-          onDragEnd={(result) => {
-            const droppables = [blocks, assignatures, laboratories, teachers];
-            const setDroppables = [
-              setBlocks,
-              setAssignatures,
-              setLaboratories,
-              setTeachers,
-              setShelteredBlocks,
-            ];
-            return OnDragEnd({
-              result: result,
-              droppables: droppables,
-              setDroppables: setDroppables,
-            });
-          }}
-        >
-          <section className='schedule'>
-            <div
-              style={{ overflowY: 'scroll', height: '100%', width: '100%' }}>
-              <table className='edit-schedule'>
-                <thead>
-                  <tr>
-                    <th colSpan={6}>
-                      <h2>Horario</h2>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Lunes</td>
-                    <td>Martes</td>
-                    <td>Miércoles</td>
-                    <td>Jueves</td>
-                    <td>Viernes</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <ScheduleBlocksDraggable
-                    blocks={blocks}
-                    onClick={(data) =>
-                      RemoveItem({
-                        source: blocks,
-                        setSource: setBlocks,
-                        ...data,
-                      })
-                    }
-                    shelteredBlocks={shelteredBlocks}
-                  />
-                </tbody>
-              </table>
-            </div>
-          </section >
-          <h2 style={{ gridArea: 'ta' }}> Asignaturas </h2>
-          <AssignaturesDraggable assignatures={assignatures} />
-          <h2 style={{ gridArea: 'tl' }}> Laboratorios </h2>
-          <LaboratoriesDraggable laboratories={laboratories} />
-          <h2 style={{ gridArea: 'tt' }}> Docentes </h2>
-          <TeachersDraggable teachers={teachers} />
-        </DragDropContext >
-      </main >
+      {loading && (
+        <>
+          <main className='loading'>
+            <h2>Cargando...</h2>
+          </main>
+        </>
+      )}
+      {!loading && (
+        <>
+          <main className='main-edit'>
+            <DragDropContext
+              onDragStart={(start) => {
+                const droppables = [blocks, laboratories, teachers];
+                return OnDragStart({
+                  start: start,
+                  assignments: assignments,
+                  droppables: droppables,
+                  setShelteredBlocks: setShelteredBlocks,
+                });
+              }}
+              onDragEnd={(result) => {
+                const droppables = [blocks, assignatures, laboratories, teachers];
+                const setDroppables = [
+                  setBlocks,
+                  setAssignatures,
+                  setLaboratories,
+                  setTeachers,
+                  setShelteredBlocks,
+                ];
+                return OnDragEnd({
+                  result: result,
+                  droppables: droppables,
+                  setDroppables: setDroppables,
+                });
+              }}
+            >
+              <section className='schedule'>
+                <div
+                  style={{ overflowY: 'scroll', height: '100%', width: '100%' }}>
+                  <table className='edit-schedule'>
+                    <thead>
+                      <tr>
+                        <th colSpan={6}>
+                          <h2>Horario</h2>
+                        </th>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>Lunes</td>
+                        <td>Martes</td>
+                        <td>Miércoles</td>
+                        <td>Jueves</td>
+                        <td>Viernes</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <ScheduleBlocksDraggable
+                        blocks={blocks}
+                        onClick={(data) =>
+                          RemoveItem({
+                            source: blocks,
+                            setSource: setBlocks,
+                            ...data,
+                          })
+                        }
+                        shelteredBlocks={shelteredBlocks}
+                      />
+                    </tbody>
+                  </table>
+                </div>
+              </section >
+              <h2 style={{ gridArea: 'ta' }}> Asignaturas </h2>
+              <AssignaturesDraggable assignatures={assignatures} />
+              <h2 style={{ gridArea: 'tl' }}> Laboratorios </h2>
+              <LaboratoriesDraggable laboratories={laboratories} />
+              <h2 style={{ gridArea: 'tt' }}> Docentes </h2>
+              <TeachersDraggable teachers={teachers} />
+            </DragDropContext >
+          </main >
+        </>
+      )}
     </>
   );
 }

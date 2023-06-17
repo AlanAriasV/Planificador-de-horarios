@@ -7,10 +7,10 @@ import "../css/Home.css";
 import "../css/Modal.css";
 import { Courses, Careers, Assignments, BlocksDuration } from "../firebase/Data";
 import { CarreraProvider, CarreraContext } from "../contexts/CarreraContext";
+import { Carreras } from "../firebase/controller";
 
 export function CareerSelector() {
-  const carreraContext = useContext(CarreraContext); //CONTEXTO
-  const { setCarreraById, selectedCarreraID } = carreraContext; //CONTEXTO
+  const { setCarreraById, selectedCarreraID, loadingCarreras } = useContext(CarreraContext);
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -42,37 +42,32 @@ export function CareerSelector() {
         />
       </div>
       <div className="results-container">
-        {searchResults.map((career) => {
-          return (
-            <div
-              key={career[0]}
-              className={`career-btn grey-border ${
-                selectedCarreraID === career[0] ? "active" : ""
-              }`}
-              id={career[0]}
-              onClick={handleCareerClick}
-            >
-              <p className="text-uppercase">{career[1].name}</p>
-              <strong>Semestres sin horario: </strong>{" "}
-              <span id="cant-sin-horario">
-                {career[1].numSemestersWithoutSchedule}
-              </span>
-            </div>
-          );
-        })}
+        {searchResults.map((career) => (
+          <div
+            key={career[0]}
+            className={`career-btn grey-border ${selectedCarreraID === career[0] ? "active" : ""}`}
+            id={career[0]}
+            onClick={handleCareerClick}
+          >
+            <p className="text-uppercase">{career[1].name}</p>
+            <strong>Semestres sin horario: </strong>{" "}
+            <span id="cant-sin-horario">
+              {career[1].numSemestersWithoutSchedule}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-function title() {
-  const title = document.createElement("div");
-  title.appendChild;
-}
-
 export function ViewMalla() {
   const carreraContext = useContext(CarreraContext); //CONTEXTO
-  const { selectedCarreraCursos, selectedCarrera } = carreraContext; //CONTEXTO
+  const { selectedCarreraCursos, selectedCarrera, loadingCarreras } = carreraContext; //CONTEXTO
+
+  // if (loading) {
+  //   return (<></>)
+  // }
 
   if (!selectedCarreraCursos) {
     return (
@@ -120,7 +115,7 @@ export function Modal({ closeModal }) {
     scheduleMatrix[i] = ["", "", "", "", ""];
   }
 
-  const getDayIntex = (dia) => {
+  const getDayIndex = (dia) => {
     switch (dia) {
       case "L":
         return 0;
@@ -138,7 +133,7 @@ export function Modal({ closeModal }) {
   schedule.items.forEach((item) => {
     const { block, day, asi, lab, doc } = item;
     const blockIndex = block - 1;
-    const dayIndex = getDayIntex(day);
+    const dayIndex = getDayIndex(day);
     scheduleMatrix[blockIndex][dayIndex] = { asi, lab, doc };
   });
 
@@ -264,20 +259,21 @@ export function SemestersButtons() {
 }
 
 export function Home() {
+
   const tipo = "jefe";
   return (
     <>
       {tipo === "jefe" && (
-        <CarreraProvider>
+        <>
           <Header title={"Home"} />
           <main className="main-home">
-            <div className="career-selector-container">
+            <div className='career-selector-container'>
               <CareerSelector />
             </div>
             <ViewMalla />
             <SemestersButtons />
           </main>
-        </CarreraProvider>
+        </>
       )}
       {tipo === "estudiante" && null}
     </>

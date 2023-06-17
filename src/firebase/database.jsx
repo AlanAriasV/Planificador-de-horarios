@@ -1,11 +1,10 @@
-import firebase from "./firebase.jsx";
-import { getDatabase, ref } from "firebase/database";
+import firebase from './firebase.jsx';
+import { getDatabase } from 'firebase/database';
 
 // console.log(firebase.app);
 
 class Database {
   #database;
-  #ref;
   constructor() {
     this.#database = getDatabase(firebase.app);
   }
@@ -14,19 +13,8 @@ class Database {
     return this.#database;
   }
 
-  set refDatabase(path) {
-    if (path === undefined) {
-      this.#ref = ref(this.#database);
-    } else {
-      this.#ref = ref(this.#database, path);
-    }
-  }
-
-  get refDatabase() {
-    return this.#ref;
-  }
 }
 
 const database = new Database();
-// database.refDatabase({path: ''});
 export default database;
+export { ref } from 'firebase/database';
