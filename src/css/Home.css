@@ -5,12 +5,12 @@
     gap: 20px;
     width: 90%;
     grid-template-columns: calc(20% - 10px) calc(80% - 10px);
-    grid-auto-rows: calc(10% - 15px) calc(60% - 15px) calc(10% - 15px) calc(20% - 15px); 
+    grid-auto-rows: calc(10% - 15px) calc(60% - 15px) calc(10% - 15px) calc(20% - 15px);
     /* ^SOLUCION TEMPORAL^ NO SE POR QUE NO FUNCIONA CON MEDIDAS FR AYUDAAAA*/
     grid-template-areas:
       "selector cheader"
       "selector courses"
-      "selector stitle"
+      "selector sheader"
       "selector semesters";
   }
 
@@ -47,7 +47,7 @@
     background-color: var(--blue-color);
     color: white;
   }
-  
+
   .career-header {
     grid-area: cheader;
     display: flex;
@@ -58,16 +58,22 @@
     font-size: 2.5rem;
   }
 
-  .career-header select, .career-header option {
+  .career-header select,
+  .career-header option {
     height: 40px;
     font-size: 1.4rem;
     text-align: center;
   }
 
+  .semesters-btn-header {
+    grid-area: sheader;
+    display: flex;
+    justify-content: space-between;
+  }
+
   .semesters-title {
     font-size: 2.5rem;
     padding-bottom: 25px;
-    grid-area: stitle;
   }
 
   .career-selector-container {
@@ -128,6 +134,8 @@
   }
 
   .prev-malla-title {
+    font-size: 25px;
+    font-weight: 600;
     padding: 10px 0px;
     position: sticky;
     top: 0;
@@ -141,7 +149,7 @@
     white-space: nowrap;
     background-color: var(--background-color);
     z-index: 1;
-    border: solid 1px var(--black-25-color);  
+    border: solid 1px var(--black-25-color);
   }
 
   .icon {
@@ -161,12 +169,15 @@
   }
 
   .semesters-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    grid-auto-flow: column;
-    flex-grow: 1;
+    display: flex;
     overflow: auto;
+    flex-grow: 1;
   }
+
+  .semesters-container>div {
+    min-width: 130px;
+  }
+
 
   .semester-title {
     position: sticky;
@@ -212,7 +223,8 @@
   .semester-btn {
     border-radius: 10px;
     font-size: 1.2rem;
-    border: none;
+    border: solid 2px rgba(0, 0, 0, .25);
+    /* border: var(--border); */
     background-color: var(--white-color);
     filter: drop-shadow(0 0 0.1rem var(--black-25-color));
     width: 80%;
@@ -220,6 +232,15 @@
     transition: .25s;
     color: black;
     cursor: pointer;
+  }
+
+  .completado {
+    background-color: var(--blue-color);
+    color: white;
+  }
+
+  .pendiente {
+    background-color: var(--yellow-color);
   }
 
   .career-btn:hover,
@@ -232,7 +253,7 @@
   .schedule-block:not(:last-child) {
     margin-bottom: 1px !important;
   }
-  
+
   .semesters-container>div:not(:last-child) {
     margin-right: 1px !important;
   }
@@ -245,63 +266,65 @@
     overflow: auto;
   }
 
-.preview-schedule thead tr th,
-.preview-schedule thead tr td,
-.preview-schedule tbody tr td:first-child {
-  background-color: var(--blue-color) !important;
-  color: var(--white-color);
-  text-align: center !important;
-}
+  .preview-schedule thead tr th,
+  .preview-schedule thead tr td,
+  .preview-schedule tbody tr td:first-child {
+    background-color: var(--blue-color) !important;
+    color: var(--white-color);
+    text-align: center !important;
+  }
 
-.preview-schedule thead {
-  width: calc( 100% - 20px );
-}
+  .preview-schedule thead {
+    width: calc(100% - 20px);
+  }
 
-.preview-schedule tbody {
-  display: block;
-  height: 300px;
-  overflow:auto;
-}
+  .preview-schedule tbody {
+    display: block;
+    height: 300px;
+    overflow: auto;
+  }
 
-.preview-schedule thead, .preview-schedule tbody tr {
-  display:table;
-  width:100%;
-  table-layout:fixed;
-}
+  .preview-schedule thead,
+  .preview-schedule tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
 
-.preview-schedule tbody td {
-  height: 80px;
-}
+  .preview-schedule tbody td {
+    height: 80px;
+  }
 
-.preview-schedule td div {
-  text-align: center;
-  border: solid 1px var(--grey-color);
-  padding: 1px;  
-}
+  .preview-schedule td div {
+    text-align: center;
+    border: solid 1px var(--grey-color);
+    padding: 1px;
+  }
 
-/* LOADING ELEMENTS */
-.career-btn-loading {
-  height: 80px;
-  position: relative;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.1);
-}
+  /* LOADING ELEMENTS */
+  .career-btn-loading {
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 
-.loading-animation {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-  animation: loading-animation 0.4s linear infinite;
-}
-
-@keyframes loading-animation {
-  0% {
+  .loading-animation {
+    position: absolute;
+    top: 0;
     left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: loading-animation 0.4s linear infinite;
   }
-  100% {
-    left: 100%;
+
+  @keyframes loading-animation {
+    0% {
+      left: -100%;
+    }
+
+    100% {
+      left: 100%;
+    }
   }
-}

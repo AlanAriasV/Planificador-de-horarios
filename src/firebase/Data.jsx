@@ -1,30 +1,5 @@
 import { v4 as uuid } from "uuid";
 
-// import { Asignaturas } from "./controller.jsx"
-
-
-// import database from "./database.jsx";
-
-// import { child, get } from "firebase/database";
-
-// database.refDatabase({path: 'Asignaturas'});
-// console.log(database.refDatabase);
-// database.refDatabase = undefined;
-
-// get(child(database.refDatabase, "Asignaturas"))
-//   .then((snapshot) => {
-//     if (snapshot.exists) {
-//       // console.log(snapshot.val());
-//     } else {
-//       console.log("No data available");
-//     }
-//     database.refDatabase = "Docentes";
-//     // console.log(database.refDatabase)
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });
-
 export const Blocks = {};
 
 const DaysList = {
@@ -73,12 +48,6 @@ export function BlocksDuration({ date, block }) {
 
   return { nowHours, nowMinutes, newHours, newMinutes };
 }
-
-// const Assi = () => {
-//   Asignaturas();
-// };
-
-// Assi()
 
 export const Assignatures = {
   [uuid()]: {
@@ -373,3 +342,35 @@ export const Assignments = {
     ],
   },
 };
+
+
+export function formatAsignaturas() {
+
+}
+
+export function formatLaboratorios({ laboratorios }) {
+  if (!laboratorios) return {}
+
+  const items = [];
+
+  for (const laboratorio in laboratorios.val()) {
+    const id = laboratorio;
+    const name = laboratorios.val()[laboratorio].nombre;
+
+    const formattedLaboratorio = {
+      id: id,
+      name: name,
+      type: 'LABORATORIO'
+    }
+    items.push({
+      [uuid()]: formattedLaboratorio
+    })
+
+  }
+
+  return {
+    [uuid()]: {
+      items: items,
+    },
+  }
+}

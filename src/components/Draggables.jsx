@@ -7,7 +7,6 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
   const date = new Date();
   date.setHours(8);
   date.setMinutes(0);
-  // console.log(transitions.outOfTheWay);
   return (
     <>
       {[...Array(14)].map((_, i) => {

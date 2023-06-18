@@ -1,19 +1,25 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { EditSchedule, Home, SignIn } from './pages/Pages';
+import { EditSchedule, Home, Loading, SignIn } from './pages/Pages';
 import { CarreraContext, CarreraProvider } from './contexts/CarreraContext';
 import { useContext } from 'react';
 
 function App() {
 
-  const ProtectedRoute = ({ children }) => {
-    const { loadingUser, user } = useContext(CarreraContext);
-    // console.log(loadingUser);
+  const ProtectedRoute = ({ children, onlyAdmin }) => {
+    const { loadingUser, user, userData } = useContext(CarreraContext);
     if (loadingUser) return (<></>);
     if (!user) return <Navigate to="/signin" replace={true} />;
-    return children
-  }
+    if (onlyAdmin && userData && userData.type !== 'jefe de carrera') return <Navigate to='/' replace={true} />
 
+    return (
+      <>
+        {!onlyAdmin && children}
+        {!userData && (<Loading />)}
+        {onlyAdmin && userData && children}
+      </>
+    )
+  }
   return (
     <>
       <CarreraProvider>
@@ -26,7 +32,7 @@ function App() {
           }
           />
           <Route path={'/edit-schedule/:idCarrera/:semestre'} element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyAdmin={true}>
               <EditSchedule />
             </ProtectedRoute>
           } />

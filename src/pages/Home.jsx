@@ -72,7 +72,7 @@ function CareerSelector() {
 }
 
 function ViewMalla() {
-  const { setSelectedPlan, selectedPlan, selectedCarrera } = useContext(CarreraContext); //CONTEXTO
+  const { setSelectedPlan, selectedPlan, selectedCarrera, asignaturas, setSelectedCarreraYear, setSelectedJornada, selectedCarreraYear } = useContext(CarreraContext); //CONTEXTO
 
   if (!selectedCarrera) {
     return (
@@ -82,12 +82,68 @@ function ViewMalla() {
     );
   }
 
-  const planes = selectedCarrera.child('plan de estudio')
+  const planes = selectedCarrera.child('plan de estudio');
+  // const semestres = planes.child('semestres');
   const planesKeys = Object.keys(planes.val());
 
   const handlePlanChange = (event) => {
     setSelectedPlan(event.target.value)
+    setSelectedCarreraYear(undefined)
+    setSelectedJornada(undefined)
   };
+
+  const tableMalla = () => {
+
+    const columnCourses = ({ semestres, nSemestre }) => {
+
+      const listColumn = []
+      const semestreVal = semestres.child(nSemestre).val();
+
+      for (const id in semestreVal) {
+        // [DataSnapshot]
+        for (const asignatura of asignaturas) {
+          if (asignatura.key === id) {
+            listColumn.push(
+              <CourseBlock
+                key={id}
+                code={id}
+                title={asignatura.val().nombre}
+              />
+            )
+          }
+        }
+      }
+
+      return (
+        <>
+          {listColumn}
+        </>
+      )
+    }
+
+    const listElements = [];
+    const semestres = planes.child(`${selectedPlan}/semestres`);
+
+
+    for (const nSemestre in semestres.val()) {
+      listElements.push(
+        <div key={nSemestre}>
+          <p className="semester-title">Semestre {nSemestre}</p>
+          <div className="semester-courses">
+            {
+              columnCourses({ semestres: semestres, nSemestre: nSemestre })
+            }
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <>
+        {listElements}
+      </>
+    )
+  }
 
   return (
     <>
@@ -105,21 +161,10 @@ function ViewMalla() {
       {selectedPlan &&
         <div className="prev-malla blue-border">
           <h2 className="prev-malla-title">Malla curricular</h2>
-          <div className="semesters-container">
-            {Object.keys(planes.child(selectedPlan).child('semestres').val()).map((semester, index1) => (
-              <div key={semester}>
-                <p className="semester-title">Semestre {semester}</p>
-                <div className="semester-courses">
-                  {Object.keys(planes.child(selectedPlan).child('semestres').child(semester).val()).map((course, index2) => (
-                    <CourseBlock
-                      key={course}
-                      code={course}
-                    // title={course.course} NOMBRE
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="semesters-container" >
+            {
+              tableMalla()
+            }
           </div>
         </div>
       }
@@ -128,10 +173,9 @@ function ViewMalla() {
 }
 
 function Modal({ closeModal }) {
-  const carreraContext = useContext(CarreraContext); //CONTEXTO
-  const { selectedCarreraID, selectedSemestre } = carreraContext; //CONTEXTO
+  const { selectedCarreraID, selectedSemestre, selectedCarreraYear } = useContext(CarreraContext); //CONTEXTO
 
-  const year = "2022";
+  const year = selectedCarreraYear;
   const scheduleId = `${selectedCarreraID}-${selectedSemestre}-${year}`;
   const schedule = Assignments[scheduleId];
 
@@ -243,51 +287,92 @@ function Modal({ closeModal }) {
 }
 
 function SemestersButtons() {
-  const carreraContext = useContext(CarreraContext); //CONTEXTO
-  const { setSelectedSemestre, selectedCarreraCursos } = carreraContext; //CONTEXTO
+  const { setSelectedSemestre, selectedCarrera, selectedPlan, selectedCarreraYear, setSelectedCarreraYear, selectedJornada, setSelectedJornada } = useContext(CarreraContext); //CONTEXTO
 
   const [openModal, setOpenModal] = useState(false);
 
-  const semesters = [...Array(selectedCarreraCursos.length).keys()];
+  if (!selectedPlan) {
+    return null;
+  }
+
+
+  const plan = selectedCarrera.child('plan de estudio/' + selectedPlan);
+  const years = [];
+  // const [years, setYears] = useState([])
+  for (const year in plan.val()['horarios']) {
+    // years.push()
+    years.push(<option key={year} value={year}>{year}</option>)
+  }
+  const jornadas = [];
+  for (const jornada of plan.val()['jornadas']) {
+    jornadas.push(<option key={jornada} value={jornada}>{jornada}</option>)
+  }
 
   const handleSemesterClick = (semester) => {
     setSelectedSemestre(semester); //CONTEXTO
     setOpenModal(true);
   };
 
-  if (!selectedCarreraCursos) {
-    return null;
-  }
+  const semestersButtons = (year) => {
+
+    //TODO: HACER DROPDOWN PARA MITAD DE AÑO!!!
+
+    const sYear = new Date();
+
+    const half = sYear.getMonth() < 6 ? 1 : 2;
+
+    const semestres = plan.child('horarios/' + year + '/' + half + '/semestres');
+
+    const btnsList = []
+    for (const semestre in semestres.val()) {
+      btnsList.push(
+        <button
+          key={semestre}
+          type="button"
+          className={`semester-btn ${semestres.val()[semestre].estado.toLowerCase()}`}
+          onClick={() => handleSemesterClick(semestre)}
+        >
+          Semestre {semestre}
+        </button>)
+    }
+
+    return (
+      <div className="semester-selector-container">
+        < div className="semester-selector" >
+          {btnsList}
+        </ div>
+      </div >)
+  };
   return (
     <>
-      <h2 className="semesters-title">Semestres</h2>
-      <div className="semester-selector-container">
-        <div className="semester-selector">
-          {semesters.map((semester) => {
-            semester++;
-            return (
-              <button
-                key={semester}
-                type="button"
-                className="semester-btn"
-                onClick={() => handleSemesterClick(semester)}
-              >
-                Semestre {semester}
-              </button>
-            );
-          })}
-          {openModal && <Modal closeModal={setOpenModal} />}
+      <div className="semesters-btn-header">
+        <h2 className="semesters-title">Semestres</h2>
+        <div>
+          <select defaultValue='default' onChange={(e) => setSelectedCarreraYear(e.target.value)} name="year" id="year">
+            <option value="default" disabled>Seleccione un año</option>
+            {years.map((year) => year)}
+          </select>
+          <select defaultValue='default' onChange={(e) => setSelectedJornada(e.target.value)} name="jornada" id="jornada">
+            <option value="default" disabled>Seleccione una jornada</option>
+            {jornadas.map((jornada) => jornada)}
+          </select>
         </div>
-      </div>
+      </div >
+
+      {selectedCarreraYear && selectedJornada &&
+        semestersButtons(selectedCarreraYear)
+      }
+      {/* {openModal && <Modal closeModal={setOpenModal} />} */}
     </>
   );
 }
 
 export function Home() {
-  const tipo = "jefe";
+  const { userData } = useContext(CarreraContext);
+  // const tipo = "jefe de carrera";
   return (
     <>
-      {tipo === "jefe" && (
+      {userData && userData.type === "jefe de carrera" && (
         <>
           <Header title={"Home"} />
           {/* {!loadingCarreras && ( */}
@@ -301,7 +386,7 @@ export function Home() {
           {/* )} */}
         </>
       )}
-      {tipo === "estudiante" && null}
+      {userData && userData.type === "estudiante" && null}
     </>
   );
 }

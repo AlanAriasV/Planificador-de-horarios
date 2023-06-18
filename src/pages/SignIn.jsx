@@ -41,7 +41,7 @@ export function SignIn() {
   const handleSubmitForm = (event) => {
     event.preventDefault();
 
-    if (rut.length < 11) return console.log('rut malo')
+    if (rut.length < 11) return console.log('rut malo');
 
     const id = rut.replaceAll('.', '').split('-')[0];
     var data = undefined;
@@ -49,8 +49,7 @@ export function SignIn() {
     searchDocente:
     for (const docente of docentes) {
       if (docente.key === id) {
-        data = docente
-        // setUserData(docente)
+        data = { user: docente, type: docente.val().cargos['0'] }
         break searchDocente;
       }
     }
@@ -58,23 +57,16 @@ export function SignIn() {
       searchEstudiante:
       for (const estudiante of estudiantes) {
         if (estudiante.key === id) {
-          data = estudiante
-          // setUserData(estudiante)
+          data = { user: estudiante, type: 'estudiante' }
           break searchEstudiante;
         }
       }
     }
 
-    // console.log(data)
     if (data) {
-      const email = data.val()['correo'];
+      const email = data.user.val()['correo'];
       auth.login({ email: email, password: password }).then((_) => {
-        // setIdJC(parseInt(id));
         setUserData(data);
-        // console.log(docente);
-        // for (const docente ) {
-        // 
-        // }
 
       }).catch((error) => {
         console.log(error.code);

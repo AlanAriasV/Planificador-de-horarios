@@ -7,12 +7,15 @@ export const Horario = () => {
 }
 
 export const Asignaturas = () => {
-    const [asignaturas, loadingAsignaturas, error] = useList(ref(database.database, 'Asignaturas'));
+    const [asignaturas, loadingAsignaturas, errorAsignaturas] = useList(ref(database.database, 'Asignaturas'));
 
-    return { asignaturas, loadingAsignaturas, error }
+    return { asignaturas, loadingAsignaturas, errorAsignaturas }
 }
 
-export const Laboratorios = () => {
+export const Departamentos = () => {
+    const [departamentos, loadingDepartamentos, errorDepartamentos] = useList(ref(database.database, 'Departamentos'));
+
+    return { departamentos, loadingDepartamentos, errorDepartamentos }
 }
 
 export const Docentes = () => {
@@ -33,7 +36,6 @@ export const Carreras = () => {
 }
 
 export const User = () => {
-
     const [user, loadingUser, errorUser] = useAuthState(auth.auth);
 
     return { user, loadingUser, errorUser }

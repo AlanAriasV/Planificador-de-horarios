@@ -13,6 +13,7 @@ import {
   Laboratories,
   Assignments,
   Teachers,
+  formatLaboratorios,
 } from '../firebase/Data';
 import {
   AssignaturesDraggable,
@@ -21,8 +22,11 @@ import {
   TeachersDraggable,
 } from '../components/Draggables';
 import database from '../firebase/database';
-import { Asignaturas } from '../firebase/controller';
+import { Asignaturas, Departamentos } from '../firebase/controller';
 import { useEffect } from 'react';
+import { useContext } from 'react';
+import { CarreraContext } from '../contexts/CarreraContext';
+import { Navigate, useParams } from 'react-router-dom';
 
 
 
@@ -57,7 +61,6 @@ function OnDragEnd({ result, droppables, setDroppables }) {
 }
 
 function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {
-  // console.log(start)
   const source = start.source;
   const draggableId = start.draggableId;
   const droppableId = source.droppableId;
@@ -170,48 +173,53 @@ function UpdateDroppable({ source, destination }) {
 
 
 export function EditSchedule() {
+
+  const { loadingAsignaturas, listCarreras, loadingDocentes } = useContext(CarreraContext);
+
+  const { idCarrera, semestre } = useParams();
+
+  const { departamentos, loadingDepartamentos, errorDepartamentos } = Departamentos()
+
   const [assignatures, setAssignatures] = useState(Assignatures);
   const [assignments, setAssignments] = useState(Assignments);
   const [blocks, setBlocks] = useState(Blocks);
-  const [laboratories, setLaboratories] = useState(Laboratories);
+  const [laboratories, setLaboratories] = useState({});
   const [shelteredBlocks, setShelteredBlocks] = useState([]);
   const [teachers, setTeachers] = useState(Teachers);
 
   const [loading, setLoading] = useState(true);
 
-  const { listAsignaturas, loadingAsignaturas } = Asignaturas();
-
-
   useEffect(
     () => {
-      setLoading(loadingAsignaturas)
-    }, [loadingAsignaturas]
+      if (!loadingDepartamentos) {
+        searchLaboratorio:
+        for (const carrera of listCarreras) {
+          if (carrera.key === idCarrera) {
+            const departamentoID = carrera.val().departamento;
+            for (const departamento of departamentos) {
+              if (departamento.key === departamentoID) {
+                const laboratorios = departamento.child('laboratorios');
+                setLaboratories(formatLaboratorios({ laboratorios: laboratorios }))
+              }
+            }
+          }
+        }
+      }
+    }, [loadingDepartamentos]
   );
 
-  // console.log(snapshot)
-  // if (!loading) listAsignaturas.map((v) => {
-
-  //   console.log(v)
-  //   // console.log(`${v.key} => ${JSON.stringify(v.val())}`);
-  // });
-  // const [a, sA] = useState();
-
-  // Asignaturas();
-  // console.log('algo')
-
-  // useEffect(() => { }, [assignatures]);
 
   return (
     <>
       <Header title={'EDICIÓN DE HORARIO'} />
-      {loading && (
+      {loadingAsignaturas && loadingDocentes && (
         <>
           <main className='loading'>
             <h2>Cargando...</h2>
           </main>
         </>
       )}
-      {!loading && (
+      {!loadingAsignaturas && !loadingDocentes && (
         <>
           <main className='main-edit'>
             <DragDropContext

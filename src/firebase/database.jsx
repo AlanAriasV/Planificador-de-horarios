@@ -1,7 +1,6 @@
 import firebase from './firebase.jsx';
 import { getDatabase } from 'firebase/database';
 
-// console.log(firebase.app);
 
 class Database {
   #database;
