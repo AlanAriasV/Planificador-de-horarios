@@ -58,22 +58,47 @@
     font-size: 2.5rem;
   }
 
-  .career-header select,
-  .career-header option {
+  .dropdown,
+  .dropdown option {
+    background-color: var(--blue-color);
     height: 40px;
     font-size: 1.4rem;
     text-align: center;
+    border: solid 2px rgba(0, 0, 0, .25);
+    background-color: var(--white-color);
+    filter: drop-shadow(0 0 0.1rem var(--black-25-color));
+    padding: 0.3rem 0;
+    border-radius: 0.5rem;
+  }
+
+  .dropdown:focus,
+  .search-box:focus {
+    outline: none;
+  }
+
+  .square {
+    width: 10px; 
+    height: 10px; 
+    border-radius: 1px;
+    border: solid 1px var(--black-25-color);
+  }
+
+  .dropdowns-container {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
   }
 
   .semesters-btn-header {
     grid-area: sheader;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: space-between;
   }
 
   .semesters-title {
     font-size: 2.5rem;
-    padding-bottom: 25px;
+    padding-bottom: 0;
   }
 
   .career-selector-container {
@@ -210,9 +235,8 @@
 
   .semester-selector {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    justify-items: center;
-    row-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
   }
 
   .grey-border {
@@ -227,11 +251,24 @@
     /* border: var(--border); */
     background-color: var(--white-color);
     filter: drop-shadow(0 0 0.1rem var(--black-25-color));
-    width: 80%;
     padding: 0.3rem 0;
     transition: .25s;
     color: black;
     cursor: pointer;
+  }
+
+  .legend-colors {
+    grid-column: span 2;
+    display: flex;
+    gap: 20px;
+    flex-direction: row-reverse;
+    align-content: center;
+  }
+
+  .legend-colors>div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 
   .completado {
@@ -241,6 +278,10 @@
 
   .pendiente {
     background-color: var(--yellow-color);
+  }
+
+  .incompleto {
+    background-color: white;
   }
 
   .career-btn:hover,

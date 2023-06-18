@@ -34,6 +34,7 @@ function CareerSelector() {
           <FaSearch style={{ paddingBlock: 0, marginBlock: "auto" }} />
         </span>
         <input
+          className="search-box"
           type="text"
           placeholder="Buscar"
           aria-label="Buscar"
@@ -149,7 +150,7 @@ function ViewMalla() {
     <>
       <div className="career-header">
         <h2 className="career-title">{selectedCarrera.val().nombre}</h2>
-        <select name="plan" id="plan" defaultValue={'DEFAULT'} onChange={handlePlanChange}>
+        <select className="dropdown" name="plan" id="plan" defaultValue={'DEFAULT'} onChange={handlePlanChange}>
           <option value="DEFAULT" disabled> Seleccione un plan </option>
           {planesKeys.map(plan => (
             <option key={plan} value={plan}>
@@ -347,15 +348,29 @@ function SemestersButtons() {
     <>
       <div className="semesters-btn-header">
         <h2 className="semesters-title">Semestres</h2>
-        <div>
-          <select defaultValue='default' onChange={(e) => setSelectedCarreraYear(e.target.value)} name="year" id="year">
+        <div className="dropdowns-container">
+          <select className="dropdown" defaultValue='default' onChange={(e) => setSelectedCarreraYear(e.target.value)} name="year" id="year">
             <option value="default" disabled>Seleccione un año</option>
             {years.map((year) => year)}
           </select>
-          <select defaultValue='default' onChange={(e) => setSelectedJornada(e.target.value)} name="jornada" id="jornada">
+          <select className="dropdown" defaultValue='default' onChange={(e) => setSelectedJornada(e.target.value)} name="jornada" id="jornada">
             <option value="default" disabled>Seleccione una jornada</option>
             {jornadas.map((jornada) => jornada)}
           </select>
+        </div>
+        <div className="legend-colors">
+          <div>
+            <div className="square completado"></div>
+            <span>Completo</span>
+          </div>
+          <div>
+            <div className="square pendiente"></div>
+            <span>Pendiente</span>
+          </div>
+          <div>
+            <div className="square incompleto"></div>
+            <span>Incompleto</span>
+          </div>
         </div>
       </div >
 
