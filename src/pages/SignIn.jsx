@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CarreraContext } from "../contexts/CarreraContext";
+
 import { AiOutlineUser, AiOutlineLock } from "react-icons/ai"
+
 import "../css/SignIn.css";
+import auth from "../firebase/authentication";
+import { Navigate } from "react-router-dom";
 
-export function RutInput() {
+export function SignIn() {
+
+  const { docentes, user, loadingUser, setIdJC } = useContext(CarreraContext)
+
+
   const [rut, setRut] = useState('');
+  const [password, setPassword] = useState('')
 
-  const handleInputChange = (event) => {
+  const handleInputRut = (event) => {
     const rawRut = event.target.value.replace(/[^0-9kK]/g, ''); // Elimina todos los caracteres no numéricos, excepto 'k' o 'K'
 
     let formattedRut = '';
@@ -24,31 +34,69 @@ export function RutInput() {
     setRut(formattedRut);
   };
 
-  return (
-    <input type="text" value={rut} onChange={handleInputChange} placeholder="Rut" maxLength="12"/>
-  );
-};
+  const handleInputPassword = (event) => {
+    setPassword(event.target.value);
+  }
 
-export function SignIn() {
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+
+    if (rut.length < 11) return console.log('rut malo')
+
+    const id = rut.replaceAll('.', '').split('-')[0];
+    // search:
+    for (const docente of docentes) {
+      if (docente.key === id) {
+        const val = docente.val()
+        const email = val['correo'];
+
+        auth.login({ email: email, password: password }).then((_) => {
+          setIdJC(parseInt(id));
+        }).catch((error) => {
+          console.log(error.code);
+        });
+
+        return
+      }
+    }
+  }
+
+
   return (
-    <main className="main-signin">
-      <div className="content-signin">
-        <div class="image-container">
-          <img src="src\assets\uta.jpeg"/>
-        </div>
-        <form className="form-signin">
-          <h1 className="title-signin">Iniciar Sesión</h1>
-          <div className="input-container">
-            <AiOutlineUser className="icon-rut"/>
-            <RutInput/>
-          </div>
-          <div className="input-container">
-            <AiOutlineLock className="icon-pswd"/>
-            <input type="password" name="pswd" placeholder="Contraseña" required=""/>
-          </div>
-          <button className="btn-signin">Entrar</button>
-        </form>
-      </div>
-    </main>
+    <>
+      {loadingUser && (<></>)}
+      {!loadingUser && (
+        <>
+          {!user && (
+            <>
+              <main className="main-signin">
+                <div className="content-signin">
+                  <div className="image-container">
+                    <img src="src\assets\uta.jpeg" />
+                  </div>
+                  <form className="form-signin" >
+                    <h1 className="title-signin">Iniciar Sesión</h1>
+                    <div className="input-container">
+                      <AiOutlineUser className="icon-rut" />
+                      <input type="text" value={rut} onChange={handleInputRut} placeholder="Rut" maxLength="12" required={true} />
+                    </div>
+                    <div className="input-container">
+                      <AiOutlineLock className="icon-pswd" />
+                      <input type="password" value={password} onChange={handleInputPassword} placeholder="Contraseña" required={true} />
+                    </div>
+                    <button className="btn-signin" onClick={handleSubmitForm} >Entrar</button>
+                  </form>
+                </div>
+              </main>
+            </>
+          )}
+          {
+            user && (
+              <Navigate to="/" replace={true} />
+            )
+          }
+        </>
+      )}
+    </>
   );
 };

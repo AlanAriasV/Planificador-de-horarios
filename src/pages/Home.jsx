@@ -46,9 +46,9 @@ function CareerSelector() {
         {loadingCarreras &&
           <>
             {Array(5).fill(null).map((_, i) => (
-            <div key={i} className="career-btn-loading grey-border">
-              <div className="loading-animation"></div>
-            </div>
+              <div key={i} className="career-btn-loading grey-border">
+                <div className="loading-animation"></div>
+              </div>
             ))}
           </>
         }
@@ -73,7 +73,7 @@ function CareerSelector() {
 
 function ViewMalla() {
   const { setSelectedPlan, selectedPlan, selectedCarrera } = useContext(CarreraContext); //CONTEXTO
-  
+
   if (!selectedCarrera) {
     return (
       <div className="empty">
@@ -84,14 +84,14 @@ function ViewMalla() {
 
   const planes = selectedCarrera.child('plan de estudio')
   const planesKeys = Object.keys(planes.val());
-  
+
   const handlePlanChange = (event) => {
     setSelectedPlan(event.target.value)
   };
 
   return (
     <>
-      <div className="career-header"> 
+      <div className="career-header">
         <h2 className="career-title">{selectedCarrera.val().nombre}</h2>
         <select name="plan" id="plan" defaultValue={'DEFAULT'} onChange={handlePlanChange}>
           <option value="DEFAULT" disabled> Seleccione un plan </option>
@@ -102,26 +102,26 @@ function ViewMalla() {
           ))}
         </select>
       </div>
-      {selectedPlan && 
-      <div className="prev-malla blue-border">
-        <h2 className="prev-malla-title">Malla curricular</h2>
-        <div className="semesters-container">
-          {Object.keys(planes.child(selectedPlan).child('semestres').val()).map((semester, index1) => (
-            <div key={semester}>
-              <p className="semester-title">Semestre {semester}</p>
-              <div className="semester-courses">
-                {Object.keys(planes.child(selectedPlan).child('semestres').child(semester).val()).map((course, index2) => (
-                  <CourseBlock
-                    key={course}
-                    code={course}
+      {selectedPlan &&
+        <div className="prev-malla blue-border">
+          <h2 className="prev-malla-title">Malla curricular</h2>
+          <div className="semesters-container">
+            {Object.keys(planes.child(selectedPlan).child('semestres').val()).map((semester, index1) => (
+              <div key={semester}>
+                <p className="semester-title">Semestre {semester}</p>
+                <div className="semester-courses">
+                  {Object.keys(planes.child(selectedPlan).child('semestres').child(semester).val()).map((course, index2) => (
+                    <CourseBlock
+                      key={course}
+                      code={course}
                     // title={course.course} NOMBRE
-                  />
-                ))}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
       }
     </>
   );
@@ -290,13 +290,15 @@ export function Home() {
       {tipo === "jefe" && (
         <>
           <Header title={"Home"} />
-          <main className="main-home">
-            <div className='career-selector-container'>
-              <CareerSelector />
-            </div>
-            <ViewMalla />
-            <SemestersButtons />
-          </main>
+          {!loadingCarreras && (
+            <main className="main-home">
+              <div className='career-selector-container'>
+                <CareerSelector />
+              </div>
+              <ViewMalla />
+              <SemestersButtons />
+            </main>
+          )}
         </>
       )}
       {tipo === "estudiante" && null}

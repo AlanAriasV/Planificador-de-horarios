@@ -1,6 +1,5 @@
-
 import firebase from './firebase.jsx';
-import { getAuth } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 
 class Auth {
@@ -13,6 +12,14 @@ class Auth {
     get auth() {
         return this.#auth;
     }
+
+    login = ({ email, password }) =>
+        signInWithEmailAndPassword(this.#auth, email, password);
+
+    logout = () =>
+        signOut(this.#auth);
+
+
 }
 
 const auth = new Auth();
