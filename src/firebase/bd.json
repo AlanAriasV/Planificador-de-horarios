@@ -2,7 +2,7 @@
   "Carreras": {
     "ICCI": {
       "nombre": "Ingeniería Civil en Computación e Informática",
-      "jefe de carrera": 11111111,
+      "jefe de carrera": "11111111",
       "departamento": "DICI",
       "plan de estudio": {
         "2013": {
@@ -2898,7 +2898,7 @@
   "Departamentos": {
     "DICI": {
       "nombre": "Departamento de Ingeniería en Computación e Informática",
-      "director de departamento": 22222222,
+      "director de departamento": "22222222",
       "laboratorios": {
         "LAB-LIC": {
           "nombre": "LICANCABUR",
@@ -4320,7 +4320,7 @@
       }
     },
     "22222222": {
-      "apellido": "Ramirez",
+      "apellido": "Ramirez Varas",
       "correo": "iramirez@academicos.uta.cl",
       "nombre": "Ibar",
       "habilidades": [

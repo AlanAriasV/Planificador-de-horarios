@@ -9,7 +9,7 @@ import { Navigate } from "react-router-dom";
 
 export function SignIn() {
 
-  const { docentes, user, loadingUser, setIdJC } = useContext(CarreraContext)
+  const { docentes, estudiantes, user, loadingUser, userData, setUserData } = useContext(CarreraContext)
 
 
   const [rut, setRut] = useState('');
@@ -44,20 +44,41 @@ export function SignIn() {
     if (rut.length < 11) return console.log('rut malo')
 
     const id = rut.replaceAll('.', '').split('-')[0];
-    // search:
+    var data = undefined;
+
+    searchDocente:
     for (const docente of docentes) {
       if (docente.key === id) {
-        const val = docente.val()
-        const email = val['correo'];
-
-        auth.login({ email: email, password: password }).then((_) => {
-          setIdJC(parseInt(id));
-        }).catch((error) => {
-          console.log(error.code);
-        });
-
-        return
+        data = docente
+        // setUserData(docente)
+        break searchDocente;
       }
+    }
+    if (!data) {
+      searchEstudiante:
+      for (const estudiante of estudiantes) {
+        if (estudiante.key === id) {
+          data = estudiante
+          // setUserData(estudiante)
+          break searchEstudiante;
+        }
+      }
+    }
+
+    // console.log(data)
+    if (data) {
+      const email = data.val()['correo'];
+      auth.login({ email: email, password: password }).then((_) => {
+        // setIdJC(parseInt(id));
+        setUserData(data);
+        // console.log(docente);
+        // for (const docente ) {
+        // 
+        // }
+
+      }).catch((error) => {
+        console.log(error.code);
+      });
     }
   }
 

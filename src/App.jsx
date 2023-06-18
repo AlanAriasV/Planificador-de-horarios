@@ -25,19 +25,14 @@ function App() {
             </ProtectedRoute>
           }
           />
-          <Route path={'/edit-schedule'} element={
-            <ProtectedRoute>
-              <EditSchedule />
-            </ProtectedRoute>
-          } />
-          <Route path={'/edit-schedule/:idCarrera'} element={
-            <ProtectedRoute>
-              <EditSchedule />
-            </ProtectedRoute>
-          } />
           <Route path={'/edit-schedule/:idCarrera/:semestre'} element={
             <ProtectedRoute>
               <EditSchedule />
+            </ProtectedRoute>
+          } />
+          <Route path={'*'} element={
+            <ProtectedRoute>
+              <Navigate to="/" replace={true} />
             </ProtectedRoute>
           } />
         </Routes>

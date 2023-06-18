@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import CourseBlock from "../components/CourseBlock"
 
 function CareerSelector() {
-  const { listCarrerasJC, setSelectedCarreraID, selectedCarreraID, loadingCarreras } = useContext(CarreraContext);
+  const { listCarreras, setSelectedCarreraID, selectedCarreraID, loadingCarreras } = useContext(CarreraContext);
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -22,7 +22,7 @@ function CareerSelector() {
     setSearchTerm(event.target.value);
   };
 
-  const searchResults = Object.entries(listCarrerasJC).filter((item) =>
+  const searchResults = Object.entries(listCarreras).filter((item) =>
     item[1].val().nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -290,15 +290,15 @@ export function Home() {
       {tipo === "jefe" && (
         <>
           <Header title={"Home"} />
-          {!loadingCarreras && (
-            <main className="main-home">
-              <div className='career-selector-container'>
-                <CareerSelector />
-              </div>
-              <ViewMalla />
-              <SemestersButtons />
-            </main>
-          )}
+          {/* {!loadingCarreras && ( */}
+          <main className="main-home">
+            <div className='career-selector-container'>
+              <CareerSelector />
+            </div>
+            <ViewMalla />
+            <SemestersButtons />
+          </main>
+          {/* )} */}
         </>
       )}
       {tipo === "estudiante" && null}

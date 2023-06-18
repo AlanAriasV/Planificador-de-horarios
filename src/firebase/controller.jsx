@@ -7,22 +7,23 @@ export const Horario = () => {
 }
 
 export const Asignaturas = () => {
-    // database.refDatabase = 'Asignaturas';
-    // const refAsignaturas = database.refDatabase;
     const [asignaturas, loadingAsignaturas, error] = useList(ref(database.database, 'Asignaturas'));
-    // console.log(loadingAsignaturas)
+
     return { asignaturas, loadingAsignaturas, error }
 }
-
-// Asignaturas()
 
 export const Laboratorios = () => {
 }
 
 export const Docentes = () => {
-    const [docentes, loadingDocentes, error] = useList(ref(database.database, 'Docentes'));
+    const [docentes, loadingDocentes, errorDocentes] = useList(ref(database.database, 'Docentes'));
 
-    return { docentes, loadingDocentes, error }
+    return { docentes, loadingDocentes, errorDocentes }
+}
+export const Estudiantes = () => {
+    const [estudiantes, loadingEstudiantes, errorEstudiantes] = useList(ref(database.database, 'Estudiantes'));
+
+    return { estudiantes, loadingEstudiantes, errorEstudiantes }
 }
 
 export const Carreras = () => {
@@ -33,8 +34,8 @@ export const Carreras = () => {
 
 export const User = () => {
 
-    const [user, loadingUser, error] = useAuthState(auth.auth);
+    const [user, loadingUser, errorUser] = useAuthState(auth.auth);
 
-    return { user, loadingUser, error }
+    return { user, loadingUser, errorUser }
 
 }
