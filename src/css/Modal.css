@@ -72,6 +72,11 @@
     font-size: 1.8rem;
 }
 
+.protegido {
+    height: 100%;
+    background-color: var(--yellow-color);
+}
+
 /* Estilos para animaciones del modal */
 .modal.fade-in {
     animation: fade-in 0.3s ease-in-out;

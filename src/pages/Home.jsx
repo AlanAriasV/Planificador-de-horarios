@@ -174,37 +174,29 @@ function ViewMalla() {
 }
 
 function Modal({ closeModal }) {
-  const { selectedCarreraID, selectedSemestre, selectedCarreraYear } = useContext(CarreraContext); //CONTEXTO
+  const { selectedSemestre } = useContext(CarreraContext); //CONTEXTO
 
-  const year = selectedCarreraYear;
-  const scheduleId = `${selectedCarreraID}-${selectedSemestre}-${year}`;
-  const schedule = Assignments[scheduleId];
+  const schedule = selectedSemestre.child('días')
 
   const scheduleMatrix = [];
   for (let i = 0; i < 14; i++) {
     scheduleMatrix[i] = ["", "", "", "", ""];
   }
 
-  const getDayIndex = (dia) => {
-    switch (dia) {
-      case "L":
-        return 0;
-      case "M":
-        return 1;
-      case "J":
-        return 2;
-      case "V":
-        return 3;
-      default:
-        return -1;
-    }
+  const dayIndexList = {
+    "L": 0,
+    "M": 1,
+    "X": 2,
+    "J": 3,
+    "V": 4,
   };
 
-  schedule.items.forEach((item) => {
-    const { block, day, asi, lab, doc } = item;
-    const blockIndex = block - 1;
-    const dayIndex = getDayIndex(day);
-    scheduleMatrix[blockIndex][dayIndex] = { asi, lab, doc };
+  schedule.forEach(day => {
+    const dayIndex = dayIndexList[day.key];
+    day.forEach(block => {
+      const blockIndex = block.key - 1;
+      scheduleMatrix[blockIndex][dayIndex] = block.val();
+    })
   });
 
   const date = new Date();
@@ -218,7 +210,7 @@ function Modal({ closeModal }) {
           <AiOutlineClose />
         </span>
         <div className="modal-title">
-          <h2>Previsualización de horario para semestre {selectedSemestre}</h2>
+          <h2>Previsualización de horario para semestre {selectedSemestre.key}</h2>
         </div>
         <div className="modal-body">
           {schedule ? (
@@ -246,7 +238,6 @@ function Modal({ closeModal }) {
                         date: date,
                         block: blockIndex++,
                       });
-
                     return (
                       <tr key={blockIndex}>
                         <td>
@@ -255,19 +246,16 @@ function Modal({ closeModal }) {
                         </td>
                         {scheduleBlock.map((schedule, dayIndex) => (
                           <td key={dayIndex}>
-                            {schedule.asi && (
-                              <div>
-                                <p>{schedule.asi}</p>
-                                <hr />
-                                <p>{schedule.lab}</p>
-                                <hr />
-                                <p>{schedule.doc}</p>
+                            {schedule && (
+                              <div className={`${schedule['protegido'] ? 'protegido':''}`}>
+                                {/* PENDIENTE */}
                               </div>
                             )}
                           </td>
-                        ))}
+                        )
+                        )}
                       </tr>
-                    );
+                    )
                   })}
                 </tbody>
               </table>
@@ -309,8 +297,8 @@ function SemestersButtons() {
     jornadas.push(<option key={jornada} value={jornada}>{jornada}</option>)
   }
 
-  const handleSemesterClick = (semester) => {
-    setSelectedSemestre(semester); //CONTEXTO
+  const handleSemesterClick = (semestres, semestre) => {
+    setSelectedSemestre(semestres.child(semestre));
     setOpenModal(true);
   };
 
@@ -331,7 +319,7 @@ function SemestersButtons() {
           key={semestre}
           type="button"
           className={`semester-btn ${semestres.val()[semestre].estado.toLowerCase()}`}
-          onClick={() => handleSemesterClick(semestre)}
+          onClick={() => handleSemesterClick(semestres, semestre)}
         >
           Semestre {semestre}
         </button>)
@@ -377,7 +365,7 @@ function SemestersButtons() {
       {selectedCarreraYear && selectedJornada &&
         semestersButtons(selectedCarreraYear)
       }
-      {/* {openModal && <Modal closeModal={setOpenModal} />} */}
+      {openModal && <Modal closeModal={setOpenModal} />}
     </>
   );
 }
