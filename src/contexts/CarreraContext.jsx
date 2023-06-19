@@ -9,6 +9,7 @@ export const CarreraProvider = ({ children }) => {
   const [selectedCarrera, setSelectedCarrera] = useState('');
   const [selectedCarreraCursos, setSelectedCarreraCursos] = useState('');
   const [selectedCarreraYear, setSelectedCarreraYear] = useState();
+  const [selectedPeriodo, setSelectedPeriodo] = useState();
   const [selectedJornada, setSelectedJornada] = useState(undefined);
   const [selectedSemestre, setSelectedSemestre] = useState('');
   const [selectedPlan, setSelectedPlan] = useState('');
@@ -103,11 +104,13 @@ export const CarreraProvider = ({ children }) => {
         selectedCarreraID,
         selectedPlan,
         selectedSemestre,
+        selectedPeriodo,
         setSelectedCarrera,
         setSelectedCarreraCursos,
         setSelectedCarreraID,
         setSelectedPlan,
         setSelectedSemestre,
+        setSelectedPeriodo,
         selectedCarreraYear,
         setSelectedCarreraYear,
         selectedJornada,

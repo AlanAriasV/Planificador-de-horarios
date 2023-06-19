@@ -1,17 +1,23 @@
   .main-home {
     margin-inline: auto !important;
-    display: grid;
     padding: 20px;
     gap: 20px;
     width: 90%;
+  }
+
+  .jefe-layout {
+    display: grid;
     grid-template-columns: calc(20% - 10px) calc(80% - 10px);
     grid-auto-rows: calc(10% - 15px) calc(60% - 15px) calc(10% - 15px) calc(20% - 15px);
-    /* ^SOLUCION TEMPORAL^ NO SE POR QUE NO FUNCIONA CON MEDIDAS FR AYUDAAAA*/
     grid-template-areas:
       "selector cheader"
       "selector courses"
       "selector sheader"
       "selector semesters";
+  }
+
+  .student-layout h2 {
+    font-size: 3rem;
   }
 
   .empty {

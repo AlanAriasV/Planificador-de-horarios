@@ -73,7 +73,7 @@ function CareerSelector() {
 }
 
 function ViewMalla() {
-  const { setSelectedPlan, selectedPlan, selectedCarrera, asignaturas, setSelectedCarreraYear, setSelectedJornada, selectedCarreraYear } = useContext(CarreraContext); //CONTEXTO
+  const { setSelectedPlan, selectedPlan, selectedCarrera, asignaturas } = useContext(CarreraContext); //CONTEXTO
 
   if (!selectedCarrera) {
     return (
@@ -84,14 +84,6 @@ function ViewMalla() {
   }
 
   const planes = selectedCarrera.child('plan de estudio');
-  // const semestres = planes.child('semestres');
-  const planesKeys = Object.keys(planes.val());
-
-  const handlePlanChange = (event) => {
-    setSelectedPlan(event.target.value)
-    setSelectedCarreraYear(undefined)
-    setSelectedJornada(undefined)
-  };
 
   const tableMalla = () => {
 
@@ -150,14 +142,7 @@ function ViewMalla() {
     <>
       <div className="career-header">
         <h2 className="career-title">{selectedCarrera.val().nombre}</h2>
-        <select className="dropdown" name="plan" id="plan" defaultValue={'DEFAULT'} onChange={handlePlanChange}>
-          <option value="DEFAULT" disabled> Seleccione un plan </option>
-          {planesKeys.map(plan => (
-            <option key={plan} value={plan}>
-              {plan}
-            </option>
-          ))}
-        </select>
+        {Selector('Seleccione un plan', 'plan', planes.val(), setSelectedPlan)}
       </div>
       {selectedPlan &&
         <div className="prev-malla blue-border">
@@ -178,31 +163,6 @@ function Modal({ closeModal }) {
 
   const schedule = selectedSemestre.child('días')
 
-  const scheduleMatrix = [];
-  for (let i = 0; i < 14; i++) {
-    scheduleMatrix[i] = ["", "", "", "", ""];
-  }
-
-  const dayIndexList = {
-    "L": 0,
-    "M": 1,
-    "X": 2,
-    "J": 3,
-    "V": 4,
-  };
-
-  schedule.forEach(day => {
-    const dayIndex = dayIndexList[day.key];
-    day.forEach(block => {
-      const blockIndex = block.key - 1;
-      scheduleMatrix[blockIndex][dayIndex] = block.val();
-    })
-  });
-
-  const date = new Date();
-  date.setHours(8);
-  date.setMinutes(0);
-
   return (
     <div className="modal">
       <div className="modal-content">
@@ -215,50 +175,7 @@ function Modal({ closeModal }) {
         <div className="modal-body">
           {schedule ? (
             <div className="preview-schedule-container">
-              <table className="preview-schedule">
-                <thead>
-                  <tr>
-                    <th colSpan={6}>
-                      <h2>Horario</h2>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Lunes</td>
-                    <td>Martes</td>
-                    <td>Miércoles</td>
-                    <td>Jueves</td>
-                    <td>Viernes</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  {scheduleMatrix.map((scheduleBlock, blockIndex) => {
-                    const { nowHours, nowMinutes, newHours, newMinutes } =
-                      BlocksDuration({
-                        date: date,
-                        block: blockIndex++,
-                      });
-                    return (
-                      <tr key={blockIndex}>
-                        <td>
-                          <p>{blockIndex}</p>
-                          <p>{`${nowHours}:${nowMinutes} - ${newHours}:${newMinutes}`}</p>
-                        </td>
-                        {scheduleBlock.map((schedule, dayIndex) => (
-                          <td key={dayIndex}>
-                            {schedule && (
-                              <div className={`${schedule['protegido'] ? 'protegido':''}`}>
-                                {/* PENDIENTE */}
-                              </div>
-                            )}
-                          </td>
-                        )
-                        )}
-                      </tr>
-                    )
-                  })}
-                </tbody>
-              </table>
+              {SchedulePreview(schedule)}
             </div>
           ) : (
             <div className="no-schedule">No hay horario definido</div>
@@ -286,16 +203,6 @@ function SemestersButtons() {
 
 
   const plan = selectedCarrera.child('plan de estudio/' + selectedPlan);
-  const years = [];
-  // const [years, setYears] = useState([])
-  for (const year in plan.val()['horarios']) {
-    // years.push()
-    years.push(<option key={year} value={year}>{year}</option>)
-  }
-  const jornadas = [];
-  for (const jornada of plan.val()['jornadas']) {
-    jornadas.push(<option key={jornada} value={jornada}>{jornada}</option>)
-  }
 
   const handleSemesterClick = (semestres, semestre) => {
     setSelectedSemestre(semestres.child(semestre));
@@ -332,19 +239,14 @@ function SemestersButtons() {
         </ div>
       </div >)
   };
+
   return (
     <>
       <div className="semesters-btn-header">
         <h2 className="semesters-title">Semestres</h2>
         <div className="dropdowns-container">
-          <select className="dropdown" defaultValue='default' onChange={(e) => setSelectedCarreraYear(e.target.value)} name="year" id="year">
-            <option value="default" disabled>Seleccione un año</option>
-            {years.map((year) => year)}
-          </select>
-          <select className="dropdown" defaultValue='default' onChange={(e) => setSelectedJornada(e.target.value)} name="jornada" id="jornada">
-            <option value="default" disabled>Seleccione una jornada</option>
-            {jornadas.map((jornada) => jornada)}
-          </select>
+          {Selector('Seleccione un año', 'year', plan.val()['horarios'], setSelectedCarreraYear)}
+          {Selector('Seleccione una jornada', 'jornada', plan.val()['jornadas'], setSelectedJornada, 'show_values')}
         </div>
         <div className="legend-colors">
           <div>
@@ -370,26 +272,130 @@ function SemestersButtons() {
   );
 }
 
+
+
+function SchedulePreview(daysArray) {
+  const date = new Date();
+  date.setHours(8);
+  date.setMinutes(0);
+
+  const schedule = daysArray;
+
+  const scheduleMatrix = [];
+  for (let i = 0; i < 14; i++) {
+    scheduleMatrix[i] = ["", "", "", "", ""];
+  }
+
+  const dayIndexList = {
+    "L": 0,
+    "M": 1,
+    "X": 2,
+    "J": 3,
+    "V": 4,
+  };
+
+  schedule.forEach(day => {
+    const dayIndex = dayIndexList[day.key];
+    day.forEach(block => {
+      const blockIndex = block.key - 1;
+      scheduleMatrix[blockIndex][dayIndex] = block.val();
+    })
+  });
+
+  return (
+    <table className="preview-schedule">
+      <thead>
+        <tr>
+          <th colSpan={6}>
+            <h2>Horario</h2>
+          </th>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Lunes</td>
+          <td>Martes</td>
+          <td>Miércoles</td>
+          <td>Jueves</td>
+          <td>Viernes</td>
+        </tr>
+      </thead>
+      <tbody>
+        {scheduleMatrix.map((scheduleBlock, blockIndex) => {
+          const { nowHours, nowMinutes, newHours, newMinutes } =
+            BlocksDuration({
+              date: date,
+              block: blockIndex++,
+            });
+          return (
+            <tr key={blockIndex}>
+              <td>
+                <p>{blockIndex}</p>
+                <p>{`${nowHours}:${nowMinutes} - ${newHours}:${newMinutes}`}</p>
+              </td>
+              {scheduleBlock.map((schedule, dayIndex) => (
+                <td key={dayIndex}>
+                  {schedule && (
+                    <div className={`${schedule['protegido'] ? 'protegido':''}`}>
+                      {/* PENDIENTE */}
+                    </div>
+                  )}
+                </td>
+              )
+              )}
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
+  )
+}
+
+function Selector(defaultText, identifier, selectableItems, setSelectedValue, mode = 'show_keys') {
+  const optionList = []
+  if (mode === 'show_keys')
+    for (const option in selectableItems) {
+      optionList.push(<option key={option} value={option}>{option}</option>)
+    }
+  else
+    for (const option of selectableItems) {
+      optionList.push(<option key={option} value={option}>{option}</option>)
+    }
+  return (
+    <select className="dropdown" defaultValue="default" onChange={(e) => setSelectedValue(e.target.value)} name={identifier} id={identifier}>
+      <option value="default" disabled>{defaultText}</option>
+      {optionList.map((option) => option)}
+    </select>
+  )
+}
+
 export function Home() {
-  const { userData } = useContext(CarreraContext);
-  // const tipo = "jefe de carrera";
+  const { userData, setSelectedCarreraYear, selectedCarreraYear, setSelectedPeriodo, selectedPeriodo} = useContext(CarreraContext);
   return (
     <>
-      {userData && userData.type === "jefe de carrera" && (
-        <>
-          <Header title={"Home"} />
-          {/* {!loadingCarreras && ( */}
-          <main className="main-home">
-            <div className='career-selector-container'>
-              <CareerSelector />
-            </div>
-            <ViewMalla />
-            <SemestersButtons />
-          </main>
-          {/* )} */}
-        </>
-      )}
-      {userData && userData.type === "estudiante" && null}
+    <Header title={"Home"} />
+    {userData && userData.type === "jefe de carrera" && (
+      <main className="main-home jefe-layout">
+        <div className='career-selector-container'>
+          <CareerSelector />
+        </div>
+        <ViewMalla />
+        <SemestersButtons />
+      </main>
+    )}
+    {userData && userData.type === "estudiante" && (
+      <main className="main-home student-layout">
+        <div>
+        <h2 className="">Horario de {userData.user.val()['nombre'] + ' ' + userData.user.val()['apellido']}</h2>
+        {Selector('Seleccione el año', 'year', userData.user.val()['horarios'], setSelectedCarreraYear)}
+        {selectedCarreraYear && 
+          Selector('Seleccione el periodo', 'periodo', userData.user.val()['horarios'][selectedCarreraYear], setSelectedPeriodo)
+        }
+        {selectedCarreraYear && selectedPeriodo &&
+         SchedulePreview(userData.user.child(`horarios/${selectedCarreraYear}/${selectedPeriodo}/días`))
+        }
+        </div>
+      </main>
+    )}
     </>
   );
 }
