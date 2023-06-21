@@ -8,6 +8,7 @@ import { Courses, Careers, Assignments, BlocksDuration } from "../firebase/Data"
 import { CarreraProvider, CarreraContext } from "../contexts/CarreraContext";
 import { useEffect } from "react";
 import CourseBlock from "../components/CourseBlock"
+import { Link } from "react-router-dom";
 
 function CareerSelector() {
   const { listCarreras, setSelectedCarreraID, selectedCarreraID, loadingCarreras } = useContext(CarreraContext);
@@ -159,7 +160,7 @@ function ViewMalla() {
 }
 
 function Modal({ closeModal }) {
-  const { selectedSemestre } = useContext(CarreraContext); //CONTEXTO
+  const { selectedCarreraID, selectedSemestre } = useContext(CarreraContext); //CONTEXTO
 
   const schedule = selectedSemestre.child('días')
 
@@ -185,7 +186,7 @@ function Modal({ closeModal }) {
           <button className="cancel-btn" onClick={() => closeModal(false)}>
             Cancelar
           </button>
-          <button className="edit-btn">Ir a editar</button>
+          <Link to={`/edit-schedule/${selectedCarreraID}/${selectedSemestre.key}`} className="edit-btn">Ir a editar</Link>
         </div>
       </div>
     </div>
@@ -354,11 +355,11 @@ function Selector(defaultText, identifier, selectableItems, setSelectedValue, mo
   const optionList = []
   if (mode === 'show_keys')
     for (const option in selectableItems) {
-      optionList.push(<option key={option} value={option}>{option}</option>)
+      optionList.push(<option key={option} id={identifier} value={option}>{option}</option>)
     }
   else
     for (const option of selectableItems) {
-      optionList.push(<option key={option} value={option}>{option}</option>)
+      optionList.push(<option key={option} id={identifier} value={option}>{option}</option>)
     }
   return (
     <select className="dropdown" defaultValue="default" onChange={(e) => setSelectedValue(e.target.value)} name={identifier} id={identifier}>
@@ -370,6 +371,7 @@ function Selector(defaultText, identifier, selectableItems, setSelectedValue, mo
 
 export function Home() {
   const { userData, setSelectedCarreraYear, selectedCarreraYear, setSelectedPeriodo, selectedPeriodo} = useContext(CarreraContext);
+
   return (
     <>
     <Header title={"Home"} />
@@ -384,16 +386,18 @@ export function Home() {
     )}
     {userData && userData.type === "estudiante" && (
       <main className="main-home student-layout">
-        <div>
-        <h2 className="">Horario de {userData.user.val()['nombre'] + ' ' + userData.user.val()['apellido']}</h2>
+        <div className="selectors-container">
+        <h2>{userData.user.val()['nombre'] + ' ' + userData.user.val()['apellido']}</h2>
+        {/* <h3>{userData.user.val()}</h3> */}
+
         {Selector('Seleccione el año', 'year', userData.user.val()['horarios'], setSelectedCarreraYear)}
         {selectedCarreraYear && 
           Selector('Seleccione el periodo', 'periodo', userData.user.val()['horarios'][selectedCarreraYear], setSelectedPeriodo)
         }
+        </div>
         {selectedCarreraYear && selectedPeriodo &&
          SchedulePreview(userData.user.child(`horarios/${selectedCarreraYear}/${selectedPeriodo}/días`))
         }
-        </div>
       </main>
     )}
     </>

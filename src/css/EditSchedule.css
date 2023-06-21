@@ -6,12 +6,13 @@
 .main-edit {
   display: grid;
   grid-template-columns: calc(50% - 13.3px) repeat(2, calc(25% - 13.3px));
-  grid-auto-rows: calc(5% - 15px) calc(45% - 15px) calc(5% - 15px) calc(45% - 15px);
+  grid-auto-rows: calc(7.5% - 15px) calc(42.5% - 15px) calc(7.5% - 15px)
+    calc(42.5% - 15px);
   grid-template-areas:
-    's ta tl'
-    's a l'
-    's tt tt'
-    's t t';
+    "s ta tl"
+    "s a l"
+    "s tt tt"
+    "s t t";
   padding: 20px;
   gap: 20px;
 }
@@ -35,7 +36,10 @@ div.grid {
   height: 100%;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, calc(((100% - var(--gap)) / 2) - 1px));
+  grid-template-columns: repeat(
+    auto-fill,
+    calc(((100% - var(--gap)) / 2) - 1px)
+  );
   grid-auto-rows: calc((100% - var(--gap)) / 3);
   overflow: auto;
 }
@@ -44,7 +48,7 @@ div.grid-teachers {
   grid-template-columns: repeat(auto-fill, calc((100% - var(--gap) * 3) / 4));
 }
 
-section div>.item {
+section div > .item {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -55,7 +59,7 @@ section div>.item {
   text-align: center;
 }
 
-section div>.item p {
+section div > .item p {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -63,7 +67,7 @@ section div>.item p {
   text-overflow: ellipsis;
 }
 
-section.grid>.disabled {
+section.grid > .disabled {
   background-color: var(--black-25-color);
   border-color: var(--black-50-color);
   color: var(--black-50-color);
@@ -90,7 +94,7 @@ section.grid>.disabled {
   margin-inline: auto !important;
 }
 
-.edit-schedule> :not(caption)>*>* {
+.edit-schedule > :not(caption) > * > * {
   border: 1px solid black;
   padding: 0px;
   user-select: none;
@@ -126,7 +130,7 @@ section.grid>.disabled {
   text-align: center;
 }
 
-.edit-schedule tbody td>div:not(.block) {
+.edit-schedule tbody td > div:not(.block) {
   background-color: var(--black-25-color);
   /* border: var(--border); */
   /* outline: 1px; */
@@ -138,11 +142,75 @@ section.grid>.disabled {
   margin-inline: auto !important;
 }
 
-.schedule>div>div:not(table) {
+.schedule > div > div:not(table) {
   display: none;
 }
 
 .dragging {
   height: max-content !important;
   width: max-content !important;
+}
+
+.placeholder {
+  background-color: grey;
+  border-radius: var(--border-radius-5);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.placeholder::before {
+  content: "";
+  background-color: darkgrey;
+  width: 20%;
+  height: 300%;
+  position: absolute;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.placeholder:nth-child(even)::before {
+  animation-name: placeholder-animation-even;
+  height: 400%;
+  transform: translate(-145%, -40%) rotate(45deg);
+}
+
+.placeholder:nth-child(odd)::before {
+  animation-name: placeholder-animation-odd;
+  height: 180%;
+  transform: translate(-310%, -21%) rotate(45deg);
+}
+
+.x2:nth-child(even)::before {
+  animation-name: placeholder-x2-even !important;
+  width: 10%;
+}
+
+.x2:nth-child(odd)::before {
+  animation-name: placeholder-x2-odd !important;
+  width: 10%;
+}
+
+@keyframes placeholder-animation-even {
+  to {
+    transform: translate(550%, -40%) rotate(45deg);
+  }
+}
+
+@keyframes placeholder-animation-odd {
+  to {
+    transform: translate(700%, -21%) rotate(45deg);
+  }
+}
+
+@keyframes placeholder-x2-even {
+  to {
+    transform: translate(1200%, -40%) rotate(45deg);
+  }
+}
+
+@keyframes placeholder-x2-odd {
+  to {
+    transform: translate(1200%, -21%) rotate(45deg);
+  }
 }

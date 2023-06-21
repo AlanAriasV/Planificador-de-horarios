@@ -343,13 +343,10 @@ export const Assignments = {
   },
 };
 
-
-export function formatAsignaturas() {
-
-}
+export function formatAsignaturas({ semestre }) {}
 
 export function formatLaboratorios({ laboratorios }) {
-  if (!laboratorios) return {}
+  if (!laboratorios) return {};
 
   const items = [];
 
@@ -360,17 +357,16 @@ export function formatLaboratorios({ laboratorios }) {
     const formattedLaboratorio = {
       id: id,
       name: name,
-      type: 'LABORATORIO'
-    }
+      type: "LABORATORIO",
+    };
     items.push({
-      [uuid()]: formattedLaboratorio
-    })
-
+      [uuid()]: formattedLaboratorio,
+    });
   }
 
   return {
     [uuid()]: {
       items: items,
     },
-  }
+  };
 }

@@ -1,18 +1,24 @@
-import { createContext, useState } from 'react';
-import { Asignaturas, Carreras, Docentes, Estudiantes, User } from "../firebase/controller";
+import { createContext, useState } from "react";
+import {
+  Asignaturas,
+  Carreras,
+  Docentes,
+  Estudiantes,
+  User,
+} from "../firebase/controller";
 import { useEffect } from "react";
 
 export const CarreraContext = createContext();
 
 export const CarreraProvider = ({ children }) => {
-  const [selectedCarreraID, setSelectedCarreraID] = useState('');
-  const [selectedCarrera, setSelectedCarrera] = useState('');
-  const [selectedCarreraCursos, setSelectedCarreraCursos] = useState('');
+  const [selectedCarreraID, setSelectedCarreraID] = useState("");
+  const [selectedCarrera, setSelectedCarrera] = useState("");
+  const [selectedCarreraCursos, setSelectedCarreraCursos] = useState("");
   const [selectedCarreraYear, setSelectedCarreraYear] = useState();
   const [selectedPeriodo, setSelectedPeriodo] = useState();
   const [selectedJornada, setSelectedJornada] = useState(undefined);
-  const [selectedSemestre, setSelectedSemestre] = useState('');
-  const [selectedPlan, setSelectedPlan] = useState('');
+  const [selectedSemestre, setSelectedSemestre] = useState("");
+  const [selectedPlan, setSelectedPlan] = useState("");
 
   const [userData, setUserData] = useState();
 
@@ -25,73 +31,80 @@ export const CarreraProvider = ({ children }) => {
 
   const { asignaturas, loadingAsignaturas, errorAsignaturas } = Asignaturas();
 
-  const [listCarreras, setListCarreras] = useState([])
+  const [listCarreras, setListCarreras] = useState([]);
 
   useEffect(() => {
     try {
-      document.getElementById('year').value = selectedCarreraYear ?? 'default';
+      document.getElementById("year").value = "default";
+      document.getElementById("jornada").value = "default";
+      setSelectedCarreraYear(undefined)
+      setSelectedJornada(undefined)
     } catch (error) {
-      // console.error(error)
+      console.error(error);
     }
-    return
-  }, [selectedCarreraYear]);
+    return;
+  }, [selectedPlan]);
+
+  // useEffect(() => {
+  //   try {
+  //     document.getElementById('year').value = selectedCarreraYear ?? 'default';
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  //   return
+  // }, [selectedCarreraYear]);
+
+  // useEffect(() => {
+  //   try {
+  //     document.getElementById('jornada').value = selectedJornada ?? 'default';
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  //   return
+  // }, [selectedJornada]);
 
   useEffect(() => {
-    try {
-      document.getElementById('jornada').value = selectedJornada ?? 'default';
-    } catch (error) {
-      // console.error(error)
-    }
-    return
-  }, [selectedJornada]);
-
-  useEffect(() => {
-
     const tempListCarreras = [];
 
-    if (userData && userData.type === 'jefe de carrera') {
+    if (userData && userData.type === "jefe de carrera") {
       for (const carrera of carreras) {
         const val = carrera.val();
-        if (val['jefe de carrera'] === userData.user.key) {
+        if (val["jefe de carrera"] === userData.user.key) {
           tempListCarreras.push(carrera);
         }
-
       }
     }
 
     setListCarreras(tempListCarreras);
-
   }, [userData, carreras]);
 
   useEffect(() => {
-
     if (!loadingUser && !loadingDocentes) {
       if (user) {
         const email = user.email;
         for (const docente of docentes) {
           const val = docente.val();
-          if (val['correo'] === email) {
-            setUserData({ user: docente, type: docente.val().cargos['0'] });
-            return
+          if (val["correo"] === email) {
+            setUserData({ user: docente, type: docente.val().cargos["0"] });
+            return;
           }
         }
         for (const estudiante of estudiantes) {
           const val = estudiante.val();
-          if (val['correo'] === email) {
-            setUserData({ user: estudiante, type: 'estudiante' });
-            return
+          if (val["correo"] === email) {
+            setUserData({ user: estudiante, type: "estudiante" });
+            return;
           }
         }
       }
     }
-
   }, [user, docentes, estudiantes]);
 
   useEffect(() => {
-    listCarreras.forEach(carrera => {
+    listCarreras.forEach((carrera) => {
       if (carrera.key == selectedCarreraID) {
         setSelectedCarrera(carrera);
-        return null
+        return null;
       }
     });
   }, [selectedCarreraID]);
@@ -128,7 +141,7 @@ export const CarreraProvider = ({ children }) => {
         user,
         loadingUser,
         userData,
-        setUserData
+        setUserData,
       }}
     >
       {children}

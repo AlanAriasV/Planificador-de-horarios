@@ -16,6 +16,17 @@
       "selector semesters";
   }
 
+  .student-layout {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+  }
+
+  .selectors-container {
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+  }
+
   .student-layout h2 {
     font-size: 3rem;
   }
@@ -319,6 +330,10 @@
     background-color: var(--blue-color) !important;
     color: var(--white-color);
     text-align: center !important;
+  }
+
+  .preview-schedule tr td {
+    border: solid 1px black;
   }
 
   .preview-schedule thead {

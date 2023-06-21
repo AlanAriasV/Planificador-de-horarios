@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { DragDropContext } from 'react-beautiful-dnd';
 import { v4 as uuid } from 'uuid';
-import { useList, useListVals } from "react-firebase-hooks/database"
+import { useList, useListVals } from 'react-firebase-hooks/database';
 
 import '../css/EditSchedule.css';
 
@@ -27,8 +27,6 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { CarreraContext } from '../contexts/CarreraContext';
 import { Navigate, useParams } from 'react-router-dom';
-
-
 
 function OnDragEnd({ result, droppables, setDroppables }) {
   setDroppables[4]([]);
@@ -170,60 +168,58 @@ function UpdateDroppable({ source, destination }) {
   }
 }
 
-
-
 export function EditSchedule() {
-
-  const { loadingAsignaturas, listCarreras, loadingDocentes } = useContext(CarreraContext);
+  const { loadingAsignaturas, listCarreras, loadingDocentes } =
+    useContext(CarreraContext);
 
   const { idCarrera, semestre } = useParams();
 
-  const { departamentos, loadingDepartamentos, errorDepartamentos } = Departamentos()
+  const { departamentos, loadingDepartamentos, errorDepartamentos } =
+    Departamentos();
 
-  const [assignatures, setAssignatures] = useState(Assignatures);
+  const [assignatures, setAssignatures] = useState();
+  const [laboratories, setLaboratories] = useState();
+  const [teachers, setTeachers] = useState();
   const [assignments, setAssignments] = useState(Assignments);
   const [blocks, setBlocks] = useState(Blocks);
-  const [laboratories, setLaboratories] = useState({});
   const [shelteredBlocks, setShelteredBlocks] = useState([]);
-  const [teachers, setTeachers] = useState(Teachers);
 
   const [loading, setLoading] = useState(true);
 
-  useEffect(
-    () => {
-      if (!loadingDepartamentos) {
-        searchLaboratorio:
-        for (const carrera of listCarreras) {
-          if (carrera.key === idCarrera) {
-            const departamentoID = carrera.val().departamento;
-            for (const departamento of departamentos) {
-              if (departamento.key === departamentoID) {
-                const laboratorios = departamento.child('laboratorios');
-                setLaboratories(formatLaboratorios({ laboratorios: laboratorios }))
-              }
+  useEffect(() => {
+    if (!loadingDepartamentos) {
+      searchLaboratorio:
+      for (const carrera of listCarreras) {
+        if (carrera.key === idCarrera) {
+          const departamentoID = carrera.val().departamento;
+          for (const departamento of departamentos) {
+            if (departamento.key === departamentoID) {
+              const laboratorios = departamento.child('laboratorios');
+              setLaboratories(
+                formatLaboratorios({ laboratorios: laboratorios })
+              );
             }
           }
         }
       }
-    }, [loadingDepartamentos]
-  );
-
+    }
+  }, [loadingDepartamentos]);
 
   return (
     <>
       <Header title={'EDICIÓN DE HORARIO'} />
       {loadingAsignaturas && loadingDocentes && (
         <>
-          <main className='loading'>
+          <main className="loading">
             <h2>Cargando...</h2>
           </main>
         </>
       )}
       {!loadingAsignaturas && !loadingDocentes && (
         <>
-          <main className='main-edit'>
+          <main className="main-edit">
             <DragDropContext
-              onDragStart={(start) => {
+              onDragStart={start => {
                 const droppables = [blocks, laboratories, teachers];
                 return OnDragStart({
                   start: start,
@@ -232,8 +228,13 @@ export function EditSchedule() {
                   setShelteredBlocks: setShelteredBlocks,
                 });
               }}
-              onDragEnd={(result) => {
-                const droppables = [blocks, assignatures, laboratories, teachers];
+              onDragEnd={result => {
+                const droppables = [
+                  blocks,
+                  assignatures,
+                  laboratories,
+                  teachers,
+                ];
                 const setDroppables = [
                   setBlocks,
                   setAssignatures,
@@ -248,10 +249,11 @@ export function EditSchedule() {
                 });
               }}
             >
-              <section className='schedule'>
+              <section className="schedule">
                 <div
-                  style={{ overflowY: 'scroll', height: '100%', width: '100%' }}>
-                  <table className='edit-schedule'>
+                  style={{ overflowY: 'scroll', height: '100%', width: '100%' }}
+                >
+                  <table className="edit-schedule">
                     <thead>
                       <tr>
                         <th colSpan={6}>
@@ -270,7 +272,7 @@ export function EditSchedule() {
                     <tbody>
                       <ScheduleBlocksDraggable
                         blocks={blocks}
-                        onClick={(data) =>
+                        onClick={data =>
                           RemoveItem({
                             source: blocks,
                             setSource: setBlocks,
@@ -282,15 +284,45 @@ export function EditSchedule() {
                     </tbody>
                   </table>
                 </div>
-              </section >
-              <h2 style={{ gridArea: 'ta' }}> Asignaturas </h2>
-              <AssignaturesDraggable assignatures={assignatures} />
-              <h2 style={{ gridArea: 'tl' }}> Laboratorios </h2>
-              <LaboratoriesDraggable laboratories={laboratories} />
-              <h2 style={{ gridArea: 'tt' }}> Docentes </h2>
-              <TeachersDraggable teachers={teachers} />
-            </DragDropContext >
-          </main >
+              </section>
+              {!assignatures && (
+                <>
+                  <div className="placeholder" style={{ gridArea: 'ta' }}></div>
+                  <div className="placeholder assignatures"></div>
+                </>
+              )}
+              {assignatures && (
+                <>
+                  <h2 style={{ gridArea: 'ta' }}> Asignaturas </h2>
+                  <AssignaturesDraggable assignatures={assignatures} />
+                </>
+              )}
+              {!laboratories && (
+                <>
+                  <div className="placeholder" style={{ gridArea: 'tl' }}></div>
+                  <div className="placeholder laboratories"></div>
+                </>
+              )}
+              {laboratories && (
+                <>
+                  <h2 style={{ gridArea: 'tl' }}> Laboratorios </h2>
+                  <LaboratoriesDraggable laboratories={laboratories} />
+                </>
+              )}
+              {!teachers && (
+                <>
+                  <div className="placeholder x2" style={{ gridArea: 'tt' }}></div>
+                  <div className="placeholder x2 teachers"></div>
+                </>
+              )}
+              {teachers && (
+                <>
+                <h2 style={{ gridArea: 'tt' }}> Docentes </h2>
+                <TeachersDraggable teachers={teachers} />
+                </>
+              )}
+            </DragDropContext>
+          </main>
         </>
       )}
     </>
