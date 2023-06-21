@@ -40,7 +40,7 @@ export const CarreraProvider = ({ children }) => {
       setSelectedCarreraYear(undefined)
       setSelectedJornada(undefined)
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
     return;
   }, [selectedPlan]);

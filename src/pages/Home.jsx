@@ -1,38 +1,47 @@
-import Header from "../components/Header";
-import { useState, useContext } from "react";
-import { FaSearch } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
-import "../css/Home.css";
-import "../css/Modal.css";
-import { Courses, Careers, Assignments, BlocksDuration } from "../firebase/Data";
-import { CarreraProvider, CarreraContext } from "../contexts/CarreraContext";
-import { useEffect } from "react";
-import CourseBlock from "../components/CourseBlock"
-import { Link } from "react-router-dom";
+import Header from '../components/Header';
+import { useState, useContext } from 'react';
+import { FaSearch } from 'react-icons/fa';
+import { AiOutlineClose } from 'react-icons/ai';
+import '../css/Home.css';
+import '../css/Modal.css';
+import {
+  Courses,
+  Careers,
+  Assignments,
+  BlocksDuration,
+} from '../firebase/Data';
+import { CarreraProvider, CarreraContext } from '../contexts/CarreraContext';
+import { useEffect } from 'react';
+import CourseBlock from '../components/CourseBlock';
+import { Link } from 'react-router-dom';
 
 function CareerSelector() {
-  const { listCarreras, setSelectedCarreraID, selectedCarreraID, loadingCarreras } = useContext(CarreraContext);
+  const {
+    listCarreras,
+    setSelectedCarreraID,
+    selectedCarreraID,
+    loadingCarreras,
+  } = useContext(CarreraContext);
 
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const handleCareerClick = (event) => {
+  const handleCareerClick = event => {
     setSelectedCarreraID(event.currentTarget.id); //CONTEXTO
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     setSearchTerm(event.target.value);
   };
 
-  const searchResults = Object.entries(listCarreras).filter((item) =>
+  const searchResults = Object.entries(listCarreras).filter(item =>
     item[1].val().nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
 
   return (
     <div className="careers-container blue-border">
       <div className="input-search">
         <span className="icon">
-          <FaSearch style={{ paddingBlock: 0, marginBlock: "auto" }} />
+          <FaSearch style={{ paddingBlock: 0, marginBlock: 'auto' }} />
         </span>
         <input
           className="search-box"
@@ -45,36 +54,42 @@ function CareerSelector() {
         />
       </div>
       <div className="results-container">
-        {loadingCarreras &&
+        {loadingCarreras && (
           <>
-            {Array(5).fill(null).map((_, i) => (
-              <div key={i} className="career-btn-loading grey-border">
-                <div className="loading-animation"></div>
-              </div>
-            ))}
+            {Array(5)
+              .fill(null)
+              .map((_, i) => (
+                <div key={i} className="career-btn-loading grey-border">
+                  <div className="loading-animation"></div>
+                </div>
+              ))}
           </>
-        }
-        {!loadingCarreras && searchResults.map((career) => (
-          <div
-            key={career[1].key}
-            className={`career-btn grey-border ${selectedCarreraID === career[1].key ? "active" : ""}`}
-            id={career[1].key}
-            onClick={handleCareerClick}
-          >
-            <p className="text-uppercase">{career[1].val().nombre}</p>
-            {/* <strong>Semestres sin horario: </strong>
+        )}
+        {!loadingCarreras &&
+          searchResults.map(career => (
+            <div
+              key={career[1].key}
+              className={`career-btn grey-border ${
+                selectedCarreraID === career[1].key ? 'active' : ''
+              }`}
+              id={career[1].key}
+              onClick={handleCareerClick}
+            >
+              <p className="text-uppercase">{career[1].val().nombre}</p>
+              {/* <strong>Semestres sin horario: </strong>
             <span id="cant-sin-horario">
               {career[1].numSemestersWithoutSchedule}
             </span> */}
-          </div>
-        ))}
+            </div>
+          ))}
       </div>
     </div>
   );
 }
 
 function ViewMalla() {
-  const { setSelectedPlan, selectedPlan, selectedCarrera, asignaturas } = useContext(CarreraContext); //CONTEXTO
+  const { setSelectedPlan, selectedPlan, selectedCarrera, asignaturas } =
+    useContext(CarreraContext); //CONTEXTO
 
   if (!selectedCarrera) {
     return (
@@ -87,10 +102,8 @@ function ViewMalla() {
   const planes = selectedCarrera.child('plan de estudio');
 
   const tableMalla = () => {
-
     const columnCourses = ({ semestres, nSemestre }) => {
-
-      const listColumn = []
+      const listColumn = [];
       const semestreVal = semestres.child(nSemestre).val();
 
       for (const id in semestreVal) {
@@ -98,46 +111,31 @@ function ViewMalla() {
         for (const asignatura of asignaturas) {
           if (asignatura.key === id) {
             listColumn.push(
-              <CourseBlock
-                key={id}
-                code={id}
-                title={asignatura.val().nombre}
-              />
-            )
+              <CourseBlock key={id} code={id} title={asignatura.val().nombre} />
+            );
           }
         }
       }
 
-      return (
-        <>
-          {listColumn}
-        </>
-      )
-    }
+      return <>{listColumn}</>;
+    };
 
     const listElements = [];
     const semestres = planes.child(`${selectedPlan}/semestres`);
-
 
     for (const nSemestre in semestres.val()) {
       listElements.push(
         <div key={nSemestre}>
           <p className="semester-title">Semestre {nSemestre}</p>
           <div className="semester-courses">
-            {
-              columnCourses({ semestres: semestres, nSemestre: nSemestre })
-            }
+            {columnCourses({ semestres: semestres, nSemestre: nSemestre })}
           </div>
         </div>
-      )
+      );
     }
 
-    return (
-      <>
-        {listElements}
-      </>
-    )
-  }
+    return <>{listElements}</>;
+  };
 
   return (
     <>
@@ -145,24 +143,21 @@ function ViewMalla() {
         <h2 className="career-title">{selectedCarrera.val().nombre}</h2>
         {Selector('Seleccione un plan', 'plan', planes.val(), setSelectedPlan)}
       </div>
-      {selectedPlan &&
+      {selectedPlan && (
         <div className="prev-malla blue-border">
           <h2 className="prev-malla-title">Malla curricular</h2>
-          <div className="semesters-container" >
-            {
-              tableMalla()
-            }
-          </div>
+          <div className="semesters-container">{tableMalla()}</div>
         </div>
-      }
+      )}
     </>
   );
 }
 
 function Modal({ closeModal }) {
-  const { selectedCarreraID, selectedSemestre } = useContext(CarreraContext); //CONTEXTO
+  const { selectedPlan, selectedCarreraID, selectedSemestre } =
+    useContext(CarreraContext); //CONTEXTO
 
-  const schedule = selectedSemestre.child('días')
+  const schedule = selectedSemestre.child('días');
 
   return (
     <div className="modal">
@@ -171,7 +166,9 @@ function Modal({ closeModal }) {
           <AiOutlineClose />
         </span>
         <div className="modal-title">
-          <h2>Previsualización de horario para semestre {selectedSemestre.key}</h2>
+          <h2>
+            Previsualización de horario para semestre {selectedSemestre.key}
+          </h2>
         </div>
         <div className="modal-body">
           {schedule ? (
@@ -186,7 +183,12 @@ function Modal({ closeModal }) {
           <button className="cancel-btn" onClick={() => closeModal(false)}>
             Cancelar
           </button>
-          <Link to={`/edit-schedule/${selectedCarreraID}/${selectedSemestre.key}`} className="edit-btn">Ir a editar</Link>
+          <Link
+            to={`/edit-schedule/${selectedCarreraID}/${selectedPlan}/${selectedSemestre.key}`}
+            className="edit-btn"
+          >
+            Ir a editar
+          </Link>
         </div>
       </div>
     </div>
@@ -194,14 +196,21 @@ function Modal({ closeModal }) {
 }
 
 function SemestersButtons() {
-  const { setSelectedSemestre, selectedCarrera, selectedPlan, selectedCarreraYear, setSelectedCarreraYear, selectedJornada, setSelectedJornada } = useContext(CarreraContext); //CONTEXTO
+  const {
+    setSelectedSemestre,
+    selectedCarrera,
+    selectedPlan,
+    selectedCarreraYear,
+    setSelectedCarreraYear,
+    selectedJornada,
+    setSelectedJornada,
+  } = useContext(CarreraContext); //CONTEXTO
 
   const [openModal, setOpenModal] = useState(false);
 
   if (!selectedPlan) {
     return null;
   }
-
 
   const plan = selectedCarrera.child('plan de estudio/' + selectedPlan);
 
@@ -210,35 +219,38 @@ function SemestersButtons() {
     setOpenModal(true);
   };
 
-  const semestersButtons = (year) => {
-
+  const semestersButtons = year => {
     //TODO: HACER DROPDOWN PARA MITAD DE AÑO!!!
 
     const sYear = new Date();
 
     const half = sYear.getMonth() < 6 ? 1 : 2;
 
-    const semestres = plan.child('horarios/' + year + '/' + half + '/semestres');
+    const semestres = plan.child(
+      'horarios/' + year + '/' + half + '/semestres'
+    );
 
-    const btnsList = []
+    const btnsList = [];
     for (const semestre in semestres.val()) {
       btnsList.push(
         <button
           key={semestre}
           type="button"
-          className={`semester-btn ${semestres.val()[semestre].estado.toLowerCase()}`}
+          className={`semester-btn ${semestres
+            .val()
+            [semestre].estado.toLowerCase()}`}
           onClick={() => handleSemesterClick(semestres, semestre)}
         >
           Semestre {semestre}
-        </button>)
+        </button>
+      );
     }
 
     return (
       <div className="semester-selector-container">
-        < div className="semester-selector" >
-          {btnsList}
-        </ div>
-      </div >)
+        <div className="semester-selector">{btnsList}</div>
+      </div>
+    );
   };
 
   return (
@@ -246,8 +258,19 @@ function SemestersButtons() {
       <div className="semesters-btn-header">
         <h2 className="semesters-title">Semestres</h2>
         <div className="dropdowns-container">
-          {Selector('Seleccione un año', 'year', plan.val()['horarios'], setSelectedCarreraYear)}
-          {Selector('Seleccione una jornada', 'jornada', plan.val()['jornadas'], setSelectedJornada, 'show_values')}
+          {Selector(
+            'Seleccione un año',
+            'year',
+            plan.val()['horarios'],
+            setSelectedCarreraYear
+          )}
+          {Selector(
+            'Seleccione una jornada',
+            'jornada',
+            plan.val()['jornadas'],
+            setSelectedJornada,
+            'show_values'
+          )}
         </div>
         <div className="legend-colors">
           <div>
@@ -263,17 +286,15 @@ function SemestersButtons() {
             <span>Incompleto</span>
           </div>
         </div>
-      </div >
+      </div>
 
-      {selectedCarreraYear && selectedJornada &&
-        semestersButtons(selectedCarreraYear)
-      }
+      {selectedCarreraYear &&
+        selectedJornada &&
+        semestersButtons(selectedCarreraYear)}
       {openModal && <Modal closeModal={setOpenModal} />}
     </>
   );
 }
-
-
 
 function SchedulePreview(daysArray) {
   const date = new Date();
@@ -284,15 +305,15 @@ function SchedulePreview(daysArray) {
 
   const scheduleMatrix = [];
   for (let i = 0; i < 14; i++) {
-    scheduleMatrix[i] = ["", "", "", "", ""];
+    scheduleMatrix[i] = ['', '', '', '', ''];
   }
 
   const dayIndexList = {
-    "L": 0,
-    "M": 1,
-    "X": 2,
-    "J": 3,
-    "V": 4,
+    L: 0,
+    M: 1,
+    X: 2,
+    J: 3,
+    V: 4,
   };
 
   schedule.forEach(day => {
@@ -300,7 +321,7 @@ function SchedulePreview(daysArray) {
     day.forEach(block => {
       const blockIndex = block.key - 1;
       scheduleMatrix[blockIndex][dayIndex] = block.val();
-    })
+    });
   });
 
   return (
@@ -322,11 +343,12 @@ function SchedulePreview(daysArray) {
       </thead>
       <tbody>
         {scheduleMatrix.map((scheduleBlock, blockIndex) => {
-          const { nowHours, nowMinutes, newHours, newMinutes } =
-            BlocksDuration({
+          const { nowHours, nowMinutes, newHours, newMinutes } = BlocksDuration(
+            {
               date: date,
               block: blockIndex++,
-            });
+            }
+          );
           return (
             <tr key={blockIndex}>
               <td>
@@ -336,70 +358,116 @@ function SchedulePreview(daysArray) {
               {scheduleBlock.map((schedule, dayIndex) => (
                 <td key={dayIndex}>
                   {schedule && (
-                    <div className={`${schedule['protegido'] ? 'protegido':''}`}>
+                    <div
+                      className={`${schedule['protegido'] ? 'protegido' : ''}`}
+                    >
                       {/* PENDIENTE */}
                     </div>
                   )}
                 </td>
-              )
-              )}
+              ))}
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>
-  )
+  );
 }
 
-function Selector(defaultText, identifier, selectableItems, setSelectedValue, mode = 'show_keys') {
-  const optionList = []
+function Selector(
+  defaultText,
+  identifier,
+  selectableItems,
+  setSelectedValue,
+  mode = 'show_keys'
+) {
+  const optionList = [];
   if (mode === 'show_keys')
     for (const option in selectableItems) {
-      optionList.push(<option key={option} id={identifier} value={option}>{option}</option>)
+      optionList.push(
+        <option key={option} id={identifier} value={option}>
+          {option}
+        </option>
+      );
     }
   else
     for (const option of selectableItems) {
-      optionList.push(<option key={option} id={identifier} value={option}>{option}</option>)
+      optionList.push(
+        <option key={option} id={identifier} value={option}>
+          {option}
+        </option>
+      );
     }
   return (
-    <select className="dropdown" defaultValue="default" onChange={(e) => setSelectedValue(e.target.value)} name={identifier} id={identifier}>
-      <option value="default" disabled>{defaultText}</option>
-      {optionList.map((option) => option)}
+    <select
+      className="dropdown"
+      defaultValue="default"
+      onChange={e => setSelectedValue(e.target.value)}
+      name={identifier}
+      id={identifier}
+    >
+      <option value="default" disabled>
+        {defaultText}
+      </option>
+      {optionList.map(option => option)}
     </select>
-  )
+  );
 }
 
 export function Home() {
-  const { userData, setSelectedCarreraYear, selectedCarreraYear, setSelectedPeriodo, selectedPeriodo} = useContext(CarreraContext);
+  const {
+    userData,
+    setSelectedCarreraYear,
+    selectedCarreraYear,
+    setSelectedPeriodo,
+    selectedPeriodo,
+  } = useContext(CarreraContext);
 
   return (
     <>
-    <Header title={"Home"} />
-    {userData && userData.type === "jefe de carrera" && (
-      <main className="main-home jefe-layout">
-        <div className='career-selector-container'>
-          <CareerSelector />
-        </div>
-        <ViewMalla />
-        <SemestersButtons />
-      </main>
-    )}
-    {userData && userData.type === "estudiante" && (
-      <main className="main-home student-layout">
-        <div className="selectors-container">
-        <h2>{userData.user.val()['nombre'] + ' ' + userData.user.val()['apellido']}</h2>
-        {/* <h3>{userData.user.val()}</h3> */}
+      <Header title={'Home'} />
+      {userData && userData.type === 'jefe de carrera' && (
+        <main className="main-home jefe-layout">
+          <div className="career-selector-container">
+            <CareerSelector />
+          </div>
+          <ViewMalla />
+          <SemestersButtons />
+        </main>
+      )}
+      {userData && userData.type === 'estudiante' && (
+        <main className="main-home student-layout">
+          <div className="selectors-container">
+            <h2>
+              {userData.user.val()['nombre'] +
+                ' ' +
+                userData.user.val()['apellido']}
+            </h2>
+            {/* <h3>{userData.user.val()}</h3> */}
 
-        {Selector('Seleccione el año', 'year', userData.user.val()['horarios'], setSelectedCarreraYear)}
-        {selectedCarreraYear && 
-          Selector('Seleccione el periodo', 'periodo', userData.user.val()['horarios'][selectedCarreraYear], setSelectedPeriodo)
-        }
-        </div>
-        {selectedCarreraYear && selectedPeriodo &&
-         SchedulePreview(userData.user.child(`horarios/${selectedCarreraYear}/${selectedPeriodo}/días`))
-        }
-      </main>
-    )}
+            {Selector(
+              'Seleccione el año',
+              'year',
+              userData.user.val()['horarios'],
+              setSelectedCarreraYear
+            )}
+            {selectedCarreraYear &&
+              Selector(
+                'Seleccione el periodo',
+                'periodo',
+                userData.user.val()['horarios'][selectedCarreraYear],
+                setSelectedPeriodo
+              )}
+          </div>
+          {selectedCarreraYear &&
+            selectedPeriodo &&
+            SchedulePreview(
+              userData.user.child(
+                `horarios/${selectedCarreraYear}/${selectedPeriodo}/días`
+              )
+            )}
+        </main>
+      )}
     </>
   );
 }

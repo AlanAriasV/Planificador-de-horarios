@@ -14,9 +14,9 @@ function App() {
 
     return (
       <>
-        {!onlyAdmin && children}
         {!userData && (<Loading />)}
-        {onlyAdmin && userData && children}
+        {/* {!onlyAdmin && userData && children} */}
+        {userData && children}
       </>
     )
   }
@@ -31,7 +31,7 @@ function App() {
             </ProtectedRoute>
           }
           />
-          <Route path={'/edit-schedule/:idCarrera/:semestre'} element={
+          <Route path={'/edit-schedule/:idCarrera/:plan/:semestre'} element={
             <ProtectedRoute onlyAdmin={true}>
               <EditSchedule />
             </ProtectedRoute>

@@ -343,14 +343,47 @@ export const Assignments = {
   },
 };
 
-export function formatAsignaturas({ semestre }) {}
+export function formatAsignaturas({ asignaturas }) {
+
+  if (!asignaturas) return {};
+
+  const items = [];
+
+  for (const asignaturaID in asignaturas) {
+
+    const asignatura = asignaturas[asignaturaID].val();
+    const name = asignatura.nombre;
+    const minutes = asignatura.minutos;
+
+    const formattedAsignatura = {
+      id: asignaturaID,
+      name: name,
+      minutes: minutes,
+      type: "ASIGNATURA",
+    };
+
+    items.push({
+      [uuid()]: formattedAsignatura
+    });
+
+  };
+
+  return {
+    [uuid()]: {
+      items: items,
+    },
+  };
+
+}
 
 export function formatLaboratorios({ laboratorios }) {
+
   if (!laboratorios) return {};
 
   const items = [];
 
   for (const laboratorio in laboratorios.val()) {
+
     const id = laboratorio;
     const name = laboratorios.val()[laboratorio].nombre;
 
@@ -359,9 +392,11 @@ export function formatLaboratorios({ laboratorios }) {
       name: name,
       type: "LABORATORIO",
     };
+
     items.push({
       [uuid()]: formattedLaboratorio,
     });
+
   }
 
   return {
@@ -369,4 +404,44 @@ export function formatLaboratorios({ laboratorios }) {
       items: items,
     },
   };
+
+}
+
+export function formatDocentes({ docentes }) {
+
+  if (!docentes) return {};
+
+  const items = [];
+
+  for (const docente of docentes) {
+
+    var id = 'DOC-';
+    for (const code of (`${docente.val().nombre} ${docente.val().apellido}`).split(' ')) {
+      id += code.charAt(0).toUpperCase();
+    }
+
+    const firstName = docente.val().nombre;
+    const lastName = docente.val().apellido;
+    const email = docente.val().correo;
+
+    const formattedDocente = {
+      id: id,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      type: "DOCENTE",
+    };
+
+    items.push({
+      [uuid()]: formattedDocente,
+    });
+
+  }
+
+  return {
+    [uuid()]: {
+      items: items,
+    },
+  };
+
 }

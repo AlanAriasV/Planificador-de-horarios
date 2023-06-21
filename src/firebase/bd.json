@@ -1,1541 +1,1263 @@
 {
+  "Asignaturas": {
+    "CC052": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 90,
+        "laboratorio": 180,
+        "taller": 0
+      },
+      "nombre": "TECNOLOGÍA WEB"
+    },
+    "CC082": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "ARQUITECTURA DE COMPUTADORES"
+    },
+    "CC083": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "TALLER DE TÉCNICAS DE PROGRAMACIÓN"
+    },
+    "CC091": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "PROYECTO I"
+    },
+    "CC093": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "COMUNICACIÓN DE DATOS Y REDES"
+    },
+    "CC094": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 0
+      },
+      "nombre": "TEORÍA DE LA COMPUTACIÓN"
+    },
+    "CC096": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "INTELIGENCIA DE NEGOCIOS"
+    },
+    "CC106": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "SISTEMAS DISTRIBUIDOS"
+    },
+    "CC132": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 180,
+        "taller": 0
+      },
+      "nombre": "LABORATORIO DE REDES"
+    },
+    "CC198": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 0,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 180
+      },
+      "nombre": "INTRODUCCIÓN A INGENIERÍA INFORMÁTICA"
+    },
+    "CC199": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "TALLER DE PROGRAMACIÓN I"
+    },
+    "CC206": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "INTRODUCCIÓN AL TRABAJO EN PROYECTOS"
+    },
+    "CC208": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "TALLER DE PROGRAMACIÓN II"
+    },
+    "CC209": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "PROGRAMACIÓN ORIENTADA A OBJETOS"
+    },
+    "CC210": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 180
+      },
+      "nombre": "TALLER DE DESARROLLO PERSONAL"
+    },
+    "CC211": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 90,
+        "laboratorio": 180,
+        "taller": 0
+      },
+      "nombre": "FUNDAMENTOS DE LENGUAJES DE PROGRAMACIÓN"
+    },
+    "CC212": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "TECNOLOGÍA DE OBJETOS"
+    },
+    "CC214": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 3,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 180
+      },
+      "nombre": "TALLER DE ÉTICA PROFESIONAL Y RESPONSABILIDAD SOCIAL DEL INFORMÁTICO"
+    },
+    "CC216": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "PROYECTO II"
+    },
+    "CC218": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 90,
+        "laboratorio": 0,
+        "taller": 180
+      },
+      "nombre": "INGENIERÍA DE SOFTWARE I"
+    },
+    "CC219": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "TALLER DE APLICACIONES WEB"
+    },
+    "CC222": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "ALGORITMOS Y ESTRUCTURAS DE DATOS"
+    },
+    "CC223": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 90,
+        "laboratorio": 0,
+        "taller": 180
+      },
+      "nombre": "SISTEMAS DE INFORMACIÓN"
+    },
+    "CC224": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 90,
+        "laboratorio": 0,
+        "taller": 180
+      },
+      "nombre": "INGENIERÍA DE SOFTWARE II"
+    },
+    "CC225": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "ANÁLISIS Y DISEÑO DE ALGORITMOS"
+    },
+    "CC226": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "PROYECTO III"
+    },
+    "CC227": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "GESTIÓN DE PROCESOS DE NEGOCIOS"
+    },
+    "CC228": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "INTELIGENCIA ARTIFICIAL"
+    },
+    "CC229": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 90,
+        "laboratorio": 0,
+        "taller": 180
+      },
+      "nombre": "APLICACIONES DISTRIBUIDAS"
+    },
+    "CC230": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "TALLER DE EMPRENDIMIENTO TECNOLÓGICO"
+    },
+    "CC231": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 90,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "ARQUITECTURA DE SOFTWARE"
+    },
+    "CC232": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "GESTIÓN DE SEGURIDAD INFORMÁTICA"
+    },
+    "CC233": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "PROYECTO IV"
+    },
+    "CC234": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "MINERÍA DE DATOS"
+    },
+    "CC235": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 270
+      },
+      "nombre": "TALLER DE GESTIÓN TIC"
+    },
+    "CC236": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 9,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 360
+      },
+      "nombre": "ACTIVIDAD DE TITULACIÓN"
+    },
+    "CC237": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 11,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 0
+      },
+      "nombre": "PRÁCTICA PROFESIONAL II"
+    },
+    "CC359": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "SISTEMAS OPERATIVOS"
+    },
+    "CC415": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "BASE DE DATOS"
+    },
+    "CC506": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 675,
+        "laboratorio": 0,
+        "taller": 0
+      },
+      "nombre": "PRÁCTICA PROFESIONAL I"
+    },
+    "DE181": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 0,
+        "taller": 180
+      },
+      "nombre": "TALLER DE COMUNICACIÓN ORAL Y ESCRITA"
+    },
+    "DI165": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 3,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 90,
+        "taller": 90
+      },
+      "nombre": "INGLÉS I"
+    },
+    "DI166": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 3,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 90,
+        "taller": 90
+      },
+      "nombre": "INGLÉS II"
+    },
+    "DI167": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 3,
+      "minutos": {
+        "cátedra": 0,
+        "laboratorio": 90,
+        "taller": 90
+      },
+      "nombre": "INGLÉS III"
+    },
+    "FI035": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "INTRODUCCIÓN A LA FÍSICA"
+    },
+    "FI601": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "MECÁNICA CLÁSICA"
+    },
+    "FI604": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "ELECTROMAGNETISMO"
+    },
+    "IE078": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 6,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 90,
+        "taller": 0
+      },
+      "nombre": "ELECTRICIDAD Y SISTEMAS DIGITALES"
+    },
+    "IN044": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 5,
+      "minutos": {
+        "cátedra": 135,
+        "laboratorio": 0,
+        "taller": 45
+      },
+      "nombre": "PREPARACIÓN Y EVALUACIÓN DE PROYECTOS"
+    },
+    "IN053": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 0
+      },
+      "nombre": "INTRODUCCIÓN A LA ECONOMÍA"
+    },
+    "IN056": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 135,
+        "laboratorio": 0,
+        "taller": 45
+      },
+      "nombre": "GESTIÓN DE EMPRESA"
+    },
+    "IN115": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 135,
+        "laboratorio": 0,
+        "taller": 45
+      },
+      "nombre": "MODELOS DE OPTIMIZACIÓN"
+    },
+    "MA067": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 7,
+      "minutos": {
+        "cátedra": 270,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "INTRODUCCIÓN AL CÁLCULO"
+    },
+    "MA069": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 7,
+      "minutos": {
+        "cátedra": 270,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "INTRODUCCIÓN AL ÁLGEBRA"
+    },
+    "MA220": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 135,
+        "laboratorio": 0,
+        "taller": 45
+      },
+      "nombre": "ECUACIONES DIFERENCIALES"
+    },
+    "MA424": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 135,
+        "laboratorio": 0,
+        "taller": 45
+      },
+      "nombre": "ESTADÍSTICA Y PROBABILIDAD"
+    },
+    "MA601": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 8,
+      "minutos": {
+        "cátedra": 270,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "CÁLCULO I"
+    },
+    "MA602": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 8,
+      "minutos": {
+        "cátedra": 270,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "CÁLCULO II"
+    },
+    "MA603": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "CÁLCULO III"
+    },
+    "MA611": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 8,
+      "minutos": {
+        "cátedra": 270,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "ÁLGEBRA I"
+    },
+    "MA612": {
+      "carácter": "OBLIGATORIO",
+      "créditos": 8,
+      "minutos": {
+        "cátedra": 270,
+        "laboratorio": 0,
+        "taller": 90
+      },
+      "nombre": "ÁLGEBRA II"
+    },
+    "YY128": {
+      "carácter": "ELECTIVO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 0
+      },
+      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL I"
+    },
+    "YY129": {
+      "carácter": "ELECTIVO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 0
+      },
+      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL II"
+    },
+    "YY130": {
+      "carácter": "ELECTIVO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 0
+      },
+      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL III"
+    },
+    "YY131": {
+      "carácter": "ELECTIVO",
+      "créditos": 4,
+      "minutos": {
+        "cátedra": 180,
+        "laboratorio": 0,
+        "taller": 0
+      },
+      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL IV"
+    }
+  },
   "Carreras": {
     "ICCI": {
-      "nombre": "Ingeniería Civil en Computación e Informática",
-      "jefe de carrera": "11111111",
       "departamento": "DICI",
+      "jefe de carrera": "11111111",
+      "nombre": "Ingeniería Civil en Computación e Informática",
       "plan de estudio": {
         "2013": {
           "estado": "ACTIVO",
+          "horarios": {
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO",
+                "semestres": [
+                  null,
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  }
+                ]
+              }
+            ]
+          },
           "jornadas": [
             "Diurno",
             "Vespertino"
           ],
-          "semestres": {
-            "1": {
-              "MA067": {
+          "semestres": [
+            null,
+            {
+              "CC047": {
                 "prerrequisitos": [
                   "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "MA069": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC088": {
                 "prerrequisitos": [
                   "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
-              "CC047": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "2": {
-              "MA601": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "MA611": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC090": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC147": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "3": {
-              "MA602": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "MA612": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "FI601": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC357": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC081": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "4": {
-              "MA603": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "MA220": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "IE078": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC091": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "5": {
-              "FI604": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "MA424": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC082": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC061": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC083": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "6": {
-              "FI024": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "FI024": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "FI024": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "FI024": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "7": {
-              "0": {
-                "asignatura": "",
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "8": {
-              "0": {
-                "asignatura": "",
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "9": {
-              "0": {
-                "asignatura": "",
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "10": {
-              "0": {
-                "asignatura": "",
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "11": {
-              "0": {
-                "asignatura": "",
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            },
-            "12": {
-              "0": {
-                "asignatura": "",
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              }
-            }
-          },
-          "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "semestres": {
-                  "1": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "2": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "3": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "4": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "5": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "6": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "7": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "8": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "9": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "10": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "11": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "12": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "2019": {
-          "estado": "ACTIVO",
-          "jornadas": [
-            "Diurno"
-          ],
-          "semestres": {
-            "1": {
               "MA067": {
                 "prerrequisitos": [
                   "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "MA069": {
                 "prerrequisitos": [
                   "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
+                ]
+              }
+            },
+            {
+              "CC090": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
                 ]
               },
+              "CC147": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA601": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA611": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            },
+            {
+              "CC081": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "CC357": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "FI601": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA602": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA612": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            },
+            {
+              "CC091": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "IE078": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA220": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA603": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            },
+            {
+              "CC061": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "CC082": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "CC083": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "FI604": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA424": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            },
+            {
+              "FI024": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            },
+            [
+              {
+                "asignatura": "",
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            ],
+            [
+              {
+                "asignatura": "",
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            ],
+            [
+              {
+                "asignatura": "",
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            ],
+            [
+              {
+                "asignatura": "",
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            ],
+            [
+              {
+                "asignatura": "",
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            ],
+            [
+              {
+                "asignatura": "",
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              }
+            ]
+          ]
+        },
+        "2019": {
+          "estado": "ACTIVO",
+          "horarios": {
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO",
+                "semestres": [
+                  null,
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  },
+                  {
+                    "días": {
+                      "J": {
+                        "9": {
+                          "protegido": true
+                        },
+                        "10": {
+                          "protegido": true
+                        }
+                      }
+                    },
+                    "estado": "INCOMPLETO"
+                  }
+                ]
+              }
+            ]
+          },
+          "jornadas": [
+            "Diurno"
+          ],
+          "semestres": [
+            null,
+            {
               "CC198": {
                 "prerrequisitos": [
                   "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC210": {
-                "prerrequisitos": [
-                  "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC199": {
                 "prerrequisitos": [
                   "ADMISIÓN"
-                ],
-                "correquisitos": [
-                  null
+                ]
+              },
+              "CC210": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA067": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
+                ]
+              },
+              "MA069": {
+                "prerrequisitos": [
+                  "ADMISIÓN"
                 ]
               }
             },
-            "2": {
-              "MA601": {
-                "prerrequisitos": [
-                  "MA067"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "MA611": {
-                "prerrequisitos": [
-                  "MA069"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "FI035": {
-                "prerrequisitos": [
-                  "MA067"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
+            {
               "CC206": {
                 "prerrequisitos": [
                   "CC198",
                   "CC199"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC208": {
                 "prerrequisitos": [
                   "CC199"
-                ],
-                "correquisitos": [
-                  null
+                ]
+              },
+              "FI035": {
+                "prerrequisitos": [
+                  "MA067"
+                ]
+              },
+              "MA601": {
+                "prerrequisitos": [
+                  "MA067"
+                ]
+              },
+              "MA611": {
+                "prerrequisitos": [
+                  "MA069"
                 ]
               }
             },
-            "3": {
-              "MA602": {
+            {
+              "CC209": {
                 "prerrequisitos": [
-                  "MA601"
-                ],
-                "correquisitos": [
-                  null
+                  "CC208"
                 ]
               },
-              "MA612": {
+              "CC211": {
                 "prerrequisitos": [
-                  "MA611"
-                ],
-                "correquisitos": [
-                  null
+                  "CC208"
                 ]
               },
               "FI601": {
                 "prerrequisitos": [
                   "MA601",
                   "FI035"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
-              "CC209": {
+              "MA602": {
                 "prerrequisitos": [
-                  "CC208"
-                ],
-                "correquisitos": [
-                  null
+                  "MA601"
                 ]
               },
-              "CC211": {
+              "MA612": {
                 "prerrequisitos": [
-                  "CC208"
-                ],
-                "correquisitos": [
-                  null
+                  "MA611"
                 ]
               }
             },
-            "4": {
-              "MA603": {
+            {
+              "CC091": {
                 "prerrequisitos": [
-                  "MA602"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "MA220": {
-                "prerrequisitos": [
-                  "MA602",
-                  "MA612"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "IE078": {
-                "prerrequisitos": [
-                  "FI035",
-                  "MA612"
-                ],
-                "correquisitos": [
-                  null
+                  "CC206",
+                  "CC209"
                 ]
               },
               "CC222": {
@@ -1543,108 +1265,67 @@
                   "CC209"
                 ]
               },
-              "CC091": {
-                "prerrequisitos": [
-                  "CC206",
-                  "CC209"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
               "DE181": {
-                "prerrequisitos": [
-                  null
-                ],
                 "correquisitos": [
                   "CC091"
                 ]
-              }
-            },
-            "5": {
-              "FI604": {
+              },
+              "IE078": {
+                "prerrequisitos": [
+                  "FI035",
+                  "MA612"
+                ]
+              },
+              "MA220": {
                 "prerrequisitos": [
                   "MA602",
-                  "MA612",
-                  "FI601"
-                ],
-                "correquisitos": [
-                  null
+                  "MA612"
                 ]
               },
-              "MA424": {
+              "MA603": {
                 "prerrequisitos": [
                   "MA602"
-                ],
-                "correquisitos": [
-                  null
                 ]
-              },
+              }
+            },
+            {
               "CC082": {
                 "prerrequisitos": [
                   "IE078"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC212": {
-                "prerrequisitos": [
-                  "CC222"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC083": {
                 "prerrequisitos": [
                   "CC222"
-                ],
-                "correquisitos": [
-                  null
+                ]
+              },
+              "CC212": {
+                "prerrequisitos": [
+                  "CC222"
                 ]
               },
               "CC214": {
                 "prerrequisitos": [
                   "CC210"
-                ],
-                "correquisitos": [
-                  null
+                ]
+              },
+              "FI604": {
+                "prerrequisitos": [
+                  "MA602",
+                  "MA612",
+                  "FI601"
+                ]
+              },
+              "MA424": {
+                "prerrequisitos": [
+                  "MA602"
                 ]
               }
             },
-            "6": {
+            {
               "CC052": {
                 "prerrequisitos": [
                   "CC212"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "IN056": {
-                "prerrequisitos": [
-                  "MA424"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC359": {
-                "prerrequisitos": [
-                  "CC222",
-                  "CC082"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC415": {
-                "prerrequisitos": [
-                  "CC212"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC216": {
@@ -1652,106 +1333,81 @@
                   "CC091",
                   "CC212",
                   "CC083"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
-              "DI165": {
+              "CC359": {
                 "prerrequisitos": [
-                  null
-                ],
-                "correquisitos": [
-                  null
+                  "CC222",
+                  "CC082"
+                ]
+              },
+              "CC415": {
+                "prerrequisitos": [
+                  "CC212"
+                ]
+              },
+              "IN056": {
+                "prerrequisitos": [
+                  "MA424"
                 ]
               }
             },
-            "7": {
-              "CC218": {
-                "prerrequisitos": [
-                  "CC415"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC219": {
-                "prerrequisitos": [
-                  "CC052",
-                  "CC415"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
+            {
               "CC093": {
                 "prerrequisitos": [
                   "CC359"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC223": {
-                "prerrequisitos": [
-                  "IN056",
-                  "CC415"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC094": {
                 "prerrequisitos": [
                   "MA612",
                   "CC222"
-                ],
-                "correquisitos": [
-                  null
+                ]
+              },
+              "CC218": {
+                "prerrequisitos": [
+                  "CC415"
+                ]
+              },
+              "CC219": {
+                "prerrequisitos": [
+                  "CC052",
+                  "CC415"
+                ]
+              },
+              "CC223": {
+                "prerrequisitos": [
+                  "IN056",
+                  "CC415"
                 ]
               },
               "DI166": {
                 "prerrequisitos": [
                   "DI165"
-                ],
-                "correquisitos": [
-                  null
                 ]
               }
             },
-            "8": {
+            {
+              "CC106": {
+                "prerrequisitos": [
+                  "CC219",
+                  "CC093"
+                ]
+              },
+              "CC132": {
+                "prerrequisitos": [
+                  "CC093"
+                ]
+              },
               "CC224": {
                 "prerrequisitos": [
                   "CC218"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC225": {
                 "prerrequisitos": [
                   "MA424",
                   "CC094"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC106": {
-                "prerrequisitos": [
-                  "CC219",
-                  "CC093"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC132": {
-                "prerrequisitos": [
-                  "CC093"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC226": {
@@ -1759,17 +1415,6 @@
                   "CC216",
                   "CC218",
                   "CC223"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "YY128": {
-                "prerrequisitos": [
-                  null
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC506": {
@@ -1778,95 +1423,52 @@
                   "CC218",
                   "CC219",
                   "CC223"
-                ],
-                "correquisitos": [
-                  null
                 ]
               }
             },
-            "9": {
+            {
               "CC227": {
                 "prerrequisitos": [
                   "CC223"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC228": {
                 "prerrequisitos": [
                   "CC225"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC229": {
                 "prerrequisitos": [
                   "CC106",
                   "CC132"
-                ],
-                "correquisitos": [
-                  null
+                ]
+              },
+              "CC230": {
+                "prerrequisitos": [
+                  "CC224"
+                ]
+              },
+              "CC231": {
+                "prerrequisitos": [
+                  "CC218"
                 ]
               },
               "IN053": {
                 "prerrequisitos": [
                   "MA424",
                   "IN056"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC230": {
-                "prerrequisitos": [
-                  "CC224"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "CC231": {
-                "prerrequisitos": [
-                  "CC218"
-                ],
-                "correquisitos": [
-                  null
                 ]
               }
             },
-            "10": {
-              "IN115": {
-                "prerrequisitos": [
-                  "MA424"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
+            {
               "CC096": {
                 "prerrequisitos": [
                   "CC415"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC232": {
                 "prerrequisitos": [
                   "CC229"
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "IN044": {
-                "prerrequisitos": [
-                  "CC218"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC233": {
@@ -1874,17 +1476,11 @@
                   "CC226",
                   "CC229",
                   "CC230"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC234": {
                 "prerrequisitos": [
                   "CC228"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC237": {
@@ -1893,44 +1489,24 @@
                   "CC506",
                   "CC227",
                   "CC229"
-                ],
-                "correquisitos": [
-                  null
+                ]
+              },
+              "IN044": {
+                "prerrequisitos": [
+                  "CC218"
+                ]
+              },
+              "IN115": {
+                "prerrequisitos": [
+                  "MA424"
                 ]
               }
             },
-            "11": {
-              "YY129": {
-                "prerrequisitos": [
-                  null
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "YY130": {
-                "prerrequisitos": [
-                  null
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
-              "YY131": {
-                "prerrequisitos": [
-                  null
-                ],
-                "correquisitos": [
-                  null
-                ]
-              },
+            {
               "CC235": {
                 "prerrequisitos": [
                   "CC096",
                   "IN044"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "CC236": {
@@ -1945,2774 +1521,514 @@
                   "8",
                   "9",
                   "10"
-                ],
-                "correquisitos": [
-                  null
                 ]
               },
               "DI167": {
                 "prerrequisitos": [
                   "DI166"
-                ],
-                "correquisitos": [
-                  null
                 ]
               }
             }
-          },
-          "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "semestres": {
-                  "1": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "2": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "3": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "4": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "5": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "6": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "7": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "8": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "9": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "10": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  },
-                  "11": {
-                    "estado": "INCOMPLETO",
-                    "días": {
-                      "L": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "M": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "X": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "J": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {
-                          "protegido": true
-                        },
-                        "10": {
-                          "protegido": true
-                        },
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      },
-                      "V": {
-                        "1": {},
-                        "2": {},
-                        "3": {},
-                        "4": {},
-                        "5": {},
-                        "6": {},
-                        "7": {},
-                        "8": {},
-                        "9": {},
-                        "10": {},
-                        "11": {},
-                        "12": {},
-                        "13": {},
-                        "14": {}
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+          ]
         }
       }
     },
     "ICI": {
-      "nombre": "Ingeniería Civil Industrial",
-      "jefe de carrera": null,
-      "departamento": null,
-      "plan de estudio": [
-        null
-      ]
+      "nombre": "Ingeniería Civil Industrial"
     }
   },
   "Departamentos": {
     "DICI": {
-      "nombre": "Departamento de Ingeniería en Computación e Informática",
       "director de departamento": "22222222",
       "laboratorios": {
-        "LAB-LIC": {
-          "nombre": "LICANCABUR",
+        "LAB-AUD": {
           "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "días": {
-                  "L": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "M": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "X": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "J": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "V": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  }
-                }
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO"
               }
-            }
-          }
-        },
-        "LAB-SOC": {
-          "nombre": "SOCOMPA",
-          "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "días": {
-                  "L": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "M": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "X": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "J": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "V": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  }
-                }
-              }
-            }
-          }
-        },
-        "LAB-GUA": {
-          "nombre": "GUALLATIRE",
-          "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "días": {
-                  "L": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "M": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "X": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "J": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "V": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  }
-                }
-              }
-            }
-          }
+            ]
+          },
+          "nombre": "AUDITORIO"
         },
         "LAB-AZU": {
-          "nombre": "AZUFRE",
           "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "días": {
-                  "L": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "M": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "X": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "J": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "V": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  }
-                }
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO"
               }
-            }
-          }
+            ]
+          },
+          "nombre": "AZUFRE"
+        },
+        "LAB-GUA": {
+          "horarios": {
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO"
+              }
+            ]
+          },
+          "nombre": "GUALLATIRE"
+        },
+        "LAB-LIC": {
+          "horarios": {
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO"
+              }
+            ]
+          },
+          "nombre": "LICANCABUR"
         },
         "LAB-PAR": {
-          "nombre": "PARINACOTA",
           "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "días": {
-                  "L": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "M": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "X": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "J": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "V": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  }
-                }
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO"
               }
-            }
-          }
+            ]
+          },
+          "nombre": "PARINACOTA"
         },
         "LAB-POM": {
-          "nombre": "POMERAPE",
           "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "días": {
-                  "L": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "M": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "X": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "J": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "V": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  }
-                }
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO"
               }
-            }
-          }
+            ]
+          },
+          "nombre": "POMERAPE"
         },
-        "LAB-AUD": {
-          "nombre": "AUDITORIO",
+        "LAB-SOC": {
           "horarios": {
-            "2023": {
-              "1": {
-                "estado": "ACTIVO",
-                "días": {
-                  "L": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "M": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "X": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "J": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  },
-                  "V": {
-                    "1": {},
-                    "2": {},
-                    "3": {},
-                    "4": {},
-                    "5": {},
-                    "6": {},
-                    "7": {},
-                    "8": {},
-                    "9": {},
-                    "10": {},
-                    "11": {},
-                    "12": {},
-                    "13": {},
-                    "14": {}
-                  }
-                }
+            "2023": [
+              null,
+              {
+                "estado": "ACTIVO"
               }
-            }
-          }
+            ]
+          },
+          "nombre": "SOCOMPA"
         }
-      }
-    }
-  },
-  "Asignaturas": {
-    "MA067": {
-      "nombre": "INTRODUCCIÓN AL CÁLCULO",
-      "créditos": 7,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 270,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "MA069": {
-      "nombre": "INTRODUCCIÓN AL ÁLGEBRA",
-      "créditos": 7,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 270,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "CC198": {
-      "nombre": "INTRODUCCIÓN A INGENIERÍA INFORMÁTICA",
-      "créditos": 0,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 180,
-        "laboratorio": 0
-      }
-    },
-    "CC210": {
-      "nombre": "TALLER DE DESARROLLO PERSONAL",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 180,
-        "laboratorio": 0
-      }
-    },
-    "CC199": {
-      "nombre": "TALLER DE PROGRAMACIÓN I",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "MA601": {
-      "nombre": "CÁLCULO I",
-      "créditos": 8,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 270,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "MA611": {
-      "nombre": "ÁLGEBRA I",
-      "créditos": 8,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 270,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "FI035": {
-      "nombre": "INTRODUCCIÓN A LA FÍSICA",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC206": {
-      "nombre": "INTRODUCCIÓN AL TRABAJO EN PROYECTOS",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "CC208": {
-      "nombre": "TALLER DE PROGRAMACIÓN II",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "MA602": {
-      "nombre": "CÁLCULO II",
-      "créditos": 8,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 270,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "MA612": {
-      "nombre": "ÁLGEBRA II",
-      "créditos": 8,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 270,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "FI601": {
-      "nombre": "MECÁNICA CLÁSICA",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC209": {
-      "nombre": "PROGRAMACIÓN ORIENTADA A OBJETOS",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC211": {
-      "nombre": "FUNDAMENTOS DE LENGUAJES DE PROGRAMACIÓN",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 90,
-        "taller": 0,
-        "laboratorio": 180
-      }
-    },
-    "MA603": {
-      "nombre": "CÁLCULO III",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "MA220": {
-      "nombre": "ECUACIONES DIFERENCIALES",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 135,
-        "taller": 45,
-        "laboratorio": 0
-      }
-    },
-    "IE078": {
-      "nombre": "ELECTRICIDAD Y SISTEMAS DIGITALES",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC222": {
-      "nombre": "ALGORITMOS Y ESTRUCTURAS DE DATOS",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC091": {
-      "nombre": "PROYECTO I",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "DE181": {
-      "nombre": "TALLER DE COMUNICACIÓN ORAL Y ESCRITA",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 180,
-        "laboratorio": 0
-      }
-    },
-    "FI604": {
-      "nombre": "ELECTROMAGNETISMO",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "MA424": {
-      "nombre": "ESTADÍSTICA Y PROBABILIDAD",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 135,
-        "taller": 45,
-        "laboratorio": 0
-      }
-    },
-    "CC082": {
-      "nombre": "ARQUITECTURA DE COMPUTADORES",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC212": {
-      "nombre": "TECNOLOGÍA DE OBJETOS",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "CC083": {
-      "nombre": "TALLER DE TÉCNICAS DE PROGRAMACIÓN",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "CC214": {
-      "nombre": "TALLER DE ÉTICA PROFESIONAL Y RESPONSABILIDAD SOCIAL DEL INFORMÁTICO",
-      "créditos": 3,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 180,
-        "laboratorio": 0
-      }
-    },
-    "CC052": {
-      "nombre": "TECNOLOGÍA WEB",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 90,
-        "taller": 0,
-        "laboratorio": 180
-      }
-    },
-    "IN056": {
-      "nombre": "GESTIÓN DE EMPRESA",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 135,
-        "taller": 45,
-        "laboratorio": 0
-      }
-    },
-    "CC359": {
-      "nombre": "SISTEMAS OPERATIVOS",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC415": {
-      "nombre": "BASE DE DATOS",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC216": {
-      "nombre": "PROYECTO II",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "DI165": {
-      "nombre": "INGLÉS I",
-      "créditos": 3,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 90,
-        "laboratorio": 90
-      }
-    },
-    "CC218": {
-      "nombre": "INGENIERÍA DE SOFTWARE I",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 90,
-        "taller": 180,
-        "laboratorio": 0
-      }
-    },
-    "CC219": {
-      "nombre": "TALLER DE APLICACIONES WEB",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "CC093": {
-      "nombre": "COMUNICACIÓN DE DATOS Y REDES",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 90
-      }
-    },
-    "CC223": {
-      "nombre": "SISTEMAS DE INFORMACIÓN",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 90,
-        "taller": 180,
-        "laboratorio": 0
-      }
-    },
-    "CC094": {
-      "nombre": "TEORÍA DE LA COMPUTACIÓN",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 0
-      }
-    },
-    "DI166": {
-      "nombre": "INGLÉS II",
-      "créditos": 3,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 90,
-        "laboratorio": 90
-      }
-    },
-    "CC224": {
-      "nombre": "INGENIERÍA DE SOFTWARE II",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 90,
-        "taller": 180,
-        "laboratorio": 0
-      }
-    },
-    "CC225": {
-      "nombre": "ANÁLISIS Y DISEÑO DE ALGORITMOS",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "CC106": {
-      "nombre": "SISTEMAS DISTRIBUIDOS",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "CC132": {
-      "nombre": "LABORATORIO DE REDES",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 0,
-        "laboratorio": 180
-      }
-    },
-    "CC226": {
-      "nombre": "PROYECTO III",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "YY128": {
-      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL I",
-      "créditos": 4,
-      "carácter": "ELECTIVO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 0
-      }
-    },
-    "CC506": {
-      "nombre": "PRÁCTICA PROFESIONAL I",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 675,
-        "taller": 0,
-        "laboratorio": 0
-      }
-    },
-    "CC227": {
-      "nombre": "GESTIÓN DE PROCESOS DE NEGOCIOS",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "CC228": {
-      "nombre": "INTELIGENCIA ARTIFICIAL",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "CC229": {
-      "nombre": "APLICACIONES DISTRIBUIDAS",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 90,
-        "taller": 180,
-        "laboratorio": 0
-      }
-    },
-    "IN053": {
-      "nombre": "INTRODUCCIÓN A LA ECONOMÍA",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 0
-      }
-    },
-    "CC230": {
-      "nombre": "TALLER DE EMPRENDIMIENTO TECNOLÓGICO",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "CC231": {
-      "nombre": "ARQUITECTURA DE SOFTWARE",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 90,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "IN115": {
-      "nombre": "MODELOS DE OPTIMIZACIÓN",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 135,
-        "taller": 45,
-        "laboratorio": 0
-      }
-    },
-    "CC096": {
-      "nombre": "INTELIGENCIA DE NEGOCIOS",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "CC232": {
-      "nombre": "GESTIÓN DE SEGURIDAD INFORMÁTICA",
-      "créditos": 4,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "IN044": {
-      "nombre": "PREPARACIÓN Y EVALUACIÓN DE PROYECTOS",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 135,
-        "taller": 45,
-        "laboratorio": 0
-      }
-    },
-    "CC233": {
-      "nombre": "PROYECTO IV",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "CC234": {
-      "nombre": "MINERÍA DE DATOS",
-      "créditos": 5,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 90,
-        "laboratorio": 0
-      }
-    },
-    "CC237": {
-      "nombre": "PRÁCTICA PROFESIONAL II",
-      "créditos": 11,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 0,
-        "laboratorio": 0
-      }
-    },
-    "YY129": {
-      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL II",
-      "créditos": 4,
-      "carácter": "ELECTIVO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 0
-      }
-    },
-    "YY130": {
-      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL III",
-      "créditos": 4,
-      "carácter": "ELECTIVO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 0
-      }
-    },
-    "YY131": {
-      "nombre": "ELECTIVO DE FORMACIÓN PERSONAL IV",
-      "créditos": 4,
-      "carácter": "ELECTIVO",
-      "minutos": {
-        "cátedra": 180,
-        "taller": 0,
-        "laboratorio": 0
-      }
-    },
-    "CC235": {
-      "nombre": "TALLER DE GESTIÓN TIC",
-      "créditos": 6,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 270,
-        "laboratorio": 0
-      }
-    },
-    "CC236": {
-      "nombre": "ACTIVIDAD DE TITULACIÓN",
-      "créditos": 9,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 360,
-        "laboratorio": 0
-      }
-    },
-    "DI167": {
-      "nombre": "INGLÉS III",
-      "créditos": 3,
-      "carácter": "OBLIGATORIO",
-      "minutos": {
-        "cátedra": 0,
-        "taller": 90,
-        "laboratorio": 90
-      }
+      },
+      "nombre": "Departamento de Ingeniería en Computación e Informática"
     }
   },
   "Docentes": {
     "11111111": {
       "apellido": "Valdivia Pinto",
-      "correo": "rvaldivi@academicos.uta.cl",
-      "nombre": "Ricardo",
-      "bloques no disponibles": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "habilidades": [
-        null
-      ],
       "cargos": [
         "jefe de carrera",
         "profesor"
       ],
-      "imparte": {
-        "2023": {
-          "1": [
-            null
-          ]
-        }
-      },
+      "correo": "rvaldivi@academicos.uta.cl",
       "horarios": {
-        "2023": {
-          "1": {
-            "estado": "ACTIVO",
+        "2023": [
+          null,
+          {
             "días": {
-              "L": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "M": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "X": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
               "J": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
                 "9": {
                   "protegido": true
                 },
                 "10": {
                   "protegido": true
-                },
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "V": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
+                }
               }
-            }
+            },
+            "estado": "ACTIVO"
           }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
         }
-      }
+      },
+      "nombre": "Ricardo"
     },
     "22222222": {
       "apellido": "Ramirez Varas",
-      "correo": "iramirez@academicos.uta.cl",
-      "nombre": "Ibar",
-      "habilidades": [
-        null
-      ],
       "cargos": [
         "director de departamento",
         "profesor"
       ],
-      "imparte": {
-        "2023": {
-          "1": [
-            null
-          ]
-        }
-      },
+      "correo": "iramirez@academicos.uta.cl",
       "horarios": {
-        "2023": {
-          "1": {
-            "estado": "ACTIVO",
+        "2023": [
+          null,
+          {
             "días": {
-              "L": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "M": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "X": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
               "J": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
                 "9": {
                   "protegido": true
                 },
                 "10": {
                   "protegido": true
-                },
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "V": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
+                }
               }
-            }
+            },
+            "estado": "ACTIVO"
           }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
         }
-      }
+      },
+      "nombre": "Ibar"
     },
     "33333333": {
-      "apellido": "Cardenas",
-      "correo": "mcardenasn@academicos.uta.cl",
-      "nombre": "Marcelo",
-      "habilidades": [
-        null
-      ],
+      "apellido": "Cardenas Neira",
       "cargos": [
         "profesor"
       ],
-      "imparte": {
-        "2023": {
-          "1": [
-            "CC219"
-          ]
-        }
-      },
+      "correo": "mcardenasn@academicos.uta.cl",
       "horarios": {
-        "2023": {
-          "1": {
-            "estado": "ACTIVO",
+        "2023": [
+          null,
+          {
             "días": {
-              "L": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "M": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "X": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
               "J": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
                 "9": {
                   "protegido": true
                 },
                 "10": {
                   "protegido": true
-                },
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "V": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
+                }
               }
-            }
+            },
+            "estado": "ACTIVO"
           }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
         }
-      }
+      },
+      "nombre": "Marcelo"
+    },
+    "13131313": {
+      "apellido": "Urrutia Lopez",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "hurrutia@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Humberto"
+    },
+    "55555555": {
+      "apellido": "Choque Tolmo",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "bchoque@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Bernardo"
+    },
+    "66666666": {
+      "apellido": "Vásquez Acevedo",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "kvasquez@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Karina"
+    },
+    "77777777": {
+      "apellido": "Alfaro Pérez",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "mcardenasn@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Víctor"
+    },
+    "88888888": {
+      "apellido": "Herrera Acuña",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "rherrera@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Raul"
+    },
+    "99999999": {
+      "apellido": "Paz Segura",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "gpaz@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Gregorio"
+    },
+    "10101010": {
+      "apellido": "Olea Lozano",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "eolea@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Eduardo"
+    },
+    "11011011": {
+      "apellido": "Gonzales Navarrate",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "egonzales@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Eduardo"
+    },
+    "12121212": {
+      "apellido": "Aracena Pizarro",
+      "cargos": [
+        "profesor"
+      ],
+      "correo": "daracena@academicos.uta.cl",
+      "horarios": {
+        "2023": [
+          null,
+          {
+            "días": {
+              "J": {
+                "9": {
+                  "protegido": true
+                },
+                "10": {
+                  "protegido": true
+                }
+              }
+            },
+            "estado": "ACTIVO"
+          }
+        ]
+      },
+      "imparte": {
+        "2023": {
+          "1": []
+        }
+      },
+      "nombre": "Diego"
     }
   },
   "Estudiantes": {
     "44444444": {
       "apellido": "Arias Vargas",
-      "correo": "alan.arias.vargas@alumnos.uta.cl",
-      "nombre": "Alan",
-      "plan de estudio": 1,
       "asignaturas aprobadas": [
         "CC209"
       ],
       "asignaturas inscritas": [
         "CC219"
       ],
+      "carrera": "ICCI",
+      "correo": "alan.arias.vargas@alumnos.uta.cl",
       "horarios": {
-        "2023": {
-          "1": {
-            "estado": "ACTIVO",
+        "2023": [
+          null,
+          {
             "días": {
-              "L": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "M": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "X": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
               "J": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
                 "9": {
                   "protegido": true
                 },
                 "10": {
                   "protegido": true
-                },
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
-              },
-              "V": {
-                "1": {},
-                "2": {},
-                "3": {},
-                "4": {},
-                "5": {},
-                "6": {},
-                "7": {},
-                "8": {},
-                "9": {},
-                "10": {},
-                "11": {},
-                "12": {},
-                "13": {},
-                "14": {}
+                }
               }
-            }
+            },
+            "estado": "ACTIVO"
           }
-        }
-      }
+        ]
+      },
+      "nombre": "Alan",
+      "plan de estudio": 2019
     }
   }
 }

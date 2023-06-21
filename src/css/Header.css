@@ -1,8 +1,96 @@
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 50px;
+    grid-template-areas: 'back title logout';
     width: 100%;
     height: 70px;
     background-color: var(--blue-color);
+    text-align: center;
+    padding: 10px;
+}
+
+header h1 {
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-page {
+    color: white;
+    background-color: var(--yellow-color);
+    display: grid;
+    place-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: var(--border-radius-5);
+    transition: box-shadow .25s
+}
+
+.dropdown-menu {
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+    grid-area: logout;
+    background-color: var(--yellow-color);
+    border-radius: var(--border-radius-5);
+    display: grid;
+    grid-template-rows: 50px 2px 50px;
+    row-gap: 5px;
+    overflow: hidden;
+    height: 50px;
+    /* height: max-content; */
+    transition: height .25s, color .25s, box-shadow .25s;
+}
+
+.dropdown-menu:hover,
+.back-page:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu>*:nth-child(odd) {
+    height: 50px;
+    padding: 10px;
+}
+
+.dropdown-menu .user .arrow-icon {
+    transition: transform .25s;
+}
+
+.divider {
+    content: '';
+    height: 2px;
+    background-color: darkgrey;
+    margin-inline: 10px !important
+}
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.logout-btn p {
+    margin-inline: auto !important;
+}
+
+.deploy {
+    color: black;
+    background-color: white;
+    height: 112px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.deploy .user .arrow-icon {
+    transform: rotate(180deg);
 }
