@@ -167,8 +167,8 @@ export function formatHorario({
             searchDocente: for (const docenteData of docentes) {
               if (docenteData.key === docente) {
                 var id = 'DOC-';
-                for (const code of `${docente.val().nombre} ${
-                  docente.val().apellido
+                for (const code of `${docenteData.val().nombre} ${
+                  docenteData.val().apellido
                 }`.split(' ')) {
                   id += code.charAt(0).toUpperCase();
                 }
@@ -190,9 +190,9 @@ export function formatHorario({
             }
           }
           if (laboratorio) {
-            searchLaboratorio: for (const laboratorioData of laboratorios) {
-              if (laboratorioData.key === laboratorio) {
-                const name = laboratorioData.val().nombre;
+            searchLaboratorio: for (const laboratorioId in laboratorios.val()) {
+              if (laboratorioId === laboratorio) {
+                const name = laboratorios.val()[laboratorioId].nombre;
                 formattedAsignaciones[uuid()] = {
                   id: laboratorio,
                   name: name,
@@ -223,103 +223,59 @@ export function formatHorario({
 }
 
 export function formatAsignaciones({ docentes, laboratorios }) {
-  const items = [];
+  const docentesList = {};
+  const laboratoriosList = {};
 
   for (const docente of docentes) {
-    const días = docente.child(`horarios/${year}/${half}/días`);
+    const dias = docente.child(`horarios/${year}/${half}/días`);
 
-    if (días.val()) {
+    if (dias.val()) {
+      const items = [];
+
       var id = 'DOC-';
       for (const code of `${docente.val().nombre} ${
         docente.val().apellido
       }`.split(' ')) {
         id += code.charAt(0).toUpperCase();
       }
-      // console.log(id);
-      // console.log(docente.child(`horarios/${year}/${half}/días`).val());
+
+      for (const day in dias.val()) {
+        for (const block in dias.val()[day]) {
+          const formattedDocentesAsignacion = {
+            day: day,
+            block: block,
+          };
+
+          items.push(formattedDocentesAsignacion);
+        }
+      }
+      docentesList[id] = items;
     }
   }
   for (const laboratorioID in laboratorios.val()) {
-    // console.log(
-    //   laboratorios.child(`${laboratorioID}/horarios/${year}/${half}`).val()
-    // );
+    const dias = laboratorios.child(
+      `${laboratorioID}/horarios/${year}/${half}/días`
+    );
+
+    if (dias.val()) {
+      const items = [];
+
+      for (const day in dias.val()) {
+        for (const block in dias.val()[day]) {
+          const formattedLaboratoriosAsignacion = {
+            day: day,
+            block: block,
+          };
+
+          items.push(formattedLaboratoriosAsignacion);
+        }
+      }
+      laboratoriosList[laboratorioID] = items;
+    }
   }
 
-  const yearHalf = `${year}/${half}`;
-
   return {
-    yearHalf: {
-      items: items,
-    },
+    DOCENTES: docentesList,
+    LABORATORIOS: laboratoriosList,
   };
 }
-
-export const Assignments = {
-  'ICCI-1-2022': {
-    items: [
-      {
-        asi: 'CC219',
-        block: 11,
-        day: 'M',
-        LABORATORIO: 'LAB-PAR',
-        DOCENTE: 'DOC-REO',
-      },
-      {
-        asi: 'CC219',
-        block: 12,
-        day: 'M',
-        LABORATORIO: 'LAB-PAR',
-        DOCENTE: 'DOC-REO',
-      },
-      {
-        asi: 'CC219',
-        block: 11,
-        day: 'J',
-        LABORATORIO: 'LAB-PAR',
-        DOCENTE: 'DOC-REO',
-      },
-      {
-        asi: 'CC219',
-        block: 12,
-        day: 'J',
-        LABORATORIO: 'LAB-PAR',
-        DOCENTE: 'DOC-REO',
-      },
-      {
-        asi: 'DI116',
-        block: 3,
-        day: 'L',
-        LABORATORIO: 'LAB-SOC',
-        DOCENTE: 'DOC-HOD',
-      },
-      {
-        asi: 'DI116',
-        block: 4,
-        day: 'L',
-        LABORATORIO: 'LAB-SOC',
-        DOCENTE: 'DOC-HOD',
-      },
-      {
-        asi: 'CC223',
-        block: 11,
-        day: 'V',
-        LABORATORIO: 'LAB-PAR',
-        DOCENTE: 'DOC-RHA',
-      },
-      {
-        asi: 'CC223',
-        block: 12,
-        day: 'V',
-        LABORATORIO: 'LAB-PAR',
-        DOCENTE: 'DOC-RHA',
-      },
-    ],
-  },
-  'A/2-2022': {
-    items: [
-      { asi: 'CC219', block: 11, day: 'M', lab: 'LAB-PAR', doc: 'DOC-REO' },
-      { asi: 'CC219', block: 12, day: 'M', lab: 'LAB-PAR', doc: 'DOC-REO' },
-      { asi: 'CC219', block: 11, day: 'J', lab: 'LAB-PAR', doc: 'DOC-REO' },
-    ],
-  },
-};

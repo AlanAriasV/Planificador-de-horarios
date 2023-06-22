@@ -6,7 +6,6 @@ import { v4 as uuid } from 'uuid';
 
 import Header from '../components/Header';
 import {
-  Assignments,
   formatLaboratorios,
   formatAsignaturas,
   formatDocentes,
@@ -59,12 +58,9 @@ function OnDragEnd({ result, droppables, setDroppables }) {
 function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {
   const source = start.source;
   const draggableId = start.draggableId;
-  // console.log(draggableId);
   const droppableId = source.droppableId;
   const index = source.index;
   var item;
-
-  const newShelteredBlocks = [];
 
   for (const droppable of droppables) {
     if (droppable[droppableId]) {
@@ -72,15 +68,10 @@ function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {
       break;
     }
   }
-  console.log(item);
-  if (!item) return;
-  for (const assignment of assignments[`${year}/${half}`].items) {
-    if (assignment[item.type] === item.id) {
-      console.log(assignment);
-      newShelteredBlocks.push(assignment);
-    }
-  }
-  setShelteredBlocks(newShelteredBlocks);
+
+  if (!item || !assignments[`${item.type}S`][`${item.id}`]) return;
+
+  setShelteredBlocks(assignments[`${item.type}S`][`${item.id}`]);
 }
 
 function RemoveItem({ source, setSource, id, index }) {
@@ -187,12 +178,8 @@ export function EditSchedule() {
   const [teachers, setTeachers] = useState();
   const [blocks, setBlocks] = useState();
 
-  const [assignments, setAssignments] = useState(Assignments);
+  const [assignments, setAssignments] = useState();
   const [shelteredBlocks, setShelteredBlocks] = useState([]);
-
-  // const [loading, setLoading] = useState(true);
-
-  // console.log(assignments);
 
   useEffect(() => {
     if (!loadingDepartamentos) {
@@ -267,10 +254,12 @@ export function EditSchedule() {
                   laboratorios: laboratorios,
                 })
               );
-              formatAsignaciones({
-                docentes: docentes,
-                laboratorios: laboratorios,
-              });
+              setAssignments(
+                formatAsignaciones({
+                  docentes: docentes,
+                  laboratorios: laboratorios,
+                })
+              );
               break searchLaboratorio;
             }
           }
