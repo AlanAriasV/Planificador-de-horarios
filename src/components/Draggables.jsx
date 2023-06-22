@@ -26,7 +26,7 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
 
               for (const shelteredBlock of shelteredBlocks) {
                 if (
-                  shelteredBlock.block === block.number &&
+                  parseInt(shelteredBlock.block) === block.number &&
                   shelteredBlock.day === block.day
                 ) {
                   blockSheltered = true;
@@ -40,10 +40,11 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                   isDropDisabled={blockSheltered || block.sheltered}>
                   {(provided, snapshot) => {
                     var backgroundColor = 'white';
-                    if (blockSheltered) backgroundColor = 'red';
-                    else if (block.sheltered)
+                    if (block.sheltered)
                       backgroundColor = 'var(--yellow-color)';
-                    // else if (snapshot.isDraggingOver) backgroundColor = 'lightblue';
+                    else if (blockSheltered) backgroundColor = 'red';
+                    else if (snapshot.isDraggingOver)
+                      backgroundColor = 'lightblue';
                     return (
                       <td
                         {...provided.droppableProps}
@@ -51,6 +52,7 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                         style={{ backgroundColor }}>
                         {block.items.map((items, index) =>
                           Object.entries(items).map(([itemId, item]) => (
+                            // console.log(item),
                             <Draggable
                               key={itemId}
                               draggableId={itemId}
@@ -96,7 +98,7 @@ export function AssignaturesDraggable({ assignatures }) {
     <>
       {Object.entries(assignatures).map(([id, assignatures]) => (
         <Droppable isDropDisabled={true} droppableId={id} key={id}>
-          {(provided, snapshot) => (
+          {(provided, _) => (
             <section
               className="assignatures"
               {...provided.droppableProps}
