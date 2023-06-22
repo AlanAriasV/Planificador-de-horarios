@@ -8,6 +8,7 @@ import { BlocksDuration } from '../firebase/formattedData';
 import { CarreraContext } from '../contexts/CarreraContext';
 import CourseBlock from '../components/CourseBlock';
 import { Link } from 'react-router-dom';
+import { Carreras } from '../firebase/controller'
 
 function CareerSelector() {
   const {
@@ -403,14 +404,45 @@ function Selector(
   );
 }
 
+function CreaHorarioPersonal(asig_inscritas, carrera, plan, year, periodo) {
+  const { carreras, loadingCarreras, errorCarreras} = Carreras();
+  if (!loadingCarreras) {
+    console.log('termino cargar');
+  }
+  // const horario_semestres = carreras[0].child(`plan de estudio/${plan}/horarios/${year}/${periodo}/semestres`)
+  // const horario_personal = {'L': {}, 'M': {}, 'X': {}, 'J': {}, 'V': {}}
+  // horario_semestres.forEach(semestre => {
+  //   const dias = semestre.child('días')
+  //   dias.forEach(dia => {
+  //     dia.forEach(bloque => {
+  //       const asignatura = bloque.child('asignaciones/asignatura').val()
+  //       if (bloque.val()['protegido']) {
+  //         horario_personal[dia.key][bloque.key] = bloque.val()
+  //       }
+  //       else if (asig_inscritas.includes(asignatura)) {
+  //         if (!Object.keys(horario_personal[dia.key]).includes(bloque.key)){
+  //           horario_personal[dia.key][bloque.key] = bloque.val()
+  //           asig_inscritas.splice(asig_inscritas.indexOf(asignatura), 1);
+  //         }
+  //       }
+  //     })
+  //   });
+  // });
+  // return horario_personal
+}
+
 export function Home() {
   const {
     userData,
     setSelectedCarreraYear,
     selectedCarreraYear,
     setSelectedPeriodo,
-    selectedPeriodo,
+    selectedPeriodo
   } = useContext(CarreraContext);
+  
+  const asignaturas_inscritas = userData.user.val()['asignaturas inscritas'];
+  const carrera = userData.user.val()['carrera'];
+  const plan = userData.user.val()['plan de estudio'];
 
   return (
     <>
@@ -432,7 +464,6 @@ export function Home() {
                 ' ' +
                 userData.user.val()['apellido']}
             </h2>
-            {/* <h3>{userData.user.val()}</h3> */}
 
             {Selector(
               'Seleccione el año',
@@ -451,10 +482,9 @@ export function Home() {
           {selectedCarreraYear &&
             selectedPeriodo &&
             SchedulePreview(
-              userData.user.child(
-                `horarios/${selectedCarreraYear}/${selectedPeriodo}/días`
+                CreaHorarioPersonal(asignaturas_inscritas, carrera, plan, selectedCarreraYear, selectedPeriodo)
               )
-            )}
+            }
         </main>
       )}
     </>
