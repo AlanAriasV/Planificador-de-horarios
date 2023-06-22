@@ -4,14 +4,8 @@ import { FaSearch } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import '../css/Home.css';
 import '../css/Modal.css';
-import {
-  Courses,
-  Careers,
-  Assignments,
-  BlocksDuration,
-} from '../firebase/Data';
-import { CarreraProvider, CarreraContext } from '../contexts/CarreraContext';
-import { useEffect } from 'react';
+import { BlocksDuration } from '../firebase/formattedData';
+import { CarreraContext } from '../contexts/CarreraContext';
 import CourseBlock from '../components/CourseBlock';
 import { Link } from 'react-router-dom';
 
@@ -73,8 +67,7 @@ function CareerSelector() {
                 selectedCarreraID === career[1].key ? 'active' : ''
               }`}
               id={career[1].key}
-              onClick={handleCareerClick}
-            >
+              onClick={handleCareerClick}>
               <p className="text-uppercase">{career[1].val().nombre}</p>
               {/* <strong>Semestres sin horario: </strong>
             <span id="cant-sin-horario">
@@ -185,8 +178,7 @@ function Modal({ closeModal }) {
           </button>
           <Link
             to={`/edit-schedule/${selectedCarreraID}/${selectedPlan}/${selectedSemestre.key}`}
-            className="edit-btn"
-          >
+            className="edit-btn">
             Ir a editar
           </Link>
         </div>
@@ -239,8 +231,7 @@ function SemestersButtons() {
           className={`semester-btn ${semestres
             .val()
             [semestre].estado.toLowerCase()}`}
-          onClick={() => handleSemesterClick(semestres, semestre)}
-        >
+          onClick={() => handleSemesterClick(semestres, semestre)}>
           Semestre {semestre}
         </button>
       );
@@ -359,8 +350,7 @@ function SchedulePreview(daysArray) {
                 <td key={dayIndex}>
                   {schedule && (
                     <div
-                      className={`${schedule['protegido'] ? 'protegido' : ''}`}
-                    >
+                      className={`${schedule['protegido'] ? 'protegido' : ''}`}>
                       {/* PENDIENTE */}
                     </div>
                   )}
@@ -404,8 +394,7 @@ function Selector(
       defaultValue="default"
       onChange={e => setSelectedValue(e.target.value)}
       name={identifier}
-      id={identifier}
-    >
+      id={identifier}>
       <option value="default" disabled>
         {defaultText}
       </option>

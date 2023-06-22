@@ -40,7 +40,7 @@ div.grid {
     auto-fill,
     calc(((100% - var(--gap)) / 2) - 1px)
   );
-  grid-auto-rows: calc((100% - var(--gap)) / 3);
+  grid-auto-rows: calc(((100% - var(--gap)) / 3) - 5px);
   overflow: auto;
 }
 

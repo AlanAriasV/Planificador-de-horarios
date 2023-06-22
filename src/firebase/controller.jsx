@@ -3,41 +3,47 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import database, { ref } from './database';
 import auth from './authentication';
 
-export const Horario = () => {
-}
-
 export const Asignaturas = () => {
-    const [asignaturas, loadingAsignaturas, errorAsignaturas] = useList(ref(database.database, 'Asignaturas'));
+  const [asignaturas, loadingAsignaturas, errorAsignaturas] = useList(
+    ref(database.database, 'Asignaturas')
+  );
 
-    return { asignaturas, loadingAsignaturas, errorAsignaturas }
-}
+  return { asignaturas, loadingAsignaturas, errorAsignaturas };
+};
 
 export const Departamentos = () => {
-    const [departamentos, loadingDepartamentos, errorDepartamentos] = useList(ref(database.database, 'Departamentos'));
+  const [departamentos, loadingDepartamentos, errorDepartamentos] = useList(
+    ref(database.database, 'Departamentos')
+  );
 
-    return { departamentos, loadingDepartamentos, errorDepartamentos }
-}
+  return { departamentos, loadingDepartamentos, errorDepartamentos };
+};
 
 export const Docentes = () => {
-    const [docentes, loadingDocentes, errorDocentes] = useList(ref(database.database, 'Docentes'));
+  const [docentes, loadingDocentes, errorDocentes] = useList(
+    ref(database.database, 'Docentes')
+  );
 
-    return { docentes, loadingDocentes, errorDocentes }
-}
+  return { docentes, loadingDocentes, errorDocentes };
+};
 export const Estudiantes = () => {
-    const [estudiantes, loadingEstudiantes, errorEstudiantes] = useList(ref(database.database, 'Estudiantes'));
+  const [estudiantes, loadingEstudiantes, errorEstudiantes] = useList(
+    ref(database.database, 'Estudiantes')
+  );
 
-    return { estudiantes, loadingEstudiantes, errorEstudiantes }
-}
+  return { estudiantes, loadingEstudiantes, errorEstudiantes };
+};
 
 export const Carreras = () => {
-    const [carreras, loadingCarreras, errorCarreras] = useList(ref(database.database, 'Carreras'));
+  const [carreras, loadingCarreras, errorCarreras] = useList(
+    ref(database.database, 'Carreras')
+  );
 
-    return { carreras, loadingCarreras, errorCarreras };
-}
+  return { carreras, loadingCarreras, errorCarreras };
+};
 
 export const User = () => {
-    const [user, loadingUser, errorUser] = useAuthState(auth.auth);
+  const [user, loadingUser, errorUser] = useAuthState(auth.auth);
 
-    return { user, loadingUser, errorUser }
-
-}
+  return { user, loadingUser, errorUser };
+};

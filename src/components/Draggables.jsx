@@ -1,7 +1,6 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
-import { BlocksDuration } from '../firebase/Data';
-// import { outOfTheWayTiming } from "react-beautiful-dnd/src/animation";
+import { BlocksDuration } from '../firebase/formattedData';
 
 export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
   const date = new Date();
@@ -21,9 +20,8 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
               <p>{i}</p>
               <p>{`${nowHours}:${nowMinutes} - ${newHours}:${newMinutes}`}</p>
             </td>
-            {Object.entries(blocks).map(([id, block]) => {
+            {Object.entries(blocks).map(function ([id, block]) {
               if (block.number !== i) return;
-
               var blockSheltered = false;
 
               for (const shelteredBlock of shelteredBlocks) {
@@ -74,7 +72,6 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                                     onClick({ id: id, index, index })
                                   }>
                                   <p>{item.id ?? ''}</p>
-                                  {/* <p>{item.name ?? `${item.firstName} ${item.lastName}`}</p> */}
                                 </div>
                               )}
                             </Draggable>

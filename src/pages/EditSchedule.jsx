@@ -1,34 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { DragDropContext } from 'react-beautiful-dnd';
 import { v4 as uuid } from 'uuid';
-import { useList, useListVals } from 'react-firebase-hooks/database';
-
-import '../css/EditSchedule.css';
 
 import Header from '../components/Header';
 import {
-  Assignatures,
-  Blocks,
-  Laboratories,
   Assignments,
-  Teachers,
   formatLaboratorios,
   formatAsignaturas,
   formatDocentes,
-} from '../firebase/Data';
+  formatHorario,
+  formatAsignaciones,
+  year,
+  half,
+} from '../firebase/formattedData';
 import {
   AssignaturesDraggable,
   LaboratoriesDraggable,
   ScheduleBlocksDraggable,
   TeachersDraggable,
 } from '../components/Draggables';
-import database from '../firebase/database';
-import { Asignaturas, Departamentos } from '../firebase/controller';
-import { useEffect } from 'react';
-import { useContext } from 'react';
 import { CarreraContext } from '../contexts/CarreraContext';
-import { Navigate, useParams } from 'react-router-dom';
+import { Departamentos } from '../firebase/controller';
+
+import '../css/EditSchedule.css';
 
 function OnDragEnd({ result, droppables, setDroppables }) {
   setDroppables[4]([]);
@@ -63,6 +59,7 @@ function OnDragEnd({ result, droppables, setDroppables }) {
 function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {
   const source = start.source;
   const draggableId = start.draggableId;
+  // console.log(draggableId);
   const droppableId = source.droppableId;
   const index = source.index;
   var item;
@@ -75,10 +72,11 @@ function OnDragStart({ start, assignments, droppables, setShelteredBlocks }) {
       break;
     }
   }
-
+  console.log(item);
   if (!item) return;
-  for (const assignment of assignments['ICCI-1-2022'].items) {
+  for (const assignment of assignments[`${year}/${half}`].items) {
     if (assignment[item.type] === item.id) {
+      console.log(assignment);
       newShelteredBlocks.push(assignment);
     }
   }
@@ -187,12 +185,14 @@ export function EditSchedule() {
   const [assignatures, setAssignatures] = useState();
   const [laboratories, setLaboratories] = useState();
   const [teachers, setTeachers] = useState();
+  const [blocks, setBlocks] = useState();
 
   const [assignments, setAssignments] = useState(Assignments);
-  const [blocks, setBlocks] = useState(Blocks);
   const [shelteredBlocks, setShelteredBlocks] = useState([]);
 
   // const [loading, setLoading] = useState(true);
+
+  // console.log(assignments);
 
   useEffect(() => {
     if (!loadingDepartamentos) {
@@ -243,6 +243,40 @@ export function EditSchedule() {
         })
       );
     }
+
+    if (
+      listCarreras &&
+      !loadingAsignaturas &&
+      !loadingDocentes &&
+      !loadingDepartamentos
+    ) {
+      for (const carrera of listCarreras) {
+        if (carrera.key === idCarrera) {
+          const horario = carrera.child(
+            `plan de estudio/${plan}/horarios/${year}/${half}/semestres/${semestre}`
+          );
+
+          searchLaboratorio: for (const departamento of departamentos) {
+            if (departamento.key === carrera.val().departamento) {
+              const laboratorios = departamento.child('laboratorios');
+              setBlocks(
+                formatHorario({
+                  asignaturas: asignaturas,
+                  docentes: docentes,
+                  horario: horario,
+                  laboratorios: laboratorios,
+                })
+              );
+              formatAsignaciones({
+                docentes: docentes,
+                laboratorios: laboratorios,
+              });
+              break searchLaboratorio;
+            }
+          }
+        }
+      }
+    }
   }, [loadingDepartamentos, loadingAsignaturas, listCarreras, loadingDocentes]);
 
   return (
@@ -274,8 +308,7 @@ export function EditSchedule() {
                 droppables: droppables,
                 setDroppables: setDroppables,
               });
-            }}
-          >
+            }}>
             {!blocks && (
               <>
                 {/* <div className="placeholder" style={{ gridArea: 'ta' }}></div> */}
@@ -290,8 +323,7 @@ export function EditSchedule() {
                       overflowY: 'scroll',
                       height: '100%',
                       width: '100%',
-                    }}
-                  >
+                    }}>
                     <table className="edit-schedule">
                       <thead>
                         <tr>
@@ -354,8 +386,7 @@ export function EditSchedule() {
               <>
                 <div
                   className="placeholder x2"
-                  style={{ gridArea: 'tt' }}
-                ></div>
+                  style={{ gridArea: 'tt' }}></div>
                 <div className="placeholder x2 teachers"></div>
               </>
             )}
