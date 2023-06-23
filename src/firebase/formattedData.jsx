@@ -92,8 +92,8 @@ export function formatDocentes({ docentes }) {
     }
 
     const rut = docente.key;
-    const firstName = docente.val().nombre;
-    const lastName = docente.val().apellido;
+    const firstName = docente.val().nombre.toUpperCase();
+    const lastName = docente.val().apellido.toUpperCase();
     const email = docente.val().correo;
 
     const formattedDocente = {
@@ -115,111 +115,6 @@ export function formatDocentes({ docentes }) {
       items: items,
     },
   };
-}
-
-export function formatHorario({
-  asignaturas,
-  docentes,
-  horario,
-  laboratorios,
-}) {
-  const days = { 1: 'L', 2: 'M', 3: 'X', 4: 'J', 5: 'V' };
-
-  const formattedBlocks = {};
-
-  for (const nDay in days) {
-    for (const nBlock in Array(15).fill(null, 1, 15)) {
-      const day = days[nDay];
-      const duration = 45;
-      const items = [];
-      var sheltered = false;
-
-      const block = horario.child(`días/${day}/${nBlock}`);
-
-      if (block.val()) {
-        sheltered = block.val().protegido ?? false;
-
-        const asignaciones = block.child('asignaciones');
-
-        if (asignaciones.val()) {
-          const asignatura = asignaciones.val().asignatura;
-          const docente = asignaciones.val().docente;
-          const laboratorio = asignaciones.val().laboratorio;
-
-          const formattedAsignaciones = {};
-
-          if (asignatura) {
-            searchAsignatura: for (const asignaturaData of asignaturas) {
-              if (asignaturaData.key === asignatura) {
-                const name = asignaturaData.val().nombre;
-                const minutes = asignaturaData.val().minutos;
-                formattedAsignaciones[uuid()] = {
-                  id: asignatura,
-                  name: name,
-                  minutes: minutes,
-                  type: 'ASIGNATURA',
-                };
-                break searchAsignatura;
-              }
-            }
-          }
-          if (docente) {
-            searchDocente: for (const docenteData of docentes) {
-              if (docenteData.key === docente) {
-                var id = 'DOC-';
-                for (const code of `${docenteData.val().nombre} ${
-                  docenteData.val().apellido
-                }`.split(' ')) {
-                  id += code.charAt(0).toUpperCase();
-                }
-
-                const firstName = docenteData.val().nombre;
-                const lastName = docenteData.val().apellido;
-                const email = docenteData.val().correo;
-
-                formattedAsignaciones[uuid()] = {
-                  rut: docente,
-                  id: id,
-                  firstName: firstName,
-                  lastName: lastName,
-                  email: email,
-                  type: 'DOCENTE',
-                };
-                break searchDocente;
-              }
-            }
-          }
-          if (laboratorio) {
-            searchLaboratorio: for (const laboratorioId in laboratorios.val()) {
-              if (laboratorioId === laboratorio) {
-                const name = laboratorios.val()[laboratorioId].nombre;
-                formattedAsignaciones[uuid()] = {
-                  id: laboratorio,
-                  name: name,
-                  type: 'LABORATORIO',
-                };
-                break searchLaboratorio;
-              }
-            }
-          }
-
-          items.push(formattedAsignaciones);
-        }
-      }
-
-      const formattedBlock = {
-        day: day,
-        duration: duration,
-        items: items,
-        number: parseInt(nBlock),
-        sheltered: sheltered,
-      };
-
-      formattedBlocks[uuid()] = formattedBlock;
-    }
-  }
-
-  return formattedBlocks;
 }
 
 export function formatAsignaciones({ docentes, laboratorios }) {
@@ -278,4 +173,115 @@ export function formatAsignaciones({ docentes, laboratorios }) {
     DOCENTES: docentesList,
     LABORATORIOS: laboratoriosList,
   };
+}
+
+export function formatHorario({
+  asignaturas,
+  docentes,
+  horario,
+  laboratorios,
+}) {
+  const days = { 1: 'L', 2: 'M', 3: 'X', 4: 'J', 5: 'V' };
+
+  const formattedBlocks = {};
+
+  for (const nDay in days) {
+    for (const nBlock in Array(15).fill(null, 1, 15)) {
+      const day = days[nDay];
+      const duration = 45;
+      const items = [];
+      var sheltered = false;
+
+      const block = horario.child(`días/${day}/${nBlock}`);
+
+      if (block.val()) {
+        sheltered = block.val().protegido ?? false;
+
+        const asignaciones = block.child('asignaciones');
+
+        if (asignaciones.val()) {
+          const asignatura = asignaciones.val().asignatura;
+          const docente = asignaciones.val().docente;
+          const laboratorio = asignaciones.val().laboratorio;
+
+          if (asignatura) {
+            searchAsignatura: for (const asignaturaData of asignaturas) {
+              if (asignaturaData.key === asignatura) {
+                const name = asignaturaData.val().nombre;
+                const a = block.val().tipo;
+                // const minutes = asignaturaData.val().minutos;
+                const formattedAsignaciones = {
+                  [uuid()]: {
+                    id: asignatura,
+                    name: name,
+                    a: a,
+                    // minutes: minutes,
+                    type: 'ASIGNATURA',
+                  },
+                };
+                items.push(formattedAsignaciones);
+                break searchAsignatura;
+              }
+            }
+          }
+          if (docente) {
+            searchDocente: for (const docenteData of docentes) {
+              if (docenteData.key === docente) {
+                var id = 'DOC-';
+                for (const code of `${docenteData.val().nombre} ${
+                  docenteData.val().apellido
+                }`.split(' ')) {
+                  id += code.charAt(0).toUpperCase();
+                }
+
+                const firstName = docenteData.val().nombre;
+                const lastName = docenteData.val().apellido;
+                const email = docenteData.val().correo;
+                const formattedAsignaciones = {
+                  [uuid()]: {
+                    rut: docente,
+                    id: id,
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    type: 'DOCENTE',
+                  },
+                };
+                items.push(formattedAsignaciones);
+                break searchDocente;
+              }
+            }
+          }
+          if (laboratorio) {
+            searchLaboratorio: for (const laboratorioId in laboratorios.val()) {
+              if (laboratorioId === laboratorio) {
+                const name = laboratorios.val()[laboratorioId].nombre;
+                const formattedAsignaciones = {
+                  [uuid()]: {
+                    id: laboratorio,
+                    name: name,
+                    type: 'LABORATORIO',
+                  },
+                };
+                items.push(formattedAsignaciones);
+                break searchLaboratorio;
+              }
+            }
+          }
+        }
+      }
+
+      const formattedBlock = {
+        day: day,
+        duration: duration,
+        items: items,
+        number: parseInt(nBlock),
+        sheltered: sheltered,
+      };
+
+      formattedBlocks[uuid()] = formattedBlock;
+    }
+  }
+
+  return formattedBlocks;
 }

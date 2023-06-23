@@ -42,7 +42,8 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                     var backgroundColor = 'white';
                     if (block.sheltered)
                       backgroundColor = 'var(--yellow-color)';
-                    else if (blockSheltered) backgroundColor = 'red';
+                    else if (blockSheltered)
+                      backgroundColor = 'var(--red-50-color)';
                     else if (snapshot.isDraggingOver)
                       backgroundColor = 'lightblue';
                     return (
@@ -52,7 +53,6 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                         style={{ backgroundColor }}>
                         {block.items.map((items, index) =>
                           Object.entries(items).map(([itemId, item]) => (
-                            // console.log(item),
                             <Draggable
                               key={itemId}
                               draggableId={itemId}
@@ -60,6 +60,8 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                               isDragDisabled={block.sheltered}>
                               {(provided, snapshot) => (
                                 <div
+                                  // fontSize="10px"
+                                  // style={{font}}
                                   className={`block ${
                                     snapshot.isDragging ? 'dragging' : ''
                                   }`}
@@ -73,7 +75,8 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                                   onClick={() =>
                                     onClick({ id: id, index, index })
                                   }>
-                                  <p>{item.id ?? ''}</p>
+                                  {item.a && <p>{item.a}</p>}
+                                  <p>{item.id}</p>
                                 </div>
                               )}
                             </Draggable>
@@ -105,26 +108,32 @@ export function AssignaturesDraggable({ assignatures }) {
               ref={provided.innerRef}>
               <div className="grid grid-assignatures">
                 {assignatures.items.map((assignatures, index) =>
-                  Object.entries(assignatures).map(([id, assignature]) => (
-                    <Draggable
-                      key={id}
-                      draggableId={id}
-                      index={index}
-                      isDragDisabled={assignature.minutes === 0}>
-                      {(provided, snapshot) => (
-                        <div
-                          className={`item ${
-                            assignature.minutes === 0 ? 'disabled' : ''
-                          } ${snapshot.isDragging ? 'dragging' : ''}`}
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}>
-                          <p>{assignature.id}</p>
-                          {!snapshot.isDragging && <p>{assignature.name}</p>}
-                        </div>
-                      )}
-                    </Draggable>
-                  ))
+                  Object.entries(assignatures).map(([id, assignature]) => {
+                    var minutes = 0;
+                    for (const key in assignature.minutes) {
+                      minutes += assignature.minutes[key];
+                    }
+                    return (
+                      <Draggable
+                        key={id}
+                        draggableId={id}
+                        index={index}
+                        isDragDisabled={minutes === 0}>
+                        {(provided, snapshot) => (
+                          <div
+                            className={`item ${
+                              minutes === 0 ? 'disabled' : ''
+                            } ${snapshot.isDragging ? 'dragging' : ''}`}
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}>
+                            <p>{assignature.id}</p>
+                            {!snapshot.isDragging && <p>{assignature.name}</p>}
+                          </div>
+                        )}
+                      </Draggable>
+                    );
+                  })
                 )}
                 {provided.placeholder}
               </div>
@@ -149,16 +158,12 @@ export function LaboratoriesDraggable({ laboratories }) {
               <div className="grid grid-laboratories">
                 {laboratories.items.map((laboratories, index) =>
                   Object.entries(laboratories).map(([id, laboratory]) => (
-                    <Draggable
-                      key={id}
-                      draggableId={id}
-                      index={index}
-                      isDragDisabled={laboratory.minutes === 0}>
+                    <Draggable key={id} draggableId={id} index={index}>
                       {(provided, snapshot) => (
                         <div
                           className={`item ${
-                            laboratory.minutes === 0 ? 'disabled' : ''
-                          } ${snapshot.isDragging ? 'dragging' : ''}`}
+                            snapshot.isDragging ? 'dragging' : ''
+                          }`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}>
@@ -192,16 +197,12 @@ export function TeachersDraggable({ teachers }) {
               <div className="grid grid-teachers">
                 {teachers.items.map((teachers, index) =>
                   Object.entries(teachers).map(([id, teacher]) => (
-                    <Draggable
-                      key={id}
-                      draggableId={id}
-                      index={index}
-                      isDragDisabled={teacher.minutes === 0}>
+                    <Draggable key={id} draggableId={id} index={index}>
                       {(provided, snapshot) => (
                         <div
                           className={`item ${
-                            teacher.minutes === 0 ? 'disabled' : ''
-                          } ${snapshot.isDragging ? 'dragging' : ''}`}
+                            snapshot.isDragging ? 'dragging' : ''
+                          }`}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}>

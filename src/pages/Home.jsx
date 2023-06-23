@@ -1,14 +1,14 @@
 import Header from '../components/Header';
 import { useState, useContext } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose, AiFillEdit } from 'react-icons/ai';
 import '../css/Home.css';
 import '../css/Modal.css';
 import { BlocksDuration } from '../firebase/formattedData';
 import { CarreraContext } from '../contexts/CarreraContext';
 import CourseBlock from '../components/CourseBlock';
 import { Link } from 'react-router-dom';
-import { Carreras } from '../firebase/controller'
+import { Carreras, Docentes, Asignaturas } from '../firebase/controller';
 
 function CareerSelector() {
   const {
@@ -148,11 +148,15 @@ function ViewMalla() {
 }
 
 function Modal({ closeModal }) {
-  const { selectedPlan, selectedCarreraID, selectedSemestre } =
-    useContext(CarreraContext); //CONTEXTO
+  const {
+    selectedPlan,
+    selectedCarreraID,
+    selectedSemestre,
+    docentes,
+    asignaturas,
+  } = useContext(CarreraContext); //CONTEXTO
 
   const schedule = selectedSemestre.child('días');
-
   return (
     <div className="modal">
       <div className="modal-content">
@@ -166,9 +170,7 @@ function Modal({ closeModal }) {
         </div>
         <div className="modal-body">
           {schedule ? (
-            <div className="preview-schedule-container">
-              {SchedulePreview(schedule)}
-            </div>
+            SchedulePreview(schedule.val(), docentes, asignaturas)
           ) : (
             <div className="no-schedule">No hay horario definido</div>
           )}
@@ -288,17 +290,23 @@ function SemestersButtons() {
   );
 }
 
-function SchedulePreview(daysArray) {
+function SchedulePreview(daysArray, docentes, asignaturas) {
   const date = new Date();
   date.setHours(8);
   date.setMinutes(0);
-
-  const schedule = daysArray;
 
   const scheduleMatrix = [];
   for (let i = 0; i < 14; i++) {
     scheduleMatrix[i] = ['', '', '', '', ''];
   }
+
+  const indexDayList = {
+    0: 'L',
+    1: 'M',
+    2: 'X',
+    3: 'J',
+    4: 'V',
+  };
 
   const dayIndexList = {
     L: 0,
@@ -308,60 +316,94 @@ function SchedulePreview(daysArray) {
     V: 4,
   };
 
-  schedule.forEach(day => {
-    const dayIndex = dayIndexList[day.key];
-    day.forEach(block => {
-      const blockIndex = block.key - 1;
-      scheduleMatrix[blockIndex][dayIndex] = block.val();
-    });
-  });
+  for (const day in daysArray) {
+    const dayIndex = dayIndexList[day];
+    for (const blockKey in daysArray[day]) {
+      const blockIndex = parseInt(blockKey) - 1;
+      scheduleMatrix[blockIndex][dayIndex] = daysArray[day][blockKey];
+    }
+  }
+
+  const showAsignacion = bloque => {
+    if (!bloque['asignaciones']) return null;
+    const rutDocente = bloque['asignaciones']['docente'];
+    const idAsignatura = bloque['asignaciones']['asignatura'];
+    const idLab = bloque['asignaciones']['laboratorio'];
+    const asignaciones = {};
+
+    for (const asignatura of asignaturas) {
+      if (asignatura.key == idAsignatura) {
+        asignaciones['nombreAsignatura'] = asignatura.val()['nombre'];
+      }
+    }
+    for (const docente of docentes) {
+      if (docente.key == rutDocente) {
+        asignaciones['nombreDocente'] = `${docente.val()['nombre']} ${
+          docente.val()['apellido']
+        }`;
+      }
+    }
+
+    return (
+      <>
+        <p>{bloque['tipo']}</p>
+        <p>{asignaciones['nombreAsignatura']}</p>
+        <hr />
+        <p>{asignaciones['nombreDocente']}</p>
+        <hr />
+        <p>{idLab}</p>
+      </>
+    );
+  };
 
   return (
-    <table className="preview-schedule">
-      <thead>
-        <tr>
-          <th colSpan={6}>
-            <h2>Horario</h2>
-          </th>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Lunes</td>
-          <td>Martes</td>
-          <td>Miércoles</td>
-          <td>Jueves</td>
-          <td>Viernes</td>
-        </tr>
-      </thead>
-      <tbody>
-        {scheduleMatrix.map((scheduleBlock, blockIndex) => {
-          const { nowHours, nowMinutes, newHours, newMinutes } = BlocksDuration(
-            {
-              date: date,
-              block: blockIndex++,
-            }
-          );
-          return (
-            <tr key={blockIndex}>
-              <td>
-                <p>{blockIndex}</p>
-                <p>{`${nowHours}:${nowMinutes} - ${newHours}:${newMinutes}`}</p>
-              </td>
-              {scheduleBlock.map((schedule, dayIndex) => (
-                <td key={dayIndex}>
-                  {schedule && (
-                    <div
-                      className={`${schedule['protegido'] ? 'protegido' : ''}`}>
-                      {/* PENDIENTE */}
-                    </div>
-                  )}
+    <div className="preview-schedule-container">
+      <table className="preview-schedule">
+        <thead>
+          <tr>
+            <th colSpan={6}>
+              <h2>Horario</h2>
+            </th>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Lunes</td>
+            <td>Martes</td>
+            <td>Miércoles</td>
+            <td>Jueves</td>
+            <td>Viernes</td>
+          </tr>
+        </thead>
+        <tbody>
+          {scheduleMatrix.map((scheduleBlock, blockIndex) => {
+            const { nowHours, nowMinutes, newHours, newMinutes } =
+              BlocksDuration({
+                date: date,
+                block: blockIndex++,
+              });
+            return (
+              <tr key={blockIndex}>
+                <td>
+                  <p>{blockIndex}</p>
+                  <p>{`${nowHours}:${nowMinutes} - ${newHours}:${newMinutes}`}</p>
                 </td>
-              ))}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+                {scheduleBlock.map((schedule, dayIndex) => (
+                  <td
+                    key={dayIndex}
+                    data-day={indexDayList[dayIndex]}
+                    data-block={blockIndex}
+                    className={`${
+                      schedule['protegido'] ? 'protegido' : 'asignacion'
+                    }`}>
+                    {schedule && showAsignacion(schedule)}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -404,67 +446,136 @@ function Selector(
   );
 }
 
-function CreaHorarioPersonal(asig_inscritas, carrera, plan, year, periodo) {
-  const { carreras, loadingCarreras, errorCarreras} = Carreras();
-  if (!loadingCarreras) {
-    console.log('termino cargar');
-  }
-  // const horario_semestres = carreras[0].child(`plan de estudio/${plan}/horarios/${year}/${periodo}/semestres`)
-  // const horario_personal = {'L': {}, 'M': {}, 'X': {}, 'J': {}, 'V': {}}
-  // horario_semestres.forEach(semestre => {
-  //   const dias = semestre.child('días')
-  //   dias.forEach(dia => {
-  //     dia.forEach(bloque => {
-  //       const asignatura = bloque.child('asignaciones/asignatura').val()
-  //       if (bloque.val()['protegido']) {
-  //         horario_personal[dia.key][bloque.key] = bloque.val()
-  //       }
-  //       else if (asig_inscritas.includes(asignatura)) {
-  //         if (!Object.keys(horario_personal[dia.key]).includes(bloque.key)){
-  //           horario_personal[dia.key][bloque.key] = bloque.val()
-  //           asig_inscritas.splice(asig_inscritas.indexOf(asignatura), 1);
-  //         }
-  //       }
-  //     })
-  //   });
-  // });
-  // return horario_personal
-}
-
 export function Home() {
   const {
     userData,
     setSelectedCarreraYear,
     selectedCarreraYear,
     setSelectedPeriodo,
-    selectedPeriodo
+    selectedPeriodo,
+    carreras,
+    docentes,
+    asignaturas,
   } = useContext(CarreraContext);
-  
+
   const asignaturas_inscritas = userData.user.val()['asignaturas inscritas'];
-  const carrera = userData.user.val()['carrera'];
+  const carreraid = userData.user.val()['carrera'];
   const plan = userData.user.val()['plan de estudio'];
+  const [editingMode, setEditingMode] = useState(false);
+
+  function CreaHorarioPersonal(asig_inscritas, idcarrera, plan, year, periodo) {
+    var horario_semestres;
+    const horario_personal = { L: {}, M: {}, X: {}, J: {}, V: {} };
+    searchCarrera: for (const carrera of carreras) {
+      if (carrera.key === idcarrera) {
+        horario_semestres = carrera.child(
+          `plan de estudio/${plan}/horarios/${year}/${periodo}/semestres`
+        );
+        break searchCarrera;
+      }
+    }
+
+    if (!horario_semestres) {
+      return null;
+    }
+
+    horario_semestres.forEach(semestre => {
+      const dias = semestre.child('días');
+      dias.forEach(dia => {
+        dia.forEach(bloque => {
+          const asignatura = bloque.child('asignaciones/asignatura').val();
+          if (bloque.val()['protegido']) {
+            horario_personal[dia.key][bloque.key] = bloque.val();
+          } else if (asig_inscritas.includes(asignatura)) {
+            if (!Object.keys(horario_personal[dia.key]).includes(bloque.key)) {
+              horario_personal[dia.key][bloque.key] = bloque.val();
+              asig_inscritas.splice(asig_inscritas.indexOf(asignatura), 1);
+            }
+          }
+        });
+      });
+    });
+    return horario_personal;
+  }
+
+  function carreraNameById(carreraid) {
+    for (const carrera of carreras) {
+      if (carrera.key === carreraid) {
+        return carrera.val()['nombre'];
+      }
+    }
+  }
+
+  //TODO: EL LISTENER NO SE ELIMINA
+  function editSchedule() {
+    const handleEditBtn = () => {
+      const bloquesAsignables = document.querySelectorAll(
+        'tbody tr td:nth-child(n+2)'
+      );
+      bloquesAsignables.forEach(bloque => {
+        if (bloque.childNodes.length > 0) {
+          return null;
+        }
+        if (editingMode) {
+          bloque.classList.remove('editing');
+          bloque.removeEventListener('click', handleClick);
+        } else {
+          bloque.classList.add('editing');
+          bloque.addEventListener('click', handleClick);
+        }
+      });
+
+      setEditingMode(!editingMode);
+    };
+
+    const handleClick = event => {
+      event.target.classList.toggle('protegido');
+      const dias = {};
+      const bloquesProtegidos = document.querySelectorAll('.protegido');
+      bloquesProtegidos.forEach(bloque => {
+        const dia = bloque.dataset.day;
+        const numeroBloque = bloque.dataset.block;
+        if (!dias[dia]) {
+          dias[dia] = {};
+        }
+        dias[dia][numeroBloque] = { protegido: true };
+      });
+
+      // console.log(dias);
+    };
+
+    return (
+      <>
+        <button
+          className={`edit-btn ${editingMode ? 'active' : ''}`}
+          onClick={handleEditBtn}>
+          <AiFillEdit size={25} />
+        </button>
+      </>
+    );
+  }
 
   return (
     <>
       <Header title={'Home'} />
-      {userData && userData.type === 'jefe de carrera' && (
-        <main className="main-home jefe-layout">
-          <div className="career-selector-container">
-            <CareerSelector />
-          </div>
-          <ViewMalla />
-          <SemestersButtons />
-        </main>
-      )}
+      {userData &&
+        (userData.type === 'jefe de carrera' ||
+          userData.type === 'director de departamento') && (
+          <main className="main-home jefe-layout">
+            <div className="career-selector-container">
+              <CareerSelector />
+            </div>
+            <ViewMalla />
+            <SemestersButtons />
+          </main>
+        )}
       {userData && userData.type === 'estudiante' && (
-        <main className="main-home student-layout">
-          <div className="selectors-container">
-            <h2>
-              {userData.user.val()['nombre'] +
-                ' ' +
-                userData.user.val()['apellido']}
-            </h2>
-
+        <main className="main-home view-schedule-layout">
+          <div>
+            <h2>Horario</h2>
+            <h3>{carreraNameById(carreraid)}</h3>
+          </div>
+          <div className="dropdowns-container">
             {Selector(
               'Seleccione el año',
               'year',
@@ -482,9 +593,48 @@ export function Home() {
           {selectedCarreraYear &&
             selectedPeriodo &&
             SchedulePreview(
-                CreaHorarioPersonal(asignaturas_inscritas, carrera, plan, selectedCarreraYear, selectedPeriodo)
-              )
-            }
+              CreaHorarioPersonal(
+                asignaturas_inscritas,
+                carreraid,
+                plan,
+                selectedCarreraYear,
+                selectedPeriodo
+              ),
+              docentes,
+              asignaturas
+            )}
+        </main>
+      )}
+      {userData && userData.type === 'profesor' && (
+        <main className="main-home view-schedule-layout">
+          <div>
+            <h2>Horario</h2>
+          </div>
+          <div className="dropdowns-container">
+            {selectedCarreraYear && selectedPeriodo && editSchedule()}
+            {Selector(
+              'Seleccione el año',
+              'year',
+              userData.user.val()['horarios'],
+              setSelectedCarreraYear
+            )}
+            {selectedCarreraYear &&
+              Selector(
+                'Seleccione el periodo',
+                'periodo',
+                userData.user.val()['horarios'][selectedCarreraYear],
+                setSelectedPeriodo
+              )}
+          </div>
+          {selectedCarreraYear &&
+            selectedPeriodo &&
+            SchedulePreview(
+              userData.user
+                .child(
+                  `horarios/${selectedCarreraYear}/${selectedPeriodo}/días`
+                )
+                .val()
+            )}
         </main>
       )}
     </>

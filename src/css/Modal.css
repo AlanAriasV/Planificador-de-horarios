@@ -1,107 +1,91 @@
 .modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 5px;
-    width: 70%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: max-content;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .modal-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
 }
 
 .modal-close {
-    background-color: none;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+  background-color: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }
 
 .modal-title h2 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 5px;
+  padding-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
 }
 
-.edit-btn, .cancel-btn {
-    display: inline-block;
-    border-radius: 1rem;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.edit-btn {
-    background-color: var(--blue-color);
-    color: white;
+.modal-footer button {
+  padding: 15px 20px;
 }
 
 .cancel-btn:hover {
-    background-color: #c62828;
-    color: white;
+  background-color: #c62828;
+  color: white;
 }
 
 .no-schedule {
-    padding: 50px;
-    text-align: center;
-    font-size: 1.8rem;
-}
-
-.protegido {
-    height: 100%;
-    background-color: var(--yellow-color);
+  padding: 50px;
+  text-align: center;
+  font-size: 1.8rem;
 }
 
 /* Estilos para animaciones del modal */
 .modal.fade-in {
-    animation: fade-in 0.3s ease-in-out;
+  animation: fade-in 0.3s ease-in-out;
 }
 
 .modal.fade-out {
-    animation: fade-out 0.3s ease-in-out;
+  animation: fade-out 0.3s ease-in-out;
 }
 
 @keyframes fade-in {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-out {
-    from {
-        opacity: 1;
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0;
-    }
+  to {
+    opacity: 0;
+  }
 }
