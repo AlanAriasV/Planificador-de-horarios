@@ -27,7 +27,8 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
               for (const shelteredBlock of shelteredBlocks) {
                 if (
                   parseInt(shelteredBlock.block) === block.number &&
-                  shelteredBlock.day === block.day
+                  shelteredBlock.day === block.day &&
+                  shelteredBlock.sheltered
                 ) {
                   blockSheltered = true;
                 }
@@ -60,8 +61,6 @@ export function ScheduleBlocksDraggable({ blocks, onClick, shelteredBlocks }) {
                               isDragDisabled={block.sheltered}>
                               {(provided, snapshot) => (
                                 <div
-                                  // fontSize="10px"
-                                  // style={{font}}
                                   className={`block ${
                                     snapshot.isDragging ? 'dragging' : ''
                                   }`}

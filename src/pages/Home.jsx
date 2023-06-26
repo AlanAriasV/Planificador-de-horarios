@@ -101,7 +101,6 @@ function ViewMalla() {
       const semestreVal = semestres.child(nSemestre).val();
 
       for (const id in semestreVal) {
-        // [DataSnapshot]
         for (const asignatura of asignaturas) {
           if (asignatura.key === id) {
             listColumn.push(
@@ -268,7 +267,7 @@ function SemestersButtons() {
         </div>
         <div className="legend-colors">
           <div>
-            <div className="square completado"></div>
+            <div className="square completo"></div>
             <span>Completo</span>
           </div>
           <div>

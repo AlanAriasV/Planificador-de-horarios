@@ -296,7 +296,7 @@
   gap: 5px;
 }
 
-.completado {
+.completo {
   background-color: var(--blue-color);
   color: white;
 }

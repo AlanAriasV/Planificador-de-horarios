@@ -22,7 +22,6 @@ const Header = ({ title, handlerSave, handlerExit }) => {
     <>
       <header>
         {title === 'EDICIÓN DE HORARIO' && (
-          // <div className="back-menu">
           <div
             className={`dropdown-menu ${
               activeDropdownMenu ? 'deploy' : ''
@@ -46,7 +45,6 @@ const Header = ({ title, handlerSave, handlerExit }) => {
               <p> Volver </p>
             </div>
           </div>
-          // </div>
         )}
         <h1>{title}</h1>
         <div

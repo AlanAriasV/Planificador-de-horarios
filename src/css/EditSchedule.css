@@ -41,7 +41,7 @@ div.grid {
     auto-fill,
     calc(((100% - var(--gap)) / 2) - 1px)
   );
-  grid-auto-rows: calc((100% - var(--gap)) / 3);
+  grid-auto-rows: calc((100% - var(--gap) * 2) / 3);
   overflow: auto;
 }
 
@@ -60,6 +60,10 @@ section div > .item {
   text-align: center;
 }
 
+section div > .item:hover {
+  background-color: var(--yellow-50-color);
+}
+
 section div > .item p {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -69,8 +73,9 @@ section div > .item p {
 }
 
 .grid > .disabled {
+  pointer-events: none;
   background-color: var(--red-50-color);
-  border-color: red;
+  border-color: var(--red-50-color);
   color: red;
 }
 
@@ -219,6 +224,8 @@ section div > .item p {
 
 .background-modal {
   position: absolute;
+  display: grid;
+  place-items: center;
   background-color: var(--black-25-color);
   border-radius: var(--border-radius-5);
   top: 0;
@@ -227,22 +234,108 @@ section div > .item p {
   height: 100%;
   opacity: 0;
   visibility: hidden;
+  z-index: 2;
   transition: visibility 0.25s, opacity 0.25s;
 }
 
+.modal-content-back-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  border: var(--border);
+  border-radius: var(--border-radius-10);
+  width: 400px;
+  height: 200px;
+  text-align: center;
+}
+
+.modal-title-back-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: var(--blue-color);
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  /* width: 100%; */
+  height: 20%;
+}
+
+.modal-title-back-page p {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.modal-body-back-page p {
+  font-size: 20px;
+}
+
+.modal-actions-back-page {
+  display: grid;
+  grid-template-columns: 25% 25% auto 25%;
+  align-items: center;
+  border-top: var(--border);
+  padding: 5px;
+  gap: 5px;
+  height: 20%;
+}
+
+.modal-actions-back-page a {
+  cursor: pointer;
+  color: black;
+  font-size: 18px;
+  border-radius: var(--border-radius-5);
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-style: solid;
+  transition: color 0.25s, background-color 0.25s, border-color 0.25s;
+}
+
+.action-save {
+  border-color: var(--yellow-50-color);
+}
+
+.action-save:hover {
+  border-color: var(--yellow-color);
+  background-color: var(--yellow-color);
+  color: white;
+}
+
+.action-discard {
+  border-color: var(--red-50-color);
+}
+
+.action-discard:hover {
+  border-color: red;
+  background-color: red;
+  color: white;
+}
+
+.action-cancel {
+  border-color: var(--blue-50-color);
+}
+
+.action-cancel:hover {
+  border-color: var(--blue-color);
+  background-color: var(--blue-color);
+  color: white;
+}
+
 .modal-type {
-  position: absolute;
+  /* position: absolute; */
   background-color: white;
   border-radius: var(--border-radius-5);
   border: var(--border);
   width: 150px;
   height: 0px;
-  transition: height 0.25s;
   opacity: 0;
+  transition: height 0.25s, opacity 0.25s;
   overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
   /* top: attr(y);
   left: attr(x); */
 }

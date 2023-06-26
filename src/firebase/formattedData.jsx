@@ -22,7 +22,7 @@ const date = new Date();
 export const year = date.getFullYear();
 export const half = date.getMonth() < 6 ? 1 : 2;
 
-export function formatAsignaturas({ asignaturas }) {
+export function formatAsignaturas({ asignaturas, horarioData }) {
   if (!asignaturas) return {};
 
   const items = [];
@@ -32,18 +32,46 @@ export function formatAsignaturas({ asignaturas }) {
     const name = asignatura.nombre;
     const minutes = asignatura.minutos;
 
+    for (const dia in horarioData.val()) {
+      const horarioDia = horarioData.child(dia);
+      if (horarioDia.val().length) {
+        for (const asignacionOf of horarioDia.val()) {
+          if (asignacionOf) {
+            if (asignacionOf['asignaciones']) {
+              if (asignacionOf['asignaciones']['asignatura'] === asignaturaID) {
+                minutes[asignacionOf['tipo'].toLowerCase()] -= 45;
+              }
+            }
+          }
+        }
+      } else {
+        for (const asignacionIn in horarioDia.val()) {
+          if (horarioDia.val()[asignacionIn]) {
+            if (horarioDia.val()[asignacionIn]['asignaciones']) {
+              if (
+                horarioDia.val()[asignacionIn]['asignaciones']['asignatura'] ===
+                asignaturaID
+              ) {
+                minutes[
+                  horarioDia.val()[asignacionIn]['tipo'].toLowerCase()
+                ] -= 45;
+              }
+            }
+          }
+        }
+      }
+    }
+
     const formattedAsignatura = {
       id: asignaturaID,
       name: name,
       minutes: minutes,
       type: 'ASIGNATURA',
     };
-
     items.push({
       [uuid()]: formattedAsignatura,
     });
   }
-
   return {
     [uuid()]: {
       items: items,
@@ -136,9 +164,11 @@ export function formatAsignaciones({ docentes, laboratorios }) {
 
       for (const day in dias.val()) {
         for (const block in dias.val()[day]) {
+          const protegido = dias.val()[day][block].protegido;
           const formattedDocentesAsignacion = {
             day: day,
             block: block,
+            sheltered: protegido ?? true,
           };
 
           items.push(formattedDocentesAsignacion);
@@ -157,9 +187,11 @@ export function formatAsignaciones({ docentes, laboratorios }) {
 
       for (const day in dias.val()) {
         for (const block in dias.val()[day]) {
+          const protegido = dias.val()[day][block].protegido;
           const formattedLaboratoriosAsignacion = {
             day: day,
             block: block,
+            sheltered: protegido ?? true,
           };
 
           items.push(formattedLaboratoriosAsignacion);
@@ -205,22 +237,27 @@ export function formatHorario({
           const laboratorio = asignaciones.val().laboratorio;
 
           if (asignatura) {
-            searchAsignatura: for (const asignaturaData of asignaturas) {
-              if (asignaturaData.key === asignatura) {
-                const name = asignaturaData.val().nombre;
-                const a = block.val().tipo;
-                // const minutes = asignaturaData.val().minutos;
-                const formattedAsignaciones = {
-                  [uuid()]: {
-                    id: asignatura,
-                    name: name,
-                    a: a,
-                    // minutes: minutes,
-                    type: 'ASIGNATURA',
-                  },
-                };
-                items.push(formattedAsignaciones);
-                break searchAsignatura;
+            searchAsignatura: for (const uuidKey in asignaturas) {
+              for (const asignaturaItems of asignaturas[uuidKey].items) {
+                for (const asignaturaItemKey in asignaturaItems) {
+                  const asignaturaData = asignaturaItems[asignaturaItemKey];
+                  if (asignaturaData.id === asignatura) {
+                    const name = asignaturaData.name;
+                    const minutes = asignaturaData.minutes;
+                    const a = block.val().tipo;
+                    const formattedAsignaciones = {
+                      [uuid()]: {
+                        id: asignatura,
+                        name: name,
+                        a: a,
+                        minutes: minutes,
+                        type: 'ASIGNATURA',
+                      },
+                    };
+                    items.push(formattedAsignaciones);
+                    break searchAsignatura;
+                  }
+                }
               }
             }
           }

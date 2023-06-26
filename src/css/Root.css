@@ -3,6 +3,7 @@
 :root {
   --background-color: #f5f5f5;
   --blue-color: #3e5083;
+  --blue-50-color: rgba(62, 80, 131, 0.5);
   --border-color: #4e637f;
   --gap: 20px;
   --width-gap: calc(100% - (var(--gap) * 2));
