@@ -632,7 +632,7 @@ export function Home() {
                 .child(
                   `horarios/${selectedCarreraYear}/${selectedPeriodo}/días`
                 )
-                .val()
+                .val(), docentes, asignaturas
             )}
         </main>
       )}
