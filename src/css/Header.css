@@ -1,6 +1,6 @@
 header {
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 15% auto 15%;
   grid-template-rows: 50px;
   grid-template-areas: 'menu title logout';
   width: 100%;
@@ -136,4 +136,10 @@ header h1 {
 
 .deploy .divider {
   background-color: black;
+}
+
+@media (min-width: 1920px) {
+  header {
+    grid-template-columns: 10% auto 10%;
+  }
 }
