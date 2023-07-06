@@ -41,7 +41,7 @@ div.grid {
     auto-fill,
     calc(((100% - var(--gap)) / 2) - 1px)
   );
-  grid-auto-rows: calc((100% - var(--gap) * 2) / 3);
+  grid-auto-rows: calc((100% - var(--gap)) / 2);
   overflow: auto;
 }
 
@@ -386,4 +386,10 @@ section div > .item p {
 .option-disabled {
   pointer-events: none;
   background-color: var(--red-50-color);
+}
+
+@media (min-width: 1920px) {
+  div.grid {
+    grid-auto-rows: calc((100% - var(--gap) * 2) / 3);
+  }
 }
