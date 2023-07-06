@@ -347,9 +347,7 @@ function SchedulePreview(daysArray, docentes, asignaturas) {
       <>
         <p>{bloque['tipo']}</p>
         <p>{asignaciones['nombreAsignatura']}</p>
-        <hr />
         <p>{asignaciones['nombreDocente']}</p>
-        <hr />
         <p>{idLab}</p>
       </>
     );
