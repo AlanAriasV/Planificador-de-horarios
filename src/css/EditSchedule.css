@@ -388,7 +388,7 @@ section div > .item p {
   background-color: var(--red-50-color);
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1875px) {
   div.grid {
     grid-auto-rows: calc((100% - var(--gap) * 2) / 3);
   }

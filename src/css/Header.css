@@ -138,7 +138,7 @@ header h1 {
   background-color: black;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1875px) {
   header {
     grid-template-columns: 10% auto 10%;
   }
