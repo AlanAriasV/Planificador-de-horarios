@@ -18,14 +18,13 @@
 }
 
 .view-schedule-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  grid-template-rows: min-content 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .view-schedule-layout .dropdowns-container {
-  align-self: flex-end;
-  justify-self: flex-end;
+  align-self: center;
+  justify-self: center;
 }
 
 .view-schedule-layout .preview-schedule-container {
@@ -345,13 +344,13 @@
 .preview-schedule thead tr th,
 .preview-schedule thead tr td,
 .preview-schedule tbody tr td:first-child {
-  background-color: var(--blue-color) !important;
+  background-color: var(--blue-color);
   color: var(--white-color);
-  text-align: center !important;
 }
 
 .preview-schedule tr td {
   border: solid 1px black;
+  text-align: center;
 }
 
 .preview-schedule thead {

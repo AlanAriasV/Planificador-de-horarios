@@ -39,10 +39,7 @@ export const CarreraProvider = ({ children }) => {
       document.getElementById('jornada').value = 'default';
       setSelectedCarreraYear(undefined);
       setSelectedJornada(undefined);
-    } catch (error) {
-      // continue;
-      // console.error(error);
-    }
+    } catch (error) {}
     return;
   }, [selectedPlan]);
 

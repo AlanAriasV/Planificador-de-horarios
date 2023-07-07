@@ -20,7 +20,7 @@ export function BlocksDuration({ date, block }) {
 
 const date = new Date();
 export const year = date.getFullYear();
-export const half = date.getMonth() < 6 ? 1 : 2;
+export const half = date.getMonth() <= 6 ? 1 : 2;
 
 export function formatAsignaturas({ asignaturas, horarioData }) {
   if (!asignaturas) return {};

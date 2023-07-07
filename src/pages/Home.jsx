@@ -1,5 +1,5 @@
 import Header from '../components/Header';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { AiOutlineClose, AiFillEdit } from 'react-icons/ai';
 import '../css/Home.css';
@@ -218,7 +218,7 @@ function SemestersButtons() {
 
     const sYear = new Date();
 
-    const half = sYear.getMonth() < 6 ? 1 : 2;
+    const half = sYear.getMonth() <= 6 ? 1 : 2;
 
     const semestres = plan.child(
       'horarios/' + year + '/' + half + '/semestres'
@@ -376,7 +376,7 @@ function SchedulePreview(daysArray, docentes, asignaturas) {
             const { nowHours, nowMinutes, newHours, newMinutes } =
               BlocksDuration({
                 date: date,
-                block: blockIndex++,
+                block: blockIndex + 1,
               });
             return (
               <tr key={blockIndex}>
@@ -486,7 +486,6 @@ export function Home() {
           } else if (asig_inscritas.includes(asignatura)) {
             if (!Object.keys(horario_personal[dia.key]).includes(bloque.key)) {
               horario_personal[dia.key][bloque.key] = bloque.val();
-              asig_inscritas.splice(asig_inscritas.indexOf(asignatura), 1);
             }
           }
         });
@@ -503,28 +502,7 @@ export function Home() {
     }
   }
 
-  //TODO: EL LISTENER NO SE ELIMINA
-  function editSchedule() {
-    const handleEditBtn = () => {
-      const bloquesAsignables = document.querySelectorAll(
-        'tbody tr td:nth-child(n+2)'
-      );
-      bloquesAsignables.forEach(bloque => {
-        if (bloque.childNodes.length > 0) {
-          return null;
-        }
-        if (editingMode) {
-          bloque.classList.remove('editing');
-          bloque.removeEventListener('click', handleClick);
-        } else {
-          bloque.classList.add('editing');
-          bloque.addEventListener('click', handleClick);
-        }
-      });
-
-      setEditingMode(!editingMode);
-    };
-
+  useEffect(() => {
     const handleClick = event => {
       event.target.classList.toggle('protegido');
       const dias = {};
@@ -537,20 +515,39 @@ export function Home() {
         }
         dias[dia][numeroBloque] = { protegido: true };
       });
-
-      // console.log(dias);
     };
 
+    const bloquesAsignables = document.querySelectorAll(
+      'tbody tr td:nth-child(n+2)'
+    );
+    bloquesAsignables.forEach(bloque => {
+      if (bloque.childNodes.length > 0) {
+        return null;
+      }
+
+      if (editingMode) {
+        bloque.classList.add('editing');
+        bloque.onclick = handleClick;
+      } else {
+        bloque.classList.remove('editing');
+        bloque.onclick = null;
+      }
+    });
+  }, [editingMode]);
+
+  const EditScheduleBtn = () => {
     return (
       <>
         <button
           className={`edit-btn ${editingMode ? 'active' : ''}`}
-          onClick={handleEditBtn}>
+          onClick={() => {
+            setEditingMode(!editingMode);
+          }}>
           <AiFillEdit size={25} />
         </button>
       </>
     );
-  }
+  };
 
   return (
     <>
@@ -604,11 +601,8 @@ export function Home() {
       )}
       {userData && userData.type === 'profesor' && (
         <main className="main-home view-schedule-layout">
-          <div>
-            <h2>Horario</h2>
-          </div>
           <div className="dropdowns-container">
-            {selectedCarreraYear && selectedPeriodo && editSchedule()}
+            {selectedCarreraYear && selectedPeriodo && EditScheduleBtn()}
             {Selector(
               'Seleccione el año',
               'year',
@@ -630,7 +624,9 @@ export function Home() {
                 .child(
                   `horarios/${selectedCarreraYear}/${selectedPeriodo}/días`
                 )
-                .val(), docentes, asignaturas
+                .val(),
+              docentes,
+              asignaturas
             )}
         </main>
       )}
